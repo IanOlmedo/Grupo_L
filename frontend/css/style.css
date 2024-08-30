@@ -1,0 +1,76 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    flex: 1;
+}
+
+footer {
+    background-color: #f8f9fa;
+    border-top: 1px solid #e9ecef;
+}
+
+.background-image {
+    background-image: url('fondo_biblioteca.jpg'); /* Reemplaza con la ruta de tu imagen de fondo */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    padding: 100px 0; /* Agregar un espacio arriba y abajo */
+}
+
+.card-img-top {
+    width: 20%;
+    max-height: 200px;
+    object-fit: cover;
+}
+
+.button {
+    padding: 10px 20px;
+    background-color: #415A77; /* Color de fondo */
+    color: #E0E1DD; /* Color del texto */
+    border: none; /* Sin bordes */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    font-size: 1rem;
+    transition: background-color 0.3s ease; /* Animación al cambiar de color */
+}
+.button:hover {
+    background-color: #778DA9; /* Cambia el color de fondo al pasar el ratón */
+}
+
+.button-rounded {
+    padding: 10px 20px;
+    background-color: #0D1B2A;
+    color: #E0E1DD;
+    border: 2px solid #415A77;
+    border-radius: 50px; /* Botón completamente redondeado */
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.button-rounded:hover {
+    background-color: #415A77;
+    border-color: #778DA9;
+}
+.button-shadow {
+    padding: 10px 20px;
+    background-color: #1B263B;
+    color: #E0E1DD;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra del botón */
+    transition: box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.button-shadow:hover {
+    background-color: #415A77;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3); /* Cambia la sombra al pasar el ratón */
+}

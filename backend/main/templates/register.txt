@@ -1,0 +1,9 @@
+Bienvenido {{usuario.bombre_completo}}!
+
+Gracias por registrarte en nuestro sistema.
+
+Con nuestro servicio podras:
+
+- Ver libros disponibles
+- Pedir prestamos de libros
+- Dar valoraciones
