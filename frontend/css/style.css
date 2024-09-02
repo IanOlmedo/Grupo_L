@@ -1,3 +1,42 @@
+body{
+    background: linear-gradient(180deg, #040404 0%, #1E75A6 100%);
+    margin: 0;
+    padding: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+i {
+    font-size: 8vw;
+    color: white;
+    margin: 1vw;
+    padding: 5vw 1vw 1vw 1vw;
+}
+.search-bar {
+    background-color: #000;
+    overflow: hidden;
+    padding: 0.5vw;
+    display: flex;
+    align-items: center;
+    border-radius: 10vw;
+    border: solid #483FA9;
+  }
+.img{
+    border-radius: 8vw;
+    padding: 1vw;
+
+}
+.showing{
+    background-color: white;
+    overflow: hidden;
+    padding: 0.5vw;
+    margin: 2vw;
+    display: flex;
+    align-items: center;
+    border-radius: 10vw;
+}
+
 body, html {
     height: 100%;
     margin: 0;
