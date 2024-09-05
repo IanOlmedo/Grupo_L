@@ -7,12 +7,7 @@ body{
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
-i {
-    font-size: 8vw;
-    color: white;
-    margin: 1vw;
-    padding: 5vw 1vw 1vw 1vw;
-}
+
 .search-bar {
     background-color: #000;
     overflow: hidden;
@@ -21,7 +16,8 @@ i {
     align-items: center;
     border-radius: 10vw;
     border: solid #483FA9;
-  }
+    margin-right: 32px
+}
 .img{
     border-radius: 8vw;
     padding: 1vw;
@@ -112,4 +108,24 @@ footer {
 .button-shadow:hover {
     background-color: #415A77;
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3); /* Cambia la sombra al pasar el ratón */
+}
+
+
+/* Define the background container style */
+.bg-container {
+    background-color: #f0f0f0; /* Background color */
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+  /* Style the images to appear on top of the background */
+.img-overlay {
+    position: relative;
+    z-index: 2; /* Ensure the images appear above the background */
+    width: 100%;
+    height: auto;
+    max-height: 200px;
+    object-fit: cover;
+    margin-bottom: 15px;
 }
