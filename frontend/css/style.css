@@ -112,11 +112,15 @@ footer {
 
 
 /* Define the background container style */
-.bg-container {
-    background-color: #f0f0f0; /* Background color */
-    padding: 20px;
+.bg-container-fluid {
+    width: 100%;
+    height: auto;
+
+    background-image: url(../img/fondo_libros1.jpeg);
+    padding: 20px 0;
     position: relative;
     z-index: 1;
+    margin-top: 30px;
 }
 
   /* Style the images to appear on top of the background */
