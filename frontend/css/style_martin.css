@@ -16,9 +16,7 @@ body{
     align-items: center;
     border-radius: 10vw;
     border: solid #483FA9;
-    margin-right: 32px;
-    margin-top: 20px; /* Ajusta este valor según sea necesario */
-    width: 325px;
+    margin-right: 32px
 }
 .img{
     border-radius: 8vw;
@@ -145,6 +143,64 @@ footer {
     padding-left: 30px; /* Espacio a la izquierda */
     padding-right: 30px; /* Espacio a la derecha */
 }
+
+.user-image {
+    width: 35px; /* Ajusta el tamaño de la imagen */
+    height: 35px; /* Asegúrate de que sea cuadrada */
+    border-radius: 50%; /* Hace la imagen redonda */
+    object-fit: cover; /* Asegura que la imagen se ajuste al contenedor sin distorsión */
+    vertical-align: middle; /* Alinea verticalmente con los íconos */
+    margin-bottom: 10px; /* Ajusta la alineación con los íconos */
+}
+
+.image-wrapper {
+    position: relative; /* Necesario para posicionar el círculo dentro de este contenedor */
+    display: inline-block;
+}
+
+.circle-plus {
+    position: absolute;
+    top: 0px;  /* Ajusta según la distancia que quieras del borde superior */
+    right: 0px; /* Ajusta según la distancia que quieras del borde derecho */
+    width: 30px;  /* Ajusta el tamaño del círculo */
+    height: 30px; /* Ajusta el tamaño del círculo */
+    background-color: #483FA9; /* Violeta claro */
+    border-radius: 50%; /* Para hacer el círculo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer; /* Opcional: Para que parezca clickeable */
+    z-index: 10; /* Asegúrate de que esté por encima de la imagen */
+}
+
+.circle-plus:hover {
+    background-color: #B589FF; /* Opcional: cambia el color al hacer hover */
+}
+
+.edit-button {
+    position: absolute;
+    bottom: 15px; /* Ajusta según la distancia que quieras del borde inferior */
+    left: 0px;  /* Ajusta según la distancia que quieras del borde izquierdo */
+    background-color: #483FA9; /* Violeta claro */
+    color: white;
+    padding: 4px 6px; /* Ajusta el tamaño del botón según el texto */
+    border-radius: 10px; /* Bordes redondeados */
+    font-size: 14px; /* Tamaño del texto */
+    font-weight: bold;
+    cursor: pointer; /* Opcional: Para que parezca clickeable */
+    z-index: 10; /* Asegúrate de que esté por encima de la imagen */
+    text-align: center; /* Centra el texto */
+    white-space: nowrap; /* Evita que el texto se envuelva en varias líneas */
+}
+
+.edit-button:hover {
+    background-color: #B589FF; /* Cambia el color al hacer hover */
+}
+
+
 .images-container {
     margin-top: 5px; /* Espacio superior del contenedor */
     padding: 30px; /* Espacio interno alrededor del contenedor */
