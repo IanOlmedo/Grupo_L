@@ -75,7 +75,7 @@ footer {
     transition: background-color 0.3s ease; /* Animación al cambiar de color */
 }
 .button:hover {
-    background-color: #778DA9; /* Cambia el color de fondo al pasar el ratón */
+    background-color: #b589ff; /* Cambia el color de fondo al pasar el ratón */
 }
 
 .button-rounded {
