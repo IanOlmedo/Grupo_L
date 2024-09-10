@@ -93,7 +93,7 @@ footer {
     transition: background-color 0.3s ease; /* Animación al cambiar de color */
 }
 .button:hover {
-    background-color: #778DA9; /* Cambia el color de fondo al pasar el ratón */
+    background-color: #b589ff; /* Cambia el color de fondo al pasar el ratón */
 }
 
 .button-rounded {
@@ -149,8 +149,6 @@ footer {
     object-fit: cover;
     margin-bottom: 15px;
 }
-
-
 
 /* Parte de estilos del Martin*/
 
@@ -359,7 +357,6 @@ footer {
     z-index: 10; /* Asegúrate de que esté por encima de la imagen */
 }
 
-
 /* Parte de estilos del Ianito*/
 
 
@@ -516,6 +513,5 @@ hr {
     }
 }
 
-
-
 /* Parte de estilos de la Camila*/
+
