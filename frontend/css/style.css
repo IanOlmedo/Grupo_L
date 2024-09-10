@@ -515,3 +515,52 @@ hr {
 
 /* Parte de estilos de la Camila*/
 
+.fa-user {
+    color: black;
+    font-size: 450%;
+    margin-top: 70px;
+    margin-left: -85px;
+   
+}
+
+.register-btn {
+    background-color: #483FA9;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 14px; 
+   
+}
+.social-icons {
+    margin-top: 60px;
+}
+
+.social-icons img {
+    width: 25px; 
+    margin: 0 10px;
+    color: white;
+}
+.icon-container {
+
+    margin: 0 10px ; 
+    margin-top: 20%;
+}
+
+
+.card-1{
+    width: 90%; 
+    height: 190px; 
+    margin-left: 15px;
+    border-radius: 20px;
+    background-color: white;
+
+}
+.icon {
+    position: absolute; 
+    top: -35px;         
+    left: 50%;        
+    transform: translateX(-50%); /* Centra el icono horizontalmente */  
+    font-size: 50px;   
+    color: #483FA9;    
+}
