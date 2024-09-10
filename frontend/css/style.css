@@ -1,3 +1,4 @@
+/* Estilos index */
 body{
     background: linear-gradient(180deg, #040404 0%, #1E75A6 100%);
     margin: 0;
@@ -7,18 +8,23 @@ body{
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
+
 i{
     color: white;
     font-size: 2.5vmax;
 }
+
 .search-bar {
     background-color: #000;
     overflow: hidden;
+    padding: 0.5vw;
     display: flex;
     align-items: center;
     border-radius: 10vw;
     border: solid #483FA9;
+    margin-right: 32px
 }
+
 .img{
     border-radius: 5vw;
     /*
@@ -28,6 +34,7 @@ i{
     width: 100%;
     height: 100%;
 }
+
 .showing{
     background-color: white;
     overflow: hidden;
@@ -36,12 +43,14 @@ i{
     align-items: center;
     border-radius: 10vw;
 }
+
 .align{
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100%;
 }
+
 body, html {
     height: 100%;
     margin: 0;
@@ -74,7 +83,7 @@ footer {
 }
 
 .button {
-    padding: 10px 20px;
+    padding: 10px 10px ;
     background-color: #415A77; /* Color de fondo */
     color: #E0E1DD; /* Color del texto */
     border: none; /* Sin bordes */
@@ -115,16 +124,14 @@ footer {
 }
 
 .button-shadow:hover {
-    background-color: #415A77;
+    background-color: #B589FF;
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3); /* Cambia la sombra al pasar el ratón */
 }
-
 
 /* Define the background container style */
 .bg-container-fluid {
     width: 100%;
     height: auto;
-
     background-image: url(../img/fondo_libros1.jpeg);
     padding: 20px 0;
     position: relative;
@@ -143,6 +150,212 @@ footer {
     margin-bottom: 15px;
 }
 
+/* Parte de estilos del Martin*/
+
+
+
+
+
+.ic-container-fluid {
+    padding-left: 30px; /* Espacio a la izquierda */
+    padding-right: 30px; /* Espacio a la derecha */
+}
+
+.user-image {
+    width: 35px; /* Ajusta el tamaño de la imagen */
+    height: 35px; /* Asegúrate de que sea cuadrada */
+    border-radius: 50%; /* Hace la imagen redonda */
+    object-fit: cover; /* Asegura que la imagen se ajuste al contenedor sin distorsión */
+    vertical-align: middle; /* Alinea verticalmente con los íconos */
+    margin-bottom: 10px; /* Ajusta la alineación con los íconos */
+}
+
+/* Contenedor de la imagen y el ícono */
+.image-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.circle-plus {
+    position: absolute;
+    top: 0%;  /* Ajusta la distancia desde el borde superior, relativo al viewport */
+    left: 64%; /* Ajusta la distancia desde el borde izquierdo, relativo al viewport */
+    width: 8vw; /* Ajusta el tamaño del ícono relativo al ancho del viewport */
+    height: 8vw; /* Mantiene la proporción del ícono, también relativo al ancho */
+    background-color: #483FA9;
+    border-radius: 50%; /* Hace el ícono circular */
+    display: flex; /* Hace que el ícono sea un contenedor flexible */
+    justify-content: center; /* Centra el ícono dentro del contenedor */
+    align-items: center; /* Centra el ícono dentro del contenedor */
+    font-size: 5vmin; /* Ajusta el tamaño del texto del ícono para que escale con la pantalla */
+    color: white; 
+    font-weight: bold; /* Ajusta la fuente del ícono */
+    cursor: pointer; /* Para que parezca clickeable */
+    z-index: 10; /* Asegura que esté por encima de la imagen */
+}
+
+.circle-plus:hover {
+    background-color: #b589ff; /* Cambia el color al hacer hover */
+}
+
+.edit-button {
+    position: absolute;
+    bottom: 0%; /* Ajusta la distancia desde el borde inferior, relativo al viewport */
+    left: 9%;  /* Ajusta la distancia desde el borde izquierdo, relativo al viewport */
+    width: 15vw; /* Ajusta el tamaño del botón relativo al ancho del viewport */
+    height: 8vw; /* Hace que el botón sea cuadrado y escalable */
+    background-color: #483FA9; 
+    color: white;
+    border-radius: 10vmin; /* Hace que el botón sea circular */
+    display: flex; /* Para centrar el contenido dentro del botón */
+    justify-content: center; /* Centra el texto horizontalmente */
+    align-items: center; /* Centra el texto verticalmente */
+    font-size: 4vmin; /* Tamaño del texto ajustable con la pantalla */
+    font-weight: bold;
+    cursor: pointer; /* Para que parezca clickeable */
+    z-index: 10; /* Asegúrate de que esté por encima de otros elementos */
+    text-align: center; /* Centra el texto */
+}
+
+.edit-button:hover {
+    background-color: #B589FF; /* Cambia el color al hacer hover */
+}
+
+/* Contenedor de imágenes */
+.images-container {
+    margin-top: 5px; /* Espacio superior del contenedor */
+    padding: 30px; /* Espacio interno alrededor del contenedor */
+    max-width: 100%; /* Asegura que el contenedor no exceda el tamaño del contenedor padre */
+}
+
+/* Imágenes dentro del contenedor */
+.img-overlay1 {
+    width: 100%; /* Las imágenes ocuparán todo el ancho del contenedor */
+    height: 100%; /* Mantiene la proporción de la imagen */
+    object-fit: cover; /* Ajusta la imagen para cubrir el área del contenedor sin distorsión */
+    border-radius: 15px; /* Bordes redondeados para las imágenes */
+}
+
+.map {
+    width: 100%; /* Ocupa el 100% del ancho del contenedor padre */
+    max-width: 500px; /* Ancho máximo deseado para el mapa */
+    border-radius: 15px; /* Bordes redondeados del contenedor */
+    overflow: hidden; /* Oculta cualquier desbordamiento para que las esquinas redondeadas sean visibles */
+    padding: 10px; /* Espacio interno alrededor del iframe */
+    background-color: transparent; /* Sin fondo */
+    margin: 0 auto; /* Centra el contenedor en su contenedor padre */
+}
+
+.map iframe {
+    width: 100%; /* Asegura que el iframe ocupe el 100% del contenedor */
+    height: 250px; /* Altura fija para el iframe (puedes ajustar si es necesario) */
+    border: 0; /* Elimina el borde del iframe */
+    border-radius: 15px; /* Bordes redondeados del iframe */
+}
+
+/* Contenedor para las imágenes pequeñas con texto al lado */
+.img-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra los elementos hijos en el eje transversal (vertical) */
+    gap: 20px; /* Espacio entre los elementos (imagen y texto) */
+    padding: 10px; /* Añadir un poco de espacio interno */
+    max-width: 100%; /* Asegura que no exceda el tamaño del contenedor padre */
+}
+
+/* Elemento individual */
+.item {
+    display: flex;
+    align-items: center; /* Alinea verticalmente la imagen y el texto */
+    gap: 15px; /* Espacio entre la imagen y el texto */
+    background-color: transparent; /* Sin fondo */
+    border: none; /* Sin borde */
+    box-shadow: none; /* Sin sombra */
+    justify-content: center; /* Centra el contenido de cada item en el eje horizontal */
+}
+
+.item img {
+    width: 50px; /* Tamaño fijo para las imágenes pequeñas */
+    height: auto; /* Mantener las proporciones de la imagen */
+    border-radius: 8px; /* Esquinas redondeadas para las imágenes */
+    object-fit: cover; /* Ajustar la imagen al tamaño sin distorsión */
+}
+
+
+.item p {
+    margin: 0; /* Eliminar el margen predeterminado */
+    font-size: 16px; /* Tamaño de texto adecuado */
+    color: white; /* Color del texto (puedes cambiarlo según el fondo) */
+}
+
+.text-box {
+    background-color: #ffffff; /* Fondo blanco para el cuadro de texto */
+    border-radius: 10px; /* Bordes redondeados */
+    padding: 15px 20px; 
+    margin: 20px auto; /* Centra el contenedor horizontalmente con espacio superior e inferior */
+    max-width: 800px; /* Ajusta el ancho máximo del contenedor según sea necesario */
+    text-align: justify; /* Justificar el texto dentro del contenedor */
+}
+
+.text-box p {
+    margin: 0 0 10px; /* Eliminado margen superior, margen inferior entre párrafos */
+    font-size: 14px; /* Tamaño de texto adecuado */
+    color: black; /* Color del texto */
+    font-weight: bold; /* Texto en negrita */
+}
+
+
+
+/* Parte de estilos del Luciano*/
+
+
+
+
+.form-control {
+    background-color: #ffffff;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.btn-primary {
+    background-color: #000000;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+}
+
+.save-btn {
+    border: 2px solid rgb(483FA9);
+    border-radius: 10px;
+    padding: 10px 20px;
+    background-color: #483FA9;
+    color: rgb(255, 255, 255);
+    transition: background-color 0.3s ease;
+}
+.save-btn:hover {
+    background-color: rgb(0, 0, 0);
+    color: #ffffff;
+}
+
+.circle-plus1 {
+    position: absolute;
+    top: 110px;  /* Ajusta según la distancia que quieras del borde superior */
+    right: 150px; /* Ajusta según la distancia que quieras del borde derecho */
+    width: 30px;  /* Ajusta el tamaño del círculo */
+    height: 30px; /* Ajusta el tamaño del círculo */
+    background-color: #483FA9; /* Violeta claro */
+    border-radius: 50%; /* Para hacer el círculo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer; /* Opcional: Para que parezca clickeable */
+    z-index: 10; /* Asegúrate de que esté por encima de la imagen */
+}
 
 /* Parte de estilos del Ianito*/
 
@@ -299,4 +512,6 @@ hr {
         height: 300px;
     }
 }
+
+/* Parte de estilos de la Camila*/
 
