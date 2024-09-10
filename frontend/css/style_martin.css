@@ -7,7 +7,14 @@ body{
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
-
+.search-bar {
+    background-color: #000;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    border-radius: 10vw;
+    border: solid #483FA9;
+}
 .search-bar {
     background-color: #000;
     overflow: hidden;
