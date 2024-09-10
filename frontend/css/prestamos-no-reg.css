@@ -134,3 +134,125 @@ footer {
     margin-bottom: 15px;
 }
 
+
+
+/* Parte de estilos del Ianito*/
+
+.card {
+    margin-bottom: 20px;
+}
+
+
+.card-background {
+    background-color: #000000; /* Fondo oscuro para las cartas */
+}
+
+.card-img-top {
+    width: 30%; /* Asegura que la imagen cubra el ancho de su contenedor */
+    height: 150px; /* Altura fija para todas las imágenes */
+    object-fit: cover; /* Asegura que la imagen cubra el espacio sin distorsionarse */
+}
+
+.bg-dark .card-body {
+    background-color: #000000; /* Fondo oscuro para el cuerpo de la tarjeta si es necesario */
+}
+
+.card-img {
+    width: 100%; /* Asegura que la imagen cubra todo el ancho disponible */
+    height: 150px; /* Altura fija para todas las imágenes */
+    object-fit: cover; /* Asegura que la imagen cubra completamente el área sin distorsionarse, recortando donde sea necesario */
+}
+
+hr {
+    border: none;       /* Elimina cualquier borde predeterminado */
+    height: 1px;        /* Establece la altura de la línea */
+    background-color: #333; /* Color de la línea */
+    margin: 10px 0;     /* Espacio antes y después de la línea */
+}
+
+.divider {
+    height: 2px;
+    width: 100%;        /* O el ancho que desees */
+    background-color: #ffffff;
+    margin: 10px 0;
+}
+
+
+.card {
+    background-color: #333; /* Fondo oscuro para las tarjetas */
+    margin-bottom: 15px; /* Espacio entre tarjetas */
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%; /* Hace la imagen circular */
+}
+
+.card-title {
+    color: #fff; /* Texto blanco para el título */
+}
+
+.card-text {
+    color: #ccc; /* Texto más claro para el contenido */
+}
+
+.btn-primary {
+    background-color: #483FA9; /* Estilo personalizado para el botón */
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+    .card {
+        max-width: 100%; /* Ajusta el ancho de la tarjeta para dispositivos móviles */
+    }
+}
+
+.transparent-background {
+    background-color: rgba(0, 0, 0, 0);
+    /* O bien */
+    /* background-color: transparent; */
+}
+
+.alert-container {
+    background-color: #ffffff; /* Fondo blanco para el alerta */
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    position: fixed; /* Fijo en la página para más visibilidad */
+    top: 20%; /* Ajusta según necesidades */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000; /* Asegura que se muestre sobre otros elementos */
+    width: 90%;
+    max-width: 400px;
+    margin-top: 5%;
+}
+
+.notification-icon {
+    font-size: 48px; /* Icono grande para llamar la atención */
+    color: #ffcc00; /* Icono color amarillo */
+    margin-bottom: 15px;
+}
+
+.alert-container h2 {
+    color: #333;
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.btn-register {
+    background-color: #483FA9; /* Color azul para el botón */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-register:hover {
+    background-color: #7761D1; /* Color más claro al pasar el ratón */
+}
