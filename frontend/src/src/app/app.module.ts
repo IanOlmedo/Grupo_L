@@ -15,6 +15,8 @@ import { LoginComponent } from './pages/login/login.component';
 import { ErrorPageComponent } from './pages/error-page/error-page.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { AcercaDeComponent } from './pages/acerca-de/acerca-de.component';
+import { RedesSocialesComponent } from './components/redes-sociales/redes-sociales.component';
+import { IconoUsuarioComponent } from './components/icono-usuario/icono-usuario.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { AcercaDeComponent } from './pages/acerca-de/acerca-de.component';
     LoginComponent,
     ErrorPageComponent,
     RegisterComponent,
-    AcercaDeComponent
+    AcercaDeComponent,
+    RedesSocialesComponent,
+    IconoUsuarioComponent
   ],
   imports: [
     BrowserModule,
