@@ -1,41 +1,10 @@
-<div class="ic-container-fluid">
-    <div class="row" style="margin-top: 40px;">
-        <!-- Columna para el ícono de las 3 rayas (menú) -->
-        <div class="col-1 text-start">
-            <i class="fa-solid fa-bars" style="color: white; font-size: 170%;"></i>
-        </div>
-        <!-- Columna vacía para separación -->
-        <div class="col-3"></div>
-        <!-- Columna para los íconos de usuario, home y carrito -->
-        <div class="col-8 text-end">
-            <a href=""> 
-                <i class="fa-solid fa-shopping-cart" style="color: white; font-size: 170%; margin-right: 15px"></i>
-            </a>
-            <a href="home_usuario.html">
-                <i class="fa-solid fa-home" style="color: white; font-size: 170%; margin-right: 15px;"></i>
-            </a>
-            <a href="info_usuario.html">
-                <img src="../../../assets/foto_usuario.jpeg" alt="Image 0" class="user-image">
-            </a>
-            
-        </div>
-    </div>
-</div>
-
-<div class="container-fluid" style="margin-left:10px">
-    <div class="row d-flex" style="margin: 15px -20px 0px -5px;">
-        <div class="col-12">
-            <div class="search-bar">
-                <i class="fas fa-search" style="padding: 0.5vw; color: white;"></i>
-            </div>
-        </div>
-    </div>
-</div>
+<app-nav></app-nav>
 
 <div class="container-fluid" style="margin-top: 30px;">
     <div class="row">
         <div class="col-4">
-            <img src="../../../assets/Fuego_y_Sangre.jpeg" alt="Libro 1" class="img">  
+            <img src="assets/Fuego_y_Sangre.jpeg" alt="Libro 1" class="img">
+            <div *ngIf="var_rol == 'admin'" class="d-flex justify-content-end"><i class="fa-solid fa-pen-to-square ms-1" style="color: black;font-size: 200%;"></i></div>  
         </div>
         <div class="col-8">
             <div class="row">
@@ -43,7 +12,7 @@
                     <div style="color: white; font-size: 4vw;"><strong>Titulo:</strong></div>
                 </div>
                 <div class="col-9">
-                    <div class="showing p-1"><h6 style="font-size: 4vw;margin-bottom: 0px;">Fuego y sangre</h6></div>
+                    <div class="showing p-1"><h6 style="font-size: 4vw;margin-bottom: 0px;">Fuego y sangre <i *ngIf="var_rol == 'admin'" class="fa-solid fa-pen-to-square ms-1" style="color: black;font-size: 100%;"></i></h6></div>
                 </div>
             </div>
             <div class="row mt-lg-4">
@@ -51,7 +20,7 @@
                     <div style="color: white; font-size: 4vw;"><strong>Autor:</strong></div>
                 </div>
                 <div class="col-9">
-                    <div class="showing p-1"><h6 style="font-size: 4vw; margin-bottom: 0px;">George R.R.Martin</h6></div>
+                    <div class="showing p-1"><h6 style="font-size: 4vw; margin-bottom: 0px;">George R.R.Martin<i *ngIf="var_rol == 'admin'" class="fa-solid fa-pen-to-square ms-1" style="color: black;font-size: 100%;"></i></h6></div>
                 </div>
             </div>
             <div class="row mt-lg-4">
@@ -59,7 +28,7 @@
                     <div style="color: white; font-size: 4vw;"><strong>Género:</strong></div>
                 </div>
                 <div class="col-9">
-                    <div class="showing p-1"><h6 style="font-size: 4vw; margin-bottom: 0px;">Fantasia</h6></div>
+                    <div class="showing p-1"><h6 style="font-size: 4vw; margin-bottom: 0px;">Fantasia<i *ngIf="var_rol == 'admin'" class="fa-solid fa-pen-to-square ms-1" style="color: black;font-size: 100%;"></i></h6></div>
                 </div>
             </div>
             <div class="row mt-lg-4">
@@ -67,7 +36,7 @@
                     <div style="color: white; font-size: 4vw;"><strong>Páginas:</strong></div>
                 </div>
                 <div class="col-9">
-                    <div class="showing p-1"><h6 style="font-size: 4vw; margin-bottom: 0px;">860</h6></div>
+                    <div class="showing p-1"><h6 style="font-size: 4vw; margin-bottom: 0px;">860<i *ngIf="var_rol == 'admin'" class="fa-solid fa-pen-to-square ms-1" style="color: black;font-size: 100%;"></i></h6></div>
                 </div>
             </div>
         </div>             
@@ -79,7 +48,7 @@
             <div class="p-1" style="color: white; font-size: 4vw;"><strong>Fecha de publicación:</strong></div>
         </div>
         <div class="col-6">
-            <div class="showing p-1"><h6 style="font-size: 4vw; margin-bottom: 0px;">20/10/2018</h6></div>
+            <div class="showing p-1"><h6 style="font-size: 4vw; margin-bottom: 0px;">20/10/2018<i *ngIf="var_rol == 'admin'" class="fa-solid fa-pen-to-square ms-1" style="color: black;font-size: 100%;"></i></h6></div>
         </div>
     </div>
 </div>
@@ -91,9 +60,10 @@
     <div class="row">
         <div class="col-12">
             <div>
-                <p style="color: black; padding: 3vw; background-color: white; border-radius: 5vw;">
+                <p style="color: black; padding: 3vw; background-color: white; border-radius: 5vw; z-index: 1;">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse impedit eos, nulla eum nisi necessitatibus est et. Nisi quidem voluptatibus vel quam deleniti. Minus illo minima aperiam tenetur eveniet hic? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis consequatur adipisci ducimus, incidunt neque veniam nihil exercitationem! Facilis numquam magni unde harum officiis obcaecati, nulla perferendis, nobis optio fugiat placeat!
                 </p>
+                <div *ngIf="var_rol == 'admin'" class="d-flex justify-content-end" style="z-index: 10;"><i class="fa-solid fa-pen-to-square ms-1" style="color: black;font-size: 200%; z-index: 10;"></i></div>
             </div>
         </div>
     </div>
