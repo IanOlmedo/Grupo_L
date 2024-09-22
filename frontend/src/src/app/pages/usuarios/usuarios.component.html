@@ -1,1 +1,80 @@
-<p>usuarios works!</p>
+<div class="container-fluid"style="margin-top: 30px">
+    <div class="row" style="margin: 40px 10px 0px 10px">
+        <!-- Columna para el ícono de las 3 rayas (menú) -->
+        <div class="col-1 text-start">
+            <i class="fa-solid fa-bars" style="color: white; font-size: 150%;"></i>
+        </div>
+        <!-- Columna vacía para separación -->
+        <div class="col-3"></div>
+        <!-- Columna para los íconos de usuario y home -->
+        <div class="col-8 text-end">
+            <a href="home_usuario.html">
+                <i class="fa-solid fa-home" style="color: white; font-size: 150%; margin-right: 15px;"></i>
+            </a>
+            <i class="fa-solid fa-user" style="color: #483FA9; font-size: 150%;"></i>
+        </div>
+    </div>
+</div>
+
+<div class="container text-center text-white my-4 profile-container">
+    <img src="../img/Logo-usuario.jpeg" alt="Usuario" class="rounded-circle" style="width: 80px; height: 80px;">
+    <a href="editar_usuario.html" class="circle-plus1">+</a>
+    <h4 class="mt-3">Información del Usuario</h4>
+</div>
+
+<div class="container profile-container text-white">
+    <form>
+        <div class="mb-3 d-flex justify-content-between align-items-center">
+            <label for="usuario" class="col-form-label">Usuario:</label>
+            <input type="text" class="form-control" id="usuario" placeholder="Usuario" value="" readonly style="width: 60%;">
+        </div>
+        <div class="mb-3 d-flex justify-content-between align-items-center">
+            <label for="nombre" class="col-form-label">Nombre:</label>
+            <input type="text" class="form-control" id="nombre" placeholder="Nombre" value="" readonly style="width: 60%;">
+        </div>
+        <div class="mb-3 d-flex justify-content-between align-items-center">
+            <label for="apellido" class="col-form-label">Apellido:</label>
+            <input type="text" class="form-control" id="apellido" placeholder="Apellido" value="" readonly style="width: 60%;">
+        </div>
+        <div class="mb-3 d-flex justify-content-between align-items-center">
+            <label for="dni" class="col-form-label">DNI:</label>
+            <input type="text" class="form-control" id="dni" placeholder="DNI" value="" readonly style="width: 60%;">
+        </div>
+        <div class="mb-3 d-flex justify-content-between align-items-center">
+            <label for="dirección" class="col-form-label">Dirección:</label>
+            <input type="text" class="form-control" id="dirección" placeholder="Dirección" value="" readonly style="width: 60%;">
+        </div>
+        <div class="mb-3 d-flex justify-content-between align-items-center">
+            <label for="código postal" class="col-form-label">Código Postal:</label>
+            <input type="text" class="form-control" id="código postal" placeholder="Código Postal" value="" readonly style="width: 60%;">
+        </div>
+        <div class="mb-3 d-flex justify-content-between align-items-center">
+            <label for="departamento" class="col-form-label">Departamento:</label>
+            <input type="text" class="form-control" id="departamento" placeholder="Departamento" value="" readonly style="width: 60%;">
+        </div>
+        <div class="mb-3 d-flex justify-content-between align-items-center">
+            <label for="ciudad" class="col-form-label">Ciudad:</label>
+            <input type="text" class="form-control" id="ciudad" placeholder="Ciudad" value="" readonly style="width: 60%;">
+        </div>
+        <div class="mb-3 d-flex justify-content-between align-items-center">
+            <label for="fecha de nacimiento" class="col-form-label">Fecha de Nacimiento:</label>
+            <input type="text" class="form-control" id="fecha de nacimiento" placeholder="Fecha de Nacimiento" value="" readonly style="width: 60%;">
+        </div>
+        <div class="mb-3 d-flex justify-content-between align-items-center">
+            <label for="teléfono" class="col-form-label">Teléfono:</label>
+            <input type="text" class="form-control" id="teléfono" placeholder="Teléfono" value="" readonly style="width: 60%;">
+        </div>
+        <div class="mb-3 d-flex justify-content-between align-items-center">
+            <label for="correo" class="col-form-label">Correo:</label>
+            <input type="text" class="form-control" id="correo" placeholder="Correo" value="" readonly style="width: 60%;">
+        </div>
+        <div class="mb-3 d-flex justify-content-between align-items-center">
+            <label for="contraseña" class="col-form-label">Contraseña:</label>
+            <input type="text" class="form-control" id="contraseña" placeholder="Contraseña" value="" readonly style="width: 60%;">
+        </div>
+        <!-- Agrega más campos de usuario aquí -->
+        <div class="text-center">
+            <button type="button" class="btn save-btn">Guardar Datos</button>
+        </div>
+    </form>
+</div>
