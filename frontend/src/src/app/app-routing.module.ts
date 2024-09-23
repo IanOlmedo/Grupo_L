@@ -6,6 +6,7 @@ import { VerLibroComponent } from './pages/ver-libro/ver-libro.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { UsuariosComponent } from './pages/usuarios/usuarios.component';
+import { PrestamosComponent } from './pages/prestamos/prestamos.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'info_usuario', component: UsuariosComponent},
+  {path: 'prestamos_user', component: PrestamosComponent},
   {path: '', redirectTo: '/home', pathMatch: 'full'},
 
 ];
