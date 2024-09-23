@@ -8,7 +8,6 @@ import { NavComponent } from './components/nav/nav.component';
 import { VerLibroComponent } from './pages/ver-libro/ver-libro.component';
 import { CatalogoComponent } from './pages/catalogo/catalogo.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
-import { AbmComponent } from './components/abm/abm.component';
 import { UsuariosComponent } from './pages/usuarios/usuarios.component';
 import { PrestamosComponent } from './pages/prestamos/prestamos.component';
 import { LoginComponent } from './pages/login/login.component';
@@ -26,7 +25,6 @@ import { IconoUsuarioComponent } from './components/icono-usuario/icono-usuario.
     VerLibroComponent,
     CatalogoComponent,
     SearchBarComponent,
-    AbmComponent,
     UsuariosComponent,
     PrestamosComponent,
     LoginComponent,

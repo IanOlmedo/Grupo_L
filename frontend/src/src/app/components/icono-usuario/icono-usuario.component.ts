@@ -6,5 +6,4 @@ import { Component } from '@angular/core';
   styleUrl: './icono-usuario.component.css'
 })
 export class IconoUsuarioComponent {
-
 }

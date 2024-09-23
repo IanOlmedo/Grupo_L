@@ -1,0 +1,31 @@
+
+.search-bar {
+    background-color: #000;
+    overflow: hidden;
+    padding: 0.5vw;
+    display: flex;
+    align-items: center;
+    border-radius: 10vw;
+    border: solid #483FA9;
+    margin-right: 32px;
+}
+
+ /* Cambiar el borde a violeta */
+.search-button {
+    border-color: #483FA9 !important;
+    border: solid ;
+    border-radius: 10vw;
+    color: white;   
+}
+
+/* Cambiar el color de fondo cuando se pasa el mouse (hover) por el botón */
+.search-button:hover {
+    background-color: #483FA9 !important;
+    border-color: #483FA9;
+}
+
+/* Cambiar el color del placeholder a blanco */
+.search-bar::placeholder {
+    color: white;
+    opacity: 1; /* Asegura que el color sea más visible */
+}

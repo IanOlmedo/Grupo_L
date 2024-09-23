@@ -7,6 +7,8 @@ import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { UsuariosComponent } from './pages/usuarios/usuarios.component';
 import { PrestamosComponent } from './pages/prestamos/prestamos.component';
+import { AcercaDeComponent } from './pages/acerca-de/acerca-de.component';
+import { ErrorPageComponent } from './pages/error-page/error-page.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -16,7 +18,11 @@ const routes: Routes = [
   {path: 'register', component: RegisterComponent},
   {path: 'info_usuario', component: UsuariosComponent},
   {path: 'prestamos_user', component: PrestamosComponent},
+  {path: 'acerca_de', component: AcercaDeComponent},
+  {path: 'error_page', component: ErrorPageComponent},
+
   {path: '', redirectTo: '/home', pathMatch: 'full'},
+  {path: '**', redirectTo: '/error_page'}
 
 ];
 
