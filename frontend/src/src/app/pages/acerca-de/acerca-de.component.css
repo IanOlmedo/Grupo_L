@@ -1,0 +1,68 @@
+.map {
+    width: 100%; /* Ocupa el 100% del ancho del contenedor padre */
+    max-width: 500px; /* Ancho máximo deseado para el mapa */
+    border-radius: 15px; /* Bordes redondeados del contenedor */
+    overflow: hidden; /* Oculta cualquier desbordamiento para que las esquinas redondeadas sean visibles */
+    padding: 10px; /* Espacio interno alrededor del iframe */
+    background-color: transparent; /* Sin fondo */
+    margin: 0 auto; /* Centra el contenedor en su contenedor padre */
+}
+
+.map iframe {
+    width: 100%; /* Asegura que el iframe ocupe el 100% del contenedor */
+    height: 250px; /* Altura fija para el iframe (puedes ajustar si es necesario) */
+    border: 0; /* Elimina el borde del iframe */
+    border-radius: 15px; /* Bordes redondeados del iframe */
+}
+
+/* Contenedor para las imágenes pequeñas con texto al lado */
+.img-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra los elementos hijos en el eje transversal (vertical) */
+    gap: 20px; /* Espacio entre los elementos (imagen y texto) */
+    padding: 10px; /* Añadir un poco de espacio interno */
+    max-width: 100%; /* Asegura que no exceda el tamaño del contenedor padre */
+}
+
+/* Elemento individual */
+.item {
+    display: flex;
+    align-items: center; /* Alinea verticalmente la imagen y el texto */
+    gap: 15px; /* Espacio entre la imagen y el texto */
+    background-color: transparent; /* Sin fondo */
+    border: none; /* Sin borde */
+    box-shadow: none; /* Sin sombra */
+    justify-content: center; /* Centra el contenido de cada item en el eje horizontal */
+}
+
+.item img {
+    width: 50px; /* Tamaño fijo para las imágenes pequeñas */
+    height: auto; /* Mantener las proporciones de la imagen */
+    border-radius: 8px; /* Esquinas redondeadas para las imágenes */
+    object-fit: cover; /* Ajustar la imagen al tamaño sin distorsión */
+}
+
+
+.item p {
+    margin: 0; /* Eliminar el margen predeterminado */
+    font-size: 16px; /* Tamaño de texto adecuado */
+    color: white; /* Color del texto (puedes cambiarlo según el fondo) */
+}
+
+.text-box {
+    background-color: #ffffff; /* Fondo blanco para el cuadro de texto */
+    border-radius: 10px; /* Bordes redondeados */
+    padding: 15px 20px; 
+    margin: 20px auto; /* Centra el contenedor horizontalmente con espacio superior e inferior */
+    max-width: 800px; /* Ajusta el ancho máximo del contenedor según sea necesario */
+    text-align: justify; /* Justificar el texto dentro del contenedor */
+}
+
+.text-box p {
+    margin: 0 0 10px; /* Eliminado margen superior, margen inferior entre párrafos */
+    font-size: 14px; /* Tamaño de texto adecuado */
+    color: black; /* Color del texto */
+    font-weight: bold; /* Texto en negrita */
+}
+
