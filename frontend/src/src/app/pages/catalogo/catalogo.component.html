@@ -1,90 +1,164 @@
-<app-nav></app-nav>
+<app-nav [var_rol]="var_rol" [var_id]="var_id"></app-nav>
 <app-search-bar></app-search-bar>
 
 <div class="container-fluid images-container">
-    <div class="row mb-4">
+    <!-- Primera fila de imágenes -->
+    <div class="row mb-3 text-center">
         <div class="col-4 image-wrapper">
-            <div class="circle-plus"><h2>+</h2></div>
-            <div *ngIf="var_rol == 'admin'"><div class="edit-button">Editar</div></div>
+            <div *ngIf="var_rol == 'user'" class="circle-plus"><h2>+</h2></div>
+            <div *ngIf="var_rol == 'admin'" class="edit-button" routerLink="/ver_libro/{{var_id}}/{{var_rol}}" href="#">Editar</div>
             <img src="assets/IT.jpeg" alt="Image 1" class="img-fluid img-overlay1">
         </div>
         <div class="col-4 image-wrapper">
-            <div class="circle-plus"><h2>+</h2></div>
-            <div *ngIf="var_rol == 'admin'"><div class="edit-button">Editar</div></div>
+            <div *ngIf="var_rol == 'user'" class="circle-plus"><h2>+</h2></div>
+            <div *ngIf="var_rol == 'admin'" class="edit-button" routerLink="/ver_libro/{{var_id}}/{{var_rol}}" href="#">Editar</div>
             <img src="assets/Misery.jpeg" alt="Image 2" class="img-fluid img-overlay1">
         </div>
         <div class="col-4 image-wrapper">
-            <div class="circle-plus"><h2>+</h2></div>
-            <div *ngIf="var_rol == 'admin'"><div class="edit-button">Editar</div></div>
+            <div *ngIf="var_rol == 'user'" class="circle-plus"><h2>+</h2></div>
+            <div *ngIf="var_rol == 'admin'" class="edit-button" routerLink="/ver_libro/{{var_id}}/{{var_rol}}" href="#">Editar</div>
             <img src="assets/El_Resplandor.jpeg" alt="Image 3" class="img-fluid img-overlay1">
         </div>
     </div>
-    <div class="row mb-4">
+    
+    <!-- Títulos de la primera fila -->
+    <div class="row text-center mb-3">
+        <div class="col-4">
+            <h6 class="image-title">IT</h6>
+        </div>
+        <div class="col-4">
+            <h6 class="image-title">Misery</h6>
+        </div>
+        <div class="col-4">
+            <h6 class="image-title">El Resplandor</h6>
+        </div>
+    </div>
+
+    <!-- Segunda fila de imágenes -->
+    <div class="row mb-3 text-center">
         <div class="col-4 image-wrapper">
-            <div class="circle-plus"><h2>+</h2></div>
-            <div *ngIf="var_rol == 'admin'"><div class="edit-button">Editar</div></div>
+            <div *ngIf="var_rol == 'user'" class="circle-plus"><h2>+</h2></div>
+            <div *ngIf="var_rol == 'admin'" class="edit-button" routerLink="/ver_libro/{{var_id}}/{{var_rol}}" href="#">Editar</div>
             <img src="assets/Fuego_y_Sangre.jpeg" alt="Image 4" class="img-fluid img-overlay1">
         </div>
         <div class="col-4 image-wrapper">
-            <div class="circle-plus"><h2>+</h2></div>
-            <div *ngIf="var_rol == 'admin'"><div class="edit-button">Editar</div></div>
+            <div *ngIf="var_rol == 'user'" class="circle-plus"><h2>+</h2></div>
+            <div *ngIf="var_rol == 'admin'" class="edit-button" routerLink="/ver_libro/{{var_id}}/{{var_rol}}" href="#">Editar</div>
             <img src="assets/Juego_de_Tronos.jpeg" alt="Image 5" class="img-fluid img-overlay1">
         </div>
         <div class="col-4 image-wrapper">
-            <div class="circle-plus"><h2>+</h2></div>
-            <div *ngIf="var_rol == 'admin'"><div class="edit-button">Editar</div></div>
+            <div *ngIf="var_rol == 'user'" class="circle-plus"><h2>+</h2></div>
+            <div *ngIf="var_rol == 'admin'" class="edit-button" routerLink="/ver_libro/{{var_id}}/{{var_rol}}" href="#">Editar</div>
             <img src="assets/El_Hijo_de_Neptuno.jpeg" alt="Image 6" class="img-fluid img-overlay1">
         </div>
     </div>
-    <div class="row mb-4">
+
+    <!-- Títulos de la segunda fila -->
+    <div class="row text-center mb-3">
+        <div class="col-4">
+            <h6 class="image-title">Fuego y Sangre</h6>
+        </div>
+        <div class="col-4">
+            <h6 class="image-title">Juego de Tronos</h6>
+        </div>
+        <div class="col-4">
+            <h6 class="image-title">El Hijo de Neptuno</h6>
+        </div>
+    </div>
+
+    <!-- Tercera fila de imágenes -->
+    <div class="row mb-3 text-center">
         <div class="col-4 image-wrapper">
-            <div class="circle-plus"><h2>+</h2></div>
-            <div *ngIf="var_rol == 'admin'"><div class="edit-button">Editar</div></div>
+            <div *ngIf="var_rol == 'user'" class="circle-plus"><h2>+</h2></div>
+            <div *ngIf="var_rol == 'admin'" class="edit-button" routerLink="/ver_libro/{{var_id}}/{{var_rol}}" href="#">Editar</div>
             <img src="assets/Romper_el_Circulo.jpeg" alt="Image 7" class="img-fluid img-overlay1">
         </div>
         <div class="col-4 image-wrapper">
-            <div class="circle-plus"><h2>+</h2></div>
-            <div *ngIf="var_rol == 'admin'"><div class="edit-button">Editar</div></div>
+            <div *ngIf="var_rol == 'user'" class="circle-plus"><h2>+</h2></div>
+            <div *ngIf="var_rol == 'admin'" class="edit-button" routerLink="/ver_libro/{{var_id}}/{{var_rol}}" href="#">Editar</div>
             <img src="assets/A_dos_metros_de_ti.jpeg" alt="Image 8" class="img-fluid img-overlay1">
         </div>
         <div class="col-4 image-wrapper">
-            <div class="circle-plus"><h2>+</h2></div>
-            <div *ngIf="var_rol == 'admin'"><div class="edit-button">Editar</div></div>
-            <img src="assets/Orgullo_y_Prejuiciojpeg" alt="Image 9" class="img-fluid img-overlay1">
+            <div *ngIf="var_rol == 'user'" class="circle-plus"><h2>+</h2></div>
+            <div *ngIf="var_rol == 'admin'" class="edit-button" routerLink="/ver_libro/{{var_id}}/{{var_rol}}" href="#">Editar</div>
+            <img src="assets/Orgullo_y_Prejuicio.jpeg" alt="Image 9" class="img-fluid img-overlay1">
         </div>
     </div>
-    <div class="row mb-4">
+
+    <!-- Títulos de la tercera fila -->
+    <div class="row text-center mb-3">
+        <div class="col-4">
+            <h6 class="image-title">Romper el Circulo</h6>
+        </div>
+        <div class="col-4">
+            <h6 class="image-title">A dos Metros de Ti</h6>
+        </div>
+        <div class="col-4">
+            <h6 class="image-title">Orgullo y Prejuicio</h6>
+        </div>
+    </div>
+
+    <!-- Cuarta fila de imágenes -->
+    <div class="row mb-3 text-center">
         <div class="col-4 image-wrapper">
-            <div class="circle-plus"><h2>+</h2></div>
-            <div *ngIf="var_rol == 'admin'"><div class="edit-button">Editar</div></div>
+            <div *ngIf="var_rol == 'user'" class="circle-plus"><h2>+</h2></div>
+            <div *ngIf="var_rol == 'admin'" class="edit-button" routerLink="/ver_libro/{{var_id}}/{{var_rol}}" href="#">Editar</div>
             <img src="assets/Harry_Potter_4.jpeg" alt="Image 10" class="img-fluid img-overlay1">
         </div>
         <div class="col-4 image-wrapper">
-            <div class="circle-plus"><h2>+</h2></div>
-            <div *ngIf="var_rol == 'admin'"><div class="edit-button">Editar</div></div>
+            <div *ngIf="var_rol == 'user'" class="circle-plus"><h2>+</h2></div>
+            <div *ngIf="var_rol == 'admin'" class="edit-button" routerLink="/ver_libro/{{var_id}}/{{var_rol}}" href="#">Editar</div>
             <img src="assets/Maze_Runner_1.jpg" alt="Image 11" class="img-fluid img-overlay1">
         </div>
         <div class="col-4 image-wrapper">
-            <div class="circle-plus"><h2>+</h2></div>
-            <div *ngIf="var_rol == 'admin'"><div class="edit-button">Editar</div></div>
+            <div *ngIf="var_rol == 'user'" class="circle-plus"><h2>+</h2></div>
+            <div *ngIf="var_rol == 'admin'" class="edit-button" routerLink="/ver_libro/{{var_id}}/{{var_rol}}" href="#">Editar</div>
             <img src="assets/Percy_Jackson_1.jpg" alt="Image 12" class="img-fluid img-overlay1">
         </div>
     </div>
-    <div class="row mb-4">
+
+    <!-- Títulos de la cuarta fila -->
+    <div class="row text-center mb-3">
+        <div class="col-4">
+            <h6 class="image-title">Harry Potter y el Cáliz de Fuego</h6>
+        </div>
+        <div class="col-4">
+            <h6 class="image-title">Maze Runner</h6>
+        </div>
+        <div class="col-4">
+            <h6 class="image-title">Percy Jackson y el Ladrón del Rayo</h6>
+        </div>
+    </div>
+
+    <!-- Quinta fila de imágenes -->
+    <div class="row mb-3 text-center">
         <div class="col-4 image-wrapper">
-            <div class="circle-plus"><h2>+</h2></div>
-            <div *ngIf="var_rol == 'admin'"><div class="edit-button">Editar</div></div>
+            <div *ngIf="var_rol == 'user'" class="circle-plus"><h2>+</h2></div>
+            <div *ngIf="var_rol == 'admin'" class="edit-button" routerLink="/ver_libro/{{var_id}}/{{var_rol}}" href="#">Editar</div>
             <img src="assets/Viaje_al_Centro_de_la_Tierra.jpeg" alt="Image 13" class="img-fluid img-overlay1">
         </div>
         <div class="col-4 image-wrapper">
-            <div class="circle-plus"><h2>+</h2></div>
-            <div *ngIf="var_rol == 'admin'"><div class="edit-button">Editar</div></div>
+            <div *ngIf="var_rol == 'user'" class="circle-plus"><h2>+</h2></div>
+            <div *ngIf="var_rol == 'admin'" class="edit-button" routerLink="/ver_libro/{{var_id}}/{{var_rol}}" href="#">Editar</div>
             <img src="assets/El_Camino_de_los_Reyes.jpeg" alt="Image 14" class="img-fluid img-overlay1">
         </div>
         <div class="col-4 image-wrapper">
-            <div class="circle-plus"><h2>+</h2></div>
-            <div *ngIf="var_rol == 'admin'"><div class="edit-button">Editar</div></div>
+            <div *ngIf="var_rol == 'user'" class="circle-plus"><h2>+</h2></div>
+            <div *ngIf="var_rol == 'admin'" class="edit-button" routerLink="/ver_libro/{{var_id}}/{{var_rol}}" href="#">Editar</div>
             <img src="assets/La_Odisea.jpeg" alt="Image 15" class="img-fluid img-overlay1">
+        </div>
+    </div>
+
+    <!-- Títulos de la quinta fila -->
+    <div class="row text-center mb-3">
+        <div class="col-4">
+            <h6 class="image-title">Viaje al Centro de la Tierra</h6>
+        </div>
+        <div class="col-4">
+            <h6 class="image-title">El Camino de los Reyes</h6>
+        </div>
+        <div class="col-4">
+            <h6 class="image-title">La Odisea</h6>
         </div>
     </div>
 </div>

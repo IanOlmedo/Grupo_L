@@ -57,3 +57,22 @@
     object-fit: cover; /* Ajusta la imagen para cubrir el área del contenedor sin distorsión */
     border-radius: 15px; /* Bordes redondeados para las imágenes */
 }
+
+.image-title {
+    color: white;
+    margin-top: 10px;
+    font-size: 4vw; /* Ajusta el tamaño de la letra a 4% del ancho de la ventana */
+}
+
+/* Opcional: puedes agregar un estilo de min y max para controlar el tamaño */
+@media (max-width: 600px) {
+    .image-title {
+        font-size: 3vw; /* Más pequeño en pantallas más pequeñas */
+    }
+}
+
+@media (min-width: 1200px) {
+    .image-title {
+        font-size: 2vw; /* Más grande en pantallas grandes */
+    }
+}

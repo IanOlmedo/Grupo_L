@@ -7,17 +7,32 @@
     </button>
     <div class="collapse navbar-collapse col-6"  id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active text-white" aria-current="page" href="#">Catalogo</a>
+        <li *ngIf="var_rol == ''" class="nav-item">
+          <a class="nav-link active text-white" aria-current="page" routerLink="/register" href="#">Registrarse</a>
+        </li>
+        <li *ngIf="var_rol == ''" class="nav-item">
+          <a class="nav-link active text-white" aria-current="page" routerLink="/login" href="#">Iniciar Sesión</a>
+        </li>
+        <li *ngIf="var_rol != ''" class="nav-item">
+          <a class="nav-link active text-white" aria-current="page" routerLink="/home" href="#">Cerrar Sesión</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active text-white" aria-current="page" href="#">Prestamos</a>
+          <a class="nav-link active text-white" aria-current="page" routerLink="/catalogo/{{var_id}}/{{var_rol}}" href="#">Catalogo</a>
+        </li>
+        <li *ngIf="var_rol != ''" class="nav-item">
+          <a class="nav-link active text-white" aria-current="page" routerLink="/prestamos" href="#">Prestamos</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active text-white" aria-current="page" href="#">Acerca de</a>
+          <a class="nav-link active text-white" aria-current="page" routerLink="/acerca_de" href="#">Acerca de</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link active text-white" aria-current="page" href="#">Perfil</a>
+        <li *ngIf="var_rol != ''" class="nav-item">
+          <a class="nav-link active text-white" aria-current="page" routerLink="/info_usuario/{{var_id}}/{{var_rol}}" href="#">Perfil</a>
+        </li>
+        <li *ngIf="var_rol == 'admin'" class="nav-item">
+          <a class="nav-link active text-white" aria-current="page" href="#">Editar</a>
+        </li>
+        <li *ngIf="var_rol == 'user'" class="nav-item">
+          <a class="nav-link active text-white" aria-current="page" href="#">Carrito</a>
         </li>
       </ul>
     </div>

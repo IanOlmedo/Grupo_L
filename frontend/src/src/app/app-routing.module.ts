@@ -12,12 +12,15 @@ import { ErrorPageComponent } from './pages/error-page/error-page.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
+  {path: 'home/:id/:rol', component: HomeComponent},
+
   {path: 'catalogo', component: CatalogoComponent},
   {path: 'catalogo/:id/:rol', component: CatalogoComponent},
+
   {path: 'ver_libro/:id/:rol', component: VerLibroComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
-  {path: 'info_usuario', component: UsuariosComponent},
+  {path: 'info_usuario/:id/:rol', component: UsuariosComponent},
   {path: 'prestamos_user', component: PrestamosComponent},
   {path: 'acerca_de', component: AcercaDeComponent},
   {path: 'error_page', component: ErrorPageComponent},
