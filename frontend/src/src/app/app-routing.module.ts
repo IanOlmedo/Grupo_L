@@ -13,6 +13,7 @@ import { ErrorPageComponent } from './pages/error-page/error-page.component';
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'catalogo', component: CatalogoComponent},
+  {path: 'catalogo/:id/:rol', component: CatalogoComponent},
   {path: 'ver_libro/:id/:rol', component: VerLibroComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},

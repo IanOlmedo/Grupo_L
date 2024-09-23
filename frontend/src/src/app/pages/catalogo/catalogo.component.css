@@ -1,0 +1,59 @@
+.circle-plus {
+    position: absolute;
+    top: 0%;  /* Ajusta la distancia desde el borde superior, relativo al viewport */
+    left: 64%; /* Ajusta la distancia desde el borde izquierdo, relativo al viewport */
+    width: 8vw; /* Ajusta el tamaño del ícono relativo al ancho del viewport */
+    height: 8vw; /* Mantiene la proporción del ícono, también relativo al ancho */
+    background-color: #483FA9;
+    border-radius: 50%; /* Hace el ícono circular */
+    display: flex; /* Hace que el ícono sea un contenedor flexible */
+    justify-content: center; /* Centra el ícono dentro del contenedor */
+    align-items: center; /* Centra el ícono dentro del contenedor */
+    font-size: 5vmin; /* Ajusta el tamaño del texto del ícono para que escale con la pantalla */
+    color: white; 
+    font-weight: bold; /* Ajusta la fuente del ícono */
+    cursor: pointer; /* Para que parezca clickeable */
+    z-index: 10; /* Asegura que esté por encima de la imagen */
+}
+
+.circle-plus:hover {
+    background-color: #b589ff; /* Cambia el color al hacer hover */
+}
+
+.edit-button {
+    position: absolute;
+    bottom: 0%; /* Ajusta la distancia desde el borde inferior, relativo al viewport */
+    left: 9%;  /* Ajusta la distancia desde el borde izquierdo, relativo al viewport */
+    width: 15vw; /* Ajusta el tamaño del botón relativo al ancho del viewport */
+    height: 8vw; /* Hace que el botón sea cuadrado y escalable */
+    background-color: #483FA9; 
+    color: white;
+    border-radius: 10vmin; /* Hace que el botón sea circular */
+    display: flex; /* Para centrar el contenido dentro del botón */
+    justify-content: center; /* Centra el texto horizontalmente */
+    align-items: center; /* Centra el texto verticalmente */
+    font-size: 4vmin; /* Tamaño del texto ajustable con la pantalla */
+    font-weight: bold;
+    cursor: pointer; /* Para que parezca clickeable */
+    z-index: 10; /* Asegúrate de que esté por encima de otros elementos */
+    text-align: center; /* Centra el texto */
+}
+
+.edit-button:hover {
+    background-color: #B589FF; /* Cambia el color al hacer hover */
+}
+
+/* Contenedor de imágenes */
+.images-container {
+    margin-top: 5px; /* Espacio superior del contenedor */
+    padding: 30px; /* Espacio interno alrededor del contenedor */
+    max-width: 100%; /* Asegura que el contenedor no exceda el tamaño del contenedor padre */
+}
+
+/* Imágenes dentro del contenedor */
+.img-overlay1 {
+    width: 100%; /* Las imágenes ocuparán todo el ancho del contenedor */
+    height: 100%; /* Mantiene la proporción de la imagen */
+    object-fit: cover; /* Ajusta la imagen para cubrir el área del contenedor sin distorsión */
+    border-radius: 15px; /* Bordes redondeados para las imágenes */
+}
