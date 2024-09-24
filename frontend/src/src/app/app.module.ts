@@ -21,6 +21,7 @@ import { PresUserRComponent } from './components/pres-user-r/pres-user-r.compone
 import { PresAdminComponent } from './components/pres-admin/pres-admin.component';
 import { AltaUsuariosComponent } from './pages/alta-usuarios/alta-usuarios.component';
 import { CarritoComponent } from './pages/carrito/carrito.component';
+import { StockComponent } from './pages/stock/stock.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { CarritoComponent } from './pages/carrito/carrito.component';
     PresUserRComponent,
     PresAdminComponent,
     AltaUsuariosComponent,
-    CarritoComponent
+    CarritoComponent,
+    StockComponent
   ],
   imports: [
     BrowserModule,
