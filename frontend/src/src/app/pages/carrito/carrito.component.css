@@ -1,0 +1,78 @@
+.cart-container {
+    width: 100%;
+    padding: 20px;
+  }
+  
+  .cart-header {
+    display: flex;
+    justify-content: center; /* Centra el contenido */
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .cart-title {
+    font-size: 36px;
+    color: white;
+    margin-right: 20px; /* Espacio entre el título y el botón */
+  }
+  
+  .circle-plus-cart {
+    width: 50px;  /* Tamaño del círculo */
+    height: 50px; /* Mantiene la proporción circular */
+    background-color: #483FA9;
+    border-radius: 50%;  /* Hace el ícono circular */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;  /* Tamaño del "+" */
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .circle-plus-cart:hover {
+    background-color: #b589ff; /* Cambia el color al hacer hover */
+  }
+  
+  .cart-item {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .book-card {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    width: 100%; 
+    max-width: 1200px;
+  }
+  
+  .portada {
+    width: 80px; 
+    height: 100px;
+    object-fit: cover;
+    margin-right: 20px;
+  }
+  
+  .book-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .titulo {
+    font-size: 18px;
+    font-weight: bold;
+    margin-right: 20px;
+    flex: 1;
+  }
+  
+  .btn {
+    padding: 8px 12px;
+    font-size: 14px;
+  }

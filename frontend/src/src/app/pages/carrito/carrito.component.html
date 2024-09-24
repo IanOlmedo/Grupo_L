@@ -1,0 +1,31 @@
+<app-nav [var_rol]="var_rol" [var_id]="var_id"></app-nav>
+<app-search-bar></app-search-bar>
+
+<div class="cart-container">
+  <div class="cart-header">
+    <h1 class="cart-title">Carrito</h1>
+    <div class="circle-plus-cart" routerLink="/catalogo/{{var_id}}/{{var_rol}}" href="#"><h2>+</h2></div>
+  </div>
+
+  <div *ngIf="cartItems.length > 0; else emptyCart">
+    <div class="cart-item" *ngFor="let item of cartItems; let i = index">
+      <div class="book-card">
+        <img [src]="item.portada" alt="Portada de {{ item.nombre }}" class="portada">
+        <div class="book-info">
+          <p class="titulo">{{ item.nombre }}</p>
+          <button class="btn btn-danger btn-sm" (click)="eliminarLibro(i)">
+            <i class="fa-solid fa-trash"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <h1 style="color: white; text-align: center; font-size: 15px">Artículos en el carrito: {{ cartItems.length }}</h1>
+  </div>
+
+  <ng-template #emptyCart>
+    <h1 style="color: white; text-align: center; font-size: 15px">Tu carrito está vacío</h1>
+  </ng-template>
+</div>

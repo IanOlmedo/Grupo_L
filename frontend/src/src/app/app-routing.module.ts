@@ -10,6 +10,7 @@ import { PrestamosComponent } from './pages/prestamos/prestamos.component';
 import { AcercaDeComponent } from './pages/acerca-de/acerca-de.component';
 import { ErrorPageComponent } from './pages/error-page/error-page.component';
 import { AltaUsuariosComponent } from './pages/alta-usuarios/alta-usuarios.component';
+import { CarritoComponent } from './pages/carrito/carrito.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -25,6 +26,7 @@ const routes: Routes = [
   {path: 'acerca_de', component: AcercaDeComponent},
   {path: 'alta_usuarios/:id/:rol', component: AltaUsuariosComponent},
   {path: 'error_page', component: ErrorPageComponent},
+  {path: 'carrito/:id/:rol', component: CarritoComponent},
 
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: '**', redirectTo: '/error_page'}

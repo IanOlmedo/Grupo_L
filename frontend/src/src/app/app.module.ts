@@ -20,6 +20,7 @@ import { PresSPComponent } from './components/pres-s-p/pres-s-p.component';
 import { PresUserRComponent } from './components/pres-user-r/pres-user-r.component';
 import { PresAdminComponent } from './components/pres-admin/pres-admin.component';
 import { AltaUsuariosComponent } from './pages/alta-usuarios/alta-usuarios.component';
+import { CarritoComponent } from './pages/carrito/carrito.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { AltaUsuariosComponent } from './pages/alta-usuarios/alta-usuarios.compo
     PresSPComponent,
     PresUserRComponent,
     PresAdminComponent,
-    AltaUsuariosComponent
+    AltaUsuariosComponent,
+    CarritoComponent
   ],
   imports: [
     BrowserModule,
