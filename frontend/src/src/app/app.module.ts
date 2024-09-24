@@ -19,6 +19,7 @@ import { IconoUsuarioComponent } from './components/icono-usuario/icono-usuario.
 import { PresSPComponent } from './components/pres-s-p/pres-s-p.component';
 import { PresUserRComponent } from './components/pres-user-r/pres-user-r.component';
 import { PresAdminComponent } from './components/pres-admin/pres-admin.component';
+import { AltaUsuariosComponent } from './pages/alta-usuarios/alta-usuarios.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { PresAdminComponent } from './components/pres-admin/pres-admin.component
     IconoUsuarioComponent,
     PresSPComponent,
     PresUserRComponent,
-    PresAdminComponent
+    PresAdminComponent,
+    AltaUsuariosComponent
   ],
   imports: [
     BrowserModule,

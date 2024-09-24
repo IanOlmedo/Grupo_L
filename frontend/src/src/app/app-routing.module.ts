@@ -9,14 +9,13 @@ import { UsuariosComponent } from './pages/usuarios/usuarios.component';
 import { PrestamosComponent } from './pages/prestamos/prestamos.component';
 import { AcercaDeComponent } from './pages/acerca-de/acerca-de.component';
 import { ErrorPageComponent } from './pages/error-page/error-page.component';
+import { AltaUsuariosComponent } from './pages/alta-usuarios/alta-usuarios.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'home/:id/:rol', component: HomeComponent},
-
   {path: 'catalogo', component: CatalogoComponent},
   {path: 'catalogo/:id/:rol', component: CatalogoComponent},
-
   {path: 'ver_libro/:id/:rol', component: VerLibroComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
@@ -24,6 +23,7 @@ const routes: Routes = [
   {path: 'prestamos', component: PrestamosComponent},
   {path: 'prestamos/:id/:rol', component: PrestamosComponent},
   {path: 'acerca_de', component: AcercaDeComponent},
+  {path: 'alta_usuarios/:id/:rol', component: AltaUsuariosComponent},
   {path: 'error_page', component: ErrorPageComponent},
 
   {path: '', redirectTo: '/home', pathMatch: 'full'},
