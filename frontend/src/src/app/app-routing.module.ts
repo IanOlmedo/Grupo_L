@@ -21,7 +21,8 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'info_usuario/:id/:rol', component: UsuariosComponent},
-  {path: 'prestamos_user', component: PrestamosComponent},
+  {path: 'prestamos', component: PrestamosComponent},
+  {path: 'prestamos/:id/:rol', component: PrestamosComponent},
   {path: 'acerca_de', component: AcercaDeComponent},
   {path: 'error_page', component: ErrorPageComponent},
 

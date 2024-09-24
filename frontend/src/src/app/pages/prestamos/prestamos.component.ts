@@ -16,6 +16,9 @@ export class PrestamosComponent {
   ngOnInit(){
     this.var_id = this.route.snapshot.paramMap.get('id') || '';
     this.var_rol=this.route.snapshot.paramMap.get('rol') || '';
+
+    console.log('this.var_id: ',this.var_id);
+    console.log('this.var_rol: ',this.var_rol);
   }
 
 }

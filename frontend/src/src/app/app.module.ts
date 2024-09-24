@@ -16,6 +16,9 @@ import { RegisterComponent } from './pages/register/register.component';
 import { AcercaDeComponent } from './pages/acerca-de/acerca-de.component';
 import { RedesSocialesComponent } from './components/redes-sociales/redes-sociales.component';
 import { IconoUsuarioComponent } from './components/icono-usuario/icono-usuario.component';
+import { PresSPComponent } from './components/pres-s-p/pres-s-p.component';
+import { PresUserRComponent } from './components/pres-user-r/pres-user-r.component';
+import { PresAdminComponent } from './components/pres-admin/pres-admin.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +35,10 @@ import { IconoUsuarioComponent } from './components/icono-usuario/icono-usuario.
     RegisterComponent,
     AcercaDeComponent,
     RedesSocialesComponent,
-    IconoUsuarioComponent
+    IconoUsuarioComponent,
+    PresSPComponent,
+    PresUserRComponent,
+    PresAdminComponent
   ],
   imports: [
     BrowserModule,
