@@ -27,7 +27,7 @@ export class AltaUsuariosComponent {
     },
     {
       id: 4,
-      nombre: 'Usuario 4'
+      nombre: 'Martin'
     }
 
   ]

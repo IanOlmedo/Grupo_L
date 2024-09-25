@@ -11,27 +11,27 @@ export class StockComponent {
   var_id!:string
   var_rol!:string
     searchQuery = '';
-    arrayUsuarios = [
+    arrayLibros = [
       {
         id: 1,
-        nombre: 'Carlos'
+        nombre: 'Fuego y sangre'
       },
       {
         id: 2,
-        nombre: 'Juan'
+        nombre: 'Harry Potter'
       },
       {
         id: 3,
-        nombre: 'Pedro'
+        nombre: 'Nacidos de la bruma'
       },
       {
         id: 4,
-        nombre: 'Usuario 4'
+        nombre: 'Percy Jackson'
       }
 
     ]
 
-    filteredUsers = [...this.arrayUsuarios]
+    filteredLibros = [...this.arrayLibros]
   constructor(
     private route: ActivatedRoute,
     private router: Router
@@ -42,14 +42,14 @@ export class StockComponent {
     this.var_rol=this.route.snapshot.paramMap.get('rol') || '';
   }
 
-  editarusuario(user:any) {
-    console.log('Estoy editando', user);
-    this.router.navigate(['/usuario/'+user.id+'/Editar']);
+  editarlibro(libro:any) {
+    console.log('Estoy editando', libro);
+    this.router.navigate(['/usuario/'+libro.id+'/Editar']);
   }
 
   buscar() {
     console.log('buscar: ', this.searchQuery);
-    this.filteredUsers = this.arrayUsuarios.filter(user => user.nombre.includes(this.searchQuery));
+    this.filteredLibros = this.arrayLibros.filter(libro => libro.nombre.includes(this.searchQuery));
   }
 
 }

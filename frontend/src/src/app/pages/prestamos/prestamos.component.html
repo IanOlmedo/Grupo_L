@@ -1,4 +1,4 @@
-<app-nav></app-nav>
+<app-nav [var_rol]="var_rol" [var_id]="var_id"></app-nav>
 <app-search-bar></app-search-bar>
 <app-pres-user-r  *ngIf="var_rol == 'user'"></app-pres-user-r>
 <app-pres-admin *ngIf="var_rol == 'admin'"></app-pres-admin>

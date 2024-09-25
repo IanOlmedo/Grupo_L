@@ -11,12 +11,14 @@ import { AcercaDeComponent } from './pages/acerca-de/acerca-de.component';
 import { ErrorPageComponent } from './pages/error-page/error-page.component';
 import { AltaUsuariosComponent } from './pages/alta-usuarios/alta-usuarios.component';
 import { CarritoComponent } from './pages/carrito/carrito.component';
+import { StockComponent } from './pages/stock/stock.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'home/:id/:rol', component: HomeComponent},
   {path: 'catalogo', component: CatalogoComponent},
   {path: 'catalogo/:id/:rol', component: CatalogoComponent},
+  {path: 'ver_libro', component: VerLibroComponent},
   {path: 'ver_libro/:id/:rol', component: VerLibroComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
@@ -24,9 +26,11 @@ const routes: Routes = [
   {path: 'prestamos', component: PrestamosComponent},
   {path: 'prestamos/:id/:rol', component: PrestamosComponent},
   {path: 'acerca_de', component: AcercaDeComponent},
+  {path: 'acerca_de/:id/:rol', component: AcercaDeComponent},
   {path: 'alta_usuarios/:id/:rol', component: AltaUsuariosComponent},
   {path: 'error_page', component: ErrorPageComponent},
   {path: 'carrito/:id/:rol', component: CarritoComponent},
+  {path: 'stock/:id/:rol', component: StockComponent},
 
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: '**', redirectTo: '/error_page'}

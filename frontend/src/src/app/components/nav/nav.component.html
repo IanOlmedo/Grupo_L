@@ -1,7 +1,7 @@
 
 <nav class="navbar navbar-expand-lg" style="background-color: transparent;">
   <div class="container-fluid" >
-    <a class="navbar-brand text-white" href="#">Lambda</a>
+    <a class="navbar-brand text-white" routerLink="/home/{{var_id}}/{{var_rol}}" href="#">Lambda</a>
     <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon" style="color: whit"></span>
     </button>
@@ -32,7 +32,13 @@
           <a class="nav-link active text-white" aria-current="page" href="#">Editar</a>
         </li>
         <li *ngIf="var_rol == 'user'" class="nav-item">
-          <a class="nav-link active text-white" aria-current="page" href="#">Carrito</a>
+          <a class="nav-link active text-white" aria-current="page" href="#" routerLink="/carrito/{{var_id}}/{{var_rol}}">Carrito</a>
+        </li>
+        <li *ngIf="var_rol == 'admin'" class="nav-item">
+          <a class="nav-link active text-white" aria-current="page" href="#" routerLink="/alta_usuarios/{{var_id}}/{{var_rol}}">Alta Usuario</a>
+        </li>
+        <li *ngIf="var_rol == 'admin'" class="nav-item">
+          <a class="nav-link active text-white" aria-current="page" href="#" routerLink="/stock/{{var_id}}/{{var_rol}}">Stock</a>
         </li>
       </ul>
     </div>
