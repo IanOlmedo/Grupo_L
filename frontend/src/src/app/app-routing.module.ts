@@ -12,6 +12,7 @@ import { ErrorPageComponent } from './pages/error-page/error-page.component';
 import { AltaUsuariosComponent } from './pages/alta-usuarios/alta-usuarios.component';
 import { CarritoComponent } from './pages/carrito/carrito.component';
 import { StockComponent } from './pages/stock/stock.component';
+import { authsessionGuard } from './guards/authsession.guard';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -22,15 +23,15 @@ const routes: Routes = [
   {path: 'ver_libro/:id/:rol', component: VerLibroComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
-  {path: 'info_usuario/:id/:rol', component: UsuariosComponent},
+  {path: 'info_usuario/:id/:rol', component: UsuariosComponent,canActivate:[authsessionGuard]},
   {path: 'prestamos', component: PrestamosComponent},
   {path: 'prestamos/:id/:rol', component: PrestamosComponent},
   {path: 'acerca_de', component: AcercaDeComponent},
   {path: 'acerca_de/:id/:rol', component: AcercaDeComponent},
-  {path: 'alta_usuarios/:id/:rol', component: AltaUsuariosComponent},
+  {path: 'alta_usuarios/:id/:rol', component: AltaUsuariosComponent,canActivate:[authsessionGuard]},
   {path: 'error_page', component: ErrorPageComponent},
-  {path: 'carrito/:id/:rol', component: CarritoComponent},
-  {path: 'stock/:id/:rol', component: StockComponent},
+  {path: 'carrito/:id/:rol', component: CarritoComponent,canActivate:[authsessionGuard]},
+  {path: 'stock/:id/:rol', component: StockComponent,canActivate:[authsessionGuard]},
 
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: '**', redirectTo: '/error_page'}
