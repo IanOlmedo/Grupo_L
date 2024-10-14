@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-prestamos',
@@ -10,8 +11,13 @@ export class PrestamosComponent {
   var_id!:string
   var_rol!:string
   constructor(
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private authService: AuthService
   ){}
+
+  get isToken() {
+    return localStorage.getItem('token');
+  }  
 
   ngOnInit(){
     this.var_id = this.route.snapshot.paramMap.get('id') || '';
