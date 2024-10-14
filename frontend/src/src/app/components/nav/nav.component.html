@@ -14,7 +14,7 @@
         <li *ngIf="var_rol == ''" class="nav-item">
           <a class="nav-link active text-white" aria-current="page" routerLink="/login" href="#">Iniciar Sesión</a>
         </li>
-         -->
+        -->
         <a *ngIf="!isToken" href="#" class="nav-item" routerLink="/login">
           <i class="nav-link active text-white">Iniciar Sesion</i>
         </a>
@@ -35,19 +35,19 @@
         <li class="nav-item">
           <a class="nav-link active text-white" aria-current="page" routerLink="/acerca_de" href="#">Acerca de</a>
         </li>
-        <li *ngIf="var_rol != ''" class="nav-item">
+        <li *ngIf="isToken"  class="nav-item">
           <a class="nav-link active text-white" aria-current="page" routerLink="/info_usuario/{{var_id}}/{{var_rol}}" href="#">Perfil</a>
         </li>
-        <li *ngIf="var_rol == 'admin'" class="nav-item">
+        <li *ngIf="isToken && var_rol == 'admin'" class="nav-item">
           <a class="nav-link active text-white" aria-current="page" href="#">Editar</a>
         </li>
-        <li *ngIf="var_rol == 'user'" class="nav-item">
+        <li *ngIf="isToken && var_rol == 'user'" class="nav-item">
           <a class="nav-link active text-white" aria-current="page" href="#" routerLink="/carrito/{{var_id}}/{{var_rol}}">Carrito</a>
         </li>
-        <li *ngIf="var_rol == 'admin'" class="nav-item">
+        <li *ngIf="isToken && var_rol == 'admin'" class="nav-item">
           <a class="nav-link active text-white" aria-current="page" href="#" routerLink="/alta_usuarios/{{var_id}}/{{var_rol}}">Alta Usuario</a>
         </li>
-        <li *ngIf="var_rol == 'admin'" class="nav-item">
+        <li *ngIf="isToken && var_rol == 'admin'" class="nav-item">
           <a class="nav-link active text-white" aria-current="page" href="#" routerLink="/stock/{{var_id}}/{{var_rol}}">Stock</a>
         </li>
       </ul>

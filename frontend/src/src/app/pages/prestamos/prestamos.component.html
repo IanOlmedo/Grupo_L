@@ -3,3 +3,14 @@
 <app-pres-user-r  *ngIf="var_rol == 'user'"></app-pres-user-r>
 <app-pres-admin *ngIf="var_rol == 'admin'"></app-pres-admin>
 <app-pres-s-p [var_rol]="var_rol" [var_id]="var_id" *ngIf="var_rol == ''"></app-pres-s-p>
+
+
+<div *ngIf="!isToken"></div>
+    <div class="alert-container">
+        <div class="notification-icon">
+            <i class="fa-solid fa-bell" style="color: yellow; font-size: 170%;"></i>
+        </div>
+        <h2><strong> Para pedir un préstamo debes estar registrado</strong></h2>
+        <a href="#" class="button-primary button" style = "background-color: #483fa9;" routerLink="/register">Registrar</a>
+    </div>
+</div>
