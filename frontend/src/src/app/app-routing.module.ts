@@ -13,6 +13,7 @@ import { AltaUsuariosComponent } from './pages/alta-usuarios/alta-usuarios.compo
 import { CarritoComponent } from './pages/carrito/carrito.component';
 import { StockComponent } from './pages/stock/stock.component';
 import { authsessionGuard } from './guards/authsession.guard';
+import { AgregarUsuarioComponent } from './pages/agregar-usuario/agregar-usuario.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -28,7 +29,8 @@ const routes: Routes = [
   {path: 'prestamos/:id/:rol', component: PrestamosComponent},
   {path: 'acerca_de', component: AcercaDeComponent},
   {path: 'acerca_de/:id/:rol', component: AcercaDeComponent},
-  {path: 'alta_usuarios/:id/:rol', component: AltaUsuariosComponent,canActivate:[authsessionGuard]},
+  {path: 'agregar_usuario/:id/:rol', component: AgregarUsuarioComponent},
+  {path: 'alta_usuarios/:id/:rol', component: AltaUsuariosComponent},//canActivate:[authsessionGuard]},
   {path: 'error_page', component: ErrorPageComponent},
   {path: 'carrito/:id/:rol', component: CarritoComponent,canActivate:[authsessionGuard]},
   {path: 'stock/:id/:rol', component: StockComponent,canActivate:[authsessionGuard]},

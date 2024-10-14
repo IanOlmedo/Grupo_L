@@ -25,6 +25,9 @@ import { PresAdminComponent } from './components/pres-admin/pres-admin.component
 import { AltaUsuariosComponent } from './pages/alta-usuarios/alta-usuarios.component';
 import { CarritoComponent } from './pages/carrito/carrito.component';
 import { StockComponent } from './pages/stock/stock.component';
+import { VerUserComponent } from './components/usuarios/ver-user/ver-user.component';
+import { AbmComponent } from './components/usuarios/abm/abm.component';
+import { AgregarUsuarioComponent } from './pages/agregar-usuario/agregar-usuario.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +50,10 @@ import { StockComponent } from './pages/stock/stock.component';
     PresAdminComponent,
     AltaUsuariosComponent,
     CarritoComponent,
-    StockComponent
+    StockComponent,
+    VerUserComponent,
+    AbmComponent,
+    AgregarUsuarioComponent
   ],
   imports: [
     BrowserModule,

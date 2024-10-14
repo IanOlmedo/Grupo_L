@@ -21,6 +21,6 @@ export class UsuariosService {
 
     const requestOptions = {headers: headers}
 
-    return this.httpClient.get(this.url + '/animales', requestOptions);
+    return this.httpClient.get(this.url + '/usuarios', requestOptions);
   }
 }

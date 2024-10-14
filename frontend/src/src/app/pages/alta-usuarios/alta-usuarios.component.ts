@@ -11,46 +11,15 @@ export class AltaUsuariosComponent {
   var_id!:string
   var_rol!:string
 
-  searchQuery = '';
-  arrayUsuarios = [
-    {
-      id: 1,
-      nombre: 'Carlos'
-    },
-    {
-      id: 2,
-      nombre: 'Juan'
-    },
-    {
-      id: 3,
-      nombre: 'Pedro'
-    },
-    {
-      id: 4,
-      nombre: 'Martin'
-    }
-
-  ]
-  
-    filteredUsers = [...this.arrayUsuarios]
   constructor(
-    private route: ActivatedRoute,
-    private router: Router
+    private route: ActivatedRoute
   ){}
 
   ngOnInit(){
     this.var_id = this.route.snapshot.paramMap.get('id') || '';
     this.var_rol=this.route.snapshot.paramMap.get('rol') || '';
-  }
 
-  editarusuario(user:any) {
-    console.log('Estoy editando', user);
-    this.router.navigate(['/usuario/'+user.id+'/Editar']);
-  }
-
-  buscar() {
-    console.log('buscar: ', this.searchQuery);
-    this.filteredUsers = this.arrayUsuarios.filter(user => user.nombre.includes(this.searchQuery));
-  }
-  
+      console.log('this.var_id: ',this.var_id);
+      console.log('this.var_rol: ',this.var_rol);
+    }
 }

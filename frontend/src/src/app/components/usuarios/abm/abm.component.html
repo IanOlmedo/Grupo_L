@@ -1,0 +1,39 @@
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <h2 class="text-center mb-4">Crear usuario</h2>
+            <form>
+                <div class="mb-3">
+                    <label for="nombre_completo" class="form-label">Nombre</label>
+                    <input type="text" class="form-control" id="nombre_completo">
+                </div>
+                <div class="mb-3">
+                    <label for="direccion" class="form-label">Direccion</label>
+                    <input type="text" class="form-control" id="direccion">
+                </div>
+                <div class="mb-3">
+                    <label for="dni" class="form-label">DNI</label>
+                    <input type="text" class="form-control" id="dni">
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email">
+                </div>
+                <div class="mb-3">
+                    <label for="rol" class="form-label">Rol</label>
+                    <input type="text" class="form-control" id="rol">
+                </div>
+                <div class="mb-3">
+                    <label for="telefono" class="form-label">Telefono</label>
+                    <input type="text" class="form-control" id="telefono">
+                </div>
+            </form>
+            <div>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" routerLink="/alta_usuarios/:{{var_id}}/{{var_rol}}">Cancelar</button>
+                <button *ngIf="var_id === 'null'" type="button" class="btn btn-primary">Crear</button>
+                <button *ngIf="var_id !== 'null'" type="button" class="btn btn-primary">Editar</button>
+            </div>
+        </div>
+    </div>
+</div>
