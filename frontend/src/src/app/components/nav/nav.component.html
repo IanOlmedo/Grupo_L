@@ -10,19 +10,9 @@
         <li *ngIf="var_rol == ''" class="nav-item">
           <a class="nav-link active text-white" aria-current="page" routerLink="/register" href="#">Registrarse</a>
         </li>
-        <!--
-        <li *ngIf="var_rol == ''" class="nav-item">
-          <a class="nav-link active text-white" aria-current="page" routerLink="/login" href="#">Iniciar Sesión</a>
-        </li>
-        -->
         <a *ngIf="!isToken" href="#" class="nav-item" routerLink="/login">
           <i class="nav-link active text-white">Iniciar Sesion</i>
         </a>
-        <!--
-        <li *ngIf="var_rol != ''" class="nav-item">
-          <a class="nav-link active text-white" aria-current="page" routerLink="/home" href="#">Cerrar Sesión</a>
-        </li>
-      -->
         <a *ngIf="isToken" href="#" class="nav-item"(click)="cerrarSesion()">
           <i class="nav-link active text-white">Cerrar Sesion</i>
         </a>
