@@ -30,7 +30,7 @@ const routes: Routes = [
   {path: 'acerca_de', component: AcercaDeComponent},
   {path: 'acerca_de/:id/:rol', component: AcercaDeComponent},
   {path: 'agregar_usuario/:id/:rol', component: AgregarUsuarioComponent},
-  {path: 'alta_usuarios/:id/:rol', component: AltaUsuariosComponent},//canActivate:[authsessionGuard]},
+  {path: 'alta_usuarios/:id/:rol', component: AltaUsuariosComponent,canActivate:[authsessionGuard]},
   {path: 'error_page', component: ErrorPageComponent},
   {path: 'carrito/:id/:rol', component: CarritoComponent,canActivate:[authsessionGuard]},
   {path: 'stock/:id/:rol', component: StockComponent,canActivate:[authsessionGuard]},
