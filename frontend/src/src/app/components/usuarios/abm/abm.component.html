@@ -2,38 +2,40 @@
 <div class="container mt-5">
     <div class="row">
         <div class="col-md-8 offset-md-2">
-            <h2 class="text-center mb-4">Crear usuario</h2>
-            <form>
+            <h2 *ngIf="var_id" class="text-center mb-4" style="color: white;">Modificar Usuario</h2>
+            <h2 *ngIf="!var_id" class="text-center mb-4" style="color: white;">Crear usuario</h2>
+            <form (ngSubmit)="onSubmit()" [formGroup]="userForm">
                 <div class="mb-3">
-                    <label for="nombre_completo" class="form-label">Nombre</label>
-                    <input type="text" class="form-control" id="nombre_completo">
+                    <label for="nombre_completo" class="form-label" style="color: white;">Nombre</label>
+                    <input type="text" class="form-control" id="nombre_completo" formControlName="nombre_completo">
                 </div>
                 <div class="mb-3">
-                    <label for="direccion" class="form-label">Direccion</label>
-                    <input type="text" class="form-control" id="direccion">
+                    <label for="direccion" class="form-label" style="color: white">Direccion</label>
+                    <input type="text" class="form-control" id="direccion" formControlName="direccion">
                 </div>
                 <div class="mb-3">
-                    <label for="dni" class="form-label">DNI</label>
-                    <input type="text" class="form-control" id="dni">
+                    <label for="dni" class="form-label" style="color: white">DNI</label>
+                    <input type="text" class="form-control" id="dni" formControlName="dni">
                 </div>
                 <div class="mb-3">
-                    <label for="email" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="email">
+                    <label for="email" class="form-label" style="color: white">Email</label>
+                    <input type="email" class="form-control" id="email" formControlName="email">
                 </div>
                 <div class="mb-3">
-                    <label for="rol" class="form-label">Rol</label>
-                    <input type="text" class="form-control" id="rol">
+                    <label for="password" class="form-label" style="color: white">Contraseña</label>
+                    <input type="text" class="form-control" id="password" formControlName="password">
                 </div>
                 <div class="mb-3">
-                    <label for="telefono" class="form-label">Telefono</label>
-                    <input type="text" class="form-control" id="telefono">
+                    <label for="rol" class="form-label" style="color: white">Rol</label>
+                    <input type="text" class="form-control" id="rol" formControlName="rol">
                 </div>
+                <div class="mb-3">
+                    <label for="telefono" class="form-label" style="color: white">Telefono</label>
+                    <input type="text" class="form-control" id="telefono" formControlName="telefono">
+                </div>
+                <button type="submit" class="btn btn-primary" *ngIf="!var_id" style="color: white">Crear</button>
+                <button type="submit" class="btn btn-primary" *ngIf="var_id" style="color: white">Editar</button>
             </form>
-            <div>
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" routerLink="/alta_usuarios/:{{var_id}}/{{var_rol}}">Cancelar</button>
-                <button *ngIf="var_id === 'null'" type="button" class="btn btn-primary">Crear</button>
-                <button *ngIf="var_id !== 'null'" type="button" class="btn btn-primary">Editar</button>
-            </div>
         </div>
     </div>
 </div>

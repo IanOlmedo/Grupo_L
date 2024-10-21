@@ -6,7 +6,7 @@
             <div class="d-flex mb-3">  
                 <input type="text" (input)="buscar()" class="form-control me-2 flex-grow-1" [(ngModel)]="searchQuery" placeholder="Buscar usuario...">
                 <button class="btn btn-secondary" (click)="buscar()"><i class="fa-solid fa-magnifying-glass"></i></button>
-                <a class="btn btn-primary ms-2" routerLink="/agregar_usuario/{{var_id}}/{{var_rol}}" href="#">
+                <a class="btn btn-primary ms-2" (click)="crearusuario()" href="#">
                     <i class="fa-solid fa-plus"></i>
                 </a>
             </div>
@@ -17,52 +17,10 @@
                     </p>
                     <div>
                         <button class="btn btn-primary btn-sm me-2" (click)="editarusuario(usuario)" ><i class="fa-solid fa-pen-to-square"></i></button>
-                        <button class="btn btn-danger btn-sm"><i class="fa-solid fa-trash"></i></button>
+                        <button class="btn btn-danger btn-sm" (click)="eliminarusuario(usuario)"><i class="fa-solid fa-trash"></i></button>
                     </div>
                 </li>
             </ul>
-        </div>
-    </div>
-    <div class="modal fade" id="nuevoUsuarioModal" tabindex="-1" aria-labelledby="nuevoUsuarioModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="nuevoUsuarioModalLabel">Agregar nuevo usuario</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="mb-3">
-                            <label for="nombre_completo" class="form-label">Nombre</label>
-                            <input type="text" class="form-control" id="nombre_completo">
-                        </div>
-                        <div class="mb-3">
-                            <label for="direccion" class="form-label">Direccion</label>
-                            <input type="text" class="form-control" id="direccion">
-                        </div>
-                        <div class="mb-3">
-                            <label for="dni" class="form-label">DNI</label>
-                            <input type="text" class="form-control" id="dni">
-                        </div>
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="email">
-                        </div>
-                        <div class="mb-3">
-                            <label for="rol" class="form-label">Rol</label>
-                            <input type="text" class="form-control" id="rol">
-                        </div>
-                        <div class="mb-3">
-                            <label for="telefono" class="form-label">Telefono</label>
-                            <input type="text" class="form-control" id="telefono">
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-primary">Guardar</button>
-                </div>
-            </div>
         </div>
     </div>
 </div>

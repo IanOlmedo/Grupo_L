@@ -10,6 +10,8 @@ import { UsuariosService } from '../../../services/usuarios.service'
 export class VerUserComponent {
   @Input() var_id!: string;
   @Input() var_rol!: string;
+
+  role = localStorage.getItem('user_role')
   
   searchQuery = ''
 
@@ -32,11 +34,22 @@ export class VerUserComponent {
 
   editarusuario(user:any) {
     console.log('Estoy editando', user);
-    this.router.navigate(['/usuario/'+user.id+'/Editar']);
+    this.router.navigate(['/agregar_usuario/'+user.id]);
+  }
+
+  crearusuario(){
+    this.router.navigate(['agregar_usuario'])
   }
 
   buscar() {
     console.log('buscar: ', this.searchQuery);
-    this.filteredUsers = this.arrayUsuarios.filter(user => user.name.includes(this.searchQuery));
+    this.filteredUsers = this.arrayUsuarios.filter(user => user.nombre_completo.includes(this.searchQuery));
+  }
+
+  eliminarusuario(user: any){
+    this.usuariosService.deleteUser(user.id_usuario).subscribe(()=>{
+      this.arrayUsuarios = this.arrayUsuarios.filter(u => u.id_usuario !== user.id_usuario);
+      this.filteredUsers = [...this.arrayUsuarios];
+    });
   }
 }

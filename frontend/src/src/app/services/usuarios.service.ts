@@ -38,22 +38,35 @@ export class UsuariosService {
         localStorage.setItem('user_role',user.rol)
       })
   }
-
-  getBooks(){
+  createUser(user: any): Observable<any> {
+    console.log(user)
+    let auth_token = localStorage.getItem('token');
     let headers = new HttpHeaders({
-      'Content-Type': 'application/json'
-    })
-
-    const requestOptions = {headers: headers}
-    return this.httpClient.get<any>(this.url + '/Libros', requestOptions)
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${auth_token}`
+    });
+    const requestOptions = { headers: headers };
+    return this.httpClient.post(this.url + '/Usuarios', user, requestOptions);
   }
 
-  getOneBook(id: string){
+  updateUser(id:string, user: any): Observable<any> {
+    let auth_token = localStorage.getItem('token');
     let headers = new HttpHeaders({
-      'Content-Type': 'application/json'
-    })
-
-    const requestOptions = {headers: headers}
-    return this.httpClient.get<any>(this.url + '/Libro/'+id, requestOptions)
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${auth_token}`
+    });
+    const requestOptions = { headers: headers };
+    return this.httpClient.put(this.url + '/Usuario/' + id, user, requestOptions);
   }
+
+  deleteUser(id: string): Observable<any> {
+    let auth_token = localStorage.getItem('token');
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${auth_token}`
+    });
+    const requestOptions = { headers: headers };
+    return this.httpClient.delete(this.url + '/Usuario/' + id, requestOptions);
+  }
+
 }
