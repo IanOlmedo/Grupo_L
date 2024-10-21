@@ -28,6 +28,7 @@ import { StockComponent } from './pages/stock/stock.component';
 import { VerUserComponent } from './components/usuarios/ver-user/ver-user.component';
 import { AbmComponent } from './components/usuarios/abm/abm.component';
 import { AgregarUsuarioComponent } from './pages/agregar-usuario/agregar-usuario.component';
+import { ValoracionesComponent } from './pages/valoraciones/valoraciones.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { AgregarUsuarioComponent } from './pages/agregar-usuario/agregar-usuario
     StockComponent,
     VerUserComponent,
     AbmComponent,
-    AgregarUsuarioComponent
+    AgregarUsuarioComponent,
+    ValoracionesComponent
   ],
   imports: [
     BrowserModule,

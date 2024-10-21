@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-prestamos',
