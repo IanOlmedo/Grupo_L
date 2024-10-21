@@ -12,7 +12,7 @@
                     <div style="color: white; font-size: 4vw;"><strong>Titulo:</strong></div>
                 </div>
                 <div class="col-9">
-                    <div class="showing p-1"><h6 style="font-size: 4vw;margin-bottom: 0px;">Fuego y sangre <i *ngIf="var_rol == 'admin'" class="fa-solid fa-pen-to-square ms-1" style="color: black;font-size: 100%;"></i></h6></div>
+                    <div class="showing p-1"><h6 style="font-size: 4vw;margin-bottom: 0px;">{{book.titulo}} <i *ngIf="var_rol == 'admin'" class="fa-solid fa-pen-to-square ms-1" style="color: black;font-size: 100%;"></i></h6></div>
                 </div>
             </div>
             <div class="row mt-lg-4">
@@ -20,7 +20,7 @@
                     <div style="color: white; font-size: 4vw;"><strong>Autor:</strong></div>
                 </div>
                 <div class="col-9">
-                    <div class="showing p-1"><h6 style="font-size: 4vw; margin-bottom: 0px;">George R.R.Martin<i *ngIf="var_rol == 'admin'" class="fa-solid fa-pen-to-square ms-1" style="color: black;font-size: 100%;"></i></h6></div>
+                    <div class="showing p-1"><h6 style="font-size: 4vw; margin-bottom: 0px;">{{arrayAuthor[0].nombre_completo}}<i *ngIf="var_rol == 'admin'" class="fa-solid fa-pen-to-square ms-1" style="color: black;font-size: 100%;"></i></h6></div>
                 </div>
             </div>
             <div class="row mt-lg-4">
@@ -28,15 +28,15 @@
                     <div style="color: white; font-size: 4vw;"><strong>Género:</strong></div>
                 </div>
                 <div class="col-9">
-                    <div class="showing p-1"><h6 style="font-size: 4vw; margin-bottom: 0px;">Fantasia<i *ngIf="var_rol == 'admin'" class="fa-solid fa-pen-to-square ms-1" style="color: black;font-size: 100%;"></i></h6></div>
+                    <div class="showing p-1"><h6 style="font-size: 4vw; margin-bottom: 0px;">{{book.genero}}<i *ngIf="var_rol == 'admin'" class="fa-solid fa-pen-to-square ms-1" style="color: black;font-size: 100%;"></i></h6></div>
                 </div>
             </div>
             <div class="row mt-lg-4">
                 <div class="col-3 d-flex align-items-center justify-content-center text-center">
-                    <div style="color: white; font-size: 4vw;"><strong>Páginas:</strong></div>
+                    <div style="color: white; font-size: 4vw;"><strong>Editorial:</strong></div>
                 </div>
                 <div class="col-9">
-                    <div class="showing p-1"><h6 style="font-size: 4vw; margin-bottom: 0px;">860<i *ngIf="var_rol == 'admin'" class="fa-solid fa-pen-to-square ms-1" style="color: black;font-size: 100%;"></i></h6></div>
+                    <div class="showing p-1"><h6 style="font-size: 4vw; margin-bottom: 0px;">{{book.editorial}}<i *ngIf="var_rol == 'admin'" class="fa-solid fa-pen-to-square ms-1" style="color: black;font-size: 100%;"></i></h6></div>
                 </div>
             </div>
         </div>             
@@ -48,7 +48,7 @@
             <div class="p-1" style="color: white; font-size: 4vw;"><strong>Fecha de publicación:</strong></div>
         </div>
         <div class="col-6">
-            <div class="showing p-1"><h6 style="font-size: 4vw; margin-bottom: 0px;">20/10/2018<i *ngIf="var_rol == 'admin'" class="fa-solid fa-pen-to-square ms-1" style="color: black;font-size: 100%;"></i></h6></div>
+            <div class="showing p-1"><h6 style="font-size: 4vw; margin-bottom: 0px;">{{book.ano_de_publicacion | date:'dd/MM/yyyy'}}<i *ngIf="var_rol == 'admin'" class="fa-solid fa-pen-to-square ms-1" style="color: black;font-size: 100%;"></i></h6></div>
         </div>
     </div>
 </div>
@@ -61,7 +61,7 @@
         <div class="col-12">
             <div>
                 <p style="color: black; padding: 3vw; background-color: white; border-radius: 5vw; z-index: 1;">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse impedit eos, nulla eum nisi necessitatibus est et. Nisi quidem voluptatibus vel quam deleniti. Minus illo minima aperiam tenetur eveniet hic? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis consequatur adipisci ducimus, incidunt neque veniam nihil exercitationem! Facilis numquam magni unde harum officiis obcaecati, nulla perferendis, nobis optio fugiat placeat!
+                    {{book.descripcion}}
                 </p>
                 <div *ngIf="var_rol == 'admin'" class="d-flex justify-content-end" style="z-index: 10;"><i class="fa-solid fa-pen-to-square ms-1" style="color: black;font-size: 200%; z-index: 10;"></i></div>
             </div>
