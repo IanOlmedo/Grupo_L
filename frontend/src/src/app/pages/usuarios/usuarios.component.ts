@@ -5,7 +5,7 @@ import { UsuariosService } from '../../services/usuarios.service';  // Importa e
 @Component({
   selector: 'app-usuarios',
   templateUrl: './usuarios.component.html',
-  styleUrl: './usuarios.component.css'
+  styleUrls: ['./usuarios.component.css']  // Corregido styleUrls
 })
 export class UsuariosComponent implements OnInit {
   var_id!: string;
