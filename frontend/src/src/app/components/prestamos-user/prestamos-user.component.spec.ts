@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PresAdminComponent } from './pres-admin.component';
+import { PrestamosUserComponent } from './prestamos-user.component';
 
-describe('PresAdminComponent', () => {
-  let component: PresAdminComponent;
-  let fixture: ComponentFixture<PresAdminComponent>;
+describe('PrestamosUserComponent', () => {
+  let component: PrestamosUserComponent;
+  let fixture: ComponentFixture<PrestamosUserComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [PresAdminComponent]
+      declarations: [PrestamosUserComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(PresAdminComponent);
+    fixture = TestBed.createComponent(PrestamosUserComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

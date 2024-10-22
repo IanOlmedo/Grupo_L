@@ -28,4 +28,15 @@ export class PrestamosComponent {
     console.log('this.var_rol: ',this.var_rol);
   }
 
+  get isRole() {
+    return localStorage.getItem('user_role');
+  }  
+
+  get isUser() {
+    return localStorage.getItem('user_role') === 'user';
+  }
+
+  get isAdmin() {
+    return localStorage.getItem('user_role') === 'admin';
+  }
 }

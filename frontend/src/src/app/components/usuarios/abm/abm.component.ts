@@ -34,7 +34,7 @@ export class AbmComponent {
     
     console.log('this.var_id: ',this.var_id);
     console.log('this.var_rol: ',this.var_id);
-
+    console.log(localStorage.getItem('user_role')==='admin');
   }
 
   onSubmit() {

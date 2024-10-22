@@ -19,9 +19,6 @@ import { RegisterComponent } from './pages/register/register.component';
 import { AcercaDeComponent } from './pages/acerca-de/acerca-de.component';
 import { RedesSocialesComponent } from './components/redes-sociales/redes-sociales.component';
 import { IconoUsuarioComponent } from './components/icono-usuario/icono-usuario.component';
-import { PresSPComponent } from './components/pres-s-p/pres-s-p.component';
-import { PresUserRComponent } from './components/pres-user-r/pres-user-r.component';
-import { PresAdminComponent } from './components/pres-admin/pres-admin.component';
 import { AltaUsuariosComponent } from './pages/alta-usuarios/alta-usuarios.component';
 import { CarritoComponent } from './pages/carrito/carrito.component';
 import { StockComponent } from './pages/stock/stock.component';
@@ -29,6 +26,8 @@ import { VerUserComponent } from './components/usuarios/ver-user/ver-user.compon
 import { AbmComponent } from './components/usuarios/abm/abm.component';
 import { AgregarUsuarioComponent } from './pages/agregar-usuario/agregar-usuario.component';
 import { ValoracionesComponent } from './pages/valoraciones/valoraciones.component';
+import { PrestamosAdminComponent } from './components/prestamos-admin/prestamos-admin.component';
+import { PrestamosUserComponent } from './components/prestamos-user/prestamos-user.component';
 
 @NgModule({
   declarations: [
@@ -46,16 +45,15 @@ import { ValoracionesComponent } from './pages/valoraciones/valoraciones.compone
     AcercaDeComponent,
     RedesSocialesComponent,
     IconoUsuarioComponent,
-    PresSPComponent,
-    PresUserRComponent,
-    PresAdminComponent,
     AltaUsuariosComponent,
     CarritoComponent,
     StockComponent,
     VerUserComponent,
     AbmComponent,
     AgregarUsuarioComponent,
-    ValoracionesComponent
+    ValoracionesComponent,
+    PrestamosAdminComponent,
+    PrestamosUserComponent
   ],
   imports: [
     BrowserModule,

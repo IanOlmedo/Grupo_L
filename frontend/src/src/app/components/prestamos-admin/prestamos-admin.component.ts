@@ -1,19 +1,19 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-pres-admin',
-  templateUrl: './pres-admin.component.html',
-  styleUrl: './pres-admin.component.css'
+  selector: 'app-prestamos-admin',
+  templateUrl: './prestamos-admin.component.html',
+  styleUrl: './prestamos-admin.component.css'
 })
-export class PresAdminComponent {
-
+export class PrestamosAdminComponent {
+  rol = localStorage.getItem('user_role');
 
 
   constructor(
     private route: ActivatedRoute
   ){}
+
 
   get isToken() {
     return localStorage.getItem('token');
@@ -23,14 +23,9 @@ export class PresAdminComponent {
     return localStorage.getItem('user_role');
   }  
 
-  get isUser() {
-    return this.isRole === 'user';
-  }
-
   get isAdmin() {
-    return this.isRole === 'admin';
+
+    return localStorage.getItem('user_role') === 'admin';
   }
+  
 }
-
-
-
