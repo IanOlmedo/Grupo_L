@@ -1,29 +1,26 @@
-<div>
-    <div class="container d-flex justify-content-center "> 
-        <div class="row ">
-            <div class="col-12 ">
-                <h1 style="color: white; margin-left: 2%; margin-top: 30%; font-size: 38px;">Registro</h1>
-            </div>
+<div class="container d-flex justify-content-center "> 
+    <div class="row ">
+        <div class="col-12 ">
+            <h1 style="color: white; margin-left: 2%; margin-top: 30%; font-size: 38px;">Registro</h1>
         </div>
-        
-        <app-icono-usuario></app-icono-usuario>
-        
     </div>
-    <div class="container mt-5 ">
+</div>
+
+<div class="container mt-5 ">
+    <form [formGroup]="registerForm">  
         <div class="row ">    
             <div class="col-2 d-flex justify-content-end my-2 col-lg-4">
                 <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-person-add" viewBox="0 0 16 16">
                     <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7m.5-5v1h1a.5.5 0 0 1 0 1h-1v1a.5.5 0 0 1-1 0v-1h-1a.5.5 0 0 1 0-1h1v-1a.5.5 0 0 1 1 0m-2-6a3 3 0 1 1-6 0 3 3 0 0 1 6 0M8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4"/>
-                    <path d="M8.256 14a4.5 4.5 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10q.39 0 .74.025c.226-.341.496-.65.804-.918Q8.844 9.002 8 9c-5 0-6 3-6 4s1 1 1 1z"/>
                 </svg>  
             </div>
             <div class="col-8 ms-2 col-lg-4 d-flex justify-content-center">
-                <div class="mt-3 p-2 " style="color: white; background-color: #84b1ec;border-radius: 30px; height: 63.7%; ">
-                    <input type="text" placeholder="Correo/Nombre de usuario" style="color: #000000; background-color: transparent; border: none; font-size: 100%;">
+                <div class="mt-3 p-2" style="color: white; background-color: #84b1ec;border-radius: 30px; height: 63.7%;">
+                    <input type="email" formControlName="email" class="form-control" placeholder="Correo" style="color: #000000; background-color: transparent; border: none; font-size: 100%;">
                 </div>
             </div>
-           
         </div>
+        
         <div class="row ">
             <div class="col-2 d-flex justify-content-end col-lg-4">
                 <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-check2" viewBox="0 0 16 16">
@@ -31,32 +28,34 @@
                 </svg>
             </div>
             <div class="col-8 ms-2 col-lg-4 d-flex justify-content-center">
-                <div class="mt-3 p-2 " style="color: white; background-color: #84b1ec;border-radius: 30px;height: 72%;">
-                  <input type="password" placeholder="Contraseña" style="color: #000000; background-color: transparent; border: none;">
-                </div>
+                <div class="mt-3 p-2" style="color: white; background-color: #84b1ec;border-radius: 30px; height: 72%;">
+                    <input type="password" formControlName="password" class="form-control" placeholder="Contraseña" style="color: #000000; background-color: transparent; border: none;">
                 </div>
             </div>
         </div>
+
         <div class="row ">
-            <div class="col-2 d-flex justify-content-end  col-lg-4">
+            <div class="col-2 d-flex justify-content-end col-lg-4">
                 <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-check2-all" viewBox="0 0 16 16">
                     <path d="M12.354 4.354a.5.5 0 0 0-.708-.708L5 10.293 1.854 7.146a.5.5 0 1 0-.708.708l3.5 3.5a.5.5 0 0 0 .708 0zm-4.208 7-.896-.897.707-.707.543.543 6.646-6.647a.5.5 0 0 1 .708.708l-7 7a.5.5 0 0 1-.708 0"/>
                     <path d="m5.354 7.146.896.897-.707.707-.897-.896a.5.5 0 1 1 .708-.708"/>
                 </svg>
             </div>
             <div class="col-8 ms-2 col-lg-4 d-flex justify-content-center">
-                <div class="mt-3 p-2 " style="color: white; background-color: #84b1ec;border-radius: 30px; height: 72%;">
-                    <input type="password" placeholder="Confirmar Contraseña" style="color: #000000; background-color: transparent; border: none;">
+                <div class="mt-3 p-2" style="color: white; background-color: #84b1ec;border-radius: 30px; height: 72%;">
+                    <input type="password" formControlName="confirmPassword" class="form-control" placeholder="Confirmar Contraseña" style="color: #000000; background-color: transparent; border: none;">
                 </div>
             </div>
         </div> 
-    </div>
-    <div class="container d-flex justify-content-end mt-5 pe-5">
-        <div class="row" >
-            <div class="col-12 ">        
-            <button href="#" class="register-btn p-2 m-2 " routerLink="/login">Registrarse</button>          
-            </div>
+    </form>
+</div>
+
+<div class="container d-flex justify-content-end mt-5 pe-5">
+    <div class="row">
+        <div class="col-12">
+            <button type="button" (click)="submit()" class="register-btn p-2 m-2">Registrarse</button>
         </div>
     </div>
-<app-redes-sociales></app-redes-sociales>
+</div>
 
+<app-redes-sociales></app-redes-sociales>

@@ -18,6 +18,8 @@ export class AuthService {
     
     return this.httpClient.post(this.url+'/auth/login',dataLogin).pipe(take(1));
   }
+ 
+
 
   logout() {
     localStorage.removeItem('token');
@@ -25,4 +27,20 @@ export class AuthService {
     localStorage.removeItem('user_role');
     this.router.navigateByUrl('home');
   }
+
+  register(dataRegister: any): Observable<any> {
+    const body = {
+      direccion: null,
+      dni: null,
+      email: dataRegister.email, // Solo asigna el email proporcionado
+      id_usuario: null,
+      nombre_completo: null,
+      password: dataRegister.password, // Solo asigna la contraseña proporcionada
+      rol: 'user', // Puedes asignar un valor predeterminado para el rol si es necesario
+      telefono: null
+    };
+  
+    return this.httpClient.post(this.url + '/auth/register', body).pipe(take(1));
+  }
+  
 }
