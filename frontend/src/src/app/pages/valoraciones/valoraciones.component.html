@@ -16,10 +16,20 @@
                     <img [src]="item.avatar" alt="Avatar de {{ item.usuario }}" class="author-img">
                     <div class="author-name">{{ item.usuario }}</div>
                 </div>
-                <p class="Valoracion">Valoración: {{ item.valoracion }}</p>
-                <p class="Calificación">Calificación: {{ item.calificacion }}</p>
+                <div>
+                    <h6 style="font-weight: bold">Valoración:</h6>
+                    <p class="Valoracion">{{ item.valoracion }}</p>
+                </div>
+                <div>
+                    <h6 style="font-weight: bold">Calificación:</h6>
+                    <p class="Calificación">{{ item.calificacion }}</p>
+                </div>
+                <button class="btn btn-danger btn-sm" (click)="eliminarValoracion(i)">
+                    <i class="fa-solid fa-trash"></i>
+                </button>
             </div>
             <img [src]="item.portada" alt="Portada de {{ item.titulo }}" class="portada">
+
         </div>
     </div>
 </div>
