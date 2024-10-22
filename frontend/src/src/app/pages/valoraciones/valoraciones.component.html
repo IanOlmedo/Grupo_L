@@ -7,31 +7,40 @@
         <div class="circle-plus-cart" routerLink="/add-review"><h2>+</h2></div>
     </div>
 
-<div class="cart-item" *ngFor="let item of cartItems; let i = index">
-    <div class="book-card">
-        <p class="book-title">{{ item.titulo }}</p>
-        <div class="book-content">
-            <div class="book-info">
-                <div class="user-info">
-                    <img [src]="item.avatar" alt="Avatar de {{ item.usuario }}" class="author-img">
-                    <div class="author-name">{{ item.usuario }}</div>
+<div>
+    <h1 style="color: white; text-align: center; font-size: 15px">Total de Valoraciones: {{ cartItems.length }}</h1>
+</div>
+<div *ngIf="cartItems.length > 0; else sinValoraciones">
+    <div class="cart-item" *ngFor="let item of cartItems; let i = index">
+        <div class="book-card">
+            <p class="book-title">{{ item.titulo }}</p>
+            <div class="book-content">
+                <div class="book-info">
+                    <div class="user-info">
+                        <img [src]="item.avatar" alt="Avatar de {{ item.usuario }}" class="author-img">
+                        <div class="author-name">{{ item.usuario }}</div>
+                    </div>
+                    <div>
+                        <h6 style="font-weight: bold">Valoración:</h6>
+                        <p class="Valoracion">{{ item.valoracion }}</p>
+                    </div>
+                    <div>
+                        <h6 style="font-weight: bold">Calificación:</h6>
+                        <p class="Calificación">{{ item.calificacion }}</p>
+                    </div>
+                    <button class="btn btn-danger btn-sm" (click)="eliminarValoracion(i)">
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
                 </div>
-                <div>
-                    <h6 style="font-weight: bold">Valoración:</h6>
-                    <p class="Valoracion">{{ item.valoracion }}</p>
-                </div>
-                <div>
-                    <h6 style="font-weight: bold">Calificación:</h6>
-                    <p class="Calificación">{{ item.calificacion }}</p>
-                </div>
-                <button class="btn btn-danger btn-sm" (click)="eliminarValoracion(i)">
-                    <i class="fa-solid fa-trash"></i>
-                </button>
+                <img [src]="item.portada" alt="Portada de {{ item.titulo }}" class="portada">
+    
             </div>
-            <img [src]="item.portada" alt="Portada de {{ item.titulo }}" class="portada">
-
         </div>
     </div>
 </div>
+
+<ng-template #sinValoraciones>
+    <h1 style="color: white; text-align: center; font-size: 15px">No hay Valoraciones de este libro</h1>
+</ng-template>
 
 </div>
