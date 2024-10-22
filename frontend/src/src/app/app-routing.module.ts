@@ -15,6 +15,7 @@ import { StockComponent } from './pages/stock/stock.component';
 import { authsessionGuard } from './guards/authsession.guard';
 import { authroleGuard } from './guards/authrole.guard';
 import { AgregarUsuarioComponent } from './pages/agregar-usuario/agregar-usuario.component';
+import { ValoracionesComponent } from './pages/valoraciones/valoraciones.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -36,6 +37,7 @@ const routes: Routes = [
   {path: 'error_page', component: ErrorPageComponent},
   {path: 'carrito/:id/:rol', component: CarritoComponent,canActivate:[authsessionGuard]},
   {path: 'stock/:id/:rol', component: StockComponent,canActivate:[authsessionGuard, authroleGuard]},
+  {path: 'valoraciones/:id/:rol', component: ValoracionesComponent},
 
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: '**', redirectTo: '/error_page'}
