@@ -170,3 +170,7 @@
     height: auto;
     border-radius: 10px;
 }
+
+.stars {
+    color: yellow;
+}
