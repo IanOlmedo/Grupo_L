@@ -3,7 +3,7 @@
 <div class="container-fluid" style="margin-top: 30px;">
     <div class="row">
         <div class="col-4">
-            <img src="assets/Fuego_y_Sangre.jpeg" alt="Libro 1" class="img">
+            <img src={{book.imagen}} alt="Libro 1" class="img">
             <div *ngIf="var_rol == 'admin'" class="d-flex justify-content-end"><i class="fa-solid fa-pen-to-square ms-1" style="color: black;font-size: 200%;"></i></div>  
         </div>
         <div class="col-8">
@@ -48,7 +48,7 @@
             <div class="p-1" style="color: white; font-size: 4vw;"><strong>Fecha de publicación:</strong></div>
         </div>
         <div class="col-6">
-            <div class="showing p-1"><h6 style="font-size: 4vw; margin-bottom: 0px;">{{book.ano_de_publicacion | date:'dd/MM/yyyy'}}<i *ngIf="var_rol == 'admin'" class="fa-solid fa-pen-to-square ms-1" style="color: black;font-size: 100%;"></i></h6></div>
+            <div class="showing p-1"><h6 style="font-size: 4vw; margin-bottom: 0px;">{{book.anio_de_publicacion}}<i *ngIf="var_rol == 'admin'" class="fa-solid fa-pen-to-square ms-1" style="color: black;font-size: 100%;"></i></h6></div>
         </div>
     </div>
 </div>

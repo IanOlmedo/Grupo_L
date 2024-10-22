@@ -4,16 +4,16 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 class Usuarios(db.Model):
     id_usuario = db.Column(db.Integer, primary_key=True)
-    nombre_completo = db.Column(db.String(100), nullable=False)
-    direccion = db.Column(db.String(100), nullable=False)
-    dni = db.Column(db.Integer, nullable=False)
+    nombre_completo = db.Column(db.String(100))
+    direccion = db.Column(db.String(100))
+    dni = db.Column(db.Integer)
     #Mail usado como nombre de usuario
     email = db.Column(db.String(64), unique=True, index=True, nullable=False)
     #Contraseña que será el hash de la pass en texto plano
     password = db.Column(db.String(128), nullable=False)
     #Rol (En el caso que existan diferentes tipos de usuarios con diferentes permisos)
     rol = db.Column(db.String(10), nullable=False, server_default="users")
-    telefono = db.Column(db.Integer, nullable=False)
+    telefono = db.Column(db.Integer)
     #Relación uno a muchos
     configuraciones = db.relationship("Configuracion", back_populates="usuario", cascade="all, delete-orphan")
     #Relación uno a muchos  

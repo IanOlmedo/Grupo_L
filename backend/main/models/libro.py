@@ -6,8 +6,9 @@ class Libro(db.Model):
     titulo = db.Column(db.String(100), nullable=False)
     genero = db.Column(db.String(100), nullable=False)
     editorial = db.Column(db.String(100), nullable=False)
-    año_de_publicacion = db.Column(db.DateTime, nullable=False)
+    anio_de_publicacion = db.Column(db.DateTime, nullable=False)
     descripcion = db.Column(db.String(100), nullable=False)
+    imagen = db.Column(db.String(100), nullable=False)
     stock = db.Column(db.Integer, nullable=False)
     # Relación uno a muchos
     prestamo = db.relationship("Prestamo", back_populates="libros",cascade="all, delete-orphan", uselist=False, single_parent=True)
@@ -25,8 +26,9 @@ class Libro(db.Model):
             'titulo':str(self.titulo),
             'genero':str(self.genero),
             'editorial':str(self.editorial),
-            'año_de_publicacion':str(self.año_de_publicacion.strftime("%d-%m-%Y")),
+            'anio_de_publicacion':str(self.anio_de_publicacion.strftime("%d-%m-%Y")),
             'descripcion':str(self.descripcion),
+            'imagen':str(self.imagen),
             'stock':self.stock
         }
         return libro_json
@@ -37,7 +39,7 @@ class Libro(db.Model):
             'titulo':str(self.titulo),
             'genero':str(self.genero),
             'editorial':str(self.editorial),
-            'año_de_publicacion':self.año_de_publicacion,
+            'anio_de_publicacion':self.anio_de_publicacion,
             'descripcion':str(self.descripcion),
             'stock':self.stock
         }
@@ -50,9 +52,10 @@ class Libro(db.Model):
                 'titulo':str(self.titulo),
                 'genero':str(self.genero),
                 'editorial':str(self.editorial),
-                'año_de_publicacion':str(self.año_de_publicacion.strftime("%d-%m-%Y")),
+                'anio_de_publicacion':str(self.anio_de_publicacion.strftime("%d-%m-%Y")),
                 'descripcion':str(self.descripcion),
                 'stock':self.stock,
+                'imagen':str(self.imagen),
                 'autor':autor
             }
             return libro_json
@@ -62,14 +65,15 @@ class Libro(db.Model):
         titulo = libro_json.get('titulo')
         genero = libro_json.get('genero')
         editorial = libro_json.get('editorial')
-        año_de_publicacion = datetime.strptime(libro_json.get('año_de_publicacion'), '%d-%m-%Y')
+        anio_de_publicacion = datetime.strptime(libro_json.get('anio_de_publicacion'), '%d-%m-%Y')
         descripcion = libro_json.get('descripcion')
+        imagen = libro_json.get('imagen')
         stock = libro_json.get('stock')
         return Libro(id_libro=id_libro,
                     titulo=titulo,
                     genero=genero,
                     editorial=editorial,
-                    año_de_publicacion=año_de_publicacion,
+                    anio_de_publicacion=anio_de_publicacion,
                     descripcion=descripcion,
                     stock=stock,
                     )

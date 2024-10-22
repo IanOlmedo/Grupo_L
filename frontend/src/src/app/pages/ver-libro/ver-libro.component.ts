@@ -32,17 +32,4 @@ export class VerLibroComponent {
     },
   )
   }
-/*
-  ngOnInit(){
-    this.var_id = this.route.snapshot.paramMap.get('id') || '';
-    this.book = this.booksService.getOneBook(this.var_id);
-    console.log(this.book)
-    console.log(this.book.titulo)
-    this.book.subscribe((b:any) => {
-      this.autor = b.autor;
-      console.log(this.autor)
-      console.log(this.autor.id_autor)
-    });
-  }
-  */
 }
