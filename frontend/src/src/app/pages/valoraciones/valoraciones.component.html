@@ -4,7 +4,7 @@
 <div class="cart-container">
     <div class="cart-header">
         <h1 class="cart-title">Valoraciones</h1>
-        <div class="circle-plus-cart" routerLink="/add-review"><h2>+</h2></div>
+        <div *ngIf="var_rol == 'user'" class="circle-plus-cart" routerLink="/add-review"><h2>+</h2></div>
     </div>
 
 <div>
@@ -26,14 +26,18 @@
                     </div>
                     <div>
                         <h6 style="font-weight: bold">Calificación:</h6>
-                        <p class="Calificación">{{ item.calificacion }}</p>
+                        <div class="rating">
+                            <span *ngFor="let star of getStars(+item.calificacion); let i = index">
+                                <i class="fa-solid fa-star"[ngClass]="{'stars': i < +item.calificacion}"></i>
+                            </span>
+                        </div>
                     </div>
-                    <button class="btn btn-danger btn-sm" (click)="eliminarValoracion(i)">
+                    <button *ngIf="var_rol == 'admin'" class="btn btn-danger btn-sm" (click)="eliminarValoracion(i)">
                         <i class="fa-solid fa-trash"></i>
                     </button>
                 </div>
                 <img [src]="item.portada" alt="Portada de {{ item.titulo }}" class="portada">
-    
+
             </div>
         </div>
     </div>

@@ -24,11 +24,11 @@ export class PresAdminComponent {
   }  
 
   get isUser() {
-    return this.isRole == 'user';
+    return this.isRole === 'user';
   }
 
   get isAdmin() {
-    return this.isRole == 'admin';
+    return this.isRole === 'admin';
   }
 }
 
