@@ -1,7 +1,6 @@
 
 
 
-
     <div class="user-card text-black text-center background-transparent mb-3" style=" margin-top: 5%;;">
         <div class="row g-0" style ="margin-top: 5%; margin-bottom: 5%">
             <div class="col-4">
@@ -11,8 +10,8 @@
                 <div class="user-card-body" style="padding: 5%; background-color: white; border-color: #483fa9 ; border-radius: 5%; ">
                     <h5 class="user-card-title">Ian Olmedo</h5>
                     <p class="user-card-text">DNI: 45929290</p>
-                    <p class="user-card-text">Préstamos: 3</p>
-                    <p class="user-card-text">Préstamos Vencidos: 0</p>
+                    <p class="user-card-text">Préstamos: {{ cantidadPrestamos }}</p>
+                    <p class="user-card-text">Préstamos Vencidos: {{ cantidadPrestamosVencidos }}</p>
                     <a href="../bootstrap/info_detalles.html" class="button-primary button" style = "background-color: #483fa9;">Ver más</a>
                 </div>
             </div>

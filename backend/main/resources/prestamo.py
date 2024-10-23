@@ -12,7 +12,7 @@ class Prestamo(Resource):
     @roles_required(roles = ["admin", "users"])
     def get(self, id):
         prestamo = db.session.query(PrestamoModel).get_or_404(id)
-        return prestamo.to_json(), 201
+        return prestamo.to_json_complete(), 201
     
     @roles_required(roles = ["admin"])
     def delete(self, id):
@@ -113,7 +113,7 @@ class Prestamos(Resource):
 
         prestamos = prestamos.paginate(page=page, per_page=per_page, error_out=True)
 
-        return jsonify({'prestamos': [prestamo.to_json() for prestamo in prestamos.items],
+        return jsonify({'prestamos': [prestamo.to_json_complete() for prestamo in prestamos.items],
                 'total de prestamos': prestamos.total,
                 'paginas': prestamos.pages,
                 'pagina': page

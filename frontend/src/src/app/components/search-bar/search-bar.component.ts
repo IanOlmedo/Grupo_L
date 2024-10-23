@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-search-bar',
@@ -6,4 +6,9 @@ import { Component } from '@angular/core';
   styleUrl: './search-bar.component.css'
 })
 export class SearchBarComponent {
+  @Input() buscar: Function = () => {};
+
+  onSearch(searchQuery:string){
+    this.buscar(searchQuery)
+  }
 }

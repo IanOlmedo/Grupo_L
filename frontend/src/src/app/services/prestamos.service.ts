@@ -14,20 +14,25 @@ export class PrestamosService {
   ) { }
 
   getPrestamos(){
-    let headers = new HttpHeaders({
-    'Content-Type': 'application/json'
-  })
+    let auth_token = localStorage.getItem('token');
 
-  const requestOptions = {headers: headers}
-  return this.httpClient.get<any>(this.url + '/Prestamos', requestOptions)
+    let headers = new HttpHeaders({
+    'Content-Type': 'application/json',
+    'Authorization': `Bearer ${auth_token}`})
+
+    const requestOptions = {headers: headers}
+    
+    return this.httpClient.get<any>(this.url + '/Prestamos', requestOptions)
   }
 
-  getOnePrestamos(){
-    let headers = new HttpHeaders({
-    'Content-Type': 'application/json'
-  })
+  getOnePrestamos(id:string){
+    let auth_token = localStorage.getItem('token');
 
-  const requestOptions = {headers: headers}
-  return this.httpClient.get<any>(this.url + '/Prestamo', requestOptions)
+    let headers = new HttpHeaders({
+    'Content-Type': 'application/json',
+    'Authorization': `Bearer ${auth_token}`})
+
+    const requestOptions = {headers: headers}
+    return this.httpClient.get<any>(this.url + '/Prestamo/'+id, requestOptions)
   }
 }

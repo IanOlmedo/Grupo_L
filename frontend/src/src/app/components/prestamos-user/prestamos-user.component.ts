@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -8,13 +8,23 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class PrestamosUserComponent {
   rol = localStorage.getItem('user_role');
+  id = localStorage.getItem('user_id')
+
+  @Input() filteredPrestamos: any[] = [] 
 
 
   constructor(
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+
   ){}
-
-
+  /*
+  get prestamosUsuario(){
+    console.log("Usuario: "+this.id)
+    console.log("id_usuario: "+this.filteredPrestamos.prestamos)
+    console.log("Prestamos del usuario: "+this.filteredPrestamos.filter(p => p.id_usuario === this.id))
+    return this.filteredPrestamos.filter(p => p.id_usuario === this.id)
+  }
+  */
   get isToken() {
     return localStorage.getItem('token');
   }  

@@ -37,8 +37,8 @@ class Prestamo(db.Model):
         return prestamo_json
 
     def to_json_complete(self):
-            usuarios = [usuario.to_json() for usuario in self.usuario]
-            libro = [libro.to_json() for libro in self.libros]
+            usuarios = self.usuario.to_json()
+            libro = self.libros.to_json()
             prestamo_json={
                 'id_prestamo':self.id_prestamo,
                 'id_usuario':self.id_usuario,
