@@ -2,15 +2,22 @@
 <app-search-bar></app-search-bar>
 
 <div class="container-fluid images-container">
-    <!-- Primera fila de imágenes -->
-    <div class="row mb-3 text-center">
-        <div class="col-4 image-wrapper" *ngFor="let libro of filteredBooks">
-            <div *ngIf="var_rol == 'user'" class="circle-plus" routerLink="/carrito/{{var_id}}/{{var_rol}}" href="#"><h2>+</h2></div>
-            <div *ngIf="var_rol == 'admin'" class="edit-button" routerLink="/ver_libro/{{var_id}}/{{var_rol}}" href="#">Editar</div>
-            <img src={{libro.imagen}} alt="Image 1" class="img-fluid img-overlay1">
-        </div>
+    <div class="row text-center">
+        <ng-container *ngFor="let libro of filteredBooks">
+            <div class="col-4 d-flex flex-column align-items-center">
+                <div class="image-wrapper">
+                    <div *ngIf="var_rol == 'user'" class="circle-plus" routerLink="/carrito/{{var_id}}/{{var_rol}}" href="#"><h2>+</h2></div>
+                    <div *ngIf="var_rol == 'admin'" class="edit-button" routerLink="/ver_libro/{{var_id}}/{{var_rol}}" href="#">Editar</div>
+                    <img src={{libro.imagen}} alt="Image 1" class="img-fluid img-overlay1">
+                </div>
+                <h6 class="image-title">{{libro.titulo}}</h6>
+            </div>
+        </ng-container>
     </div>
-    <!--
+
+
+
+<!--  
     <div class="row mb-3 text-center">
         <div class="col-4 image-wrapper">
             <div *ngIf="var_rol == 'user'" class="circle-plus" routerLink="/carrito/{{var_id}}/{{var_rol}}" href="#"><h2>+</h2></div>
@@ -28,14 +35,8 @@
             <img src="assets/El_Resplandor.jpeg" alt="Image 3" class="img-fluid img-overlay1">
         </div>
     </div>
--->
-    <!-- Títulos de la primera fila -->
-    <div class="row text-center mb-3">
-        <div class="col-4" *ngFor="let libro of filteredBooks">
-            <h6 class="image-title">{{libro.titulo}}</h6>
-        </div>
-    </div>
-    <!--
+
+
     <div class="row text-center mb-3">
         <div class="col-4">
             <h6 class="image-title">IT</h6>
@@ -47,8 +48,7 @@
             <h6 class="image-title">El Resplandor</h6>
         </div>
     </div>
--->
-    <!-- Segunda fila de imágenes -->
+
     <div class="row mb-3 text-center">
         <div class="col-4 image-wrapper">
             <div *ngIf="var_rol == 'user'" class="circle-plus" routerLink="/carrito/{{var_id}}/{{var_rol}}" href="#"><h2>+</h2></div>
@@ -67,7 +67,6 @@
         </div>
     </div>
 
-    <!-- Títulos de la segunda fila -->
     <div class="row text-center mb-3">
         <div class="col-4">
             <h6 class="image-title">Fuego y Sangre</h6>
@@ -80,7 +79,6 @@
         </div>
     </div>
 
-    <!-- Tercera fila de imágenes -->
     <div class="row mb-3 text-center">
         <div class="col-4 image-wrapper">
             <div *ngIf="var_rol == 'user'" class="circle-plus" routerLink="/carrito/{{var_id}}/{{var_rol}}" href="#"><h2>+</h2></div>
@@ -99,7 +97,6 @@
         </div>
     </div>
 
-    <!-- Títulos de la tercera fila -->
     <div class="row text-center mb-3">
         <div class="col-4">
             <h6 class="image-title">Romper el Circulo</h6>
@@ -112,7 +109,6 @@
         </div>
     </div>
 
-    <!-- Cuarta fila de imágenes -->
     <div class="row mb-3 text-center">
         <div class="col-4 image-wrapper">
             <div *ngIf="var_rol == 'user'" class="circle-plus" routerLink="/carrito/{{var_id}}/{{var_rol}}" href="#"><h2>+</h2></div>
@@ -131,7 +127,6 @@
         </div>
     </div>
 
-    <!-- Títulos de la cuarta fila -->
     <div class="row text-center mb-3">
         <div class="col-4">
             <h6 class="image-title">Harry Potter y el Cáliz de Fuego</h6>
@@ -144,7 +139,6 @@
         </div>
     </div>
 
-    <!-- Quinta fila de imágenes -->
     <div class="row mb-3 text-center">
         <div class="col-4 image-wrapper">
             <div *ngIf="var_rol == 'user'" class="circle-plus" routerLink="/carrito/{{var_id}}/{{var_rol}}" href="#"><h2>+</h2></div>
@@ -163,7 +157,6 @@
         </div>
     </div>
 
-    <!-- Títulos de la quinta fila -->
     <div class="row text-center mb-3">
         <div class="col-4">
             <h6 class="image-title">Viaje al Centro de la Tierra</h6>
@@ -176,3 +169,4 @@
         </div>
     </div>
 </div>
+-->
