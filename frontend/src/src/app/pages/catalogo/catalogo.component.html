@@ -2,14 +2,22 @@
 <app-search-bar></app-search-bar>
 
 <div class="container-fluid images-container">
-    <!-- Primera fila de imágenes -->
-    <div class="row mb-3 text-center">
-        <div class="col-4 image-wrapper" *ngFor="let libro of filteredBooks">
-            <div *ngIf="var_rol == 'user'" class="circle-plus" routerLink="/carrito/{{var_id}}/{{var_rol}}" href="#"><h2>+</h2></div>
-            <div *ngIf="var_rol == 'admin'" class="edit-button" routerLink="/ver_libro/{{var_id}}/{{var_rol}}" href="#">Editar</div>
-            <img src={{libro.imagen}} alt="Image 1" class="img-fluid img-overlay1">
-        </div>
+    <div class="row text-center">
+        <ng-container *ngFor="let libro of filteredBooks">
+            <div class="col-4 d-flex flex-column align-items-center">
+                <div class="image-wrapper">
+                    <div *ngIf="var_rol == 'user'" class="circle-plus" routerLink="/carrito/{{var_id}}/{{var_rol}}" href="#"><h2>+</h2></div>
+                    <div *ngIf="var_rol == 'admin'" class="edit-button" routerLink="/ver_libro/{{var_id}}/{{var_rol}}" href="#">Editar</div>
+                    <img src={{libro.imagen}} alt="Image 1" class="img-fluid img-overlay1">
+                </div>
+                <h6 class="image-title">{{libro.titulo}}</h6>
+            </div>
+        </ng-container>
     </div>
+
+
+
+
     <!--
     <div class="row mb-3 text-center">
         <div class="col-4 image-wrapper">
@@ -29,12 +37,7 @@
         </div>
     </div>
 -->
-    <!-- Títulos de la primera fila -->
-    <div class="row text-center mb-3">
-        <div class="col-4" *ngFor="let libro of filteredBooks">
-            <h6 class="image-title">{{libro.titulo}}</h6>
-        </div>
-    </div>
+
     <!--
     <div class="row text-center mb-3">
         <div class="col-4">
