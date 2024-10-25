@@ -12,27 +12,26 @@ export class PrestamosAdminComponent {
 
   cantidadPrestamos: number = 0;
   cantidadPrestamosVencidos: number = 0;
+
   /*
   @Input() var_rol!: string;
   @Input() var_id!: string;
   */
 
-  @Input() filteredPrestamos: any[] = [] 
-  @Input() arrayBooks: any[] = [] 
-  @Input() arrayUsers: any[] = [] 
+  @Input() arrayPrestamosWithDetails: any[] = []
 
   constructor(
     private route: ActivatedRoute
   ){}
 
   ngOnInit(){
-    this.cantidadPrestamos = this.countPrestamosByUser();
-    this.cantidadPrestamosVencidos = this.countPrestamosVencidosByUser(6)
+
   }
 
-  countPrestamosByUser(){
-    return this.filteredPrestamos.reduce((count, prestamo) => {
-      if (prestamo.id_usuario === this.id) {
+  countPrestamosByUser(userId: string) {
+
+    return this.arrayPrestamosWithDetails.reduce((count, prestamo) => {
+      if (prestamo.usuario.id_usuario === userId) {
         return count + 1;
       } else {
         return count;
@@ -40,18 +39,18 @@ export class PrestamosAdminComponent {
     }, 0);
   }
 
-  countPrestamosVencidosByUser(id_usuario: number): number {
+  countPrestamosVencidosByUser(userId: number): number {
     const fechaActual = new Date();
-    return this.filteredPrestamos.reduce((count, prestamo) => {
-      if (prestamo.id_usuario === id_usuario && new Date(prestamo.fecha_de_vencimiento) < fechaActual) {
+    return this.arrayPrestamosWithDetails.reduce((count, prestamo) => {
+      const fechaVencimiento = prestamo.prestamo.fecha_de_vencimiento.split("-").reverse().join("-");
+      const date = new Date(fechaVencimiento);
+      if (prestamo.usuario.id_usuario === userId && date < fechaActual && prestamo.prestamo.estado === "no devuelto") {
         return count + 1;
       } else {
         return count;
       }
     }, 0);
   }
-
-
   get isToken() {
     return localStorage.getItem('token');
   }  

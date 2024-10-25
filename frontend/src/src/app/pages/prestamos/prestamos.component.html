@@ -10,7 +10,7 @@
 <app-prestamos-user [filteredPrestamos]="filteredPrestamos"></app-prestamos-user>
 -->
 
-<app-prestamos-admin [filteredPrestamos]="filteredPrestamos" [arrayUsers]="arrayUsers" [arrayBooks]="arrayBooks"> </app-prestamos-admin>
+<app-prestamos-admin [arrayPrestamosWithDetails]="arrayPrestamosWithDetails"> </app-prestamos-admin>
 
 <div *ngIf="!isToken">
     <div class="alert-container">

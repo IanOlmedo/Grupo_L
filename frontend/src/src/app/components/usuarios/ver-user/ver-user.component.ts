@@ -34,7 +34,7 @@ export class VerUserComponent {
 
   editarusuario(user:any) {
     console.log('Estoy editando', user);
-    this.router.navigate(['/agregar_usuario/'+user.id]);
+    this.router.navigate(['/agregar_usuario/'+user.id+'/admin']);
   }
 
   crearusuario(){

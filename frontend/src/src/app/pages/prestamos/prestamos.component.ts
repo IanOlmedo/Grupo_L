@@ -15,6 +15,7 @@ export class PrestamosComponent {
 
   arrayPrestamos:any[] = []
   filteredPrestamos:any[] = []
+  arrayPrestamosWithDetails:any[] = []
   arrayUsers:any[] = []
   arrayBooks:any[] = []
 
@@ -44,10 +45,16 @@ export class PrestamosComponent {
       console.log('prestamos api: ',rta);
       this.arrayPrestamos = rta.prestamos || [];
       this.filteredPrestamos = [...this.arrayPrestamos]
-      this.arrayUsers = rta.prestamos.map((prestamo: any) => prestamo.usuarios);
-      this.arrayBooks = rta.prestamos.map((prestamo: any) => prestamo.libro);
-      console.log(this.arrayBooks)
-      console.log(this.arrayUsers)
+      this.arrayPrestamosWithDetails = this.arrayPrestamos.map((prestamo: any) => {
+        return {
+          prestamo: prestamo,
+          usuario: prestamo.usuarios,
+          libro: prestamo.libro
+        };
+      });
+      for (let element of this.arrayPrestamosWithDetails) {
+        console.log(element);
+      }
     });
     if (this.var_id){
       this.prestamosService.getOnePrestamos(this.var_id).subscribe((rta:any) =>{
