@@ -11,15 +11,15 @@ export class BooksService {
     private httpClient:HttpClient
   ) { }
 
-  getBooks(){
+  getBooks(page: number = 1): Observable<any> {
     let headers = new HttpHeaders({
       'Content-Type': 'application/json'
-    })
-
-    const requestOptions = {headers: headers}
-    return this.httpClient.get<any>(this.url + '/Libros', requestOptions)
+    });
+  
+    const requestOptions = { headers: headers, params: { page: page.toString() } };
+    return this.httpClient.get<any>(this.url + '/Libros', requestOptions);
   }
-
+  
   getOneBook(id: string){
     let headers = new HttpHeaders({
       'Content-Type': 'application/json'
