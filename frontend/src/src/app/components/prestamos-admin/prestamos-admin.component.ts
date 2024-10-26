@@ -35,6 +35,7 @@ export class PrestamosAdminComponent {
   ngOnInit(){}
 
   countPrestamosByUser(userId: string) {
+    console.log(this.originalPrestamos)
     return this.originalPrestamos.reduce((count, prestamo) => {
       if (prestamo.usuario.id_usuario === userId) {
         return count + 1;

@@ -1,10 +1,10 @@
 <app-nav [var_rol]="var_rol" [var_id]="var_id"></app-nav>
 
-<app-search-bar [buscar]="buscar"></app-search-bar>
+<app-search-bar (searchQueryChange)="onSearchQueryChange($event)"></app-search-bar>
 
-<app-prestamos-user [arrayPrestamosWithDetails]="arrayPrestamosWithDetails" *ngIf="isToken && isUser"></app-prestamos-user>
+<app-prestamos-user [arrayPrestamosWithDetails]="prestamos" *ngIf="isToken && isUser"></app-prestamos-user>
 
-<app-prestamos-admin [arrayPrestamosWithDetails]="arrayPrestamosWithDetails" *ngIf="isToken && isAdmin"> </app-prestamos-admin>
+<app-prestamos-admin [arrayPrestamosWithDetails]="prestamos" *ngIf="isToken && isAdmin"> </app-prestamos-admin>
 
 <div *ngIf="!isToken">
     <div class="alert-container">
