@@ -40,7 +40,7 @@ class Usuarios(Resource):
         #Página inicial por defecto
         page = 1
         #Cantidad de elementos por página por defecto
-        per_page = 10  
+        per_page = 4
         
         #no ejecuto el .all()
         usuarios = db.session.query(UsuarioModel)

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Observable, take } from 'rxjs';
-import { HttpClient, HttpHeaders } from '@angular/common/http'
+import { Observable } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -8,38 +8,33 @@ import { HttpClient, HttpHeaders } from '@angular/common/http'
 export class UsuariosService {
   url = '/api';
   constructor(
-    private httpClient:HttpClient
+    private httpClient: HttpClient
   ) { }
 
-
-  getUsers() {
+  getUsers(page: number = 1): Observable<any> {
     let auth_token = localStorage.getItem('token');
-
     let headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization': `Bearer ${auth_token}` 
-    })
-
-    const requestOptions = {headers: headers}
-
-    return this.httpClient.get(this.url + '/Usuarios', requestOptions);
+      'Authorization': `Bearer ${auth_token}`
+    });
+    const requestOptions = { headers: headers, params: { page: page.toString() } };
+    return this.httpClient.get<any>(this.url + '/Usuarios', requestOptions);
   }
 
-  getUserRole(){
-    let id = localStorage.getItem('user_id')
-
+  getUserRole() {
+    let id = localStorage.getItem('user_id');
     let headers = new HttpHeaders({
       'Content-Type': 'application/json'
-    })
-
-    const requestOptions = {headers: headers}
+    });
+    const requestOptions = { headers: headers };
     this.httpClient.get<any>(this.url + '/Usuario/' + id, requestOptions)
       .subscribe(user => {
-        localStorage.setItem('user_role',user.rol)
-      })
+        localStorage.setItem('user_role', user.rol);
+      });
   }
+
   createUser(user: any): Observable<any> {
-    console.log(user)
+    console.log(user);
     let auth_token = localStorage.getItem('token');
     let headers = new HttpHeaders({
       'Content-Type': 'application/json',
@@ -49,7 +44,7 @@ export class UsuariosService {
     return this.httpClient.post(this.url + '/Usuarios', user, requestOptions);
   }
 
-  updateUser(id:string, user: any): Observable<any> {
+  updateUser(id: string, user: any): Observable<any> {
     let auth_token = localStorage.getItem('token');
     let headers = new HttpHeaders({
       'Content-Type': 'application/json',
@@ -68,5 +63,4 @@ export class UsuariosService {
     const requestOptions = { headers: headers };
     return this.httpClient.delete(this.url + '/Usuario/' + id, requestOptions);
   }
-
 }
