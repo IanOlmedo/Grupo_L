@@ -28,6 +28,7 @@ import { AgregarUsuarioComponent } from './pages/agregar-usuario/agregar-usuario
 import { ValoracionesComponent } from './pages/valoraciones/valoraciones.component';
 import { PrestamosAdminComponent } from './components/prestamos-admin/prestamos-admin.component';
 import { PrestamosUserComponent } from './components/prestamos-user/prestamos-user.component';
+import { InfoPrestamoComponent } from './pages/info-prestamo/info-prestamo.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { PrestamosUserComponent } from './components/prestamos-user/prestamos-us
     AgregarUsuarioComponent,
     ValoracionesComponent,
     PrestamosAdminComponent,
-    PrestamosUserComponent
+    PrestamosUserComponent,
+    InfoPrestamoComponent
   ],
   imports: [
     BrowserModule,
