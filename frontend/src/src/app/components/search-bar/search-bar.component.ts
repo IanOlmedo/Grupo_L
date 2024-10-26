@@ -6,7 +6,11 @@ import { Component, Input } from '@angular/core';
   styleUrl: './search-bar.component.css'
 })
 export class SearchBarComponent {
-  @Input() buscar: Function = () => {};
+  @Input() buscar: (query:string) => void;
+
+  constructor() {
+    this.buscar = () => {};
+  }
 
   onSearch(searchQuery:string){
     this.buscar(searchQuery)

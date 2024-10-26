@@ -39,8 +39,6 @@ export class PrestamosComponent {
     this.var_id = this.route.snapshot.paramMap.get('id') || '';
     this.var_rol=this.route.snapshot.paramMap.get('rol') || '';
 
-    console.log('this.var_id: ',this.var_id);
-    console.log('this.var_rol: ',this.var_rol);
     this.prestamosService.getPrestamos().subscribe((rta:any) => {
       console.log('prestamos api: ',rta);
       this.arrayPrestamos = rta.prestamos || [];
@@ -52,21 +50,7 @@ export class PrestamosComponent {
           libro: prestamo.libro
         };
       });
-      for (let element of this.arrayPrestamosWithDetails) {
-        console.log(element);
-      }
     });
-    if (this.var_id){
-      this.prestamosService.getOnePrestamos(this.var_id).subscribe((rta:any) =>{
-        console.log("usuarios: "+rta.usuarios)
-        console.log("libros: "+rta.libro)
-        this.prestamo = rta || null
-        this.user = rta.usuarios
-        this.book = rta.libro
-      })
-    }else{
-      console.log("No hay ID")
-    }
   }
 
   get isRole() {

@@ -7,34 +7,23 @@ import { ActivatedRoute } from '@angular/router';
   styleUrl: './prestamos-user.component.css'
 })
 export class PrestamosUserComponent {
-  rol = localStorage.getItem('user_role');
-  id = localStorage.getItem('user_id')
+  var_id!:string
 
-  @Input() filteredPrestamos: any[] = [] 
+  @Input() arrayPrestamosWithDetails: any[] = [] 
 
 
   constructor(
     private route: ActivatedRoute,
 
   ){}
-  /*
-  get prestamosUsuario(){
-    console.log("Usuario: "+this.id)
-    console.log("id_usuario: "+this.filteredPrestamos.prestamos)
-    console.log("Prestamos del usuario: "+this.filteredPrestamos.filter(p => p.id_usuario === this.id))
-    return this.filteredPrestamos.filter(p => p.id_usuario === this.id)
+
+  ngOnInit(){
+    this.var_id = this.route.snapshot.paramMap.get('id') || '';
   }
-  */
-  get isToken() {
-    return localStorage.getItem('token');
-  }  
 
-  get isRole() {
-    return localStorage.getItem('user_role');
-  }  
-
-  get isUser() {
-    return localStorage.getItem('user_role') === 'user';
+  getPrestamosPendientes() {    return this.arrayPrestamosWithDetails.filter(prestamo => {
+      return prestamo.usuario.id_usuario === Number(this.var_id) && prestamo.prestamo.estado === 'no devuelto';
+    });
   }
 
 }

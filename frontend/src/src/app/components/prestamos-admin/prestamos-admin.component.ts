@@ -7,16 +7,9 @@ import { ActivatedRoute } from '@angular/router';
   styleUrl: './prestamos-admin.component.css'
 })
 export class PrestamosAdminComponent {
-  rol = localStorage.getItem('user_role');
-  id = localStorage.getItem('user_id')
-
   cantidadPrestamos: number = 0;
   cantidadPrestamosVencidos: number = 0;
 
-  /*
-  @Input() var_rol!: string;
-  @Input() var_id!: string;
-  */
 
   @Input() set arrayPrestamosWithDetails(value: any[]) {
     if (value) {
@@ -42,8 +35,6 @@ export class PrestamosAdminComponent {
   ngOnInit(){}
 
   countPrestamosByUser(userId: string) {
-    console.log("comprobacion: "+this.uniqueUsersArray)
-    console.log("comprobacion: "+this.uniquePrestamos)
     return this.originalPrestamos.reduce((count, prestamo) => {
       if (prestamo.usuario.id_usuario === userId) {
         return count + 1;
@@ -64,18 +55,6 @@ export class PrestamosAdminComponent {
         return count;
       }
     }, 0);
-  }
-  get isToken() {
-    return localStorage.getItem('token');
-  }  
-
-  get isRole() {
-    return localStorage.getItem('user_role');
-  }  
-
-  get isAdmin() {
-
-    return localStorage.getItem('user_role') === 'admin';
   }
   
 }

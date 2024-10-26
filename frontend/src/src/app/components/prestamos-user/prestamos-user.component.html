@@ -1,68 +1,29 @@
-
-
-
-
-    <div class="divider" style = "margin-top: 20px;"></div>
-    <h2 class="text-white mb-4" style = "margin-left: 15px;">Libros pendientes:</h2>
-    <!-- linea blanca de punta a punta-->
-    <div class="divider" style="margin-top: -10px;"></div>
-
+    <div *ngIf="getPrestamosPendientes().length > 0">
+        <div class="divider" style = "margin-top: 20px;"></div>
+        <h2 class="text-white mb-4" style = "margin-left: 15px;">Libros pendientes:</h2>
+        <!-- linea blanca de punta a punta-->
+        <div class="divider" style="margin-top: -10px;"></div>
+    </div>
     <!-- Tarjeta para Harry Potter y el Cáliz de Fuego -->
 
-    <div class="card mb-3" style="background-color: black; padding: 10px;">
-        <div class="row g-0" > <!-- *ngFor="let prestamo of prestamosUsuario"  -->
+    <div class="card mb-3" style="background-color: black; padding: 10px;" *ngIf="getPrestamosPendientes().length > 0">
+        <div class="row g-0" *ngFor="let prestamo of getPrestamosPendientes()" > <!-- *ngFor="let prestamo of prestamosUsuario"  -->
             <div class="col-8">
                 <div class="card-body;">
-                    <h5 class="card-title text-white">Harry Potter y el Cáliz de fuego</h5>
+                    <h5 class="card-title text-white">{{prestamo.libro.titulo}}</h5>
                     <p></p>
-                    <p class="card-text text-white">Fecha de entrega: 25-06-24</p>
-                    <p class="card-text text-white">Fecha de devolución: 10-07-24</p>
+                    <p class="card-text text-white">Fecha de entrega: {{prestamo.prestamo.fecha_de_entrega}}</p>
+                    <p class="card-text text-white">Fecha de vencimiento: {{prestamo.prestamo.fecha_de_vencimiento}}</p>
                 </div>
             </div>
             <div class="col-4 d-flex justify-content-end">
-                <img src="assets/Harry_Potter_4.jpeg" style="width: 15vmax; height: 15vmax;" class="imagenes-cuadradas" alt="Harry Potter y el Cáliz de Fuego">
+                <img src="{{prestamo.libro.imagen}}" style="width: 15vmax; height: 15vmax;" class="imagenes-cuadradas" alt="Harry Potter y el Cáliz de Fuego">
             </div>
         </div>
     </div>
 
 
-    <!-- Tarjeta para Maze Runner -->
-    <div class="card mb-3" style="background-color: black; padding: 10px;">
-        <div class="row g-0">
-            <div class="col-8">
-                <div class="card-body;">
-                    <h5 class="card-title text-white">Maze Runner</h5>
-                    <p></p>
-                    <p class="card-text text-white">Fecha de entrega: 13-07-24</p>
-                    <p class="card-text text-white">Fecha de devolución: 24-07-24</p>
-                </div>
-            </div>
-            <div class="col-4 d-flex justify-content-end">
-                <img src="assets/Maze_Runner_1.jpg" style="width: 15vmax; height: 15vmax;" class="imagenes-cuadradas" alt="Maze Runner">
-            </div>
-        </div>
-    </div>
-
-    <!-- Tarjeta para IT - El payaso -->
-    <div class="card mb-3" style="background-color: black; padding: 10px;">
-        <div class="row g-0">
-            <div class="col-8">
-                <div class="card-body;">
-                    <h5 class="card-title text-white">IT - El payaso</h5>
-                    <p></p>
-                    <p class="card-text text-white">Fecha de entrega: 28-07-24</p>
-                    <p class="card-text text-white">Fecha de devolución: 04-08-24</p>
-                </div>
-            </div>
-            <div class="col-4 d-flex justify-content-end">
-                <img src="assets/IT.jpeg" style="width: 15vmax; height: 15vmax;" class="imagenes-cuadradas" alt="IT">
-            </div>
-    </div>
-
-
-
-<!--
-    <div class="container">
+    <div class="container" *ngIf="getPrestamosPendientes().length === 0">
         <div class="row">
             <div class="col-12">
                 <div class="alert-container margin-top: 15%">
@@ -70,9 +31,9 @@
                         <i class="fa-solid fa-bell"></i>
                     </div>
                     <h2><strong>¡No tienes prestamos pendientes!</strong></h2>
-                    <a href="../bootstrap/catalogo_usuario.html" class="button-primary button" style = "background-color: #483fa9;">¡Agregá uno!</a>
+                    <a routerLink="/catalogo" href="#" class="button-primary button" style = "background-color: #483fa9;">¡Agregá uno!</a>
                 </div>
             </div>
         </div>
     </div>
--->
+
