@@ -86,7 +86,7 @@ class Libros(Resource):
         libros = libros.paginate(page=page, per_page=per_page, error_out=True)
 
         return jsonify({'libros': [libro.to_json_complete() for libro in libros],
-                'total de libros': libros.total,
+                'total_de_libros': libros.total,
                 'paginas': libros.pages,
                 'pagina': page
                 })
