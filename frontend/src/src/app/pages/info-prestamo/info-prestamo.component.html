@@ -1,34 +1,11 @@
-    <div class="container-fluid">
-        <div class="row" style="margin: 40px 10px;">
-            <div class="col-1 text-start">
-                <i class="fa-solid fa-bars" style="color: white; font-size: 170%;"></i>
-            </div>
-            <div class="col-3"></div>
-            <div class="col-8 text-end">
-                <a href="home_admi.html">
-                    <i class="fa-solid fa-home" style="color: white; font-size: 170%; margin-right: 15px;"></i>
-                </a>
-                <a href="info_admi.html">
-                    <i class="fa-solid fa-user" style="color: white; font-size: 170%;"></i>
-                </a>
-            </div>
-        </div>
-    </div>
+<app-nav [var_rol]="var_rol" [var_id]="var_id"></app-nav>
 
-    <div class="container-fluid" style="margin-left: 3%">
-        <div class="row d-flex" style="margin: 15px -5px;">
-            <div class="col-12">
-                <div class="search-bar">
-                    <i class="fas fa-search" style="padding: 0.5vw; color: white;"></i>
-                </div>
-            </div>
-        </div>
-    </div>
+<app-search-bar></app-search-bar>
     
     <div class="container-fluid" style="margin-top: 5%;">
-        <div class="row d-flex justify-content-center" *ngFor="let prestamo of prestamo">
+        <div class="row d-flex justify-content-center">
             <div class="col-12 col-md-4 d-flex justify-content-center">
-                <img src="../img/ian.jpeg" alt="Chabon" class="user-photo">
+                <img src="{{prestamo.usuarios.imagen}}" alt="Chabon" class="user-photo">
             </div>
             <div class="col-12 col-md-8">
                 <div class="details-section">
@@ -36,33 +13,33 @@
                     <div class="d-flex justify-content-center text-white" style="background-color: #483FA9; padding: 2%; border-radius: 10px; margin-bottom: 2%;">
                         <h2>Datos Personales</h2>
                     </div>
-                    <p><strong>Nombre:</strong> {{ prestamo.id_usuario.nombre_completo }}</p>
-                    <p><strong>DNI:</strong> {{ prestamo?.dni }}</p>
-                    <p><strong>Dirección:</strong> {{ prestamo?.direccion }}</p>
-                    <p><strong>Teléfono:</strong> {{ prestamo?.telefono }}</p>
-                    <p><strong>Email:</strong> {{ prestamo?.email }}</p>
+                    <p><strong>Nombre:</strong> {{prestamo.usuarios.nombre_completo}}</p>
+                    <p><strong>DNI:</strong> {{prestamo.usuarios.dni}}</p>
+                    <p><strong>Dirección:</strong> {{prestamo.usuarios.direccion}}</p>
+                    <p><strong>Teléfono:</strong> {{prestamo.usuarios.telefono}}</p>
+                    <p><strong>Email:</strong> {{prestamo.usuarios.email}}</p>
                     
                     <!-- Detalles del Préstamo -->
                     <div class="d-flex justify-content-center text-white" style="background-color: #483FA9; padding: 2%; border-radius: 10px; margin-bottom: 2%;">
                         <h2>Préstamos</h2>
                     </div>
-                    <p><strong>Título:</strong> {{ prestamo?.titulo }}</p>
-                    <p><strong>Autor:</strong> {{ prestamo?.autor }}</p>
-                    <p><strong>Descripción:</strong> {{ prestamo?.descripcion }}</p>
-                    <p><strong>Año:</strong> {{ prestamo?.anio }}</p>
-                    <p><strong>Fecha de Pedido:</strong> {{ prestamo?.fechaPedido }}</p>
-                    <p><strong>Fecha de Devolución:</strong> {{ prestamo?.fechaDevolucion }}</p>
-                    <p><strong>Estado:</strong> {{ prestamo?.estado }}</p>
+                    <p><strong>Título: {{prestamo.libro.titulo}}</strong> </p>
+                    <p><strong>Autor: {{prestamo.libro.titulo}}</strong></p>
+                    <p><strong>Descripción: {{prestamo.libro.descripcion}}</strong> </p>
+                    <p><strong>Año: {{prestamo.libro.anio_de_publicacion}}</strong> </p>
+                    <p><strong>Fecha de Pedido: {{prestamo.fecha_de_entrega}}</strong> </p>
+                    <p><strong>Fecha de Devolución:{{prestamo.fecha_de_vencimiento}}</strong> </p>
+                    <p><strong>Estado: {{prestamo.estado}}</strong> </p>
                     
                     <!-- Detalles de Deudas -->
                     <div class="d-flex justify-content-center text-white" style="background-color: #483FA9; padding: 2%; border-radius: 10px; margin-bottom: 2%;">
                         <h2>Deudas</h2>
                     </div>
                     <p *ngIf="prestamo?.deuda">
-                        <strong>Título:</strong> {{ prestamo.deuda?.titulo }}
+                        <strong>Título:</strong> 
                     </p>
                     <p *ngIf="prestamo?.deuda">
-                        <strong>Autor:</strong> {{ prestamo.deuda?.autor }}
+                        <strong>Autor:</strong> 
                     </p>
                     <!-- Agrega otros campos de deuda si existen -->
                 </div>

@@ -16,6 +16,7 @@ import { authsessionGuard } from './guards/authsession.guard';
 import { authroleGuard } from './guards/authrole.guard';
 import { AgregarUsuarioComponent } from './pages/agregar-usuario/agregar-usuario.component';
 import { ValoracionesComponent } from './pages/valoraciones/valoraciones.component';
+import { InfoPrestamoComponent } from './pages/info-prestamo/info-prestamo.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -27,6 +28,7 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'info_usuario/:id/:rol', component: UsuariosComponent,canActivate:[authsessionGuard]},
+  {path: 'info_prestamo/:id', component: InfoPrestamoComponent },
   {path: 'prestamos', component: PrestamosComponent},
   {path: 'prestamos/:id/:rol', component: PrestamosComponent},
   {path: 'acerca_de', component: AcercaDeComponent},
