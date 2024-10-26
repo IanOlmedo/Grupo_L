@@ -8,6 +8,8 @@ import { PrestamosService } from '../../services/prestamos.service';
   styleUrl: './info-prestamo.component.css'
 })
 export class InfoPrestamoComponent implements OnInit {
+  var_id!:string
+  var_rol!:string
   prestamo: any;
 
   constructor(
@@ -16,12 +18,15 @@ export class InfoPrestamoComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.var_id = this.route.snapshot.paramMap.get('id') || '';
+    this.var_rol=this.route.snapshot.paramMap.get('rol') || '';
     this.getPrestamo();
   }
 
   getPrestamo(): void {
     const prestamoId = this.route.snapshot.paramMap.get('id'); // Obtén el ID del préstamo de la URL
     if (prestamoId !== null) {
+      console.log(typeof(prestamoId))
       this.prestamosService.getOnePrestamos(prestamoId)
         .subscribe(prestamo => this.prestamo = prestamo);
     } else {
