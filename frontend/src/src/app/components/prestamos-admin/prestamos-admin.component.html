@@ -1,6 +1,6 @@
 
 <div class="user-card text-black text-center background-transparent mb-3" style=" margin-top: 5%;;">
-    <div class="row g-0" style ="margin-top: 5%; margin-bottom: 5%" *ngFor="let prestamo of arrayPrestamosWithDetails">
+    <div class="row g-0" style ="margin-top: 5%; margin-bottom: 5%" *ngFor="let prestamo of uniquePrestamos">
         <div class="col-4">
             <img src="{{prestamo.usuario.imagen}}" class="user-photo" alt="Usuario">
         </div>

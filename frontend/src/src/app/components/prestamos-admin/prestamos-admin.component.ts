@@ -18,19 +18,33 @@ export class PrestamosAdminComponent {
   @Input() var_id!: string;
   */
 
-  @Input() arrayPrestamosWithDetails: any[] = []
+  @Input() set arrayPrestamosWithDetails(value: any[]) {
+    if (value) {
+      this.originalPrestamos = [...value]
+      this.uniqueUsersArray = [...new Set(value.map(prestamo => prestamo.usuario.id_usuario))];
+      this.uniquePrestamos = this.uniqueUsersArray.reduce((acc, userId) => {
+        const userPrestamos = value.filter(prestamo => prestamo.usuario.id_usuario === userId);
+        if (userPrestamos.length > 0) {
+          acc.push(userPrestamos[0]);
+        }
+        return acc;
+      }, []);
+    }
+  }
+  uniqueUsersArray: any[] = [];
+  uniquePrestamos: any[] = [];
+  originalPrestamos: any[] = [];
 
   constructor(
     private route: ActivatedRoute
   ){}
 
-  ngOnInit(){
-
-  }
+  ngOnInit(){}
 
   countPrestamosByUser(userId: string) {
-
-    return this.arrayPrestamosWithDetails.reduce((count, prestamo) => {
+    console.log("comprobacion: "+this.uniqueUsersArray)
+    console.log("comprobacion: "+this.uniquePrestamos)
+    return this.originalPrestamos.reduce((count, prestamo) => {
       if (prestamo.usuario.id_usuario === userId) {
         return count + 1;
       } else {
@@ -41,7 +55,7 @@ export class PrestamosAdminComponent {
 
   countPrestamosVencidosByUser(userId: number): number {
     const fechaActual = new Date();
-    return this.arrayPrestamosWithDetails.reduce((count, prestamo) => {
+    return this.originalPrestamos.reduce((count, prestamo) => {
       const fechaVencimiento = prestamo.prestamo.fecha_de_vencimiento.split("-").reverse().join("-");
       const date = new Date(fechaVencimiento);
       if (prestamo.usuario.id_usuario === userId && date < fechaActual && prestamo.prestamo.estado === "no devuelto") {
