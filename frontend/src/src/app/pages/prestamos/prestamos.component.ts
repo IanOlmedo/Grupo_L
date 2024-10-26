@@ -16,11 +16,12 @@ export class PrestamosComponent {
   arrayPrestamos:any[] = []
   filteredPrestamos:any[] = []
   arrayPrestamosWithDetails:any[] = []
+  prestamos:any[] = []
   arrayUsers:any[] = []
   arrayBooks:any[] = []
 
 
-
+  searchQuery: string = ''
   prestamo:any
   user:any
   book:any
@@ -50,6 +51,8 @@ export class PrestamosComponent {
           libro: prestamo.libro
         };
       });
+      this.prestamos = [...this.arrayPrestamosWithDetails]
+      console.log("xd"+this.prestamos)
     });
   }
 
@@ -65,8 +68,12 @@ export class PrestamosComponent {
     return localStorage.getItem('user_role') === 'admin';
   }
 
-  buscar(searchQuery:string) {
-    console.log('buscar: ', searchQuery);
-    this.filteredPrestamos = this.arrayPrestamos.filter(p => p.usuarios.nombre_completo.includes(searchQuery));
+  onSearchQueryChange(searchQuery: string) {
+    this.searchQuery = searchQuery;
+    this.buscar();
+  }
+
+  buscar() {
+    this.prestamos = this.arrayPrestamosWithDetails.filter(p => p.usuario.nombre_completo.includes(this.searchQuery));
   }
 }

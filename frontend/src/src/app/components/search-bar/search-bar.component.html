@@ -3,6 +3,6 @@
         <button class="btn btn-outline-success ms-3 search-button" type="submit" style="border-color: violet;">
             <i class="fas fa-search" style="padding: 0.5vw; color: white;"></i>
         </button>
-        <input class="form-control me-2 search-bar ms-2" type="search" placeholder="Buscar" aria-label="Search" style="padding-left: 2.5%;">
+        <input class="form-control me-2 search-bar ms-2" (input)="onSearchQueryChange()" type="search" [(ngModel)]="searchQuery" name="searchQuery" placeholder="Buscar" aria-label="Search" style="padding-left: 2.5%;">
     </form>
 </div>

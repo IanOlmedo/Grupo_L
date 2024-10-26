@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-search-bar',
@@ -6,13 +7,14 @@ import { Component, Input } from '@angular/core';
   styleUrl: './search-bar.component.css'
 })
 export class SearchBarComponent {
-  @Input() buscar: (query:string) => void;
+  searchQuery: string = '';
+  @Output() searchQueryChange = new EventEmitter<string>();
 
+  onSearchQueryChange() {
+    this.searchQueryChange.emit(this.searchQuery);
+  }
   constructor() {
-    this.buscar = () => {};
   }
 
-  onSearch(searchQuery:string){
-    this.buscar(searchQuery)
-  }
+
 }
