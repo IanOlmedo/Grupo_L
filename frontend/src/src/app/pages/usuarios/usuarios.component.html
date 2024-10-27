@@ -12,52 +12,32 @@
 <div class="container profile-container text-white">
     <form>
         <div class="mb-3 d-flex justify-content-between align-items-center" *ngIf="userData">
-            <label for="usuario" class="col-form-label">Usuario:</label>
-            <input type="text" class="form-control" id="usuario" [(ngModel)]="userData.username" [readonly]="!editMode" style="width: 60%;">
-        </div>
-        <div class="mb-3 d-flex justify-content-between align-items-center">
-            <label for="nombre" class="col-form-label">Nombre:</label>
-            <input type="text" class="form-control" id="nombre" [(ngModel)]="userData.nombre" [readonly]="!editMode" style="width: 60%;">
-        </div>
-        <div class="mb-3 d-flex justify-content-between align-items-center">
-            <label for="apellido" class="col-form-label">Apellido:</label>
-            <input type="text" class="form-control" id="apellido" [(ngModel)]="userData.apellido" [readonly]="!editMode" style="width: 60%;">
-        </div>
-        <div class="mb-3 d-flex justify-content-between align-items-center">
-            <label for="dni" class="col-form-label">DNI:</label>
-            <input type="text" class="form-control" id="dni" [(ngModel)]="userData.dni" [readonly]="!editMode" style="width: 60%;">
+            <label for="nombre completo" class="col-form-label">Nombre Completo:</label>
+            <input type="text" class="form-control" id="nombre completo" [(ngModel)]="userData.nombreCompleto" [readonly]="!editMode" style="width: 60%;">
         </div>
         <div class="mb-3 d-flex justify-content-between align-items-center">
             <label for="direccion" class="col-form-label">Dirección:</label>
             <input type="text" class="form-control" id="direccion" [(ngModel)]="userData.direccion" [readonly]="!editMode" style="width: 60%;">
         </div>
         <div class="mb-3 d-flex justify-content-between align-items-center">
-            <label for="codigoPostal" class="col-form-label">Código Postal:</label>
-            <input type="text" class="form-control" id="codigoPostal" [(ngModel)]="userData.codigoPostal" [readonly]="!editMode" style="width: 60%;">
+            <label for="dni" class="col-form-label">DNI:</label>
+            <input type="text" class="form-control" id="dni" [(ngModel)]="userData.dni" [readonly]="!editMode" style="width: 60%;">
         </div>
         <div class="mb-3 d-flex justify-content-between align-items-center">
-            <label for="departamento" class="col-form-label">Departamento:</label>
-            <input type="text" class="form-control" id="departamento" [(ngModel)]="userData.departamento" [readonly]="!editMode" style="width: 60%;">
+            <label for="email" class="col-form-label">Email:</label>
+            <input type="text" class="form-control" id="email" [(ngModel)]="userData.email" [readonly]="!editMode" style="width: 60%;">
         </div>
         <div class="mb-3 d-flex justify-content-between align-items-center">
-            <label for="ciudad" class="col-form-label">Ciudad:</label>
-            <input type="text" class="form-control" id="ciudad" [(ngModel)]="userData.ciudad" [readonly]="!editMode" style="width: 60%;">
-        </div>
-        <div class="mb-3 d-flex justify-content-between align-items-center">
-            <label for="fechaNacimiento" class="col-form-label">Fecha de Nacimiento:</label>
-            <input type="text" class="form-control" id="fechaNacimiento" [(ngModel)]="userData.fechaNacimiento" [readonly]="!editMode" style="width: 60%;">
+            <label for="rol" class="col-form-label">Rol:</label>
+            <input type="text" class="form-control" id="rol" [(ngModel)]="userData.rol" [readonly]="!editMode" style="width: 60%;">
         </div>
         <div class="mb-3 d-flex justify-content-between align-items-center">
             <label for="telefono" class="col-form-label">Teléfono:</label>
             <input type="text" class="form-control" id="telefono" [(ngModel)]="userData.telefono" [readonly]="!editMode" style="width: 60%;">
         </div>
         <div class="mb-3 d-flex justify-content-between align-items-center">
-            <label for="correo" class="col-form-label">Correo:</label>
-            <input type="text" class="form-control" id="correo" [(ngModel)]="userData.correo" [readonly]="!editMode" style="width: 60%;">
-        </div>
-        <div class="mb-3 d-flex justify-content-between align-items-center">
-            <label for="Password" class="col-form-label">Password:</label>
-            <input type="password" class="form-control" id="Password" [(ngModel)]="userData.Password" [readonly]="!editMode" style="width: 60%;">
+            <label for="imagen" class="col-form-label">Imagen:</label>
+            <input type="text" class="form-control" id="imagen" [(ngModel)]="userData.imagen" [readonly]="!editMode" style="width: 60%;">
         </div>
 
         <!-- Botones -->
