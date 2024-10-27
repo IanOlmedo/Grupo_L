@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
+import { BooksService } from '../../services/books.service'
 
 @Component({
   selector: 'app-stock',
@@ -8,49 +9,73 @@ import { Router } from '@angular/router';
   styleUrl: './stock.component.css'
 })
 export class StockComponent {
-  var_id!:string
-  var_rol!:string
-    searchQuery = '';
-    arrayLibros = [
-      {
-        id: 1,
-        nombre: 'Fuego y sangre'
-      },
-      {
-        id: 2,
-        nombre: 'Harry Potter'
-      },
-      {
-        id: 3,
-        nombre: 'Nacidos de la bruma'
-      },
-      {
-        id: 4,
-        nombre: 'Percy Jackson'
-      }
+  role = localStorage.getItem('user_role');
 
-    ]
+  searchQuery = '';
 
-    filteredLibros = [...this.arrayLibros]
+  arrayLibros: any[] = [];
+  filteredLibros: any[] = [];
+  paginatedLibros: any[] = [];
+  currentPage: number = 1;
+  totalPages: number = 1;
+  itemsPerPage: number = 3;
   constructor(
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private booksService: BooksService,
   ){}
 
   ngOnInit(){
-    this.var_id = this.route.snapshot.paramMap.get('id') || '';
-    this.var_rol=this.route.snapshot.paramMap.get('rol') || '';
+    this.fetchUsers();
+  }
+
+  fetchUsers(page: number = 1): void {
+    this.booksService.getBooks(page).subscribe((rta: any) => {
+      console.log(rta)
+      console.log('usuarios api: ', rta);
+      this.arrayLibros = rta.libros || [];
+      this.filterUsers();
+      this.currentPage = rta.pagina;
+      this.totalPages = rta.paginas;
+      this.updatePaginatedUsers();
+    });
+  }
+
+  filterUsers(): void {
+    if (this.searchQuery.trim() === '') {
+      this.filteredLibros = [...this.arrayLibros];
+    } else {
+      this.filteredLibros = this.arrayLibros.filter(book =>
+        book.nombre_completo.toLowerCase().includes(this.searchQuery.toLowerCase())
+      );
+    }
+    this.updatePaginatedUsers();
+  }
+
+  updatePaginatedUsers(): void {
+    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+    const endIndex = startIndex + this.itemsPerPage;
+    this.paginatedLibros = this.filteredLibros.slice(startIndex, endIndex);
+  }
+
+  goToPage(page: number): void {
+    if (page >= 1 && page <= this.totalPages) {
+      this.currentPage = page;
+      this.fetchUsers(page);
+    }
   }
 
   editarlibro(libro:any) {
     console.log('Estoy editando', libro);
-    this.router.navigate(['/usuario/'+libro.id+'/Editar']);
+    this.router.navigate(['/ver_libro/'+libro.id]);
   }
 
   buscar() {
     console.log('buscar: ', this.searchQuery);
     this.filteredLibros = this.arrayLibros.filter(libro => libro.nombre.includes(this.searchQuery));
   }
+
+  
 
 }
 

@@ -14,7 +14,7 @@ class Usuarios(db.Model):
     #Rol (En el caso que existan diferentes tipos de usuarios con diferentes permisos)
     rol = db.Column(db.String(10), nullable=False, server_default="users")
     telefono = db.Column(db.Integer)
-    imagen = db.Column(db.String(100))
+    imagen = db.Column(db.String(100), server_default="assets/Logo-usuario.jpeg")
     #Relación uno a muchos
     configuraciones = db.relationship("Configuracion", back_populates="usuario", cascade="all, delete-orphan")
     #Relación uno a muchos  
@@ -87,7 +87,7 @@ class Usuarios(db.Model):
         email = usuario_json.get("email")
         password = usuario_json.get("password")
         rol = usuario_json.get("rol")
-        telefono = usuario_json.get("telefono"),
+        telefono = usuario_json.get("telefono")
         imagen = usuario_json.get("imagen")
         return Usuarios(
             id_usuario = id_usuario,
