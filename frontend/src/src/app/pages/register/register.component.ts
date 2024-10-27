@@ -36,11 +36,11 @@ ngOnInit(): void {
 }
 
 // Función personalizada para validar si las contraseñas coinciden
-passwordMatchValidator(formGroup: FormGroup) {
-  const password = formGroup.get('password')?.value;
-  const confirmPassword = formGroup.get('confirmPassword')?.value;
-  return password === confirmPassword ? null : { mismatch: true }; // Retorna error 'mismatch' si no coinciden
-}
+  passwordMatchValidator(formGroup: FormGroup) {
+    const password = formGroup.get('password')?.value;
+    const confirmPassword = formGroup.get('confirmPassword')?.value;
+    return password === confirmPassword ? null : { mismatch: true }; // Retorna error 'mismatch' si no coinciden
+  }
 
   irRegister(dataRegister:any) {
     console.log(dataRegister)

@@ -38,11 +38,11 @@ const routes: Routes = [
   {path: 'acerca_de/:id', component: AcercaDeComponent},
   {path: 'agregar_usuario', component: AgregarUsuarioComponent},
   {path: 'agregar_usuario/:id', component: AgregarUsuarioComponent, canActivate:[authsessionGuard, authroleGuard]},
-  {path: 'alta_usuarios/:id', component: AltaUsuariosComponent},
+  {path: 'alta_usuarios', component: AltaUsuariosComponent},
   {path: 'alta_usuarios/:id', component: AltaUsuariosComponent},//,canActivate:[authsessionGuard, authroleGuard]},
   {path: 'error_page', component: ErrorPageComponent},
   {path: 'carrito/:id', component: CarritoComponent,canActivate:[authsessionGuard]},
-  {path: 'stock/:id', component: StockComponent,canActivate:[authsessionGuard, authroleGuard]},
+  {path: 'stock', component: StockComponent,canActivate:[authsessionGuard, authroleGuard]},
   {path: 'valoraciones/:id', component: ValoracionesComponent},
 
   {path: '', redirectTo: '/home', pathMatch: 'full'},

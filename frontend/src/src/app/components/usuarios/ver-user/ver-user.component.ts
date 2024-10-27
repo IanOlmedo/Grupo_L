@@ -8,9 +8,6 @@ import { UsuariosService } from '../../../services/usuarios.service';
   styleUrl: './ver-user.component.css'
 })
 export class VerUserComponent {
-  @Input() var_id!: string;
-  @Input() var_rol!: string;
-
   role = localStorage.getItem('user_role');
 
   searchQuery = '';
@@ -68,7 +65,7 @@ export class VerUserComponent {
 
   editarusuario(user: any) {
     console.log('Estoy editando', user);
-    this.router.navigate(['/agregar_usuario/' + user.id + '/admin']);
+    this.router.navigate(['/agregar_usuario/' + user.id]);
   }
 
   crearusuario() {
