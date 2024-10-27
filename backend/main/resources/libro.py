@@ -30,6 +30,7 @@ class Libro(Resource):
 
     @roles_required(roles = ["admin"])
     def delete(self,id):
+        print("hola")
         libro = db.session.query(LibroModel).get_or_404(id)
         db.session.delete(libro)
         db.session.commit()

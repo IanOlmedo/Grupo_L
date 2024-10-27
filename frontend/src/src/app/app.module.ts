@@ -29,6 +29,7 @@ import { ValoracionesComponent } from './pages/valoraciones/valoraciones.compone
 import { PrestamosAdminComponent } from './components/prestamos-admin/prestamos-admin.component';
 import { PrestamosUserComponent } from './components/prestamos-user/prestamos-user.component';
 import { InfoPrestamoComponent } from './pages/info-prestamo/info-prestamo.component';
+import { AltaLibrosComponent } from './pages/alta-libros/alta-libros.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { InfoPrestamoComponent } from './pages/info-prestamo/info-prestamo.compo
     ValoracionesComponent,
     PrestamosAdminComponent,
     PrestamosUserComponent,
-    InfoPrestamoComponent
+    InfoPrestamoComponent,
+    AltaLibrosComponent,
   ],
   imports: [
     BrowserModule,

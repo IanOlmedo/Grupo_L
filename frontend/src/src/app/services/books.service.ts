@@ -57,6 +57,7 @@ export class BooksService {
       'Authorization': `Bearer ${auth_token}`
     });
     const requestOptions = { headers: headers };
+    console.log('Sending DELETE request for book with ID:', id);
     return this.httpClient.delete(this.url + '/Libro/' + id, requestOptions);
   }
 

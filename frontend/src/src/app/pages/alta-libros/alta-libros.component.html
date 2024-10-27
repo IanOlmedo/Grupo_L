@@ -1,0 +1,41 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <h2 *ngIf="var_id" class="text-center mb-4" style="color: white;">Modificar Libro</h2>
+            <h2 *ngIf="!var_id" class="text-center mb-4" style="color: white;">Crear Libro</h2>
+            <form (ngSubmit)="onSubmit()" [formGroup]="booksForm">
+                <div class="mb-3">
+                    <label for="titulo" class="form-label" style="color: white;">Titulo</label>
+                    <input type="text" class="form-control" id="titulo" formControlName="titulo">
+                </div>
+                <div class="mb-3">
+                    <label for="genero" class="form-label" style="color: white">Género</label>
+                    <input type="text" class="form-control" id="genero" formControlName="genero">
+                </div>
+                <div class="mb-3">
+                    <label for="editorial" class="form-label" style="color: white">Editorial</label>
+                    <input type="text" class="form-control" id="editorial" formControlName="editorial">
+                </div>
+                <div class="mb-3">
+                    <label for="anio_de_publicacion" class="form-label" style="color: white">Año de publicacion</label>
+                    <input type="text" class="form-control" id="anio_de_publicacion" formControlName="anio_de_publicacion">
+                </div>
+                <div class="mb-3">
+                    <label for="descripcion" class="form-label" style="color: white">Descripcion</label>
+                    <input type="text" class="form-control" id="descripcion" formControlName="descripcion">
+                </div>
+                <div class="mb-3">
+                    <label for="imagen" class="form-label" style="color: white">Imagen</label>
+                    <input type="text" class="form-control" id="imagen" formControlName="imagen">
+                </div>
+                <div class="mb-3">
+                    <label for="stock" class="form-label" style="color: white">Stock</label>
+                    <input type="text" class="form-control" id="stock" formControlName="stock">
+                </div>
+                <button type="submit" class="btn btn-primary" *ngIf="!var_id" style="color: white">Crear</button>
+                <button type="submit" class="btn btn-primary" *ngIf="var_id" style="color: white">Editar</button>
+                <button (click)="DeleteBook()" class="btn btn-primary" *ngIf="var_id" style="color: white">Eliminar</button>
+            </form>
+        </div>
+    </div>
+</div>

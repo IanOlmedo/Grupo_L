@@ -6,16 +6,21 @@ import { AuthService } from '../../services/auth.service';
   styleUrl: './nav.component.css'
 })
 export class NavComponent {
-  @Input() var_rol!: string;
-  
-  @Input() var_id!: string;
   constructor(
     private authService: AuthService
   ) {}
 
   get isToken() {
     return localStorage.getItem('token');
-  }  
+  }
+  
+  get isUser() {
+    return localStorage.getItem('user_role') === 'user';
+  }
+
+  get isAdmin() {
+    return localStorage.getItem('user_role') === 'admin';
+  }
 
   cerrarSesion() {
     this.authService.logout();

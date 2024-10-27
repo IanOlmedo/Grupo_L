@@ -4,7 +4,6 @@
     <div class="row">
         <div class="col-4">
             <img src={{book.imagen}} alt="Libro 1" class="img">
-            <div *ngIf="var_rol == 'admin'" class="d-flex justify-content-end"><i class="fa-solid fa-pen-to-square ms-1" style="color: black;font-size: 200%;"></i></div>  
         </div>
         <div class="col-8">
             <div class="row">
@@ -12,7 +11,7 @@
                     <div style="color: white; font-size: 4vw;"><strong>Titulo:</strong></div>
                 </div>
                 <div class="col-9">
-                    <div class="showing p-1"><h6 style="font-size: 4vw;margin-bottom: 0px;">{{book.titulo}} <i *ngIf="var_rol == 'admin'" class="fa-solid fa-pen-to-square ms-1" style="color: black;font-size: 100%;"></i></h6></div>
+                    <div class="showing p-1"><h6 style="font-size: 4vw;margin-bottom: 0px;">{{book.titulo}}</h6></div>
                 </div>
             </div>
             <div class="row mt-lg-4">
@@ -20,7 +19,7 @@
                     <div style="color: white; font-size: 4vw;"><strong>Autor:</strong></div>
                 </div>
                 <div class="col-9">
-                    <div class="showing p-1"><h6 style="font-size: 4vw; margin-bottom: 0px;">{{arrayAuthor[0].nombre_completo}}<i *ngIf="var_rol == 'admin'" class="fa-solid fa-pen-to-square ms-1" style="color: black;font-size: 100%;"></i></h6></div>
+                    <div class="showing p-1"><h6 style="font-size: 4vw; margin-bottom: 0px;">{{arrayAuthor[0].nombre_completo}}</h6></div>
                 </div>
             </div>
             <div class="row mt-lg-4">
@@ -28,7 +27,7 @@
                     <div style="color: white; font-size: 4vw;"><strong>Género:</strong></div>
                 </div>
                 <div class="col-9">
-                    <div class="showing p-1"><h6 style="font-size: 4vw; margin-bottom: 0px;">{{book.genero}}<i *ngIf="var_rol == 'admin'" class="fa-solid fa-pen-to-square ms-1" style="color: black;font-size: 100%;"></i></h6></div>
+                    <div class="showing p-1"><h6 style="font-size: 4vw; margin-bottom: 0px;">{{book.genero}}</h6></div>
                 </div>
             </div>
             <div class="row mt-lg-4">
@@ -36,7 +35,7 @@
                     <div style="color: white; font-size: 4vw;"><strong>Editorial:</strong></div>
                 </div>
                 <div class="col-9">
-                    <div class="showing p-1"><h6 style="font-size: 4vw; margin-bottom: 0px;">{{book.editorial}}<i *ngIf="var_rol == 'admin'" class="fa-solid fa-pen-to-square ms-1" style="color: black;font-size: 100%;"></i></h6></div>
+                    <div class="showing p-1"><h6 style="font-size: 4vw; margin-bottom: 0px;">{{book.editorial}}</h6></div>
                 </div>
             </div>
         </div>             
@@ -48,7 +47,7 @@
             <div class="p-1" style="color: white; font-size: 4vw;"><strong>Fecha de publicación:</strong></div>
         </div>
         <div class="col-6">
-            <div class="showing p-1"><h6 style="font-size: 4vw; margin-bottom: 0px;">{{book.anio_de_publicacion}}<i *ngIf="var_rol == 'admin'" class="fa-solid fa-pen-to-square ms-1" style="color: black;font-size: 100%;"></i></h6></div>
+            <div class="showing p-1"><h6 style="font-size: 4vw; margin-bottom: 0px;">{{book.anio_de_publicacion}}</h6></div>
         </div>
     </div>
 </div>
@@ -63,7 +62,6 @@
                 <p style="color: black; padding: 3vw; background-color: white; border-radius: 5vw; z-index: 1;">
                     {{book.descripcion}}
                 </p>
-                <div *ngIf="var_rol == 'admin'" class="d-flex justify-content-end" style="z-index: 10;"><i class="fa-solid fa-pen-to-square ms-1" style="color: black;font-size: 200%; z-index: 10;"></i></div>
             </div>
         </div>
     </div>
@@ -71,8 +69,10 @@
 <div class="container d-flex justify-content-center">
     <div class="row d-flex justify-content-center">
         <div class="col-12 ">
-            <button type="button" class="btn btn-primary p-4" routerLink="/carrito/{{var_id}}/{{var_rol}}" href="#" style="background: #483FA9; color: white;">Añadir al carrito</button>
+            <!--<button type="button" class="btn btn-primary p-4" routerLink="/carrito/{{var_id}}/{{var_rol}}" href="#" style="background: #483FA9; color: white;">Añadir al carrito</button>
             <button type="button" class="btn btn-primary p-4" routerLink="/valoraciones/{{var_id}}/{{var_rol}}" href="#" style="background: #483FA9; color: white;">Ver Valoraciones</button>
+        -->
         </div>
     </div>
 </div>
+

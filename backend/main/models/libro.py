@@ -75,6 +75,7 @@ class Libro(db.Model):
                     editorial=editorial,
                     anio_de_publicacion=anio_de_publicacion,
                     descripcion=descripcion,
+                    imagen=imagen,
                     stock=stock,
                     )
 

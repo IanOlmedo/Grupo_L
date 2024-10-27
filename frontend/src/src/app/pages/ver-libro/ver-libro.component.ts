@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import {BooksService} from './../../services/books.service'
+import { BooksService } from './../../services/books.service'
 
 @Component({
   selector: 'app-ver-libro',
@@ -9,7 +9,6 @@ import {BooksService} from './../../services/books.service'
 })
 export class VerLibroComponent {
   var_id!:string
-  var_rol!:string
 
   book:any
   arrayAuthor:any[] = []
@@ -31,5 +30,9 @@ export class VerLibroComponent {
       console.log(this.arrayAuthor)
     },
   )
+  }
+
+  get isAdmin() {
+    return localStorage.getItem('user_role') === 'admin';
   }
 }

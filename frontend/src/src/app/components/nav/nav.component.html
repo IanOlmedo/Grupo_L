@@ -1,13 +1,13 @@
 
 <nav class="navbar navbar-expand-lg" style="background-color: transparent;">
   <div class="container-fluid" >
-    <a class="navbar-brand text-white" routerLink="/home/{{var_id}}/{{var_rol}}" href="#">Lambda</a>
+    <a class="navbar-brand text-white" routerLink="/home" href="#">Lambda</a>
     <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon" style="color: whit"></span>
     </button>
     <div class="collapse navbar-collapse col-6"  id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li *ngIf="var_rol == ''" class="nav-item">
+        <li *ngIf="!isToken" class="nav-item">
           <a class="nav-link active text-white" aria-current="page" routerLink="/register" href="#">Registrarse</a>
         </li>
         <a *ngIf="!isToken" href="#" class="nav-item" routerLink="/login">
@@ -17,28 +17,28 @@
           <i class="nav-link active text-white">Cerrar Sesion</i>
         </a>
         <li class="nav-item">
-          <a class="nav-link active text-white" aria-current="page" routerLink="/catalogo/{{var_id}}/{{var_rol}}" href="#">Catalogo</a>
+          <a class="nav-link active text-white" aria-current="page" routerLink="/catalogo" href="#">Catalogo</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active text-white" aria-current="page" routerLink="/prestamos/{{var_id}}/{{var_rol}}" href="#">Prestamos</a>
+          <a class="nav-link active text-white" aria-current="page" routerLink="/prestamos" href="#">Prestamos</a>
         </li>
         <li class="nav-item">
           <a class="nav-link active text-white" aria-current="page" routerLink="/acerca_de" href="#">Acerca de</a>
         </li>
         <li *ngIf="isToken"  class="nav-item">
-          <a class="nav-link active text-white" aria-current="page" routerLink="/info_usuario/{{var_id}}/{{var_rol}}" href="#">Perfil</a>
+          <a class="nav-link active text-white" aria-current="page" routerLink="/info_usuario" href="#">Perfil</a>
         </li>
-        <li *ngIf="isToken && var_rol == 'admin'" class="nav-item">
+        <li *ngIf="isToken && isAdmin" class="nav-item">
           <a class="nav-link active text-white" aria-current="page" href="#">Editar</a>
         </li>
-        <li *ngIf="isToken && var_rol == 'user'" class="nav-item">
-          <a class="nav-link active text-white" aria-current="page" href="#" routerLink="/carrito/{{var_id}}/{{var_rol}}">Carrito</a>
+        <li *ngIf="isToken && isUser" class="nav-item">
+          <a class="nav-link active text-white" aria-current="page" href="#" routerLink="/carrito">Carrito</a>
         </li>
-        <li *ngIf="isToken && var_rol == 'admin'" class="nav-item">
-          <a class="nav-link active text-white" aria-current="page" href="#" routerLink="/alta_usuarios/{{var_id}}/{{var_rol}}">Alta Usuario</a>
+        <li *ngIf="isToken && isAdmin" class="nav-item">
+          <a class="nav-link active text-white" aria-current="page" href="#" routerLink="/alta_usuarios">Alta Usuario</a>
         </li>
-        <li *ngIf="isToken && var_rol == 'admin'" class="nav-item">
-          <a class="nav-link active text-white" aria-current="page" href="#" routerLink="/stock/{{var_id}}/{{var_rol}}">Stock</a>
+        <li *ngIf="isToken && isAdmin" class="nav-item">
+          <a class="nav-link active text-white" aria-current="page" href="#" routerLink="/stock">Stock</a>
         </li>
       </ul>
     </div>

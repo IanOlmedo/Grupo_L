@@ -17,29 +17,33 @@ import { authroleGuard } from './guards/authrole.guard';
 import { AgregarUsuarioComponent } from './pages/agregar-usuario/agregar-usuario.component';
 import { ValoracionesComponent } from './pages/valoraciones/valoraciones.component';
 import { InfoPrestamoComponent } from './pages/info-prestamo/info-prestamo.component';
+import { AltaLibrosComponent } from './pages/alta-libros/alta-libros.component'
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
-  {path: 'home/:id/:rol', component: HomeComponent},
+  {path: 'home/:id', component: HomeComponent},
   {path: 'catalogo', component: CatalogoComponent},
-  {path: 'catalogo/:id/:rol', component: CatalogoComponent},
+  {path: 'catalogo/:id', component: CatalogoComponent},
   {path: 'ver_libro', component: VerLibroComponent},
-  {path: 'ver_libro/:id/:rol', component: VerLibroComponent},
+  {path: 'ver_libro/:id', component: VerLibroComponent},
+  {path: 'alta_libros', component: AltaLibrosComponent},
+  {path: 'alta_libros/:id', component: AltaLibrosComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
-  {path: 'info_usuario/:id/:rol', component: UsuariosComponent,canActivate:[authsessionGuard]},
+  {path: 'info_usuario/:id', component: UsuariosComponent,canActivate:[authsessionGuard]},
   {path: 'info_prestamo/:id', component: InfoPrestamoComponent },
   {path: 'prestamos', component: PrestamosComponent},
-  {path: 'prestamos/:id/:rol', component: PrestamosComponent},
+  {path: 'prestamos/:id', component: PrestamosComponent},
   {path: 'acerca_de', component: AcercaDeComponent},
-  {path: 'acerca_de/:id/:rol', component: AcercaDeComponent},
+  {path: 'acerca_de/:id', component: AcercaDeComponent},
   {path: 'agregar_usuario', component: AgregarUsuarioComponent},
-  {path: 'agregar_usuario/:id/:rol', component: AgregarUsuarioComponent, canActivate:[authsessionGuard, authroleGuard]},
-  {path: 'alta_usuarios/:id/:rol', component: AltaUsuariosComponent},//,canActivate:[authsessionGuard, authroleGuard]},
+  {path: 'agregar_usuario/:id', component: AgregarUsuarioComponent, canActivate:[authsessionGuard, authroleGuard]},
+  {path: 'alta_usuarios/:id', component: AltaUsuariosComponent},
+  {path: 'alta_usuarios/:id', component: AltaUsuariosComponent},//,canActivate:[authsessionGuard, authroleGuard]},
   {path: 'error_page', component: ErrorPageComponent},
-  {path: 'carrito/:id/:rol', component: CarritoComponent,canActivate:[authsessionGuard]},
-  {path: 'stock/:id/:rol', component: StockComponent,canActivate:[authsessionGuard, authroleGuard]},
-  {path: 'valoraciones/:id/:rol', component: ValoracionesComponent},
+  {path: 'carrito/:id', component: CarritoComponent,canActivate:[authsessionGuard]},
+  {path: 'stock/:id', component: StockComponent,canActivate:[authsessionGuard, authroleGuard]},
+  {path: 'valoraciones/:id', component: ValoracionesComponent},
 
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: '**', redirectTo: '/error_page'}
