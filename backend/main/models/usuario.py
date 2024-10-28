@@ -58,7 +58,8 @@ class Usuarios(db.Model):
         usuario_json={
             'id_usuario':self.id_usuario,
             'nombre_completo':str(self.nombre_completo),
-            'dni':self.dni
+            'dni':self.dni,
+            'imagen':self.imagen,
         }
         return usuario_json
 

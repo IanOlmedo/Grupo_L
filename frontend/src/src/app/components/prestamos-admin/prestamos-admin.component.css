@@ -1,0 +1,21 @@
+/* General container for the section */
+.cart-container {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cart-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.cart-title {
+    font-size: 36px;
+    color: white;
+    margin-right: 20px;
+}

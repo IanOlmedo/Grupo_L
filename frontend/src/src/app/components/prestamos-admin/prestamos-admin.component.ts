@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { PrestamosService } from '../../services/prestamos.service';
 
 @Component({
   selector: 'app-prestamos-admin',
@@ -10,29 +11,81 @@ export class PrestamosAdminComponent {
   cantidadPrestamos: number = 0;
   cantidadPrestamosVencidos: number = 0;
 
+  var_id!: string
+  var_rol!: string
+
+  searchQuery = ''
+
+  arrayPrestamos: any[] = []
+  filteredPrestamos: any[] = []
+  paginatedPrestamos: any[] = []
+  currentPage: number = 1 // Página actual
+  totalPages: number = 1 // Total de páginas
+  itemsPerPage: number = 5 // Cantidad de Prestamos por página
 
   @Input() set arrayPrestamosWithDetails(value: any[]) {
     if (value) {
       this.originalPrestamos = [...value]
       this.uniqueUsersArray = [...new Set(value.map(prestamo => prestamo.usuario.id_usuario))];
-      this.uniquePrestamos = this.uniqueUsersArray.reduce((acc, userId) => {
-        const userPrestamos = value.filter(prestamo => prestamo.usuario.id_usuario === userId);
-        if (userPrestamos.length > 0) {
-          acc.push(userPrestamos[0]);
-        }
-        return acc;
-      }, []);
+      this.uniqueUserPrestamos = this.uniqueUsersArray.map(userId => {
+        return value.find(prestamo => prestamo.usuario.id_usuario === userId);
+      });
     }
   }
   uniqueUsersArray: any[] = [];
-  uniquePrestamos: any[] = [];
+  uniqueUserPrestamos: any[] = [];
   originalPrestamos: any[] = [];
 
   constructor(
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private prestamosService: PrestamosService
   ){}
 
-  ngOnInit(){}
+  ngOnInit() {
+    this.var_id = this.route.snapshot.paramMap.get('id') || '';
+    this.var_rol = this.route.snapshot.paramMap.get('rol') || '';
+
+    console.log('this.var_id: ', this.var_id);
+    console.log('this.var_rol: ', this.var_rol);
+    this.fetchPrestamos();
+  }
+
+  fetchPrestamos(page: number = 1): void {
+    this.prestamosService.getPrestamos(page).subscribe((rta: any) => {
+      console.log('Prestamos api: ', rta);
+      this.arrayPrestamos = rta.prestamos || [];
+      this.filterPrestamos(); // Actualiza filteredBooks al obtener los libros
+      this.currentPage = rta.pagina;
+      this.totalPages = rta.paginas;
+      this.updatePaginatedPrestamos();
+    });
+  }
+
+  filterPrestamos(): void {
+    if (this.searchQuery.trim() === '') {
+      this.filteredPrestamos = [...this.arrayPrestamos];
+    } else {
+      this.filteredPrestamos = this.arrayPrestamos.filter(prestamo =>
+        prestamo.libro.titulo.toLowerCase().includes(this.searchQuery.toLowerCase()),
+        // Agrega más criterios de búsqueda según sea necesario
+      );
+    }
+    this.updatePaginatedPrestamos();
+  }
+
+  updatePaginatedPrestamos(): void {
+    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+    const endIndex = startIndex + this.itemsPerPage;
+    this.paginatedPrestamos = this.uniqueUserPrestamos.slice(startIndex, endIndex);
+    console.log("paginatedPrestamos: ", this.paginatedPrestamos);
+  }
+
+  goToPage(page: number): void {
+    if (page >= 1 && page <= this.totalPages) {
+      this.currentPage = page;
+      this.fetchPrestamos(page); // Obtén los prestamos de la página actualizada
+    }
+  }
 
   countPrestamosByUser(userId: string) {
     console.log(this.originalPrestamos)
@@ -57,5 +110,4 @@ export class PrestamosAdminComponent {
       }
     }, 0);
   }
-  
 }

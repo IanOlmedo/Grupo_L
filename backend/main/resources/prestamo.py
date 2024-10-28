@@ -43,7 +43,7 @@ class Prestamos(Resource):
     @roles_required(roles = ["admin"])
     def get(self):
         page = 1
-        per_page = 10
+        per_page = 5
 
         filters = request.args.to_dict()
 

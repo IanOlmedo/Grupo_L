@@ -11,7 +11,7 @@ class Valoracion(Resource):
     def get(self):
         page = 1
 
-        per_page = 10
+        per_page = 3
 
         #no ejecuto el .all()
         valoracion = db.session.query(ValoracionesModel)
@@ -42,10 +42,15 @@ class Valoracion(Resource):
         #terminan los filtros
 
         #Paginacion
-        valoracion = valoracion.paginate(page=page, per_page=per_page, error_out=False)
-
-        return jsonify({ 'valoraciones': [valoracion.to_json() for valoracion in valoracion.items], 'total': valoracion.total })
+        valoraciones = valoracion.paginate(page=page, per_page=per_page, error_out=False)
+        
+        #Obtener valor paginado
+        return jsonify({ 'valoraciones': [valoracion.to_json_complete() for valoracion in valoraciones], 
+                        'total': valoraciones.total,
+                        'paginas': valoraciones.pages,
+                        'pagina': page})
     
+
     @roles_required(roles = ["admin", "users"])
     def post(self):
         valoracion= ValoracionesModel.from_json(request.get_json())

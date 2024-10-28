@@ -7,44 +7,48 @@
         <div *ngIf="var_rol == 'user'" class="circle-plus-cart" routerLink="/add-review"><h2>+</h2></div>
     </div>
 
-<div>
-    <h1 style="color: white; text-align: center; font-size: 15px">Total de Valoraciones: {{ cartItems.length }}</h1>
-</div>
-<div *ngIf="cartItems.length > 0; else sinValoraciones">
-    <div class="cart-item" *ngFor="let item of cartItems; let i = index">
-        <div class="book-card">
-            <p class="book-title">{{ item.titulo }}</p>
-            <div class="book-content">
-                <div class="book-info">
-                    <div class="user-info">
-                        <img [src]="item.avatar" alt="Avatar de {{ item.usuario }}" class="author-img">
-                        <div class="author-name">{{ item.usuario }}</div>
-                    </div>
-                    <div>
-                        <h6 style="font-weight: bold">Valoración:</h6>
-                        <p class="Valoracion">{{ item.valoracion }}</p>
-                    </div>
-                    <div>
-                        <h6 style="font-weight: bold">Calificación:</h6>
-                        <div class="rating">
-                            <span *ngFor="let star of getStars(+item.calificacion); let i = index">
-                                <i class="fa-solid fa-star"[ngClass]="{'stars': i < +item.calificacion}"></i>
-                            </span>
+    <div>
+        <h1 style="color: white; text-align: center; font-size: 15px">Total de Valoraciones: {{ paginatedValoraciones.length }}</h1>
+    </div>
+
+    <div *ngIf="paginatedValoraciones.length > 0; else sinValoraciones">
+        <div class="cart-item" *ngFor="let valoracion of paginatedValoraciones;">
+            <div class="book-card">
+                <p class="book-title">{{ valoracion.libro.titulo }}</p>
+                <div class="book-content">
+                    <div class="book-info">
+                        <div class="user-info">
+                            <img [src]="valoracion.usuario.imagen" class="author-img">
+                        </div>
+                        <div>
+                            <h6 style="font-weight: bold">Valoración:</h6>
+                            <p class="Valoracion">{{ valoracion.comentario }}</p>
+                        </div>
+                        <div>
+                            <h6 style="font-weight: bold">Calificación:</h6>
+                            <div class="rating">
+                                <span *ngFor="let star of getStars(valoracion.valoracion); let i = index">
+                                    <i class="fa-solid fa-star" [ngClass]="{'stars': i < valoracion.valoracion}"></i>
+                                </span>
+                            </div>
                         </div>
                     </div>
-                    <button *ngIf="var_rol == 'admin'" class="btn btn-danger btn-sm" (click)="eliminarValoracion(i)">
-                        <i class="fa-solid fa-trash"></i>
-                    </button>
+                    <img [src]="valoracion.libro.imagen" alt="Portada de {{ valoracion.libro.titulo }}" class="portada">
                 </div>
-                <img [src]="item.portada" alt="Portada de {{ item.titulo }}" class="portada">
-
             </div>
         </div>
     </div>
-</div>
 
-<ng-template #sinValoraciones>
-    <h1 style="color: white; text-align: center; font-size: 15px">No hay Valoraciones de este libro</h1>
-</ng-template>
+    <ng-template #sinValoraciones>
+        <h1 style="color: white; text-align: center; font-size: 15px">No hay Valoraciones de este libro</h1>
+    </ng-template>
 
+    <!-- Pagination controls -->
+    <div class="row mt-4">
+        <div class="col-12 d-flex justify-content-between align-items-center pagination-controls">
+            <button class="btn btn-primary" (click)="goToPage(currentPage - 1)" [disabled]="currentPage === 1">Anterior</button>
+            <span>Página {{ currentPage }} de {{ totalPages }}</span>
+            <button class="btn btn-primary" (click)="goToPage(currentPage + 1)" [disabled]="currentPage === totalPages">Siguiente</button>
+        </div>
+    </div>
 </div>

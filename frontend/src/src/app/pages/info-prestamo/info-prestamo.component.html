@@ -31,17 +31,6 @@
                     <p><strong>Fecha de Devolución:{{prestamo.fecha_de_vencimiento}}</strong> </p>
                     <p><strong>Estado: {{prestamo.estado}}</strong> </p>
                     
-                    <!-- Detalles de Deudas -->
-                    <div class="d-flex justify-content-center text-white" style="background-color: #483FA9; padding: 2%; border-radius: 10px; margin-bottom: 2%;">
-                        <h2>Deudas</h2>
-                    </div>
-                    <p *ngIf="prestamo?.deuda">
-                        <strong>Título:</strong> 
-                    </p>
-                    <p *ngIf="prestamo?.deuda">
-                        <strong>Autor:</strong> 
-                    </p>
-                    <!-- Agrega otros campos de deuda si existen -->
                 </div>
             </div>
         </div>

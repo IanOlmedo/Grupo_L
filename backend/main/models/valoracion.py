@@ -37,8 +37,8 @@ class Valoraciones(db.Model):
             return valoracion_json
         
     def to_json_complete(self):
-            libro = [libro.to_json() for libro in self.libro]
-            usuario = [usuario.to_json() for usuario in self.usuario]
+            usuarios = self.usuario.to_json_short()
+            libro = self.libro.to_json_short()
             valoracion_json={
                 'id_valoracion':self.id_valoracion,
                 'id_libro':self.id_libro,
@@ -46,10 +46,11 @@ class Valoraciones(db.Model):
                 'valoracion':self.valoracion,
                 'comentario':str(self.comentario),
                 'fecha_de_valoracion':str(self.fecha_de_valoracion.strftime("%d-%m-%Y")),
-                'usuario':usuario,
+                'usuario':usuarios,
                 'libro':libro
             }
             return valoracion_json
+        
     @staticmethod
     def from_json(valoracion_json):
         print(valoracion_json)

@@ -41,7 +41,8 @@ class Libro(db.Model):
             'editorial':str(self.editorial),
             'anio_de_publicacion':self.anio_de_publicacion,
             'descripcion':str(self.descripcion),
-            'stock':self.stock
+            'stock':self.stock,
+            'imagen':str(self.imagen),
         }
         return libro_json
 
