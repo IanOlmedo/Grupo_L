@@ -29,18 +29,20 @@ export class RegisterComponent {
 ngOnInit(): void {
   // Definimos el formulario con los campos y validaciones
   this.registerForm = this.formBuilder.group({
-    email: ['', [Validators.required, Validators.email]], // Campo email con validación
-    password: ['', [Validators.required, Validators.minLength(6)]], // Campo password con validación mínima de 6 caracteres
-    confirmPassword: ['', Validators.required] // Campo confirmPassword para confirmar la contraseña
-  }, { validator: this.passwordMatchValidator }); // Aplicamos el validador personalizado
+    email: ['', [Validators.required, Validators.email]], 
+    password: ['', [Validators.required, Validators.minLength(6)]], 
+    confirmPassword: ['', Validators.required]
+  }, { validator: this.passwordMatchValidator }); 
 }
 
 // Función personalizada para validar si las contraseñas coinciden
   passwordMatchValidator(formGroup: FormGroup) {
     const password = formGroup.get('password')?.value;
     const confirmPassword = formGroup.get('confirmPassword')?.value;
-    return password === confirmPassword ? null : { mismatch: true }; // Retorna error 'mismatch' si no coinciden
+    return password === confirmPassword ? null : { mismatch: true }; 
   }
+
+  
 
   irRegister(dataRegister:any) {
     console.log(dataRegister)
@@ -67,6 +69,10 @@ ngOnInit(): void {
       alert('Los valores son requeridos');
     }
   }
+
+
+
+
 }
  
 
