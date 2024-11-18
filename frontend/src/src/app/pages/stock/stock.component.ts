@@ -18,7 +18,7 @@ export class StockComponent {
   paginatedLibros: any[] = [];
   currentPage: number = 1;
   totalPages: number = 1;
-  itemsPerPage: number = 3;
+  itemsPerPage: number = 8;
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -30,14 +30,17 @@ export class StockComponent {
   }
 
   fetchUsers(page: number = 1): void {
-    this.booksService.getBooks(page).subscribe((rta: any) => {
+    const params = {
+      page: page.toString(),
+      per_page: this.itemsPerPage.toString()
+    };
+    this.booksService.getBooks(params).subscribe((rta: any) => {
       console.log(rta)
-      console.log('usuarios api: ', rta);
+      console.log('libros api: ', rta);
       this.arrayLibros = rta.libros || [];
       this.filterUsers();
       this.currentPage = rta.pagina;
       this.totalPages = rta.paginas;
-      this.updatePaginatedUsers();
     });
   }
 
@@ -49,13 +52,7 @@ export class StockComponent {
         book.nombre_completo.toLowerCase().includes(this.searchQuery.toLowerCase())
       );
     }
-    this.updatePaginatedUsers();
-  }
-
-  updatePaginatedUsers(): void {
-    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
-    const endIndex = startIndex + this.itemsPerPage;
-    this.paginatedLibros = this.filteredLibros.slice(startIndex, endIndex);
+    this.paginatedLibros = [...this.filteredLibros]
   }
 
   goToPage(page: number): void {

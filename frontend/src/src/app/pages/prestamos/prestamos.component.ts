@@ -26,6 +26,10 @@ export class PrestamosComponent {
   user:any
   book:any
 
+  currentPage: number = 1;
+  totalPages: number = 1;
+  itemsPerPage: number = 8;
+
   constructor(
     private route: ActivatedRoute,
     private authService: AuthService,
@@ -40,7 +44,16 @@ export class PrestamosComponent {
     this.var_id = this.route.snapshot.paramMap.get('id') || '';
     this.var_rol=this.route.snapshot.paramMap.get('rol') || '';
 
-    this.prestamosService.getPrestamos().subscribe((rta:any) => {
+    this.fetchPrestamos();
+  }
+
+  fetchPrestamos(page: number = 1): void{
+    const params = {
+      page: page.toString(),
+      per_page: this.itemsPerPage.toString()
+    };
+
+    this.prestamosService.getPrestamos(params).subscribe((rta:any) => {
       console.log('prestamos api: ',rta);
       this.arrayPrestamos = rta.prestamos || [];
       this.filteredPrestamos = [...this.arrayPrestamos]
@@ -54,6 +67,7 @@ export class PrestamosComponent {
       this.prestamos = [...this.arrayPrestamosWithDetails]
       console.log("xd"+this.prestamos)
     });
+
   }
 
   get isRole() {

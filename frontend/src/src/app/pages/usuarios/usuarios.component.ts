@@ -27,9 +27,9 @@ export class UsuariosComponent implements OnInit {
   // Obtener los datos del usuario a través del servicio
   getUserData(): void {
     this.usuariosService.getUserRole();  // Si necesitas cargar el rol desde el servicio
-    
+    const params = {}
     // Asumimos que los datos del usuario incluyen el rol y otros detalles
-    this.usuariosService.getUsers().subscribe(
+    this.usuariosService.getUsers(params).subscribe(
       (data: any) => {
         const usuario = data.find((user: any) => user.id === this.var_id);
         if (usuario) {

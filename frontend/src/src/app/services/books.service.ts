@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, take } from 'rxjs';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -11,13 +11,20 @@ export class BooksService {
     private httpClient:HttpClient
   ) { }
 
-  getBooks(page: number = 1): Observable<any> {
+  getBooks(params: any): Observable<any> {
     let headers = new HttpHeaders({
       'Content-Type': 'application/json'
     });
-  
-    const requestOptions = { headers: headers, params: { page: page.toString() } };
-    return this.httpClient.get<any>(this.url + '/Libros', requestOptions);
+
+    let httpParams = new HttpParams();
+    Object.keys(params).forEach(key => {
+      if (params[key]) {
+        httpParams = httpParams.append(key, params[key]);
+      }
+    });
+
+    const requestOptions = { headers: headers, params: httpParams };
+    return this.httpClient.get<any>(`${this.url}/Libros`, requestOptions);
   }
   
   getOneBook(id: string){

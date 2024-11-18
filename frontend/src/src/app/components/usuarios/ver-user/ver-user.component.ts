@@ -29,13 +29,17 @@ export class VerUserComponent {
   }
 
   fetchUsers(page: number = 1): void {
-    this.usuariosService.getUsers(page).subscribe((rta: any) => {
+    const params = {
+      page: page.toString(),
+      per_page: this.itemsPerPage.toString()
+    };
+    this.usuariosService.getUsers(params).subscribe((rta: any) => {
       console.log('usuarios api: ', rta);
       this.arrayUsuarios = rta.usuarios || [];
       this.filterUsers();
       this.currentPage = rta.pagina;
       this.totalPages = rta.paginas;
-      this.updatePaginatedUsers();
+      this.paginatedUsers = rta.usuarios;
     });
   }
 
@@ -47,14 +51,8 @@ export class VerUserComponent {
         user.nombre_completo.toLowerCase().includes(this.searchQuery.toLowerCase())
       );
     }
-    this.updatePaginatedUsers();
   }
 
-  updatePaginatedUsers(): void {
-    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
-    const endIndex = startIndex + this.itemsPerPage;
-    this.paginatedUsers = this.filteredUsers.slice(startIndex, endIndex);
-  }
 
   goToPage(page: number): void {
     if (page >= 1 && page <= this.totalPages) {

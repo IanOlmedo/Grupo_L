@@ -35,14 +35,18 @@ export class CatalogoComponent {
   }
 
   fetchBooks(page: number = 1): void {
-    this.booksService.getBooks(page).subscribe((rta: any) => {
+    const params = {
+      page: page.toString(),
+      per_page: this.itemsPerPage.toString()
+    };
+    this.booksService.getBooks(params).subscribe((rta: any) => {
       console.log('libros api: ', rta);
       this.arrayBooks = rta.libros || [];
-      /*this.filteredBooks = [...this.arrayBooks]; */
+      this.filteredBooks = [...this.arrayBooks]; 
       this.filterBooks(); // Actualiza filteredBooks al obtener los libros
       this.currentPage = rta.pagina;
       this.totalPages = rta.paginas;
-      this.updatePaginatedBooks();
+      this.paginatedBooks = rta.libros;
     });
   }
 
@@ -55,18 +59,14 @@ export class CatalogoComponent {
         // Agrega más criterios de búsqueda según sea necesario
       );
     }
-    this.updatePaginatedBooks();
   }
 
-  updatePaginatedBooks(): void {
-    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
-    const endIndex = startIndex + this.itemsPerPage;
-    this.paginatedBooks = this.filteredBooks.slice(startIndex, endIndex);
-  }
 
   goToPage(page: number): void {
     if (page >= 1 && page <= this.totalPages) {
+      console.log('Pagina: '+page)
       this.currentPage = page;
+      console.log('pagina actual:'+this.currentPage)
       this.fetchBooks(page); // Obtén los libros de la página actualizada
     }
   }

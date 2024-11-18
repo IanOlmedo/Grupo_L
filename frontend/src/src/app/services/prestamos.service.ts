@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http'
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http'
 import { Router } from '@angular/router';
 import { Observable, take } from 'rxjs';
 
@@ -14,16 +14,22 @@ export class PrestamosService {
     private router: Router
   ) { }
 
-  getPrestamos(page: number = 1): Observable<any> {
+  getPrestamos(params:any): Observable<any> {
     let auth_token = localStorage.getItem('token');
   
     let headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${auth_token}`
     });
+
+    let httpParams = new HttpParams();
+    Object.keys(params).forEach(key => {
+      if (params[key]) {
+        httpParams = httpParams.append(key, params[key]);
+      }
+    });
   
-    const requestOptions = { headers: headers, params: { page: page.toString() } };
-  
+    const requestOptions = { headers: headers, params: httpParams };
     return this.httpClient.get<any>(this.url + '/Prestamos', requestOptions);
   }
   

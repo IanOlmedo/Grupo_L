@@ -7,14 +7,14 @@
     <div class="user-card text-black text-center background-transparent mb-3" style=" margin-top: 5%;;">
         <div class="row g-0" style ="margin-top: 5%; margin-bottom: 5%" *ngFor="let prestamo of paginatedPrestamos">
             <div class="col-4">
-                <img src="{{prestamo.usuario.imagen}}" class="user-photo" alt="Usuario">
+                <img src="{{prestamo.usuarios.imagen}}" class="user-photo" alt="Usuario">
             </div>
             <div class="col-8">
                 <div class="user-card-body" style="padding: 5%; background-color: white; border-color: #483fa9 ; border-radius: 5%; ">
-                    <h5 class="user-card-title">{{prestamo.usuario.nombre_completo}}</h5>
-                    <p class="user-card-text">{{prestamo.usuario.dni}}</p>
-                    <p class="user-card-text">Préstamos: {{ countPrestamosByUser(prestamo.usuario.id_usuario) }}</p>
-                    <p class="user-card-text">Préstamos Vencidos: {{countPrestamosVencidosByUser(prestamo.usuario.id_usuario) }}</p>
+                    <h5 class="user-card-title">{{prestamo.usuarios.nombre_completo}}</h5>
+                    <p class="user-card-text">{{prestamo.usuarios.dni}}</p>
+                    <p class="user-card-text">Préstamos: {{ countPrestamosByUser(prestamo.usuarios.id_usuario) }}</p>
+                    <p class="user-card-text">Préstamos Vencidos: {{countPrestamosVencidosByUser(prestamo.usuarios.id_usuario) }}</p>
                     <a href="../bootstrap/info_detalles.html" class="button-primary button" style = "background-color: #483fa9;">Ver más</a>
                 </div>
             </div>

@@ -51,13 +51,17 @@ export class PrestamosAdminComponent {
   }
 
   fetchPrestamos(page: number = 1): void {
-    this.prestamosService.getPrestamos(page).subscribe((rta: any) => {
+    const params = {
+      page: page.toString(),
+      per_page: this.itemsPerPage.toString()
+    };
+    this.prestamosService.getPrestamos(params).subscribe((rta: any) => {
       console.log('Prestamos api: ', rta);
       this.arrayPrestamos = rta.prestamos || [];
-      this.filterPrestamos(); // Actualiza filteredBooks al obtener los libros
+      //this.filterPrestamos(); // Actualiza filteredBooks al obtener los libros
       this.currentPage = rta.pagina;
       this.totalPages = rta.paginas;
-      this.updatePaginatedPrestamos();
+      this.paginatedPrestamos = rta.prestamos
     });
   }
 
@@ -70,14 +74,7 @@ export class PrestamosAdminComponent {
         // Agrega más criterios de búsqueda según sea necesario
       );
     }
-    this.updatePaginatedPrestamos();
-  }
 
-  updatePaginatedPrestamos(): void {
-    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
-    const endIndex = startIndex + this.itemsPerPage;
-    this.paginatedPrestamos = this.uniqueUserPrestamos.slice(startIndex, endIndex);
-    console.log("paginatedPrestamos: ", this.paginatedPrestamos);
   }
 
   goToPage(page: number): void {
