@@ -71,4 +71,11 @@ export class CatalogoComponent {
     }
   }
   
+  get isUser() {
+    return localStorage.getItem('user_role') === 'user';
+  }
+
+  get isAdmin() {
+    return localStorage.getItem('user_role') === 'admin';
+  }
 }

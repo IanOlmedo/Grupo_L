@@ -558,3 +558,14 @@ hr {
     font-size: 50px;   
     color: #483FA9;    
 }
+
+
+.carousel-item img {
+    width: 200px;
+    height: 200px;
+    margin-right: 10px;
+}
+.carousel-item {
+    display: flex;
+    padding: 200px;
+}

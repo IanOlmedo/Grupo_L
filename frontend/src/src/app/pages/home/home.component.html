@@ -1,66 +1,56 @@
 <app-nav></app-nav>
 <app-search-bar></app-search-bar>
-
+ 
 <div class="bg-container-fluid" style = "margin-top: 20px;">
-    <div class="row">
+    <div class="row justify-content-between">
         <ng-container *ngFor="let libro of terrorBooks">
-            <div class="col-4">
+            <div class="col-4 col-md-3 col-xl-2">
                 <img src={{libro.imagen}} alt="Image 1" class="img-fluid img-overlay1" >
             </div>
         </ng-container>
-        <!--
-        <div class="col-4">
-            <img src="assets/reyescaidos.jpeg" alt="Image 1" class="img-fluid img-overlay1" >
-        </div>
-        <div class="col-4">
-            <img src="assets/aleaciondeley.jpeg" alt="Image 2" class="img-fluid img-overlay1">
-        </div>
-        <div class="col-4">
-            <img src="assets/Juego_de_Tronos.jpeg" alt="Image 3" class="img-fluid img-overlay1">
-        </div>
-    -->
     </div>
 </div>
 
 <div class="bg-container-fluid" style="background-image: url(assets/fondo_libros2.jpeg)">
-    <div class="row">
+    <div class="row justify-content-between">
         <ng-container *ngFor="let libro of fantasyBooks">
-            <div class="col-4">
+            <div class="col-4 col-md-3 col-xl-2">
                 <img src={{libro.imagen}} alt="Image 1" class="img-fluid img-overlay1" >
             </div>
         </ng-container>
-        <!--
-        <div class="col-4">
-            <img src="assets/cadaverexquisito.jpeg" alt="Image 1" class="img-fluid img-overlay1" >
-        </div>
-        <div class="col-4">
-            <img src="assets/cuentosmacabros.jpeg" alt="Image 2" class="img-fluid img-overlay1">
-        </div>
-        <div class="col-4">
-            <img src="assets/Misery.jpeg" alt="Image 3" class="img-fluid img-overlay1">
-        </div>
-    -->
     </div>
 </div>
 
 <div class="bg-container-fluid" style="background-image: url(assets/fondo_libros3.jpeg)">
-    <div class="row">
+    <div class="row justify-content-between">
         <ng-container *ngFor="let libro of romanceBooks">
-            <div class="col-4">
+            <div class="col-4 col-md-3 col-xl-2">
                 <img src={{libro.imagen}} alt="Image 1" class="img-fluid img-overlay1" >
             </div>
         </ng-container>
-
-        <!--
-        <div class="col-4">
-            <img src="assets/julia.jpeg" alt="Image 1" class="img-fluid img-overlay1" >
-        </div>
-        <div class="col-4">
-            <img src="assets/A_dos_metros_de_ti.jpeg" alt="Image 2" class="img-fluid img-overlay1">
-        </div>
-        <div class="col-4">
-            <img src="assets/herbarium.jpeg" alt="Image 3" class="img-fluid img-overlay1">
-        </div>
-    -->
     </div>
 </div>
+
+
+
+<!-- 
+<div id="carouselExample" class="carousel slide" data-bs-ride="carousel" style="margin-top: 20px;">
+    <div class="carousel-inner">
+        <div class="carousel-item" *ngFor="let category of bookCategories; let i = index" [class.active]="i === 0">
+            <div class="d-flex justify-content-center">
+                <ng-container *ngFor="let libro of category.books">
+                    <img [src]="libro.imagen" [alt]="libro.titulo" class="img-fluid" style="width: 200px; height: 200px; margin-right: 10px;">
+                </ng-container>
+            </div>
+        </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExample" role="button" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExample" role="button" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </a>
+</div>
+-->

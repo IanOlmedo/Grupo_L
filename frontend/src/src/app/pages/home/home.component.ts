@@ -11,6 +11,7 @@ export class HomeComponent {
   terrorBooks: any[] = [];
   fantasyBooks: any[] = [];
   romanceBooks: any[] = [];
+  bookCategories: any[] = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -21,6 +22,12 @@ export class HomeComponent {
     this.fetchBooksGenre('terror', this.terrorBooks);
     this.fetchBooksGenre('fantasia', this.fantasyBooks);
     this.fetchBooksGenre('romance', this.romanceBooks);
+
+    this.bookCategories = [
+      { name: 'Terror', books: this.terrorBooks },
+      { name: 'Fantasía', books: this.fantasyBooks },
+      { name: 'Romance', books: this.romanceBooks },
+  ];
   }
 
   fetchBooksGenre(genre:string, booksArray:any[]):void{
@@ -37,4 +44,3 @@ export class HomeComponent {
     })
   }
 }
-

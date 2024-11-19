@@ -1,7 +1,7 @@
 .circle-plus {
     position: absolute;
     top: 0%;  /* Ajusta la distancia desde el borde superior, relativo al viewport */
-    left: 64%; /* Ajusta la distancia desde el borde izquierdo, relativo al viewport */
+    left: 68%; /* Ajusta la distancia desde el borde izquierdo, relativo al viewport */
     width: 8vw; /* Ajusta el tamaño del ícono relativo al ancho del viewport */
     height: 8vw; /* Mantiene la proporción del ícono, también relativo al ancho */
     background-color: #483FA9;
@@ -23,7 +23,7 @@
 .edit-button {
     position: absolute;
     bottom: 0%; /* Ajusta la distancia desde el borde inferior, relativo al viewport */
-    left: 9%;  /* Ajusta la distancia desde el borde izquierdo, relativo al viewport */
+    left: 0%;  /* Ajusta la distancia desde el borde izquierdo, relativo al viewport */
     width: 15vw; /* Ajusta el tamaño del botón relativo al ancho del viewport */
     height: 8vw; /* Hace que el botón sea cuadrado y escalable */
     background-color: #483FA9; 
