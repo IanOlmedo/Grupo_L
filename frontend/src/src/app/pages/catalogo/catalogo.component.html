@@ -6,7 +6,7 @@
     <div class="row justify-content-between">
         <ng-container *ngFor="let libro of filteredBooks">
             <div class="col-4 col-md-3 col-xl-2">
-                <div class="image-wrapper"> <!-- Cambiar var_rol   -->
+                <div class="images-wrapper-catalogo"> 
                     <div *ngIf=isUser class="circle-plus" routerLink="/carrito/1" href="#"><h2>+</h2></div>
                     <div *ngIf=isAdmin class="edit-button" routerLink="/ver_libro/1" href="#">Editar</div>
                     <img src={{libro.imagen}} alt="Image 1" class="img-fluid img-overlay1">
@@ -20,7 +20,7 @@
   <div class="row mt-4">
     <div class="col-12 d-flex justify-content-between align-items-center pagination-controls">
       <button class="btn btn-primary" (click)="goToPage(currentPage - 1)" [disabled]="currentPage === 1">Anterior</button>
-      <span>Página {{ currentPage }} de {{ totalPages }}</span>
+      <span> Página {{ currentPage }} de {{ totalPages }}</span>
       <button class="btn btn-primary" (click)="goToPage(currentPage + 1)" [disabled]="currentPage === totalPages">Siguiente</button>
     </div>
   </div>

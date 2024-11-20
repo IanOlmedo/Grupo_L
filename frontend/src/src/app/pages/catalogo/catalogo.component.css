@@ -1,18 +1,18 @@
 .circle-plus {
-    position: absolute;
-    top: 0%;  /* Ajusta la distancia desde el borde superior, relativo al viewport */
-    left: 68%; /* Ajusta la distancia desde el borde izquierdo, relativo al viewport */
-    width: 8vw; /* Ajusta el tamaño del ícono relativo al ancho del viewport */
-    height: 8vw; /* Mantiene la proporción del ícono, también relativo al ancho */
+    position: relative;
+    top: 40px; /* Distancia desde el borde superior */
+    right: 0px; /* Distancia desde el borde derecho */
+    width: 40px; /* Tamaño del botón */
+    height: 40px;
     background-color: #483FA9;
     border-radius: 50%; /* Hace el ícono circular */
-    display: flex; /* Hace que el ícono sea un contenedor flexible */
-    justify-content: center; /* Centra el ícono dentro del contenedor */
-    align-items: center; /* Centra el ícono dentro del contenedor */
-    font-size: 5vmin; /* Ajusta el tamaño del texto del ícono para que escale con la pantalla */
-    color: white; 
-    font-weight: bold; /* Ajusta la fuente del ícono */
-    cursor: pointer; /* Para que parezca clickeable */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem; /* Ajusta el tamaño del texto del ícono */
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
     z-index: 10; /* Asegura que esté por encima de la imagen */
 }
 
@@ -21,11 +21,12 @@
 }
 
 .edit-button {
-    position: absolute;
+    position: relative;
+    top: 300px; /* Distancia desde el borde superior */
     bottom: 0%; /* Ajusta la distancia desde el borde inferior, relativo al viewport */
     left: 0%;  /* Ajusta la distancia desde el borde izquierdo, relativo al viewport */
-    width: 15vw; /* Ajusta el tamaño del botón relativo al ancho del viewport */
-    height: 8vw; /* Hace que el botón sea cuadrado y escalable */
+    width: 8vw; /* Ajusta el tamaño del botón relativo al ancho del viewport */
+    height: 4vw; /* Hace que el botón sea cuadrado y escalable */
     background-color: #483FA9; 
     color: white;
     border-radius: 10vmin; /* Hace que el botón sea circular */
@@ -43,6 +44,12 @@
     background-color: #B589FF; /* Cambia el color al hacer hover */
 }
 
+/* Contenedor de la imagen y el ícono */
+.image-wrapper-catalogo {
+    position: relative;
+    display: inline-block;
+}
+
 /* Contenedor de imágenes */
 .images-container {
     margin-top: 5px; /* Espacio superior del contenedor */
@@ -56,6 +63,7 @@
     height: 100%; /* Mantiene la proporción de la imagen */
     object-fit: cover; /* Ajusta la imagen para cubrir el área del contenedor sin distorsión */
     border-radius: 15px; /* Bordes redondeados para las imágenes */
+    z-index: 1;
 }
 
 .image-title {
