@@ -1,37 +1,35 @@
 <app-nav></app-nav>
-
 <app-search-bar></app-search-bar>
-    
-    <div class="container-fluid" style="margin-top: 5%;">
-        <div class="row d-flex justify-content-center">
-            <div class="col-12 col-md-4 d-flex justify-content-center">
-                <img src="{{prestamo.usuarios.imagen}}" alt="Chabon" class="user-photo">
-            </div>
-            <div class="col-12 col-md-8">
-                <div class="details-section">
-                    <!-- Datos Personales -->
-                    <div class="d-flex justify-content-center text-white" style="background-color: #483FA9; padding: 2%; border-radius: 10px; margin-bottom: 2%;">
-                        <h2>Datos Personales</h2>
-                    </div>
-                    <p><strong>Nombre:</strong> {{prestamo.usuarios.nombre_completo}}</p>
-                    <p><strong>DNI:</strong> {{prestamo.usuarios.dni}}</p>
-                    <p><strong>Dirección:</strong> {{prestamo.usuarios.direccion}}</p>
-                    <p><strong>Teléfono:</strong> {{prestamo.usuarios.telefono}}</p>
-                    <p><strong>Email:</strong> {{prestamo.usuarios.email}}</p>
-                    
-                    <!-- Detalles del Préstamo -->
-                    <div class="d-flex justify-content-center text-white" style="background-color: #483FA9; padding: 2%; border-radius: 10px; margin-bottom: 2%;">
-                        <h2>Préstamos</h2>
-                    </div>
-                    <p><strong>Título: {{prestamo.libro.titulo}}</strong> </p>
-                    <p><strong>Autor: {{prestamo.libro.titulo}}</strong></p>
-                    <p><strong>Descripción: {{prestamo.libro.descripcion}}</strong> </p>
-                    <p><strong>Año: {{prestamo.libro.anio_de_publicacion}}</strong> </p>
-                    <p><strong>Fecha de Pedido: {{prestamo.fecha_de_entrega}}</strong> </p>
-                    <p><strong>Fecha de Devolución:{{prestamo.fecha_de_vencimiento}}</strong> </p>
-                    <p><strong>Estado: {{prestamo.estado}}</strong> </p>
-                    
+
+<div class="container-fluid" style="margin-top: 5%;">
+    <div class="row d-flex justify-content-center">
+        <div class="col-12 col-md-4 d-flex justify-content-center">
+            <img src="{{prestamo.usuarios.imagen}}" alt="Chabon" class="user-photo">
+        </div>
+        <div class="col-12 col-md-8">
+            <div class="details-section">
+                <!-- Datos Personales -->
+                <div class="section-header">
+                    <h2>Datos Personales</h2>
                 </div>
+                <p><strong>Nombre:</strong> {{prestamo.usuarios.nombre_completo}}</p>
+                <p><strong>DNI:</strong> {{prestamo.usuarios.dni}}</p>
+                <p><strong>Dirección:</strong> {{prestamo.usuarios.direccion}}</p>
+                <p><strong>Teléfono:</strong> {{prestamo.usuarios.telefono}}</p>
+                <p><strong>Email:</strong> {{prestamo.usuarios.email}}</p>
+
+                <!-- Detalles del Préstamo -->
+                <div class="section-header">
+                    <h2>Préstamos</h2>
+                </div>
+                <p><strong>Título:</strong> {{prestamo.libro.titulo}}</p>
+                <p><strong>Autor:</strong> {{prestamo.libro.autor}}</p>
+                <p><strong>Descripción:</strong> {{prestamo.libro.descripcion}}</p>
+                <p><strong>Año:</strong> {{prestamo.libro.anio_de_publicacion}}</p>
+                <p><strong>Fecha de Pedido:</strong> {{prestamo.fecha_de_entrega}}</p>
+                <p><strong>Fecha de Devolución:</strong> {{prestamo.fecha_de_vencimiento}}</p>
+                <p><strong>Estado:</strong> {{prestamo.estado}}</p>
             </div>
         </div>
     </div>
+</div>

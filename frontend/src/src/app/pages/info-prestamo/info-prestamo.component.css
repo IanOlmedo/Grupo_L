@@ -1,0 +1,101 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+}
+
+/* Estilos para el contenedor principal */
+.container-fluid {
+    padding: 20px;
+}
+
+/* Estilos para la imagen del usuario */
+.user-photo {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para la sección de detalles */
+.details-section {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para los encabezados de sección */
+.section-header {
+    background-color: #483FA9;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Estilos para los párrafos */
+.details-section p {
+    margin: 10px 0;
+    font-size: 1.1em;
+}
+
+/* Estilos para los elementos strong */
+.details-section strong {
+    font-weight: bold;
+    color: #483FA9;
+}
+
+/* Estilos para los botones de navegación y búsqueda */
+app-nav, app-search-bar {
+    margin-bottom: 20px;
+}
+
+/* Estilos para el contenedor de la imagen y el ícono */
+.image-wrapper-catalogo {
+    position: relative;
+    display: inline-block;
+    width: 100%; /* Asegura que el contenedor ocupe todo el ancho disponible */
+    max-width: 300px; /* Ajusta el tamaño máximo del contenedor */
+    margin: 0 auto; /* Centra el contenedor */
+    padding-top: 100%; /* Asegura que el contenedor tenga una relación de aspecto 1:1 */
+}
+
+/* Contenedor de imágenes */
+.images-container {
+    margin-top: 5px; /* Espacio superior del contenedor */
+    padding: 30px; /* Espacio interno alrededor del contenedor */
+    max-width: 100%; /* Asegura que el contenedor no exceda el tamaño del contenedor padre */
+}
+
+/* Imágenes dentro del contenedor */
+.img-overlay1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* Las imágenes ocuparán todo el ancho del contenedor */
+    height: 100%; /* Las imágenes ocuparán toda la altura del contenedor */
+    object-fit: cover; /* Ajusta la imagen para cubrir el área del contenedor sin distorsión */
+    border-radius: 15px; /* Bordes redondeados para las imágenes */
+    z-index: 1;
+}
+
+.image-title {
+    color: white;
+    margin-top: 10px;
+    font-size: 4vw; /* Ajusta el tamaño de la letra a 4% del ancho de la ventana */
+}
+
+/* Opcional: puedes agregar un estilo de min y max para controlar el tamaño */
+@media (max-width: 600px) {
+    .image-title {
+        font-size: 3vw; /* Más pequeño en pantallas más pequeñas */
+    }
+}
+
+@media (min-width: 1200px) {
+    .image-title {
+        font-size: 2vw; /* Más grande en pantallas grandes */
+    }
+}

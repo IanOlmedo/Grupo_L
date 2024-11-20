@@ -15,7 +15,7 @@
                     <p class="user-card-text">{{prestamo.usuarios.dni}}</p>
                     <p class="user-card-text">Préstamos: {{ countPrestamosByUser(prestamo.usuarios.id_usuario) }}</p>
                     <p class="user-card-text">Préstamos Vencidos: {{countPrestamosVencidosByUser(prestamo.usuarios.id_usuario) }}</p>
-                    <a href="../bootstrap/info_detalles.html" class="button-primary button" style = "background-color: #483fa9;">Ver más</a>
+                    <a routerLink="/info_prestamo/{{prestamo.id_prestamo}}" class="button-primary button" style = "background-color: #483fa9;">Ver más</a>
                 </div>
             </div>
         </div>

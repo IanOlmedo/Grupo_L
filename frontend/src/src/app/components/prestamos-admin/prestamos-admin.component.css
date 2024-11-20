@@ -19,3 +19,123 @@
     color: white;
     margin-right: 20px;
 }
+
+.circle-plus-cart {
+    background-color: #483fa9;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.circle-plus-cart h2 {
+    margin: 0;
+    color: white;
+    font-size: 24px;
+}
+
+/* User card styles */
+.user-card {
+    width: 100%;
+    margin-top: 5%;
+}
+
+.user-card .row {
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.user-photo {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5%;
+}
+
+.user-card-body {
+    padding: 5%;
+    background-color: white;
+    border: 1px solid #483fa9;
+    border-radius: 5%;
+}
+
+.user-card-title {
+    font-size: 24px;
+    color: #483fa9;
+}
+
+.user-card-text {
+    font-size: 18px;
+    color: #333;
+}
+
+.button-primary {
+    background-color: #483fa9;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5%;
+    text-decoration: none;
+}
+
+/* Pagination controls */
+.pagination-controls {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pagination-controls .btn {
+    background-color: #483fa9;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5%;
+    cursor: pointer;
+}
+
+.pagination-controls .btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .cart-title {
+        font-size: 28px;
+    }
+
+    .cart-header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .user-card-title {
+        font-size: 20px;
+    }
+
+    .user-card-text {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .cart-title {
+        font-size: 24px;
+    }
+
+    .cart-header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .user-card-title {
+        font-size: 18px;
+    }
+
+    .user-card-text {
+        font-size: 14px;
+    }
+}

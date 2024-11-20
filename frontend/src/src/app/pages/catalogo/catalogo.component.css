@@ -1,7 +1,7 @@
 .circle-plus {
-    position: relative;
-    top: 40px; /* Distancia desde el borde superior */
-    right: 0px; /* Distancia desde el borde derecho */
+    position: absolute;
+    top: 10px; /* Distancia desde el borde superior */
+    right: 10px; /* Distancia desde el borde derecho */
     width: 40px; /* Tamaño del botón */
     height: 40px;
     background-color: #483FA9;
@@ -21,13 +21,12 @@
 }
 
 .edit-button {
-    position: relative;
-    top: 300px; /* Distancia desde el borde superior */
-    bottom: 0%; /* Ajusta la distancia desde el borde inferior, relativo al viewport */
-    left: 0%;  /* Ajusta la distancia desde el borde izquierdo, relativo al viewport */
+    position: absolute;
+    bottom: 10px; /* Distancia desde el borde inferior */
+    left: 10px; /* Distancia desde el borde izquierdo */
     width: 8vw; /* Ajusta el tamaño del botón relativo al ancho del viewport */
     height: 4vw; /* Hace que el botón sea cuadrado y escalable */
-    background-color: #483FA9; 
+    background-color: #483FA9;
     color: white;
     border-radius: 10vmin; /* Hace que el botón sea circular */
     display: flex; /* Para centrar el contenido dentro del botón */
@@ -48,6 +47,9 @@
 .image-wrapper-catalogo {
     position: relative;
     display: inline-block;
+    width: 100%; /* Asegura que el contenedor ocupe todo el ancho disponible */
+    max-width: 300px; /* Ajusta el tamaño máximo del contenedor */
+    margin: 0 auto; /* Centra el contenedor */
 }
 
 /* Contenedor de imágenes */
@@ -60,7 +62,7 @@
 /* Imágenes dentro del contenedor */
 .img-overlay1 {
     width: 100%; /* Las imágenes ocuparán todo el ancho del contenedor */
-    height: 100%; /* Mantiene la proporción de la imagen */
+    height: 200px; /* Altura fija para todas las imágenes */
     object-fit: cover; /* Ajusta la imagen para cubrir el área del contenedor sin distorsión */
     border-radius: 15px; /* Bordes redondeados para las imágenes */
     z-index: 1;
