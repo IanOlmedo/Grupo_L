@@ -11,6 +11,15 @@ export class UsuariosService {
     private httpClient: HttpClient
   ) { }
 
+  getOneUser(id: string){
+    console.log("Este es el Id: " + id)
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    })
+
+    const requestOptions = {headers: headers}
+    return this.httpClient.get<any>(this.url + '/Usuario/'+id, requestOptions)
+  }
   getUsers(params: any): Observable<any> {
     let auth_token = localStorage.getItem('token');
     let headers = new HttpHeaders({

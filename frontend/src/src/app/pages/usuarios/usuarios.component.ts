@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { UsuariosService } from '../../services/usuarios.service';  // Importa el servicio
+import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms'
+import { take } from 'rxjs';
 
 @Component({
   selector: 'app-usuarios',
@@ -13,6 +15,16 @@ export class UsuariosComponent implements OnInit {
   userData: any = {};  // Aquí almacenamos los datos del usuario
   editMode: boolean = false;  // Controla si los campos son editables o no
 
+  userForm = new FormGroup({
+    nombre_completo: new FormControl('', Validators.required),
+    direccion: new FormControl('', Validators.required),
+    dni: new FormControl('', Validators.required),
+    email: new FormControl('', [Validators.required, Validators.email]),
+    password: new FormControl('', [Validators.required]),
+    rol: new FormControl('', Validators.required),
+    telefono: new FormControl('', Validators.required)
+  });
+
   constructor(
     private route: ActivatedRoute,
     private usuariosService: UsuariosService  // Inyecta el servicio
@@ -24,22 +36,23 @@ export class UsuariosComponent implements OnInit {
     this.getUserData();  // Cargar los datos del usuario al iniciar
   }
 
+  /*this.booksService.getOneBook(this.var_id).subscribe((rta:any) =>{
+    console.log(rta)
+    this.book = rta || null
+    console.log(this.book)
+    console.log(this.book.año_de_publicacion)
+    this.arrayAuthor = rta.autor || []
+    console.log(this.arrayAuthor)
+  }, */
+
   // Obtener los datos del usuario a través del servicio
   getUserData(): void {
     this.usuariosService.getUserRole();  // Si necesitas cargar el rol desde el servicio
-    const params = {}
     // Asumimos que los datos del usuario incluyen el rol y otros detalles
-    this.usuariosService.getUsers(params).subscribe(
-      (data: any) => {
-        const usuario = data.find((user: any) => user.id === this.var_id);
-        if (usuario) {
-          this.userData = usuario;
-        }
-      },
-      (error) => {
-        console.error('Error obteniendo los datos del usuario', error);
-      }
-    );
+    this.usuariosService.getOneUser(this.var_id).pipe(take(1)).subscribe((rta: any) => {
+      console.log("Esta es la respuesta:", rta);
+      this.userData = rta || null;
+    });
   }
 
   // Cambiar el modo de edición
@@ -58,5 +71,31 @@ export class UsuariosComponent implements OnInit {
         console.error('Error actualizando los datos', error);
       }
     );
+  }
+  get isRole() {
+    return localStorage.getItem('user_role');
+  }  
+
+  get isUser() {
+    return localStorage.getItem('user_role') === 'user';
+  }
+
+  get isAdmin() {
+    return localStorage.getItem('user_role') === 'admin';
+  }
+
+  onSubmit() {
+    if (this.userForm.valid) {
+      if (this.var_id !== '') {
+        console.log("Llegue hasta aqui");
+        console.log(typeof(this.var_id))
+        console.log(this.var_id)
+        this.usuariosService.updateUser(this.var_id, this.userForm.value).subscribe(() => {
+        });
+      } else {
+        this.usuariosService.createUser(this.userForm.value).subscribe(() => {
+        });
+      }
+    }
   }
 }

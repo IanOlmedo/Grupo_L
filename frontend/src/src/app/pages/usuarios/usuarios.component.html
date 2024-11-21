@@ -2,43 +2,45 @@
 
 <!-- Información del Usuario -->
 <div class="container text-center text-white my-4 profile-container">
-    <img src="../img/Logo-usuario.jpeg" alt="Usuario" class="rounded-circle" style="width: 80px; height: 80px;">
-    <a href="editar_usuario.html" class="circle-plus1">+</a>
-    <h4 *ngIf="var_rol == 'user'" class="mt-3">Información del Usuario</h4>
-    <h4 *ngIf="var_rol == 'admin'" class="mt-3">Información del Administrador</h4>
+    <img src="/assets/Logo-usuario.jpeg" alt="Usuario" class="rounded-circle" style="width: 80px; height: 80px;">
+    <a href="editar_usuario.html" class="circle-plus-usuario">+</a>
+    <h4 *ngIf="isUser" class="mt-3">Información del Usuario</h4>
+    <h4 *ngIf="isAdmin" class="mt-3">Información del Administrador</h4>
 </div>
 
 <!-- Formulario de datos de usuario -->
 <div class="container profile-container text-white">
     <form>
-        <div class="mb-3 d-flex justify-content-between align-items-center" *ngIf="userData">
-            <label for="nombre completo" class="col-form-label">Nombre Completo:</label>
-            <input type="text" class="form-control" id="nombre completo" [(ngModel)]="userData.nombreCompleto" [readonly]="!editMode" style="width: 60%;">
-        </div>
-        <div class="mb-3 d-flex justify-content-between align-items-center">
-            <label for="direccion" class="col-form-label">Dirección:</label>
-            <input type="text" class="form-control" id="direccion" [(ngModel)]="userData.direccion" [readonly]="!editMode" style="width: 60%;">
-        </div>
-        <div class="mb-3 d-flex justify-content-between align-items-center">
-            <label for="dni" class="col-form-label">DNI:</label>
-            <input type="text" class="form-control" id="dni" [(ngModel)]="userData.dni" [readonly]="!editMode" style="width: 60%;">
-        </div>
-        <div class="mb-3 d-flex justify-content-between align-items-center">
-            <label for="email" class="col-form-label">Email:</label>
-            <input type="text" class="form-control" id="email" [(ngModel)]="userData.email" [readonly]="!editMode" style="width: 60%;">
-        </div>
-        <div class="mb-3 d-flex justify-content-between align-items-center">
-            <label for="rol" class="col-form-label">Rol:</label>
-            <input type="text" class="form-control" id="rol" [(ngModel)]="userData.rol" [readonly]="!editMode" style="width: 60%;">
-        </div>
-        <div class="mb-3 d-flex justify-content-between align-items-center">
-            <label for="telefono" class="col-form-label">Teléfono:</label>
-            <input type="text" class="form-control" id="telefono" [(ngModel)]="userData.telefono" [readonly]="!editMode" style="width: 60%;">
-        </div>
-        <div class="mb-3 d-flex justify-content-between align-items-center">
-            <label for="imagen" class="col-form-label">Imagen:</label>
-            <input type="text" class="form-control" id="imagen" [(ngModel)]="userData.imagen" [readonly]="!editMode" style="width: 60%;">
-        </div>
+        <form (ngSubmit)="onSubmit()" [formGroup]="userForm">
+            <div class="mb-3">
+                <label for="nombre_completo" class="form-label" style="color: white;">Nombre Completo</label>
+                <input type="text" class="form-control" style="color: black" id="nombre_completo" formControlName="nombre_completo">
+            </div>
+            <div class="mb-3">
+                <label for="direccion" class="form-label" style="color: white">Dirección</label>
+                <input type="text" class="form-control" style="color: black" id="direccion" formControlName="direccion">
+            </div>
+            <div class="mb-3">
+                <label for="dni" class="form-label" style="color: white">DNI</label>
+                <input type="text" class="form-control" style="color: black" id="dni" formControlName="dni">
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label" style="color: white">Email</label>
+                <input type="email" class="form-control" style="color: black" id="email" formControlName="email">
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label" style="color: white">Contraseña</label>
+                <input type="text" class="form-control" style="color: black" id="password" formControlName="password">
+            </div>
+            <div class="mb-3">
+                <label for="rol" class="form-label" style="color: white">Rol</label>
+                <input type="text" class="form-control" style="color: black" id="rol" formControlName="rol">
+            </div>
+            <div class="mb-3">
+                <label for="telefono" class="form-label" style="color: white">Telefono</label>
+                <input type="text" class="form-control" style="color: black" id="telefono" formControlName="telefono">
+            </div>
+        </form>
 
         <!-- Botones -->
         <div class="text-center">
