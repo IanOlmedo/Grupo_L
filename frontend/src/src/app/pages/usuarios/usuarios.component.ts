@@ -14,6 +14,7 @@ export class UsuariosComponent implements OnInit {
   var_rol!: string;
   userData: any = {};  // Aquí almacenamos los datos del usuario
   editMode: boolean = false;  // Controla si los campos son editables o no
+  selectedFile: File | null = null;
 
   userForm = new FormGroup({
     nombre_completo: new FormControl('', Validators.required),
@@ -96,6 +97,21 @@ export class UsuariosComponent implements OnInit {
         this.usuariosService.createUser(this.userForm.value).subscribe(() => {
         });
       }
+    }
+  }
+  onFileSelected(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    if (input.files && input.files.length > 0) {
+      this.selectedFile = input.files[0];
+    }
+  }
+
+  onSubmitImage(): void {
+    if (this.selectedFile) {
+      // Aquí puedes manejar el archivo seleccionado, por ejemplo, subirlo a un servidor
+      console.log('Archivo seleccionado:', this.selectedFile.name);
+    } else {
+      console.error('No se seleccionó ningún archivo');
     }
   }
 }

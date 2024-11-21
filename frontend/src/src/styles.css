@@ -329,7 +329,7 @@ footer {
     transition: background-color 0.3s ease;
 }
 .save-btn:hover {
-    background-color: rgb(0, 0, 0);
+    background-color: #7761D1;
     color: #ffffff;
 }
 
@@ -432,7 +432,7 @@ hr {
     border-radius: 15px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     text-align: center;
-    position: fixed; /* Fijo en la página para más visibilidad */
+    position: relative; /* Fijo en la página para más visibilidad */
     top: 20%; /* Ajusta según necesidades */
     left: 50%;
     transform: translateX(-50%);
@@ -440,6 +440,9 @@ hr {
     width: 90%;
     max-width: 400px;
     margin-top: 5%;
+    animation:blur-in-expand 0.4s linear both} 
+    @keyframes blur-in-expand{0%{transform:scale(0);
+        filter:blur(12px);opacity:0}100%{transform:scale(1);filter:blur(0);opacity:1}
 }
 
 .notification-icon {
