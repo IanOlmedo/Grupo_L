@@ -35,38 +35,34 @@
         <form (ngSubmit)="onSubmit()" [formGroup]="userForm">
             <div class="mb-3">
                 <label for="nombre_completo" class="form-label" style="color: white;">Nombre Completo</label>
-                <input type="text" class="form-control" style="color: black" id="nombre_completo" formControlName="nombre_completo">
+                <input type="text" class="form-control" style="color: black" id="nombre_completo" formControlName="nombre_completo" placeholder={{userData.nombre_completo}}>
             </div>
             <div class="mb-3">
                 <label for="direccion" class="form-label" style="color: white">Dirección</label>
-                <input type="text" class="form-control" style="color: black" id="direccion" formControlName="direccion">
+                <input type="text" class="form-control" style="color: black" id="direccion" formControlName="direccion" placeholder="{{userData.direccion}}">
             </div>
             <div class="mb-3">
                 <label for="dni" class="form-label" style="color: white">DNI</label>
-                <input type="text" class="form-control" style="color: black" id="dni" formControlName="dni">
+                <input type="text" class="form-control" style="color: black" id="dni" formControlName="dni" placeholder="{{userData.dni}}">
             </div>
             <div class="mb-3">
                 <label for="email" class="form-label" style="color: white">Email</label>
-                <input type="email" class="form-control" style="color: black" id="email" formControlName="email">
+                <input type="email" class="form-control" style="color: black" id="email" formControlName="email" placeholder="{{userData.email}}">
             </div>
             <div class="mb-3">
                 <label for="password" class="form-label" style="color: white">Contraseña</label>
-                <input type="text" class="form-control" style="color: black" id="password" formControlName="password">
-            </div>
-            <div class="mb-3">
-                <label for="rol" class="form-label" style="color: white">Rol</label>
-                <input type="text" class="form-control" style="color: black" id="rol" formControlName="rol">
+                <input type="text" class="form-control" style="color: black" id="password" formControlName="password" placeholder="Contraseña">
             </div>
             <div class="mb-3">
                 <label for="telefono" class="form-label" style="color: white">Telefono</label>
-                <input type="text" class="form-control" style="color: black" id="telefono" formControlName="telefono">
+                <input type="text" class="form-control" style="color: black" id="telefono" formControlName="telefono" placeholder="{{userData.telefono}}">
             </div>
         </form>
 
         <!-- Botones -->
         <div class="text-center">
             <!-- Botón para alternar entre modo de edición y guardado -->
-            <button type="button" class="btn save-btn" (click)="editMode ? saveUserData() : toggleEditMode()">
+            <button type="button" class="btn save-btn" (click)="editMode ? onSubmit() : toggleEditMode()">
                 {{ editMode ? 'Guardar Datos' : 'Editar Datos' }}
             </button>
         </div>

@@ -30,14 +30,14 @@ export class AuthService {
 
   register(dataRegister: any): Observable<any> {
     const body = {
-      direccion: null,
-      dni: null,
+      direccion: dataRegister.Direccion,
+      dni: dataRegister.DNI,
       email: dataRegister.email, // Solo asigna el email proporcionado
       id_usuario: null,
-      nombre_completo: null,
+      nombre_completo: dataRegister.Nombre,
       password: dataRegister.password, // Solo asigna la contraseña proporcionada
       rol: 'user', // Puedes asignar un valor predeterminado para el rol si es necesario
-      telefono: null
+      telefono: dataRegister.Telefono
     };
   
     return this.httpClient.post(this.url + '/auth/register', body).pipe(take(1));

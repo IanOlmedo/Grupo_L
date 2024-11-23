@@ -22,7 +22,6 @@ export class UsuariosComponent implements OnInit {
     dni: new FormControl('', Validators.required),
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required]),
-    rol: new FormControl('', Validators.required),
     telefono: new FormControl('', Validators.required)
   });
 
@@ -48,6 +47,7 @@ export class UsuariosComponent implements OnInit {
 
   // Obtener los datos del usuario a través del servicio
   getUserData(): void {
+    console.log("El tincho se la come")
     this.usuariosService.getUserRole();  // Si necesitas cargar el rol desde el servicio
     // Asumimos que los datos del usuario incluyen el rol y otros detalles
     this.usuariosService.getOneUser(this.var_id).pipe(take(1)).subscribe((rta: any) => {
@@ -87,18 +87,23 @@ export class UsuariosComponent implements OnInit {
 
   onSubmit() {
     if (this.userForm.valid) {
-      if (this.var_id !== '') {
-        console.log("Llegue hasta aqui");
-        console.log(typeof(this.var_id))
-        console.log(this.var_id)
-        this.usuariosService.updateUser(this.var_id, this.userForm.value).subscribe(() => {
+      if (this.var_id !== '' && this.var_id !== null && this.var_id !== undefined) {
+        this.usuariosService.updateUser(this.var_id, this.userForm.value).subscribe({
+          next: () => {
+            console.log('Usuario actualizado con éxito');
+          },
+          error: (err) => {
+            console.error('Error al actualizar el usuario:', err);
+          }
         });
       } else {
-        this.usuariosService.createUser(this.userForm.value).subscribe(() => {
-        });
+        console.error('El ID del usuario no es válido');
       }
+    } else {
+      console.error('El formulario no es válido');
     }
   }
+  
   onFileSelected(event: Event): void {
     const input = event.target as HTMLInputElement;
     if (input.files && input.files.length > 0) {

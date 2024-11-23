@@ -39,7 +39,7 @@ const routes: Routes = [
   {path: 'agregar_usuario', component: AgregarUsuarioComponent},
   {path: 'agregar_usuario/:id', component: AgregarUsuarioComponent, canActivate:[authsessionGuard, authroleGuard]},
   {path: 'alta_usuarios', component: AltaUsuariosComponent},
-  {path: 'alta_usuarios/:id', component: AltaUsuariosComponent},//,canActivate:[authsessionGuard, authroleGuard]},
+  {path: 'alta_usuarios/:id', component: AltaUsuariosComponent, canActivate:[authsessionGuard, authroleGuard]},
   {path: 'error_page', component: ErrorPageComponent},
   {path: 'carrito/:id', component: CarritoComponent,canActivate:[authsessionGuard]},
   {path: 'stock', component: StockComponent,canActivate:[authsessionGuard, authroleGuard]},
