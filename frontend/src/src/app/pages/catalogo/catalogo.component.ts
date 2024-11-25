@@ -12,7 +12,7 @@ export class CatalogoComponent {
   var_id!: string
   var_rol!: string
 
-  searchQuery = ''
+  searchQuery: string = ''
 
   arrayBooks: any[] = []
   filteredBooks: any[] = []
@@ -58,7 +58,6 @@ export class CatalogoComponent {
     } else {
       this.filteredBooks = this.arrayBooks.filter(book =>
         book.titulo.toLowerCase().includes(this.searchQuery.toLowerCase())
-        // Agrega más criterios de búsqueda según sea necesario
       );
     }
   }
@@ -83,4 +82,10 @@ export class CatalogoComponent {
     this.carritoService.addToCart(book);
     alert('Libro agregado al carrito')
   }
+
+  onSearchQueryChange(searchQuery: string) {
+    this.searchQuery = searchQuery;
+    this.filterBooks();
+  }
+
 }

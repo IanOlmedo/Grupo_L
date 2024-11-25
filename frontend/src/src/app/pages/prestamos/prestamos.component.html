@@ -1,6 +1,8 @@
 <app-nav></app-nav>
 
-<app-search-bar (searchQueryChange)="onSearchQueryChange($event)"></app-search-bar>
+<app-search-bar *ngIf="isToken && isAdmin" (searchQueryChange)="onUserSearchQueryChange($event)"></app-search-bar>
+
+<app-search-bar *ngIf="isToken && isUser" (searchQueryChange)="onBookSearchQueryChange($event)"></app-search-bar>
 
 <app-prestamos-user [arrayPrestamosWithDetails]="prestamos" *ngIf="isToken && isUser"></app-prestamos-user>
 
@@ -15,6 +17,3 @@
         <a href="#" class="button-primary button" style = "background-color: #483fa9;" routerLink="/register">Registrar</a>
     </div>
 </div> 
-
-
-

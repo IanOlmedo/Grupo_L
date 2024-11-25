@@ -1,5 +1,5 @@
 <app-nav></app-nav>
-<app-search-bar></app-search-bar>
+<app-search-bar (searchQueryChange)="onSearchQueryChange($event)"></app-search-bar>
 
 <div class="container-fluid images-container">
     <div class="row justify-content-between">

@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { AuthService } from '../../services/auth.service';
-import { Router } from '@angular/router'
-import { PrestamosService } from '../../services/prestamos.service'
+import { PrestamosService } from '../../services/prestamos.service';
 
 @Component({
   selector: 'app-prestamos',
@@ -10,69 +8,55 @@ import { PrestamosService } from '../../services/prestamos.service'
   styleUrl: './prestamos.component.css'
 })
 export class PrestamosComponent {
-  var_id!:string
-  var_rol!:string
+  var_id!: string;
+  var_rol!: string;
 
-  arrayPrestamos:any[] = []
-  filteredPrestamos:any[] = []
-  arrayPrestamosWithDetails:any[] = []
-  prestamos:any[] = []
-  arrayUsers:any[] = []
-  arrayBooks:any[] = []
+  arrayPrestamos: any[] = [];
+  filteredPrestamos: any[] = [];
+  arrayPrestamosWithDetails: any[] = [];
+  prestamos: any[] = [];
 
-
-  searchQuery: string = ''
-  prestamo:any
-  user:any
-  book:any
-
+  searchQuery: string = '';
   currentPage: number = 1;
   totalPages: number = 1;
   itemsPerPage: number = 8;
 
   constructor(
     private route: ActivatedRoute,
-    private authService: AuthService,
     private prestamosService: PrestamosService,
-  ){}
+  ) {}
 
   get isToken() {
     return localStorage.getItem('token');
-  }  
+  }
 
-  ngOnInit(){
+  ngOnInit() {
     this.var_id = this.route.snapshot.paramMap.get('id') || '';
-    this.var_rol=this.route.snapshot.paramMap.get('rol') || '';
-
+    this.var_rol = this.route.snapshot.paramMap.get('rol') || '';
     this.fetchPrestamos();
   }
 
-  fetchPrestamos(page: number = 1): void{
+  fetchPrestamos(page: number = 1): void {
     const params = {
       page: page.toString(),
       per_page: this.itemsPerPage.toString()
     };
 
-    this.prestamosService.getPrestamos(params).subscribe((rta:any) => {
-      console.log('prestamos api: ',rta);
+    this.prestamosService.getPrestamos(params).subscribe((rta: any) => {
+      console.log('prestamos api: ', rta);
       this.arrayPrestamos = rta.prestamos || [];
-      this.filteredPrestamos = [...this.arrayPrestamos]
-      this.arrayPrestamosWithDetails = this.arrayPrestamos.map((prestamo: any) => {
-        return {
-          prestamo: prestamo,
-          usuario: prestamo.usuarios,
-          libro: prestamo.libro
-        };
-      });
-      this.prestamos = [...this.arrayPrestamosWithDetails]
-      console.log("xd"+this.prestamos)
+      this.arrayPrestamosWithDetails = this.arrayPrestamos.map((prestamo: any) => ({
+        prestamo: prestamo,
+        usuario: prestamo.usuarios,
+        libro: prestamo.libro
+      }));
+      this.prestamos = [...this.arrayPrestamosWithDetails];
     });
-
   }
 
   get isRole() {
     return localStorage.getItem('user_role');
-  }  
+  }
 
   get isUser() {
     return localStorage.getItem('user_role') === 'user';
@@ -82,12 +66,33 @@ export class PrestamosComponent {
     return localStorage.getItem('user_role') === 'admin';
   }
 
-  onSearchQueryChange(searchQuery: string) {
+  onUserSearchQueryChange(searchQuery: string): void {
     this.searchQuery = searchQuery;
-    this.buscar();
+    this.filterPrestamosUser();
   }
 
-  buscar() {
-    this.prestamos = this.arrayPrestamosWithDetails.filter(p => p.usuario.nombre_completo.includes(this.searchQuery));
+  onBookSearchQueryChange(searchQuery: string): void {
+    this.searchQuery = searchQuery;
+    this.filterPrestamosBook();
+  }
+
+  filterPrestamosUser(): void {
+    if (this.searchQuery.trim() === '') {
+      this.prestamos = [...this.arrayPrestamosWithDetails]; // Restablecer si no hay búsqueda
+    } else {
+      this.prestamos = this.arrayPrestamosWithDetails.filter(prestamo =>
+        prestamo.usuario.nombre_completo.toLowerCase().includes(this.searchQuery.toLowerCase())
+      );
+    }
+  }
+
+  filterPrestamosBook(): void {
+    if (this.searchQuery.trim() === '') {
+      this.prestamos = [...this.arrayPrestamosWithDetails]; // Restablecer si no hay búsqueda
+    } else {
+      this.prestamos = this.arrayPrestamosWithDetails.filter(prestamo =>
+        prestamo.libro.titulo.toLowerCase().includes(this.searchQuery.toLowerCase())
+      );
+    }
   }
 }
