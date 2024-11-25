@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { BooksService } from '../../services/books.service';
+import { CarritoService } from '../../services/carrito.service';
 
 @Component({
   selector: 'app-catalogo',
@@ -23,6 +24,7 @@ export class CatalogoComponent {
   constructor(
     private route: ActivatedRoute,
     private booksService: BooksService,
+    private carritoService: CarritoService,
   ) { }
 
   ngOnInit() {
@@ -64,9 +66,7 @@ export class CatalogoComponent {
 
   goToPage(page: number): void {
     if (page >= 1 && page <= this.totalPages) {
-      console.log('Pagina: '+page)
       this.currentPage = page;
-      console.log('pagina actual:'+this.currentPage)
       this.fetchBooks(page); // Obtén los libros de la página actualizada
     }
   }
@@ -77,5 +77,10 @@ export class CatalogoComponent {
 
   get isAdmin() {
     return localStorage.getItem('user_role') === 'admin';
+  }
+
+  addToCart(book: any): void{
+    this.carritoService.addToCart(book);
+    alert('Libro agregado al carrito')
   }
 }

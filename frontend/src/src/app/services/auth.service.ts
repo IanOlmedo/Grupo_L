@@ -25,6 +25,7 @@ export class AuthService {
     localStorage.removeItem('token');
     localStorage.removeItem('user_id');
     localStorage.removeItem('user_role');
+    localStorage.removeItem('cart');
     this.router.navigateByUrl('home');
   }
 

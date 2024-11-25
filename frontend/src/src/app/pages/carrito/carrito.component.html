@@ -10,10 +10,10 @@
   <div *ngIf="cartItems.length > 0; else emptyCart">
     <div class="cart-item" *ngFor="let item of cartItems; let i = index">
       <div class="book-card">
-        <img [src]="item.portada" alt="Portada de {{ item.nombre }}" class="portada">
+        <img [src]="item.imagen" alt="Portada de {{ item.titulo }}" class="portada">
         <div class="book-info">
-          <p class="titulo">{{ item.nombre }}</p>
-          <button class="btn btn-danger btn-sm" (click)="eliminarLibro(i)">
+          <p class="titulo">{{ item.titulo }}</p>
+          <button class="btn btn-danger btn-sm" (click)="removeFromCart(item.id_libro)">
             <i class="fa-solid fa-trash"></i>
           </button>
         </div>

@@ -6,8 +6,8 @@
         <ng-container *ngFor="let libro of filteredBooks">
             <div class="col-4 col-md-3 col-xl-2">
                 <div class="image-wrapper-catalogo">
-                    <div *ngIf="isUser" class="circle-plus" routerLink="/carrito/1" href="#"><h2>+</h2></div>
-                    <div *ngIf="isAdmin" class="edit-button" routerLink="/ver_libro/1" href="#">Editar</div>
+                    <div *ngIf="isUser" class="circle-plus" (click)="addToCart(libro)"><h2>+</h2></div>
+                    <div *ngIf="isAdmin" class="edit-button" routerLink="/ver_libro/{{libro.id_libro}}" href="#">Editar</div>
                     <img [src]="libro.imagen" alt="{{libro.titulo}}" class="img-fluid img-overlay1">
                 </div>
                 <h6 class="image-title">{{libro.titulo}}</h6>
