@@ -1,0 +1,27 @@
+.cart-header {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center; /* Centra el contenido */
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .circle-plus-user {
+    margin-left: 20px;
+    
+    width: 50px;  /* Tamaño del círculo */
+    height: 50px; /* Mantiene la proporción circular */
+    background-color: #483FA9;
+    border-radius: 50%;  /* Hace el ícono circular */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;  /* Tamaño del "+" */
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .circle-plus-user:hover {
+    background-color: #b589ff; /* Cambia el color al hacer hover */
+  }

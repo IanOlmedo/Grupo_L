@@ -18,7 +18,8 @@ export class StockComponent {
   paginatedLibros: any[] = [];
   currentPage: number = 1;
   totalPages: number = 1;
-  itemsPerPage: number = 8;
+  itemsPerPage: number = 5;
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -26,10 +27,10 @@ export class StockComponent {
   ){}
 
   ngOnInit(){
-    this.fetchUsers();
+    this.fetchBooks();
   }
 
-  fetchUsers(page: number = 1): void {
+  fetchBooks(page: number = 1): void {
     const params = {
       page: page.toString(),
       per_page: this.itemsPerPage.toString()
@@ -38,18 +39,19 @@ export class StockComponent {
       console.log(rta)
       console.log('libros api: ', rta);
       this.arrayLibros = rta.libros || [];
-      this.filterUsers();
+      this.filterBooks();
       this.currentPage = rta.pagina;
       this.totalPages = rta.paginas;
     });
   }
 
-  filterUsers(): void {
+  filterBooks(): void {
     if (this.searchQuery.trim() === '') {
+      console.log("Search", this.searchQuery)
       this.filteredLibros = [...this.arrayLibros];
     } else {
       this.filteredLibros = this.arrayLibros.filter(book =>
-        book.nombre_completo.toLowerCase().includes(this.searchQuery.toLowerCase())
+        book.titulo.toLowerCase().includes(this.searchQuery.toLowerCase())
       );
     }
     this.paginatedLibros = [...this.filteredLibros]
@@ -58,7 +60,7 @@ export class StockComponent {
   goToPage(page: number): void {
     if (page >= 1 && page <= this.totalPages) {
       this.currentPage = page;
-      this.fetchUsers(page);
+      this.fetchBooks(page);
     }
   }
 
@@ -67,12 +69,10 @@ export class StockComponent {
     this.router.navigate(['/ver_libro/'+libro.id]);
   }
 
-  buscar() {
-    console.log('buscar: ', this.searchQuery);
-    this.filteredLibros = this.arrayLibros.filter(libro => libro.nombre.includes(this.searchQuery));
+  onSearchQueryChange(searchQuery: string) {
+    this.searchQuery = searchQuery;
+    this.filterBooks();
   }
-
-  
 
 }
 

@@ -12,7 +12,7 @@ export class PrestamosComponent {
   var_rol!: string;
 
   arrayPrestamos: any[] = [];
-  filteredPrestamos: any[] = [];
+  filteredPrestamosPadre: any[] = [];
   arrayPrestamosWithDetails: any[] = [];
   prestamos: any[] = [];
 

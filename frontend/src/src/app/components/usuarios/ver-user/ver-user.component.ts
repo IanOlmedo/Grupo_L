@@ -17,7 +17,7 @@ export class VerUserComponent {
   paginatedUsers: any[] = [];
   currentPage: number = 1;
   totalPages: number = 1;
-  itemsPerPage: number = 3;
+  itemsPerPage: number = 5;
 
   constructor(
     private router: Router,
@@ -70,15 +70,15 @@ export class VerUserComponent {
     this.router.navigate(['agregar_usuario']);
   }
 
-  buscar() {
-    console.log('buscar: ', this.searchQuery);
-    this.filterUsers();
-  }
-
   eliminarusuario(user: any) {
     this.usuariosService.deleteUser(user.id_usuario).subscribe(() => {
       this.arrayUsuarios = this.arrayUsuarios.filter(u => u.id_usuario !== user.id_usuario);
       this.filterUsers();
     });
+  }
+
+  onSearchQueryChange(searchQuery: string) {
+    this.searchQuery = searchQuery;
+    this.filterUsers();
   }
 }

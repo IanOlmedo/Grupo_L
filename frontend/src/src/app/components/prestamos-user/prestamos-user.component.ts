@@ -9,7 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 export class PrestamosUserComponent {
   var_id!:string
 
-  @Input() arrayPrestamosWithDetails: any[] = [] 
+  @Input() filteredPrestamosPadre: any[] = [] 
 
 
   constructor(
@@ -21,7 +21,7 @@ export class PrestamosUserComponent {
     this.var_id = this.route.snapshot.paramMap.get('id') || '';
   }
 
-  getPrestamosPendientes() {    return this.arrayPrestamosWithDetails.filter(prestamo => {
+  getPrestamosPendientes() {    return this.filteredPrestamosPadre.filter(prestamo => {
       return prestamo.usuario.id_usuario === Number(this.var_id) && prestamo.prestamo.estado === 'no devuelto';
     });
   }

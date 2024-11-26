@@ -30,6 +30,7 @@ import { PrestamosAdminComponent } from './components/prestamos-admin/prestamos-
 import { PrestamosUserComponent } from './components/prestamos-user/prestamos-user.component';
 import { InfoPrestamoComponent } from './pages/info-prestamo/info-prestamo.component';
 import { AltaLibrosComponent } from './pages/alta-libros/alta-libros.component';
+import { PaginationComponent } from './components/pagination/pagination.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import { AltaLibrosComponent } from './pages/alta-libros/alta-libros.component';
     PrestamosUserComponent,
     InfoPrestamoComponent,
     AltaLibrosComponent,
+    PaginationComponent,
   ],
   imports: [
     BrowserModule,

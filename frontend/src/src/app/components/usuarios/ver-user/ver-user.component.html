@@ -1,7 +1,12 @@
 <div class="container-flex content background-image">
     <div class="row">
       <div class="col-md-8 offset-md-2">
-        <h1 class="text-center mb-4" style="color: white;">Lista de Usuarios</h1>
+        <div class="cart-header">  
+          <h1 class="text-center mb-1" style="color: white;">Lista de Usuarios</h1>
+          <div class="circle-plus-user" (click)="crearusuario()">
+            <i class="fa-solid fa-plus"></i>
+          </div>
+        </div>
         <ul class="list-group">
           <li *ngFor="let usuario of paginatedUsers" class="list-group-item d-flex justify-content-between align-items-center">
             <p>
@@ -13,9 +18,7 @@
             </div>
           </li>
         </ul>
-        <button class="btn btn-primary btn-sm me-2" (click)="crearusuario()">
-          <i class="fa-solid fa-plus"></i>
-        </button>
+        
         <!-- Pagination controls -->
         <div class="row mt-4">
           <div class="col-12 d-flex justify-content-between align-items-center pagination-controls">

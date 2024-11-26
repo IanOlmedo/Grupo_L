@@ -4,9 +4,9 @@
 
 <app-search-bar *ngIf="isToken && isUser" (searchQueryChange)="onBookSearchQueryChange($event)"></app-search-bar>
 
-<app-prestamos-user [arrayPrestamosWithDetails]="prestamos" *ngIf="isToken && isUser"></app-prestamos-user>
+<app-prestamos-user [filteredPrestamosPadre]="prestamos" *ngIf="isToken && isUser"></app-prestamos-user>
 
-<app-prestamos-admin [arrayPrestamosWithDetails]="prestamos" *ngIf="isToken && isAdmin"> </app-prestamos-admin>
+<app-prestamos-admin [filteredPrestamosPadre]="prestamos" *ngIf="isToken && isAdmin"> </app-prestamos-admin>
 
 <div *ngIf="!isToken">
     <div class="alert-container">

@@ -23,8 +23,10 @@ export class PrestamosAdminComponent {
   totalPages: number = 1 // Total de páginas
   itemsPerPage: number = 5 // Cantidad de Prestamos por página
 
-  @Input() set arrayPrestamosWithDetails(value: any[]) {
+  @Input() set filteredPrestamosPadre(value: any[]) {
+    console.log("Aca esta el value", value)
     if (value) {
+      console.log("Aca esta el value parte 2", value)
       this.originalPrestamos = [...value]
       this.uniqueUsersArray = [...new Set(value.map(prestamo => prestamo.usuario.id_usuario))];
       this.uniqueUserPrestamos = this.uniqueUsersArray.map(userId => {
@@ -58,10 +60,12 @@ export class PrestamosAdminComponent {
     this.prestamosService.getPrestamos(params).subscribe((rta: any) => {
       console.log('Prestamos api: ', rta);
       this.arrayPrestamos = rta.prestamos || [];
-      //this.filterPrestamos(); // Actualiza filteredBooks al obtener los libros
+      this.filterPrestamos(); // Actualiza filteredBooks al obtener los libros
       this.currentPage = rta.pagina;
       this.totalPages = rta.paginas;
-      this.paginatedPrestamos = rta.prestamos
+      console.log("Filtered Prestamos", this.filteredPrestamos)
+      this.paginatedPrestamos = [...this.filteredPrestamos]
+      console.log("Paginated Prestamos", this.paginatedPrestamos)
     });
   }
 
@@ -74,7 +78,6 @@ export class PrestamosAdminComponent {
         // Agrega más criterios de búsqueda según sea necesario
       );
     }
-
   }
 
   goToPage(page: number): void {
