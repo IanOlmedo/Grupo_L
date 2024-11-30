@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectorRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { BooksService } from '../../services/books.service';
 import { CarritoService } from '../../services/carrito.service';
@@ -25,6 +25,7 @@ export class CatalogoComponent {
     private route: ActivatedRoute,
     private booksService: BooksService,
     private carritoService: CarritoService,
+    private cdr: ChangeDetectorRef,
   ) { }
 
   ngOnInit() {
@@ -49,6 +50,8 @@ export class CatalogoComponent {
       this.currentPage = rta.pagina;
       this.totalPages = rta.paginas;
       this.paginatedBooks = rta.libros;
+      console.log('Total pages:', this.totalPages);
+      this.cdr.detectChanges();
     });
   }
 

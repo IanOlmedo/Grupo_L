@@ -32,7 +32,8 @@ export class RegisterComponent implements OnInit {
       Fecha: ['', [Validators.required]],
       Telefono: ['', [Validators.required]],
       password: ['', [Validators.required, Validators.minLength(6)]],
-      confirmPassword: ['', Validators.required]
+      confirmPassword: ['', Validators.required],
+      imagen:'assets/Logo-usuario.jpeg'
     }, { validator: this.passwordMatchValidator });
   }
 

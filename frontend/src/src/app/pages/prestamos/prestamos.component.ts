@@ -33,9 +33,9 @@ export class PrestamosComponent {
   ngOnInit() {
     this.var_id = this.route.snapshot.paramMap.get('id') || '';
     this.var_rol = this.route.snapshot.paramMap.get('rol') || '';
-    this.fetchPrestamos();
+    //this.fetchPrestamos();
   }
-
+  /*
   fetchPrestamos(page: number = 1): void {
     const params = {
       page: page.toString(),
@@ -53,6 +53,7 @@ export class PrestamosComponent {
       this.prestamos = [...this.arrayPrestamosWithDetails];
     });
   }
+    */
 
   get isRole() {
     return localStorage.getItem('user_role');
@@ -66,6 +67,12 @@ export class PrestamosComponent {
     return localStorage.getItem('user_role') === 'admin';
   }
 
+  searchQueryChange(query:string){
+    this.searchQuery = query;
+    console.log("Query: "+this.searchQuery)
+  }
+
+  /*
   onUserSearchQueryChange(searchQuery: string): void {
     this.searchQuery = searchQuery;
     this.filterPrestamosUser();
@@ -95,4 +102,5 @@ export class PrestamosComponent {
       );
     }
   }
+  */
 }

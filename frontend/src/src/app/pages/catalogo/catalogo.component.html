@@ -14,7 +14,7 @@
             </div>
         </ng-container>
 
-        <app-pagination (currentPage)="currentPage", (totalPages)="totalPages", (itemsPerPage)="itemsPerPage", (goToPage)="goToPage"></app-pagination>
+        <app-pagination [currentPage]="currentPage" [totalPages]="totalPages" [itemsPerPage]="itemsPerPage" (goToPage)="goToPage($event)"></app-pagination>
     </div>
 
 </div>

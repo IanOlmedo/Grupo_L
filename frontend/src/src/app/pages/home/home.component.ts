@@ -29,6 +29,9 @@ export class HomeComponent {
       { name: 'Romance', books: this.romanceBooks },
   ];
   }
+  get isToken() {
+    return localStorage.getItem('token');
+  }
 
   fetchBooksGenre(genre:string, booksArray:any[]):void{
     const params = {

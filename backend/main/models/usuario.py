@@ -15,8 +15,6 @@ class Usuarios(db.Model):
     rol = db.Column(db.String(10), nullable=False, server_default="users")
     telefono = db.Column(db.Integer)
     imagen = db.Column(db.String(100), server_default="assets/Logo-usuario.jpeg")
-    #Relación uno a muchos
-    configuraciones = db.relationship("Configuracion", back_populates="usuario", cascade="all, delete-orphan")
     #Relación uno a muchos  
     prestamos = db.relationship("Prestamo", back_populates="usuario", cascade="all, delete-orphan")
     # Relación uno a muchos

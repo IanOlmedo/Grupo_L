@@ -38,7 +38,8 @@ export class AuthService {
       nombre_completo: dataRegister.Nombre,
       password: dataRegister.password, // Solo asigna la contraseña proporcionada
       rol: 'user', // Puedes asignar un valor predeterminado para el rol si es necesario
-      telefono: dataRegister.Telefono
+      telefono: dataRegister.Telefono,
+      imagen: dataRegister.imagen,
     };
   
     return this.httpClient.post(this.url + '/auth/register', body).pipe(take(1));

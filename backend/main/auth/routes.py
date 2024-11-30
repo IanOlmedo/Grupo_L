@@ -48,4 +48,3 @@ def register():
             db.session.rollback() #para volver atras
             return str(error), 409
         return usuario.to_json() , 201
-

@@ -1,11 +1,10 @@
 <div class="cart-container">
     <div class="cart-header">
         <h1 class="cart-title">Prestamos</h1>
-        <div *ngIf="var_rol == 'user'" class="circle-plus-cart" routerLink="/add-review"><h2>+</h2></div>
     </div>
 
     <div class="user-card text-black text-center background-transparent mb-3" style=" margin-top: 5%;;">
-        <div class="row g-0" style ="margin-top: 5%; margin-bottom: 5%" *ngFor="let prestamo of paginatedPrestamos">
+        <div class="row g-0" style ="margin-top: 5%; margin-bottom: 5%" *ngFor="let prestamo of filteredPrestamos">
             <div class="col-4">
                 <img src="{{prestamo.usuarios.imagen}}" class="user-photo" alt="Usuario">
             </div>
@@ -20,13 +19,5 @@
             </div>
         </div>
     </div>
-    <!-- Pagination controls -->
-    <div class="row mt-4">
-        <div class="col-12 d-flex justify-content-between align-items-center pagination-controls">
-            <button class="btn btn-primary" (click)="goToPage(currentPage - 1)" [disabled]="currentPage === 1">Anterior</button>
-            <span>Página {{ currentPage }} de {{ totalPages }}</span>
-            <button class="btn btn-primary" (click)="goToPage(currentPage + 1)" [disabled]="currentPage === totalPages">Siguiente</button>
-        </div>
-    </div>
-
+    <app-pagination [currentPage]="currentPage" [totalPages]="totalPages" [itemsPerPage]="itemsPerPage" (goToPage)="goToPage($event)"></app-pagination>
 </div>

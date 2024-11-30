@@ -18,15 +18,7 @@
             </div>
           </li>
         </ul>
-        
-        <!-- Pagination controls -->
-        <div class="row mt-4">
-          <div class="col-12 d-flex justify-content-between align-items-center pagination-controls">
-            <button class="btn btn-primary" (click)="goToPage(currentPage - 1)" [disabled]="currentPage === 1">Anterior</button>
-            <span>Página {{ currentPage }} de {{ totalPages }}</span>
-            <button class="btn btn-primary" (click)="goToPage(currentPage + 1)" [disabled]="currentPage === totalPages">Siguiente</button>
-          </div>
-        </div>
+        <app-pagination [currentPage]="currentPage" [totalPages]="totalPages" [itemsPerPage]="itemsPerPage" (goToPage)="goToPage($event)"></app-pagination>
       </div>
     </div>
   </div>

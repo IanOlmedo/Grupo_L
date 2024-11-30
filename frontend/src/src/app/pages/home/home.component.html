@@ -32,7 +32,7 @@
 
 <div class="text-center" style="padding: 20px;">
     <!-- Botón para alternar entre modo de edición y guardado -->
-    <button type="button" class="btn save-btn" >
+    <button *ngIf="isToken" type="button" class="btn save-btn" >
         Editar
     </button>
 </div>
