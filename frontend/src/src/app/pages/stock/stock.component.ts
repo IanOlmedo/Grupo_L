@@ -64,11 +64,6 @@ export class StockComponent {
     }
   }
 
-  editarlibro(libro:any) {
-    console.log('Estoy editando', libro);
-    this.router.navigate(['/ver_libro/'+libro.id]);
-  }
-
   onSearchQueryChange(searchQuery: string) {
     this.searchQuery = searchQuery;
     this.filterBooks();

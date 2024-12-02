@@ -19,7 +19,7 @@ class Libro(Resource):
         libro = db.session.query(LibroModel).get_or_404(id)
         data = request.get_json().items()
         for key, value in data:
-            if key == 'año_de_publicacion':
+            if key == 'anio_de_publicacion':
                 año_de_publicacion = datetime.strptime(value, '%d-%m-%Y')
                 setattr(libro, key, año_de_publicacion)
             else:

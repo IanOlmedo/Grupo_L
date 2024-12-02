@@ -4,7 +4,7 @@
     <div class="row justify-content-between">
         <ng-container *ngFor="let libro of terrorBooks">
             <div class="col-4 col-md-3 col-xl-2">
-                <img src={{libro.imagen}} alt="Image 1" class="img-fluid img-overlay1" >
+                <img src={{libro.imagen}} alt="Image 1" class="img-fluid img-overlay1" routerLink="/ver_libro/{{libro.id_libro}}" >
             </div>
         </ng-container>
     </div>
@@ -14,7 +14,7 @@
     <div class="row justify-content-between">
         <ng-container *ngFor="let libro of fantasyBooks">
             <div class="col-4 col-md-3 col-xl-2">
-                <img src={{libro.imagen}} alt="Image 1" class="img-fluid img-overlay1" >
+                <img src={{libro.imagen}} alt="Image 1" class="img-fluid img-overlay1" routerLink="/ver_libro/{{libro.id_libro}}" >
             </div>
         </ng-container>
     </div>
@@ -24,16 +24,8 @@
     <div class="row justify-content-between">
         <ng-container *ngFor="let libro of romanceBooks">
             <div class="col-4 col-md-3 col-xl-2">
-                <img src={{libro.imagen}} alt="Image 1" class="img-fluid img-overlay1" >
+                <img src={{libro.imagen}} alt="Image 1" class="img-fluid img-overlay1" routerLink="/ver_libro/{{libro.id_libro}}" >
             </div>
         </ng-container>
     </div>
 </div>
-
-<div class="text-center" style="padding: 20px;">
-    <!-- Botón para alternar entre modo de edición y guardado -->
-    <button *ngIf="isToken" type="button" class="btn save-btn" >
-        Editar
-    </button>
-</div>
-

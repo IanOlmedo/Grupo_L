@@ -46,4 +46,9 @@ export class HomeComponent {
       booksArray.push(...rta.libros);
     })
   }
+
+  performSearch() {
+    const searchInput = (document.getElementById('searchInput') as HTMLInputElement).value;
+    console.log('Buscando:', searchInput);
+  }
 }

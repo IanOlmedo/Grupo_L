@@ -3,6 +3,12 @@
 
 <div class="container-fluid images-container">
     <div class="row justify-content-between">
+        <div class="col-5"></div>
+        <div class="col-4">
+            <button type="submit" class="btn btn-primary" *ngIf="isAdmin" style="color: white" routerLink="/alta_libros">Crear</button>
+        </div>
+        <div class="col-3"></div>
+        
         <ng-container *ngFor="let libro of filteredBooks">
             <div class="col-4 col-md-3 col-xl-2">
                 <div class="image-wrapper-catalogo">

@@ -9,7 +9,6 @@ import { UsuariosService } from '../../services/usuarios.service';
   styleUrls: ['./carrito.component.css']  
 })
 export class CarritoComponent {
-  @Input() var_rol!: string;
   @Input() var_id!: string;
 
   cartItems: any[] = [];

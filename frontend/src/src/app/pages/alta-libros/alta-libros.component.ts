@@ -35,22 +35,18 @@ export class AltaLibrosComponent {
   }
 
   booksForm = new FormGroup({
-    titulo: new FormControl('', Validators.required),
-    genero: new FormControl('', Validators.required),
-    editorial: new FormControl('', Validators.required),
     anio_de_publicacion: new FormControl('', Validators.required),
     descripcion: new FormControl('', [Validators.required]),
+    editorial: new FormControl('', Validators.required),
+    genero: new FormControl('', Validators.required),
+    titulo: new FormControl('', Validators.required),
+    stock: new FormControl(0, [Validators.required, Validators.min(0)]),
     imagen: new FormControl('', Validators.required),
-    stock: new FormControl(0, [Validators.required, Validators.min(0)])
   });
 
   onSubmit() {
     if (this.booksForm.valid) {
-      console.log(this.var_id)
       if (this.var_id) {
-        console.log("Llegue hasta aqui");
-        console.log(typeof(this.var_id))
-        console.log(this.var_id)
         console.log(this.booksForm.value)
         this.booksService.updateBook(this.var_id, this.booksForm.value).subscribe(() => {
         });
@@ -59,7 +55,7 @@ export class AltaLibrosComponent {
         });
       }
     }else{
-      console.log("No flaco")
+      console.log("Formulario no valido")
     }
   }
 
