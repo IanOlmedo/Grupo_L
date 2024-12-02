@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http'
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http'
 import { Router } from '@angular/router';
 import { Observable, take } from 'rxjs';
 
@@ -11,26 +11,26 @@ export class ValoracionesService {
 
   constructor(
     private httpClient: HttpClient,
-    private router: Router
-  ) { }
+    private router: Router,
+    ) { }
 
-  getValoraciones(page: number = 1): Observable<any> {
+  getValoraciones(params:any): Observable<any> {
     let headers = new HttpHeaders({
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
     });
-  
-    const requestOptions = { headers: headers, params: { page: page.toString() } };
+
+    let httpParams = new HttpParams();
+
+    Object.keys(params).forEach(key => {
+      if (params[key]) {
+        httpParams = httpParams.append(key, params[key]);
+      }
+    });
+
+    const requestOptions = { headers: headers, params: httpParams };
     return this.httpClient.get<any>(this.url + '/Valoracion', requestOptions);
   }
 
-  getOneValoracion(){
-    let headers = new HttpHeaders({
-    'Content-Type': 'application/json'
-  })
-
-  const requestOptions = {headers: headers}
-  return this.httpClient.get<any>(this.url + '/Valoracion', requestOptions)
-  }
 
   createValoracion(valoracion: any): Observable<any> {
     console.log(valoracion);

@@ -1,8 +1,8 @@
 <app-nav></app-nav>
 
-<app-search-bar *ngIf="isToken" (searchQueryChange)="searchQueryChange($event)"></app-search-bar>
+<app-search-bar *ngIf="isToken && isAdmin" (searchQueryChange)="searchQueryChange($event)"></app-search-bar>
 
-<!--<app-prestamos-user [filteredPrestamosPadre]="prestamos" *ngIf="isToken && isUser"></app-prestamos-user>-->
+<app-prestamos-user *ngIf="isToken && isUser"></app-prestamos-user>
 
 <app-prestamos-admin [searchQuery]="searchQuery" *ngIf="isToken && isAdmin"> </app-prestamos-admin>
 

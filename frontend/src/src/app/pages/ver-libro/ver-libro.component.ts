@@ -1,6 +1,7 @@
 import { Component, NgModule } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { BooksService } from './../../services/books.service'
+import { CarritoService } from '../../services/carrito.service';
 
 @Component({
   selector: 'app-ver-libro',
@@ -12,10 +13,10 @@ export class VerLibroComponent {
 
   book:any
   arrayAuthor:any[] = []
-
   constructor(
     private route: ActivatedRoute,
     private booksService: BooksService,
+    private carritoService: CarritoService,
   ){}
 
 
@@ -34,5 +35,10 @@ export class VerLibroComponent {
 
   get isAdmin() {
     return localStorage.getItem('user_role') === 'admin';
+  }
+
+  addToCart(book: any): void{
+    this.carritoService.addToCart(book);
+    alert('Libro agregado al carrito')
   }
 }

@@ -1,18 +1,40 @@
 <app-nav></app-nav>
-<app-search-bar></app-search-bar>
-
 <div class="cart-container">
     <div class="cart-header">
         <h1 class="cart-title">Valoraciones</h1>
-        <div *ngIf="var_rol == 'user'" class="circle-plus-cart" routerLink="/add-review"><h2>+</h2></div>
+        <div *ngIf="isRole" class="circle-plus-cart" data-bs-toggle="modal" data-bs-target="#createValoracion"><h2>+</h2></div>
+    </div>
+    <!--Modal para crear una valoracion-->
+    <div class="modal fade" id="createValoracion" tabindex="-1" aria-labelledby="createValoracionLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="createValoracionLabel">Dejar Valoración</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form (ngSubmit)="onSubmit()">
+                        <div class="mb-3">
+                            <label for="comentario" class="form-label">Comentario:</label>
+                            <textarea id="comentario" [(ngModel)]="valoracion.comentario" name="comentario" class="form-control" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="valoracion" class="form-label">Puntuación (1-5):</label>
+                            <input type="number" id="valoracion" [(ngModel)]="valoracion.valoracion" name="valoracion" class="form-control" min="1" max="5" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Enviar Valoración</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div>
-        <h1 style="color: white; text-align: center; font-size: 15px">Total de Valoraciones: {{ paginatedValoraciones.length }}</h1>
+        <h1 style="color: white; text-align: center; font-size: 15px">Total de Valoraciones: {{ arrayValoraciones.length }}</h1>
     </div>
 
-    <div *ngIf="paginatedValoraciones.length > 0; else sinValoraciones">
-        <div class="cart-item" *ngFor="let valoracion of paginatedValoraciones;">
+    <div *ngIf="arrayValoraciones.length > 0; else sinValoraciones">
+        <div class="cart-item" *ngFor="let valoracion of arrayValoraciones;">
             <div class="book-card">
                 <p class="book-title">{{ valoracion.libro.titulo }}</p>
                 <div class="book-content">
@@ -43,12 +65,5 @@
         <h1 style="color: white; text-align: center; font-size: 15px">No hay Valoraciones de este libro</h1>
     </ng-template>
 
-    <!-- Pagination controls -->
-    <div class="row mt-4">
-        <div class="col-12 d-flex justify-content-between align-items-center pagination-controls">
-            <button class="btn btn-primary" (click)="goToPage(currentPage - 1)" [disabled]="currentPage === 1">Anterior</button>
-            <span>Página {{ currentPage }} de {{ totalPages }}</span>
-            <button class="btn btn-primary" (click)="goToPage(currentPage + 1)" [disabled]="currentPage === totalPages">Siguiente</button>
-        </div>
-    </div>
+    <app-pagination [currentPage]="currentPage" [totalPages]="totalPages" [itemsPerPage]="itemsPerPage" (goToPage)="goToPage($event)"></app-pagination>
 </div>

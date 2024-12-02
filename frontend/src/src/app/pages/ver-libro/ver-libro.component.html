@@ -11,43 +11,62 @@
                     <div style="color: white; font-size: 4vw;"><strong>Titulo:</strong></div>
                 </div>
                 <div class="col-9">
-                    <div class="showing p-1"><h6 style="font-size: 4vw;margin-bottom: 0px;">{{book.titulo}}</h6></div>
+                    <div class="showing p-1">
+                        <h6 style="font-size: 4vw;margin-bottom: 0px;">{{book.titulo}}
+                        </h6>
+                    </div>
                 </div>
             </div>
+            
             <div class="row mt-lg-4">
                 <div class="col-3 d-flex align-items-center justify-content-center text-center">
                     <div style="color: white; font-size: 4vw;"><strong>Autor:</strong></div>
                 </div>
                 <div class="col-9">
-                    <div class="showing p-1"><h6 style="font-size: 4vw; margin-bottom: 0px;">{{arrayAuthor[0].nombre_completo}}</h6></div>
+                    <div class="showing p-1">
+                        <h6 style="font-size: 4vw; margin-bottom: 0px;">{{arrayAuthor[0].nombre_completo}}
+                        </h6>
+                    </div>
                 </div>
             </div>
+            
             <div class="row mt-lg-4">
                 <div class="col-3 d-flex align-items-center justify-content-center text-center">
                     <div style="color: white; font-size: 4vw;"><strong>Género:</strong></div>
                 </div>
                 <div class="col-9">
-                    <div class="showing p-1"><h6 style="font-size: 4vw; margin-bottom: 0px;">{{book.genero}}</h6></div>
+                    <div class="showing p-1">
+                        <h6 style="font-size: 4vw; margin-bottom: 0px;">{{book.genero}}
+                        </h6>
+                    </div>
                 </div>
             </div>
+            
             <div class="row mt-lg-4">
                 <div class="col-3 d-flex align-items-center justify-content-center text-center">
                     <div style="color: white; font-size: 4vw;"><strong>Editorial:</strong></div>
                 </div>
                 <div class="col-9">
-                    <div class="showing p-1"><h6 style="font-size: 4vw; margin-bottom: 0px;">{{book.editorial}}</h6></div>
+                    <div class="showing p-1">
+                        <h6 style="font-size: 4vw; margin-bottom: 0px;">{{book.editorial}}
+                        </h6>
+                    </div>
                 </div>
             </div>
         </div>             
     </div>
 </div>
+
 <div class="container-fluid">
     <div class="row d-flex">
         <div class="col-6 d-flex align-items-center justify-content-center text-center p-2">
             <div class="p-1" style="color: white; font-size: 4vw;"><strong>Fecha de publicación:</strong></div>
         </div>
         <div class="col-6">
-            <div class="showing p-1"><h6 style="font-size: 4vw; margin-bottom: 0px;">{{book.anio_de_publicacion}}</h6></div>
+            <div class="showing p-1">
+                <h6 style="font-size: 4vw; margin-bottom: 0px;">{{book.anio_de_publicacion}}
+                </h6>
+            </div>
         </div>
     </div>
 </div>
@@ -69,9 +88,10 @@
 <div class="container d-flex justify-content-center">
     <div class="row d-flex justify-content-center">
         <div class="col-12 ">
-            <!--<button type="button" class="btn btn-primary p-4" routerLink="/carrito/{{var_id}}/{{var_rol}}" href="#" style="background: #483FA9; color: white;">Añadir al carrito</button>
-            <button type="button" class="btn btn-primary p-4" routerLink="/valoraciones/{{var_id}}/{{var_rol}}" href="#" style="background: #483FA9; color: white;">Ver Valoraciones</button>
-        -->
+            <button type="button" class="btn btn-primary p-4" (click)="addToCart(book)" routerLink="/catalogo" href="#" style="background: #483FA9; color: white;">Añadir al carrito</button>
+            <button type="button" class="btn btn-primary p-4" routerLink="/valoraciones/{{var_id}}" href="#" style="background: #483FA9; color: white;">Ver Valoraciones</button>
+            <button type="button" class="btn btn-primary p-4" routerLink="/alta_libros/{{var_id}}" href="#" style="background: #483FA9; color: white;">Editar</button>
+        </div>
         </div>
     </div>
 </div>

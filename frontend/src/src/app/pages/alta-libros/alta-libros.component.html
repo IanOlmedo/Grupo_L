@@ -6,31 +6,31 @@
             <form (ngSubmit)="onSubmit()" [formGroup]="booksForm">
                 <div class="mb-3">
                     <label for="titulo" class="form-label" style="color: white;">Titulo</label>
-                    <input type="text" class="form-control" id="titulo" formControlName="titulo">
+                    <input type="text" class="form-control" id="titulo" formControlName="titulo" style="color: black;">
                 </div>
                 <div class="mb-3">
                     <label for="genero" class="form-label" style="color: white">Género</label>
-                    <input type="text" class="form-control" id="genero" formControlName="genero">
+                    <input type="text" class="form-control" id="genero" formControlName="genero" style="color: black;">
                 </div>
                 <div class="mb-3">
                     <label for="editorial" class="form-label" style="color: white">Editorial</label>
-                    <input type="text" class="form-control" id="editorial" formControlName="editorial">
+                    <input type="text" class="form-control" id="editorial" formControlName="editorial" style="color: black;">
                 </div>
                 <div class="mb-3">
                     <label for="anio_de_publicacion" class="form-label" style="color: white">Año de publicacion</label>
-                    <input type="text" class="form-control" id="anio_de_publicacion" formControlName="anio_de_publicacion">
+                    <input type="text" class="form-control" id="anio_de_publicacion" formControlName="anio_de_publicacion" style="color: black;">
                 </div>
                 <div class="mb-3">
                     <label for="descripcion" class="form-label" style="color: white">Descripcion</label>
-                    <input type="text" class="form-control" id="descripcion" formControlName="descripcion">
+                    <input type="text" class="form-control" id="descripcion" formControlName="descripcion" style="color: black;">
                 </div>
                 <div class="mb-3">
                     <label for="imagen" class="form-label" style="color: white">Imagen</label>
-                    <input type="text" class="form-control" id="imagen" formControlName="imagen">
+                    <input type="text" class="form-control" id="imagen" formControlName="imagen" style="color: black;">
                 </div>
                 <div class="mb-3">
                     <label for="stock" class="form-label" style="color: white">Stock</label>
-                    <input type="text" class="form-control" id="stock" formControlName="stock">
+                    <input type="text" class="form-control" id="stock" formControlName="stock" style="color: black;">
                 </div>
                 <button type="submit" class="btn btn-primary" *ngIf="!var_id" style="color: white">Crear</button>
                 <button type="submit" class="btn btn-primary" *ngIf="var_id" style="color: white">Editar</button>

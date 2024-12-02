@@ -16,8 +16,22 @@ export class AltaLibrosComponent {
     private booksService: BooksService,
   ){}
 
-  ngOnInit(){
+  ngOnInit() {
     this.var_id = this.route.snapshot.paramMap.get('id') || '';
+    if (this.var_id) {
+      this.booksService.getOneBook(this.var_id).subscribe(
+        (book) => {
+          this.booksForm.patchValue({
+            ...book,
+            stock: parseInt(book.stock, 10) // Convierte stock a número entero
+          });
+        },
+        (error) => {
+          console.error('Error fetching book data', error);
+        }
+      );
+    }
+    console.log(this.booksForm)
   }
 
   booksForm = new FormGroup({
@@ -27,7 +41,7 @@ export class AltaLibrosComponent {
     anio_de_publicacion: new FormControl('', Validators.required),
     descripcion: new FormControl('', [Validators.required]),
     imagen: new FormControl('', Validators.required),
-    stock: new FormControl('', Validators.required)
+    stock: new FormControl(0, [Validators.required, Validators.min(0)])
   });
 
   onSubmit() {
@@ -37,12 +51,15 @@ export class AltaLibrosComponent {
         console.log("Llegue hasta aqui");
         console.log(typeof(this.var_id))
         console.log(this.var_id)
+        console.log(this.booksForm.value)
         this.booksService.updateBook(this.var_id, this.booksForm.value).subscribe(() => {
         });
       } else {
         this.booksService.createBook(this.booksForm.value).subscribe(() => {
         });
       }
+    }else{
+      console.log("No flaco")
     }
   }
 
