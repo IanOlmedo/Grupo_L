@@ -27,6 +27,7 @@ export class CarritoComponent {
   ngOnInit(): void{
     this.cartItems = this.carritoService.getCartItems();
     this.var_id = this.route.snapshot.paramMap.get('id') || '';
+    this.checkPrestamosUser(this.var_id);
   }
 
   removeFromCart(id: number): void{
@@ -39,58 +40,50 @@ export class CarritoComponent {
     this.cartItems = []
   }
 
-  checkPrestamosUser(id: string): Promise<number> {
-    return new Promise((resolve, reject) => {
-      this.prestamoService.getPrestamos({}).subscribe(
-        (rta: any) => {
-          console.log(rta.prestamos)
-          this.prestamos = rta.prestamos || [];
-  
-          // Filtrar los préstamos del usuario con el id proporcionado y estado "no devuelto"
-          const userLoans = this.prestamos.filter((prestamo: any) =>
-            prestamo.usuarios.id_usuario === id && prestamo.estado === 'no devuelto'
-          );
-  
-          // Contar cuántos préstamos cumplen con las condiciones
-          const cantidad = userLoans.length;
-  
-          // Resolver la promesa con la cantidad de préstamos
-          resolve(cantidad);
-        },
-        (error: any) => {
-          reject(error);
-        }
+  checkPrestamosUser(id: string): void {
+    this.prestamoService.getPrestamos({}).subscribe((rta: any) => {
+      this.prestamos = rta.prestamos || [];
+
+      const userLoans = this.prestamos.filter((prestamo: any) =>
+        prestamo.id_usuario === Number(id) &&
+        (prestamo.estado === 'no devuelto' || prestamo.estado === 'reservado')
       );
+
+      this.cantidad_prestamos = userLoans.length;
+    });
+  }
+
+  
+
+  reservar(list: any[]): void {
+    list.forEach((book: any) => {
+      if (this.cantidad_prestamos < 3) {
+        console.log(book);
+        console.log(Number(this.var_id));
+        console.log(book.id_libro);
+        const prestamo = {
+          id_usuario: Number(this.var_id),
+          id_libros: book.id_libro,
+          fecha_de_entrega: null,
+          fecha_de_vencimiento: null,
+          estado: "reservado"
+        };
+        this.cantidad_prestamos = this.cantidad_prestamos + 1;
+        this.prestamoService.createPrestamo(prestamo).subscribe(
+          response => {
+            console.log('Prestamo creado exitosamente:', response);
+            alert('Libro reservado, vaya al local para recibirlo');
+          },
+          error => {
+            console.error('Error al crear el prestamo:', error);
+            alert('Hubo un error al reservar el libro. Por favor, inténtelo de nuevo más tarde.');
+          }
+        );
+      } else {
+        alert('Tiene el máximo de prestamos permitido');
+      }
     });
   }
   
-  async reservar(list: any[]): Promise<void> {
-    try {
-      const cantidadPrestamos = await this.checkPrestamosUser(this.var_id);
-      console.log(cantidadPrestamos);
-  
-      list.forEach((book: any) => {
-        if (cantidadPrestamos < 3) {
-          console.log(book);
-          console.log(Number(this.var_id));
-          console.log(book.id_libro);
-  
-          const prestamo = {
-            id_usuario: Number(this.var_id),
-            id_libros: book.id_libro,
-            fecha_de_entrega: null,
-            fecha_de_vencimiento: null,
-            estado: "reservado"
-          };
-  
-          alert('Libro reservado, vaya al local para recibirlo');
-          this.prestamoService.createPrestamo(prestamo);
-        } else {
-          alert('Tiene el máximo de préstamos permitido');
-        }
-      });
-    } catch (error) {
-      console.error('Ocurrió un error:', error);
-    }
-  }
 }
+

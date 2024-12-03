@@ -122,7 +122,7 @@ class Prestamos(Resource):
     @roles_required(roles = ["admin", "users"])
     def post(self):
         prestamo = PrestamoModel.from_json(request.get_json())
-        print(prestamo)
+        print(f"Modelo: {prestamo}")
         try:
             db.session.add(prestamo)
             db.session.commit()
