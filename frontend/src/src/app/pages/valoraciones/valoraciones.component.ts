@@ -75,7 +75,7 @@ export class ValoracionesComponent {
   }
 
   get isUser() {
-    return localStorage.getItem('user_role') === 'user';
+    return localStorage.getItem('user_role') === 'users';
   }
 
   get isAdmin() {

@@ -5,6 +5,7 @@ from main.models import UsuarioModel, PrestamoModel
 from sqlalchemy import func, desc
 from flask_jwt_extended import jwt_required, get_jwt_identity
 from main.auth.decorators import roles_required
+from werkzeug.security import generate_password_hash
 
 class Usuario(Resource):
     @jwt_required(optional=True)
@@ -29,6 +30,8 @@ class Usuario(Resource):
         usuario = db.session.query(UsuarioModel).get_or_404(id)
         data = request.get_json().items()
         for key, values in data:
+            if key == 'password':
+                values = generate_password_hash(values)
             setattr(usuario, key, values)
         db.session.add(usuario)
         db.session.commit()

@@ -43,6 +43,7 @@ export class CarritoComponent {
     return new Promise((resolve, reject) => {
       this.prestamoService.getPrestamos({}).subscribe(
         (rta: any) => {
+          console.log(rta.prestamos)
           this.prestamos = rta.prestamos || [];
   
           // Filtrar los préstamos del usuario con el id proporcionado y estado "no devuelto"
