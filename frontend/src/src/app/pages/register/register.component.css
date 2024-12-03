@@ -1,0 +1,14 @@
+.register-btn {
+    background-color: #483FA9;
+    color: white;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 18px;
+    border: 3px;  /* Borde más ancho */
+    padding: 12px 30px; /* Aumentar el tamaño del botón */
+    transition: all 0.3s ease; /* Efecto de transición para hover */
+}
+
+.register-btn:hover {
+    background-color: #b589ff;   /* Cambiar color de fondo al pasar el ratón */
+}
