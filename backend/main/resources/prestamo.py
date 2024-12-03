@@ -40,7 +40,7 @@ class Prestamo(Resource):
 
 
 class Prestamos(Resource):
-    @roles_required(roles = ["admin"])
+    @roles_required(roles = ["admin", "users"])
     def get(self):
         page = 1
         per_page = 5
@@ -119,7 +119,7 @@ class Prestamos(Resource):
                 'pagina': page
                 })
     
-    @roles_required(roles = ["admin"])
+    @roles_required(roles = ["admin", "users"])
     def post(self):
         prestamo = PrestamoModel.from_json(request.get_json())
         print(prestamo)

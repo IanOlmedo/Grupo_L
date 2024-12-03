@@ -37,7 +37,7 @@ export class AuthService {
       id_usuario: null,
       nombre_completo: dataRegister.Nombre,
       password: dataRegister.password, // Solo asigna la contraseña proporcionada
-      rol: 'user', // Puedes asignar un valor predeterminado para el rol si es necesario
+      rol: 'users', // Puedes asignar un valor predeterminado para el rol si es necesario
       telefono: dataRegister.Telefono,
       imagen: dataRegister.imagen,
     };

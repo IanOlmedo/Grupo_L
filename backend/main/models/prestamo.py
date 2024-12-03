@@ -6,8 +6,8 @@ class Prestamo(db.Model):
     id_prestamo = db.Column(db.Integer, primary_key=True)
     id_usuario = db.Column(db.Integer, db.ForeignKey("usuarios.id_usuario"), nullable=False)
     id_libros = db.Column(db.Integer, db.ForeignKey("libro.id_libro"), nullable=False)
-    fecha_de_entrega = db.Column(db.DateTime, nullable=False) 
-    fecha_de_vencimiento = db.Column(db.DateTime, nullable=False)
+    fecha_de_entrega = db.Column(db.DateTime) 
+    fecha_de_vencimiento = db.Column(db.DateTime)
     estado = db.Column(db.String(100), nullable=False)
     # Relación uno a muchos
     usuario = db.relationship("Usuarios", back_populates="prestamos", uselist=False, single_parent=True)
