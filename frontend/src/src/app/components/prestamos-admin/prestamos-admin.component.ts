@@ -104,7 +104,7 @@ export class PrestamosAdminComponent {
   }
 
   get isUser() {
-    return localStorage.getItem('user_role') === 'user';
+    return localStorage.getItem('user_role') === 'users';
   }
 
   get isAdmin() {
