@@ -10,7 +10,6 @@ import { CarritoService } from '../../services/carrito.service';
 })
 export class CatalogoComponent {
   var_id!: string
-  var_rol!: string
 
   searchQuery: string = ''
 
@@ -30,10 +29,6 @@ export class CatalogoComponent {
 
   ngOnInit() {
     this.var_id = this.route.snapshot.paramMap.get('id') || '';
-    this.var_rol = this.route.snapshot.paramMap.get('rol') || '';
-
-    console.log('this.var_id: ', this.var_id);
-    console.log('this.var_rol: ', this.var_rol);
     this.fetchBooks();
   }
 

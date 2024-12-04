@@ -10,8 +10,7 @@ import { UsuariosService } from '../../../services/usuarios.service';
 })
 export class AbmComponent {
   var_id!:string
-  var_rol!:string
-
+  
   userForm = new FormGroup({
     nombre_completo: new FormControl('', Validators.required),
     direccion: new FormControl('', Validators.required),
@@ -29,11 +28,6 @@ export class AbmComponent {
 
   ngOnInit(): void {
     this.var_id = this.route.snapshot.paramMap.get('id') || '';
-    this.var_rol = this.route.snapshot.paramMap.get('rol') || '';
-    
-    
-    console.log('this.var_id: ',this.var_id);
-    console.log('this.var_rol: ',this.var_id);
     console.log(localStorage.getItem('user_role')==='admin');
   }
 

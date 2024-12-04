@@ -12,8 +12,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 })
 export class LoginComponent {
   loginForm!: FormGroup;
-  var_id!:string
-  var_rol!:string
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -24,10 +22,7 @@ export class LoginComponent {
     email: ['', Validators.required],
     password: ['', Validators.required]})
    }
-  ngOnInit(){
-    this.var_id = this.route.snapshot.paramMap.get('id') || '';
-    this.var_rol=this.route.snapshot.paramMap.get('rol') || '';
-  }
+
   irAlLogin(dataLogin:any) {
     this.authService.login(dataLogin).subscribe({
       next: (rta:any) => {

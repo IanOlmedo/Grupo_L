@@ -4,7 +4,7 @@
 <div class="container-fluid" style="margin-top: 5%;">
     <div class="row d-flex justify-content-center">
         <div class="col-12 col-md-4 d-flex justify-content-center">
-            <img src="{{prestamo.usuarios.imagen}}" alt="Chabon" class="user-photo">
+            <img src="{{user.imagen}}" alt="Chabon" class="user-photo">
         </div>
         <div class="col-12 col-md-8">
             <div class="details-section">
@@ -12,23 +12,25 @@
                 <div class="section-header">
                     <h2>Datos Personales</h2>
                 </div>
-                <p><strong>Nombre:</strong> {{prestamo.usuarios.nombre_completo}}</p>
-                <p><strong>DNI:</strong> {{prestamo.usuarios.dni}}</p>
-                <p><strong>Dirección:</strong> {{prestamo.usuarios.direccion}}</p>
-                <p><strong>Teléfono:</strong> {{prestamo.usuarios.telefono}}</p>
-                <p><strong>Email:</strong> {{prestamo.usuarios.email}}</p>
-
+                <p><strong>Nombre:</strong> {{user.nombre_completo}}</p>
+                <p><strong>DNI:</strong> {{user.dni}}</p>
+                <p><strong>Dirección:</strong> {{user.direccion}}</p>
+                <p><strong>Teléfono:</strong> {{user.telefono}}</p>
+                <p><strong>Email:</strong> {{user.email}}</p>
                 <!-- Detalles del Préstamo -->
                 <div class="section-header">
                     <h2>Préstamos</h2>
                 </div>
-                <p><strong>Título:</strong> {{prestamo.libro.titulo}}</p>
-                <p><strong>Autor:</strong> {{prestamo.libro.autor}}</p>
-                <p><strong>Descripción:</strong> {{prestamo.libro.descripcion}}</p>
-                <p><strong>Año:</strong> {{prestamo.libro.anio_de_publicacion}}</p>
-                <p><strong>Fecha de Pedido:</strong> {{prestamo.fecha_de_entrega}}</p>
-                <p><strong>Fecha de Devolución:</strong> {{prestamo.fecha_de_vencimiento}}</p>
-                <p><strong>Estado:</strong> {{prestamo.estado}}</p>
+                <div *ngFor="let prestamo of arrayPrestamos" class="mb-3">
+                    <p><strong>Título:</strong> {{prestamo.libro.titulo}}</p>
+                    <p><strong>Autor:</strong> {{prestamo.libro.autor}}</p>
+                    <p><strong>Descripción:</strong> {{prestamo.libro.descripcion}}</p>
+                    <p><strong>Año:</strong> {{prestamo.libro.anio_de_publicacion}}</p>
+                    <p><strong>Fecha de Pedido:</strong> {{prestamo.fecha_de_entrega}}</p>
+                    <p><strong>Fecha de Devolución:</strong> {{prestamo.fecha_de_vencimiento}}</p>
+                    <p><strong>Estado:</strong> {{prestamo.estado}}</p>
+                    <p>--------------------------------------------------------</p>
+                </div>
             </div>
         </div>
     </div>

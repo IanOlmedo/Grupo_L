@@ -11,7 +11,6 @@ import { take } from 'rxjs';
 })
 export class UsuariosComponent implements OnInit {
   var_id!: string;
-  var_rol!: string;
   userData: any = {};  // Aquí almacenamos los datos del usuario
   editMode: boolean = false;  // Controla si los campos son editables o no
   selectedFile: File | null = null;
@@ -32,7 +31,6 @@ export class UsuariosComponent implements OnInit {
 
   ngOnInit(): void {
     this.var_id = this.route.snapshot.paramMap.get('id') || '';
-    this.var_rol = this.route.snapshot.paramMap.get('rol') || '';
     this.getUserData();  // Cargar los datos del usuario al iniciar
   }
 

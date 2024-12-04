@@ -12,8 +12,6 @@ import { Router } from "@angular/router";
 })
 export class RegisterComponent implements OnInit {
   userForm!: FormGroup;
-  var_id!: string;
-  var_rol!: string;
 
   constructor(
     private route: ActivatedRoute,

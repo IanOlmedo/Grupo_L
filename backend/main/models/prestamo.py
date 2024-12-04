@@ -38,7 +38,7 @@ class Prestamo(db.Model):
 
     def to_json_complete(self):
             usuarios = self.usuario.to_json()
-            libro = self.libros.to_json()
+            libro = self.libros.to_json_complete()
             prestamo_json={
                 'id_prestamo':self.id_prestamo,
                 'id_usuario':self.id_usuario,

@@ -89,7 +89,7 @@ class Usuarios(Resource):
         #Obtener valor paginado
         usuarios = usuarios.paginate(page=page, per_page=per_page, error_out=True)
 
-        return jsonify({'usuarios': [usuario.to_json() for usuario in usuarios],
+        return jsonify({'usuarios': [usuario.to_json_complete() for usuario in usuarios],
                 'total de usuarios': usuarios.total,
                 'paginas': usuarios.pages,
                 'pagina': page
