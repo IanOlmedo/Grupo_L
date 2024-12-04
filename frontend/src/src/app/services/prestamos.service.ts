@@ -45,7 +45,7 @@ export class PrestamosService {
   }
 
   createPrestamo(prestamo: any): Observable<any> {
-    console.log(prestamo)
+    console.log("JSON: ",prestamo)
     let auth_token = localStorage.getItem('token');
     let headers = new HttpHeaders({
       'Content-Type': 'application/json',
