@@ -4,8 +4,11 @@
 <div class="container-fluid images-container">
     <div class="row justify-content-between">
         <div class="col-5"></div>
-        <div class="col-4">
-            <button type="submit" class="btn btn-primary" *ngIf="isAdmin" style="color: white" routerLink="/alta_libros">Crear</button>
+        <div class="col-4">  
+            <h1 class="text-center mb-1" style="color: white;">Catalogo</h1>
+            <div type="submit" class="circle-plus-catalogo" *ngIf="isAdmin" routerLink="/alta_libros">
+              <i class="fa-solid fa-plus"></i>
+            </div>
         </div>
         <div class="col-3"></div>
         

@@ -3,13 +3,6 @@
     padding: 20px;
   }
   
-  .cart-header {
-    display: flex;
-    justify-content: center; /* Centra el contenido */
-    align-items: center;
-    margin-bottom: 20px;
-  }
-  
   .cart-title {
     font-size: 36px;
     color: white;
@@ -24,7 +17,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 24px;  /* Tamaño del "+" */
+    font-size: 34px;  /* Tamaño del "+" */
     color: white;
     font-weight: bold;
     cursor: pointer;
