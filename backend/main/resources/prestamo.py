@@ -14,7 +14,7 @@ class Prestamo(Resource):
         prestamo = db.session.query(PrestamoModel).get_or_404(id)
         return prestamo.to_json_complete(), 201
     
-    @roles_required(roles = ["admin"])
+    @roles_required(roles = ["admin", "users"])
     def delete(self, id):
         prestamo = db.session.query(PrestamoModel).get_or_404(id)
         db.session.delete(prestamo)

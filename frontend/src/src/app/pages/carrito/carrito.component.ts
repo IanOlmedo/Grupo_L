@@ -41,14 +41,12 @@ export class CarritoComponent {
   }
 
   checkPrestamosUser(id: string): void {
-    this.prestamoService.getPrestamos({}).subscribe((rta: any) => {
+    this.prestamoService.getPrestamos({id_usuario:Number(id)}).subscribe((rta: any) => {
       this.prestamos = rta.prestamos || [];
 
-      const userLoans = this.prestamos.filter((prestamo: any) =>
-        prestamo.id_usuario === Number(id) &&
-        (prestamo.estado === 'no devuelto' || prestamo.estado === 'reservado')
-      );
+      const userLoans = this.prestamos.filter((prestamo: any) => (prestamo.estado === 'no devuelto' || prestamo.estado === 'reservado'));
 
+      console.log("prueba: ",userLoans)
       this.cantidad_prestamos = userLoans.length;
     });
   }
@@ -78,6 +76,22 @@ export class CarritoComponent {
         alert('Tiene el máximo de prestamos permitido');
       }
     });
+  }
+
+  borrarReservas(): void{
+    const prestamos_for_delete = this.prestamos.filter((prestamo:any) => (prestamo.estado === 'reservado'));
+    prestamos_for_delete.forEach((loan:any)=>{
+      const id = loan.id_prestamo.toString();
+      this.prestamoService.deletePrestamo(id).subscribe(
+        response => {
+          alert('Se quito la reserva del libro: '+ loan.libro.titulo)
+        },
+        error =>{
+          alert('Hubo un error al eliminar las reservas. Por favor, inténtelo de nuevo más tarde')
+        }
+      )
+      this.checkPrestamosUser(this.var_id);
+    });   
   }
   
 }

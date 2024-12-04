@@ -50,6 +50,19 @@ class Prestamo(db.Model):
                 'libro':libro
             }
             return prestamo_json
+
+    def to_json_books(self):
+        libro = self.libros.to_json_short()
+        prestamo_json={
+            'id_prestamo':self.id_prestamo,
+            'id_usuario':self.id_usuario,
+            'id_libros':self.id_libros,
+            'fecha_de_entrega':str(self.fecha_de_entrega.strftime("%d-%m-%Y")),
+            'fecha_de_vencimiento':str(self.fecha_de_vencimiento.strftime("%d-%m-%Y")),
+            'estado':str(self.estado),
+            'libro':libro
+        }
+        return prestamo_json
         
     @staticmethod
     #Convertir JSON a objeto

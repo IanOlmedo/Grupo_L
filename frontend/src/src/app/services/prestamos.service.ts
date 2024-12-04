@@ -73,6 +73,6 @@ export class PrestamosService {
     });
     const requestOptions = { headers: headers };
     console.log('Sending DELETE request for book with ID:', id);
-    return this.httpClient.delete(this.url + '/Libro/' + id, requestOptions);
+    return this.httpClient.delete(this.url + '/Prestamo/' + id, requestOptions);
   }
 }

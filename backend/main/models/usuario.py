@@ -62,7 +62,7 @@ class Usuarios(db.Model):
         return usuario_json
 
     def to_json_complete(self):
-        prestamos = [prestamo.to_json() for prestamo in self.prestamos]
+        prestamos = [prestamo.to_json_books() for prestamo in self.prestamos]
         usuario_json={
             'id_usuario':self.id_usuario,
             'nombre_completo':str(self.nombre_completo),
