@@ -53,14 +53,9 @@ export class CarritoComponent {
     });
   }
 
-  
-
   reservar(list: any[]): void {
     list.forEach((book: any) => {
       if (this.cantidad_prestamos < 3) {
-        console.log(book);
-        console.log(Number(this.var_id));
-        console.log(book.id_libro);
         const prestamo = {
           id_usuario: Number(this.var_id),
           id_libros: book.id_libro,

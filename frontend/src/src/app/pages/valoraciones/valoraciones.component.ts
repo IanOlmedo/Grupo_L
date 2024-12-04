@@ -27,10 +27,7 @@ export class ValoracionesComponent {
   ) {}
 
   ngOnInit() {
-    console.log('ngOnInit called');
     this.var_id = this.route.snapshot.paramMap.get('id') || '';
-    console.log('this.var_id: ', this.var_id);
-    console.log('xd: '+typeof(this.var_id) )
 
     this.valoracion = {
       comentario: '',
