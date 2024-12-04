@@ -12,6 +12,13 @@ export class InfoPrestamoComponent implements OnInit {
   var_id!:string
   prestamo: any;
 
+  loan: any = {
+    numeroPrestamo: 0,
+    fecha_de_entrega: '',
+    fecha_de_vencimiento: '',
+    estado: ''
+  };
+
   arrayPrestamos: any[] = [];
   user:any;
 
@@ -23,25 +30,9 @@ export class InfoPrestamoComponent implements OnInit {
 
   ngOnInit(): void {
     this.var_id = this.route.snapshot.paramMap.get('id') || '';
-    //this.getPrestamo();
     this.checkPrestamosUser(this.var_id);
     this.getUser(this.var_id);
-    console.log("user: ",this.user)
-    console.log("prestamo: ",this.prestamo)
-    console.log("array: "+this.arrayPrestamos)
   }
-
-  getPrestamo(): void {
-    const prestamoId = this.route.snapshot.paramMap.get('id'); // Obtén el ID del préstamo de la URL
-    if (prestamoId !== null) {
-      console.log(typeof(prestamoId))
-      this.prestamosService.getOnePrestamos(prestamoId)
-        .subscribe(prestamo => this.prestamo = prestamo);
-    } else {
-      console.error('prestamoId esta en Null'); // Manejar el caso en el que prestamoId es null, por ejemplo, redirigiendo a una página de error o mostrando un mensaje al usuario.
-    }
-  }
-
   checkPrestamosUser(id: string): void {
     this.prestamosService.getPrestamos({ id_usuario: id }).subscribe((rta: any) => {
         console.log("All prestamos: ", rta);
@@ -65,5 +56,33 @@ getUser(id:string): void{
   })
 }
 
-  
+onSubmitUpdate() {
+  const numeroPrestamo = this.loan.numeroPrestamo - 1
+  const prestamoData = {
+    id_usuario: Number(this.var_id),
+    id_libro: this.arrayPrestamos[numeroPrestamo].libro.id_libro,
+    fecha_de_entrega: this.loan.fecha_de_entrega,
+    fecha_de_vencimiento: this.loan.fecha_de_vencimiento,
+    estado: this.loan.estado,
+  };
+
+  console.log("Resultado: ", prestamoData)
+  /*
+  this.prestamosService.updatePrestamo(this.var_id, prestamoData).subscribe(
+    response => {
+      console.log('Prestamo actualizado con éxito:', response);
+    },
+    error => {
+      console.error('Error al actualizar el préstamo:', error);
+    }
+  );
+  */
+}
+
+onSubmitDelete(){
+  const numeroPrestamo = this.loan.numeroPrestamo -1
+  const id = this.arrayPrestamos[numeroPrestamo].id_prestamo 
+  console.log("Id: ",id.toString())
+  //this.prestamosService.deletePrestamo(id.toString())
+}
 }
