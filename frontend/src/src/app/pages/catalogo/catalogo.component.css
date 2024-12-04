@@ -48,21 +48,22 @@
     position: relative;
     display: inline-block;
     width: 100%; /* Asegura que el contenedor ocupe todo el ancho disponible */
-    max-width: 300px; /* Ajusta el tamaño máximo del contenedor */
     margin: 0 auto; /* Centra el contenedor */
-}
+    
+}  
 
 /* Contenedor de imágenes */
 .images-container {
     margin-top: 5px; /* Espacio superior del contenedor */
     padding: 30px; /* Espacio interno alrededor del contenedor */
-    max-width: 100%; /* Asegura que el contenedor no exceda el tamaño del contenedor padre */
+    max-width: 300%; /* Asegura que el contenedor no exceda el tamaño del contenedor padre */
+    
 }
 
 /* Imágenes dentro del contenedor */
 .img-overlay1 {
     width: 100%; /* Las imágenes ocuparán todo el ancho del contenedor */
-    height: 200px; /* Altura fija para todas las imágenes */
+    height: 300px; /* Altura fija para todas las imágenes */
     object-fit: cover; /* Ajusta la imagen para cubrir el área del contenedor sin distorsión */
     border-radius: 15px; /* Bordes redondeados para las imágenes */
     z-index: 1;
@@ -72,43 +73,85 @@
     color: white;
     margin-top: 10px;
     font-size: 4vw; /* Ajusta el tamaño de la letra a 4% del ancho de la ventana */
-}
-
-/* Opcional: puedes agregar un estilo de min y max para controlar el tamaño */
-@media (max-width: 600px) {
-    .image-title {
-        font-size: 3vw; /* Más pequeño en pantallas más pequeñas */
-    }
-}
-
-@media (min-width: 1200px) {
-    .image-title {
-        font-size: 2vw; /* Más grande en pantallas grandes */
-    }
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 .catalogo-title {
-    color: white; 
-    text-align: center; 
-    font-size: 36px; 
-
+    color: white; /* Color del texto */
+    margin: 0; /* Sin márgenes adicionales */
+    white-space: nowrap; /* Evita que el texto se corte */
 }
 
 .circle-plus-catalogo {
-    margin-left: 20px;
-    width: 50px;  /* Tamaño del círculo */
-    height: 50px; /* Mantiene la proporción circular */
+    width: 40px;  /* Tamaño del círculo */
+    height: 40px; /* Mantiene la proporción circular */
     background-color: #483FA9;
     border-radius: 50%;  /* Hace el ícono circular */
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 24px;  /* Tamaño del "+" */
+    font-size: 24px;  /* Tamaño del ícono */
     color: white;
     font-weight: bold;
     cursor: pointer;
-  }
-  
+    transition: background-color 0.3s ease; /* Suaviza el cambio de color */
+}
+
   .circle-plus-catalogo:hover {
     background-color: #b589ff; /* Cambia el color al hacer hover */
   }
+
+  @media (min-width: 1200px) {
+    .catalogo-title {
+        font-size: 3vw; /* Tamaño del título */
+        margin-bottom: 40px;
+    }
+    .image-title {
+        font-size: 2vw; /* Más grande en pantallas grandes */
+    }
+
+    .circle-plus-catalogo {
+        margin-top: 5px;
+        margin-left: 40px; /* Espacio entre el título y el botón */
+    }
+}
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 768px) {
+    .catalogo-title {
+        font-size: 2rem; /* Tamaño del título */
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .img-overlay1 {
+        height: 200px; /* Reduce la altura de la imagen en pantallas pequeñas */
+    }
+
+    .images-container {
+        padding: 15px; /* Reduce el padding */
+    }
+
+    .image-title {
+        font-size: 3vw; /* Más pequeño en pantallas más pequeñas */
+    }
+
+    .circle-plus-catalogo {
+        margin-left: 20px; /* Espacio entre el título y el botón */
+    }
+}
+
+@media (max-width: 480px) {
+    .catalogo-title {
+        font-size: 2rem; /* Tamaño del título */
+    }
+
+    .img-overlay1 {
+        height: 150px; /* Aún más pequeña en pantallas muy pequeñas */
+    }
+
+    .images-container {
+        padding: 10px; /* Ajusta el padding para pantallas muy pequeñas */
+    }
+}
