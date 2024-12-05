@@ -1,0 +1,20 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <h2 *ngIf="var_id" class="text-center mb-4" style="color: white;">Modificar Autor</h2>
+            <h2 *ngIf="!var_id" class="text-center mb-4" style="color: white;">Crear Autor</h2>
+            <form (ngSubmit)="onSubmit()" [formGroup]="autorForm">
+                <div class="mb-3">
+                    <label for="nombre_completo" class="form-label" style="color: white;">Nombre completo</label>
+                    <input type="text" class="form-control" id="nombre_completo" formControlName="nombre_completo" style="color: black;">
+                </div>
+                <div class="mb-3">
+                    <label for="nacionalidad" class="form-label" style="color: white">Nacionalidad</label>
+                    <input type="text" class="form-control" id="nacionalidad" formControlName="nacionalidad" style="color: black;">
+                </div>
+                <button type="submit" class="btn btn-primary" *ngIf="!var_id" style="color: white">Crear</button>
+                <button type="submit" class="btn btn-primary" *ngIf="var_id" style="color: white">Editar</button>
+            </form>
+        </div>
+    </div>
+</div>

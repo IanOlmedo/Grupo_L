@@ -67,7 +67,6 @@ onSubmitUpdate() {
   };
 
   console.log("Resultado: ", prestamoData)
-  /*
   this.prestamosService.updatePrestamo(this.var_id, prestamoData).subscribe(
     response => {
       console.log('Prestamo actualizado con éxito:', response);
@@ -76,13 +75,12 @@ onSubmitUpdate() {
       console.error('Error al actualizar el préstamo:', error);
     }
   );
-  */
 }
 
 onSubmitDelete(){
   const numeroPrestamo = this.loan.numeroPrestamo -1
   const id = this.arrayPrestamos[numeroPrestamo].id_prestamo 
   console.log("Id: ",id.toString())
-  //this.prestamosService.deletePrestamo(id.toString())
+  this.prestamosService.deletePrestamo(id.toString())
 }
 }

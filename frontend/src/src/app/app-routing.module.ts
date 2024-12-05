@@ -17,7 +17,8 @@ import { authroleGuard } from './guards/authrole.guard';
 import { AgregarUsuarioComponent } from './pages/agregar-usuario/agregar-usuario.component';
 import { ValoracionesComponent } from './pages/valoraciones/valoraciones.component';
 import { InfoPrestamoComponent } from './pages/info-prestamo/info-prestamo.component';
-import { AltaLibrosComponent } from './pages/alta-libros/alta-libros.component'
+import { AltaLibrosComponent } from './pages/alta-libros/alta-libros.component';
+import { AltaAutoresComponent } from './pages/alta-autores/alta-autores.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -26,8 +27,10 @@ const routes: Routes = [
   {path: 'catalogo/:id', component: CatalogoComponent},
   {path: 'ver_libro', component: VerLibroComponent},
   {path: 'ver_libro/:id', component: VerLibroComponent},
-  {path: 'alta_libros', component: AltaLibrosComponent},
-  {path: 'alta_libros/:id', component: AltaLibrosComponent},
+  {path: 'alta_libros', component: AltaLibrosComponent, canActivate:[authsessionGuard, authroleGuard]},
+  {path: 'alta_libros/:id', component: AltaLibrosComponent, canActivate:[authsessionGuard, authroleGuard]},
+  {path: 'alta_autores', component: AltaAutoresComponent, canActivate:[authsessionGuard, authroleGuard]},
+  {path: 'alta_autores/:id', component: AltaAutoresComponent, canActivate:[authsessionGuard, authroleGuard]},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'info_usuario/:id', component: UsuariosComponent,canActivate:[authsessionGuard]},

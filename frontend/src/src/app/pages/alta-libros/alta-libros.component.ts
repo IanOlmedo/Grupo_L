@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { BooksService } from './../../services/books.service'
+import { BooksService } from './../../services/books.service';
+import { AutoresService } from '../../services/autores.service';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 
 @Component({
@@ -11,9 +12,12 @@ import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms'
 export class AltaLibrosComponent {
   var_id!:string
 
+  arrayAutores: any[] = []
+
   constructor(
     private route: ActivatedRoute,
     private booksService: BooksService,
+    private autoresService: AutoresService,
   ){}
 
   ngOnInit() {
@@ -21,9 +25,11 @@ export class AltaLibrosComponent {
     if (this.var_id) {
       this.booksService.getOneBook(this.var_id).subscribe(
         (book) => {
+          const nombres_autores = book.autor.map((autor: any) => autor.nombre_completo).join(', ');
           this.booksForm.patchValue({
             ...book,
-            stock: parseInt(book.stock, 10) // Convierte stock a número entero
+            stock: parseInt(book.stock, 10),
+            autor: nombres_autores
           });
         },
         (error) => {
@@ -32,6 +38,7 @@ export class AltaLibrosComponent {
       );
     }
     console.log(this.booksForm)
+    this.fetchAutores();
   }
 
   booksForm = new FormGroup({
@@ -42,6 +49,7 @@ export class AltaLibrosComponent {
     titulo: new FormControl('', Validators.required),
     stock: new FormControl(0, [Validators.required, Validators.min(0)]),
     imagen: new FormControl('', Validators.required),
+    autor: new FormControl('', Validators.required),
   });
 
   onSubmit() {
@@ -63,5 +71,17 @@ export class AltaLibrosComponent {
     console.log("Eliminado")
     console.log(this.var_id)
     this.booksService.deleteBook(this.var_id)
+  }
+
+  fetchAutores(): void{
+    this.autoresService.getAutores().subscribe((rta:any) =>{
+      this.arrayAutores = rta
+    })
+  }
+
+  eliminarAutor(id_autor:number): void{
+    this.autoresService.deleteAutor(id_autor.toString()).subscribe(() => {
+      this.arrayAutores = this.arrayAutores.filter(u => u.id_autor !== id_autor);
+    });
   }
 }

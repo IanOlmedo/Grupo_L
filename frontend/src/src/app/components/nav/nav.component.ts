@@ -6,6 +6,8 @@ import { AuthService } from '../../services/auth.service';
   styleUrl: './nav.component.css'
 })
 export class NavComponent {
+  user_id = localStorage.getItem('user_id')
+
   constructor(
     private authService: AuthService
   ) {}

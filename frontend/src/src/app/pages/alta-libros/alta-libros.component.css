@@ -10,3 +10,22 @@
     background-color: #b589ff;
     color: #ffffff;
   }
+
+.circle-plus-autor {
+    width: 40px;  /* Tamaño del círculo */
+    height: 40px; /* Mantiene la proporción circular */
+    background-color: #483FA9;
+    border-radius: 50%;  /* Hace el ícono circular */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;  /* Tamaño del ícono */
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Suaviza el cambio de color */
+}
+
+  .circle-plus-autor:hover {
+    background-color: #b589ff; /* Cambia el color al hacer hover */
+  }

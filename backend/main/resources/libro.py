@@ -20,8 +20,25 @@ class Libro(Resource):
         data = request.get_json().items()
         for key, value in data:
             if key == 'anio_de_publicacion':
-                año_de_publicacion = datetime.strptime(value, '%d-%m-%Y')
-                setattr(libro, key, año_de_publicacion)
+                anio_de_publicacion = datetime.strptime(value, '%d-%m-%Y')
+                setattr(libro, key, anio_de_publicacion)
+            elif key == 'autores': 
+                nombres_autores = value
+                if nombres_autores:
+                    nombres_lista = [nombre.strip() for nombre in nombres_autores.split(',')]
+                    nuevos_autores = []
+                    for nombre in nombres_lista:
+                        autor = AutorModel.query.filter_by(nombre_completo=nombre).first()
+                        if autor:
+                            nuevos_autores.append(autor)
+                        """
+                        else:
+                            nuevo_autor = AutorModel(nombre_completo=nombre)
+                            db.session.add(nuevo_autor)
+                            db.session.commit()
+                            nuevos_autores.append(nuevo_autor)
+                        """
+                    libro.autor = nuevos_autores
             else:
                 setattr(libro, key, value)
         db.session.add(libro)
@@ -94,14 +111,15 @@ class Libros(Resource):
     @roles_required(roles = ["admin"])
     def post(self):
         
-        autores_ids = request.get_json().get('autores')
+        autores_nombres = request.get_json().get('autores')
         libro = LibroModel.from_json(request.get_json())
         
-        if autores_ids:
-            # Obtener las instancias de auntor basadas en las ids recibidas
-            autores = AutorModel.query.filter(AutorModel.id.in_(autores_ids)).all()
-            # Agregar las instancias de auntor a la lista de autores del libro
-            libro.exhibiciones.extend(autores)
+        if autores_nombres:
+            nombres_lista = [nombre.strip() for nombre in autores_nombres.split(',')]
+            for nombre in nombres_lista:
+                autor = AutorModel.query.filter_by(nombre_completo=nombre).first()
+                if autor:
+                    libro.autor.append(autor)
             
         db.session.add(libro)
         db.session.commit()

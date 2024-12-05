@@ -26,10 +26,10 @@
           <a class="nav-link active text-white" aria-current="page" routerLink="/acerca_de" href="#">Acerca de</a>
         </li>
         <li *ngIf="isToken"  class="nav-item">
-          <a class="nav-link active text-white" aria-current="page" routerLink="/info_usuario/1" href="#">Perfil</a>
+          <a class="nav-link active text-white" aria-current="page" routerLink="/info_usuario/{{user_id}}" href="#">Perfil</a>
         </li>
         <li *ngIf="isToken && isUser" class="nav-item">
-          <a class="nav-link active text-white" aria-current="page" href="#" routerLink="/carrito/1">Carrito</a>
+          <a class="nav-link active text-white" aria-current="page" href="#" routerLink="/carrito/{{user_id}}">Carrito</a>
         </li>
         <li *ngIf="isToken && isAdmin" class="nav-item">
           <a class="nav-link active text-white" aria-current="page" href="#" routerLink="/alta_usuarios">Alta Usuario</a>
