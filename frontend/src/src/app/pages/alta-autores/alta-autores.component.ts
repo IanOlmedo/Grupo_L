@@ -40,16 +40,20 @@ export class AltaAutoresComponent {
             alert('Autor actualizado correctamente')
         },
       (error) => {
-        alert('Error al al actualizar el autor: ' + error.message)
+        console.log('Error al actualizar el autor: ',error.message)
+        alert('Hubo un error al actualizar el autor. Por favor, inténtelo de nuevo más tarde')
       });
       } else {
         this.autorService.createAutor(this.autorForm.value).subscribe(() => {
           alert('Autor creado correctamente')
         },
       (error)=>{
-        alert('Error al crear el autor '+error.message)
+        console.log('Error al crear el autor: ',error.message)
+        alert('Hubo un error al crear el autor. Por favor, inténtelo de nuevo más tarde')
       });
       }
+    }else{
+      console.log('Formulario no valido')
     }
   }
 }

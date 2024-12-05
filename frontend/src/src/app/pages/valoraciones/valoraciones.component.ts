@@ -86,6 +86,7 @@ export class ValoracionesComponent {
     const year = now.getFullYear();
     this.valoracion.fecha_de_valoracion = `${day}-${month}-${year}`;
     this.valoracionesService.createValoracion(this.valoracion).subscribe(response => {
+      alert('Se creo la valoración con exito')
       console.log('Valoración enviada:', response);
       document.getElementById('btn-close')?.click();
       this.valoracion = {

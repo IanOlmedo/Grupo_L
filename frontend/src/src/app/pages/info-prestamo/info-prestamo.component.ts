@@ -70,9 +70,11 @@ onSubmitUpdate() {
   this.prestamosService.updatePrestamo(this.var_id, prestamoData).subscribe(
     response => {
       console.log('Prestamo actualizado con éxito:', response);
+      alert('Se actualizo el prestamo correctamente');
     },
     error => {
       console.error('Error al actualizar el préstamo:', error);
+      alert('Hubo un error al actualizar el prestamo. Por favor, inténtelo de nuevo más tarde')
     }
   );
 }

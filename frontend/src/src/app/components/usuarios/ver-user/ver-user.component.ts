@@ -71,10 +71,16 @@ export class VerUserComponent {
   }
 
   eliminarusuario(user: any) {
-    this.usuariosService.deleteUser(user.id_usuario).subscribe(() => {
-      this.arrayUsuarios = this.arrayUsuarios.filter(u => u.id_usuario !== user.id_usuario);
-      this.filterUsers();
-    });
+    this.usuariosService.deleteUser(user.id_usuario).subscribe(
+      () => {
+        alert('El usuario ha sido eliminado correctamente')
+        this.arrayUsuarios = this.arrayUsuarios.filter(u => u.id_usuario !== user.id_usuario);
+        this.filterUsers();
+    },
+  (error)=>{
+    console.log('Error: ', error.message)
+    alert('Hubo un error al eliminar el libro. Por favor, inténtelo de nuevo más tarde')
+  });
   }
 
   onSearchQueryChange(searchQuery: string) {

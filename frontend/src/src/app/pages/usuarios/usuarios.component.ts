@@ -89,9 +89,11 @@ export class UsuariosComponent implements OnInit {
         this.usuariosService.updateUser(this.var_id, this.userForm.value).subscribe({
           next: () => {
             console.log('Usuario actualizado con éxito');
+            alert('Usuario actualizado con exito')
           },
           error: (err) => {
             console.error('Error al actualizar el usuario:', err);
+            alert('Hubo un error al actualizar el usuario. Por favor, inténtelo más tarde')
           }
         });
       } else {
