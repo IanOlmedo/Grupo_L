@@ -56,11 +56,23 @@ export class AltaLibrosComponent {
     if (this.booksForm.valid) {
       if (this.var_id) {
         console.log(this.booksForm.value)
-        this.booksService.updateBook(this.var_id, this.booksForm.value).subscribe(() => {
-        });
+        this.booksService.updateBook(this.var_id, this.booksForm.value).subscribe(
+          () => {
+            alert('Se actualizo el libro correctamente')
+        },
+      (error) => {
+        console.error('Error al actualizar el libro', error.message);
+        alert('Hubo un error al actualizar el libro. Por favor, inténtelo de nuevo más tarde.');
+      });
       } else {
-        this.booksService.createBook(this.booksForm.value).subscribe(() => {
-        });
+        this.booksService.createBook(this.booksForm.value).subscribe(
+          () => {
+            alert('Se creo el libro correctamente')
+        },
+      (error)=>{
+        console.log('Error al crear libro: ', error.message)
+        alert('Hubo un error al crear el libro. Por favor, inténtelo de nuevo más tarde')
+      });
       }
     }else{
       console.log("Formulario no valido")

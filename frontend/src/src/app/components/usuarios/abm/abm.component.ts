@@ -37,11 +37,22 @@ export class AbmComponent {
         console.log("Llegue hasta aqui");
         console.log(typeof(this.var_id))
         console.log(this.var_id)
-        this.usuariosService.updateUser(this.var_id, this.userForm.value).subscribe(() => {
-        });
+        this.usuariosService.updateUser(this.var_id, this.userForm.value).subscribe(
+          () => {
+            alert('Usuario actualizado correctamente')
+        },
+      (error) => {
+        console.log('Error al actualizar el usuario: ',error.message)
+        alert('Hubo un error al actualizar el libro. Por favor, inténtelo de nuevo más tarde')
+      });
       } else {
-        this.usuariosService.createUser(this.userForm.value).subscribe(() => {
-        });
+        this.usuariosService.createUser(this.userForm.value).subscribe(
+          () => {
+            alert('Usuario creado correctamente')
+        },
+      (error) => {
+        console.log('Hubo un error al crear el libro. Por favor, inténtelo de nuevo más tarde')
+      });
       }
     }
   }

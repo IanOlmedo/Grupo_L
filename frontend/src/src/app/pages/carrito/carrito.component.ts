@@ -83,10 +83,11 @@ export class CarritoComponent {
     prestamos_for_delete.forEach((loan:any)=>{
       const id = loan.id_prestamo.toString();
       this.prestamoService.deletePrestamo(id).subscribe(
-        response => {
+        () => {
           alert('Se quito la reserva del libro: '+ loan.libro.titulo)
         },
-        error =>{
+        (error) =>{
+          console.log('Error al eliminar: ', error.message)
           alert('Hubo un error al eliminar las reservas. Por favor, inténtelo de nuevo más tarde')
         }
       )
