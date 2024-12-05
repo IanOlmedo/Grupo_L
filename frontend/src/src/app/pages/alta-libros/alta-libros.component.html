@@ -34,9 +34,12 @@
                     <label for="stock" class="form-label" style="color: white">Stock</label>
                     <input type="number" class="form-control" id="stock" formControlName="stock" style="color: black;">
                 </div>
-                <button type="submit" class="btn btn-primary" *ngIf="!var_id" style="color: white">Crear</button>
+                <div class="d-flex justify-content-center mt-4 mb-4">
+                    <button type="submit" class="btn btn-primary" *ngIf="!var_id" style="color: white">Crear</button>
                 <button type="submit" class="btn btn-primary" *ngIf="var_id" style="color: white">Editar</button>
                 <button (click)="DeleteBook()" class="btn btn-primary" *ngIf="var_id" style="color: white">Eliminar</button>
+                </div>
+                
             </form>
         </div>
     </div>

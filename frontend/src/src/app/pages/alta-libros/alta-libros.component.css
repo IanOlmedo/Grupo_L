@@ -1,0 +1,12 @@
+.btn-primary {
+    border: 2px solid rgb(483FA9);
+    border-radius: 20px;
+    background-color: #483FA9;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    transition: background-color 0.3s ease;
+  }
+  .btn-primary:hover {
+    background-color: #b589ff;
+    color: #ffffff;
+  }

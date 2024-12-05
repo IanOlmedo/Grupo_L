@@ -2,10 +2,17 @@
 <app-search-bar></app-search-bar>
 
 <div class="cart-container">
-  <div class="cart-header">
-    <h1 class="cart-title">Carrito</h1>
-    <div class="circle-plus-cart" routerLink="/catalogo/{{var_id}}" href="#"><h2>+</h2></div>
-  </div>
+  <div class="col-12 d-flex justify-content-center">
+    <div class="row">
+        <div class="col-6">
+            <h1 class="cart-title mb-4">Carrito</h1>
+        </div>
+        <div class="col-6">
+          <div class="circle-plus-cart" routerLink="/catalogo/{{var_id}}" href="#"><h2>+</h2></div>
+        </div>
+    </div>
+  </div> 
+
 
   <div *ngIf="cartItems.length > 0; else emptyCart">
     <div class="cart-item" *ngFor="let item of cartItems; let i = index">
@@ -22,18 +29,24 @@
   </div>
 
   <div>
-    <h1 style="color: white; text-align: center; font-size: 15px">Artículos en el carrito: {{ cartItems.length }}</h1>
+    <h1 style="color: white; text-align: center; font-size: 25px;">Artículos en el carrito: {{ cartItems.length }}</h1>
   </div>
-  <div class="row justify-content-center">
-    <div class="col-1">
-      <button type="button" class="btn btn-primary p-4" href="#" style="background: #483FA9; color: white;" (click)="reservar(cartItems)">Reservar</button>
+  <div class="row justify-content-between mt-5">
+    <div class="col-2 col-md-4"></div>
+    <div class="col-8 col-md-2">
+      <div class="row">
+        <div class="col-6">
+          <button type="button" class="btn btn-primary p-3" href="#" (click)="reservar(cartItems)">Reservar</button>
+        </div>
+        <div class="col-6">
+          <button type="button" class="btn btn-primary p-3" href="#" (click)="borrarReservas()">Quitar Reservas</button>
+        </div>
+      </div>
     </div>
-    <div class="col-2 ms-3">
-      <button type="button" class="btn btn-primary p-4" href="#" style="background: #483FA9; color: white;" (click)="borrarReservas()">Quitar Reservas</button>
-    </div>
+    <div class="col-2 col-md-4"></div>
   </div>
 
   <ng-template #emptyCart>
-    <h1 style="color: white; text-align: center; font-size: 15px">Tu carrito está vacío</h1>
+    <h1 style="color: white; text-align: center; font-size: 25px; margin-bottom: 20px;" >Tu carrito está vacío</h1>
   </ng-template>
 </div>

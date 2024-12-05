@@ -1,7 +1,6 @@
 .circle-plus {
     position: absolute;
     top: 10px; /* Distancia desde el borde superior */
-    right: 10px; /* Distancia desde el borde derecho */
     width: 40px; /* Tamaño del botón */
     height: 40px;
     background-color: #483FA9;
@@ -111,6 +110,16 @@
         font-size: 2vw; /* Más grande en pantallas grandes */
     }
 
+    .img-overlay1 {
+        border-radius: 30px; /* Bordes redondeados para las imágenes */
+    }
+    .circle-plus {
+        top: 0px; /* Distancia desde el borde superior */
+        left: -0px; /* Distancia desde el borde izquierdo */
+        width: 50px; /* Tamaño del botón */
+        height: 50px;
+        font-size: 1.5rem; /* Ajusta el tamaño del texto del ícono */
+    }
     .circle-plus-catalogo {
         margin-top: 5px;
         margin-left: 40px; /* Espacio entre el título y el botón */
@@ -136,6 +145,13 @@
     .image-title {
         font-size: 3vw; /* Más pequeño en pantallas más pequeñas */
     }
+    .circle-plus {
+        top: -2px; /* Distancia desde el borde superior */
+        left: 0px;
+        width: 30px; /* Tamaño del botón */
+        height: 30px;
+        font-size: 1.5rem; /* Ajusta el tamaño del texto del ícono */
+    }
 
     .circle-plus-catalogo {
         margin-left: 20px; /* Espacio entre el título y el botón */
@@ -145,6 +161,7 @@
 @media (max-width: 480px) {
     .catalogo-title {
         font-size: 2rem; /* Tamaño del título */
+        margin-bottom: 20px;
     }
 
     .img-overlay1 {
