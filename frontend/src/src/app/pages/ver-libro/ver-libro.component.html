@@ -1,30 +1,32 @@
 <app-nav></app-nav>
 
 <div class="container-fluid" style="margin-top: 30px;">
+
+
   <div class="row">
     <h1 class="info-libro-title text-center">Información del Libro</h1>
-    <!-- Imagen del libro -->
-    <div class="col-4 text-center">
-      <img src="{{book.imagen}}" alt="Libro" class="img-libro-container">
-    </div>
 
+    <!-- Imagen del libro -->
+    <div class="col-sm-6 col-md-4 justify-content-center">
+      <img src="{{book.imagen}}" alt="Libro" class="img-libro-container mb-3">
+    </div>
     <!-- Información del libro -->
-    <div class="col-8">
+    <div class="col-sm-12 col-md-8">
       <div class="row mb-3">
-        <div class="col-3 justify-content-center">
-          <div class="info-label text-center p-3"><strong>Título:</strong></div>
+        <div class="col-3 justify-content-center ">
+          <div class="info-label text-center p-3 "><strong>Título:</strong></div>
         </div>
-        <div class="col-9">
+        <div class="col-9 justify-content-center">
           <div class="showing p-1">
             <h6 class="info-text ps-2">{{book.titulo}}</h6>
           </div>
         </div>
       </div>
-      <div class="row mb-3">
+      <div class="row sm-12">
         <div class="col-3 justify-content-center">
           <div class="info-label text-center p-3"><strong>Autor:</strong></div>
         </div>
-        <div class="col-9">
+        <div class="col-9 justify-content-center">
           <div class="showing p-1">
             <h6 class="info-text ps-2">{{arrayAuthor[0].nombre_completo}}</h6>
           </div>
@@ -34,7 +36,7 @@
         <div class="col-3 justify-content-center">
           <div class="info-label text-center p-3"><strong>Género:</strong></div>
         </div>
-        <div class="col-9">
+        <div class="col-9 justify-content-center">
           <div class="showing p-1">
             <h6 class="info-text ps-2">{{book.genero}}</h6>
           </div>
@@ -44,27 +46,28 @@
         <div class="col-3 justify-content-center">
           <div class="info-label text-center p-3"><strong>Editorial:</strong></div>
         </div>
-        <div class="col-9">
+        <div class="col-9 justify-content-center">
           <div class="showing p-1">
             <h6 class="info-text ps-2">{{book.editorial}}</h6>
           </div>
         </div>
       </div>
       <div class="row mb-3">
-        <div class="col-3 justify-content-center">
+        <div class="col-md-3 col-sm-4 justify-content-center">
           <div class="info-label p-3"><strong>Fecha de publicación:</strong></div>
         </div>
-        <div class="col-9">
+        <div class="col-md-9 col-sm-8 justify-content-center">
           <div class="showing p-1">
             <h6 class="info-text ps-2">{{book.anio_de_publicacion}}</h6>
           </div>
         </div>
       </div>
-      <div class="row mt-3">
-        <div class="col-12 justify-content-center">
-          <div class="info-label p-3"><strong>Descripción:</strong></div>
+      
+    </div>
+    <div class="row" style="margin-left: 5px;">
+      <div class="col-12 p-2">
+          <div class="info-label p-2"><strong>Descripción:</strong></div>
           <p class="info-description ps-2">{{book.descripcion}}</p>
-        </div>
       </div>
     </div>
   </div>

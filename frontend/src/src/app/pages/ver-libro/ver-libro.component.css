@@ -1,71 +1,115 @@
 /* Imagen */
 .img-libro-container {
-    max-width: 100%; /* La imagen ocupará todo el ancho de su contenedor */
-    height: auto; /* Mantener la relación de aspecto */
-    border-radius: 10px; /* Bordes ligeramente redondeados */
+  max-width: 100%; /* La imagen ocupará todo el ancho de su contenedor */
+  height: auto; /* Mantener la relación de aspecto */
+  border-radius: 10px; /* Bordes ligeramente redondeados */
+}
+
+/* Estilo del título */
+.info-libro-title {
+  color: white;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+/* Estilo común para los textos */
+.info-label {
+  color: white;
+  font-size: 1.2rem;
+}
+
+.info-text {
+  font-size: 1rem;
+  color: black;
+}
+
+.info-description {
+  color: black;
+  padding: 1rem;
+  background-color: white;
+  border-radius: 10px;
+}
+
+/* Botones */
+.btn-primary {
+  border: 2px solid rgb(72, 63, 169);
+  border-radius: 20px;
+  background-color: #483FA9;
+  font-weight: bold;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #b589ff;
+  color: #ffffff;
+}
+
+/* Media query para pantallas de 393x852 */
+@media (max-width: 393px) and (max-height: 852px) {
+  .img-libro-container {
+      position: relative;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60%;
+      height: auto;
+      z-index: 1; /* Asegura que la imagen esté por encima del texto */
+      margin-bottom: 10px;
+      margin-top: 5px;
+
+
+      
   }
-  
-  /* Estilo del título */
+
   .info-libro-title {
-    color: white;
-    font-size: 2rem;
-    margin-bottom: 20px;
+      font-size: 8vw;
   }
-  
-  /* Estilo común para los textos */
+
   .info-label {
-    color: white;
-    font-size: 1.2rem;
+      font-size: 5vw;
   }
-  
+
   .info-text {
-    font-size: 1rem;
-    color: black;
+      font-size: 5vw;
   }
-  
+
   .info-description {
-    color: black;
-    padding: 1rem;
-    background-color: white;
-    border-radius: 10px;
-  }
-  
-  /* Botones */
-  .btn-primary {
-    border: 2px solid rgb(72, 63, 169);
-    border-radius: 20px;
-    background-color: #483FA9;
-    font-weight: bold;
-    color: white;
-    transition: background-color 0.3s ease;
-  }
-  
-  .btn-primary:hover {
-    background-color: #b589ff;
-    color: #ffffff;
-  }
-
-@media (max-width: 768px) {
-
-    .img-libro-container {
-      height: 300px; /* Mantener la relación de aspecto */
-      border-radius: 10px; /* Bordes ligeramente redondeados */
-      margin-bottom: 10px
-    }
-
-    .info-libro-title {
-      font-size: 1.5rem;
-    }
-  
-    .info-label {
-      font-size: 1rem;
-    }
-  
-    .info-text {
-      font-size: 0.8rem;
-    }
-  
-    .info-description {
       padding: 0.5rem;
-    }
   }
+
+  }
+
+
+/* Media query para pantallas más grandes */
+@media (min-width: 394px) {
+  .img-libro-container {
+      position: static; /* Restablece la posición a la normal */
+      width: auto;
+      height: auto;
+  }
+
+  .info-libro-title {
+      font-size: 2rem;
+  }
+
+  .info-label {
+      font-size: 1.2rem;
+  }
+
+  .info-text {
+      font-size: 1rem;
+  }
+
+  .info-description {
+      padding: 1rem;
+
+    }
+
+
+  }
+
+
+
+
+
