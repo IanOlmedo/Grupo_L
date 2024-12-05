@@ -31,18 +31,19 @@ export class VerUserComponent {
   fetchUsers(page: number = 1): void {
     const params = {
       page: page.toString(),
-      per_page: this.itemsPerPage.toString()
+      per_page: this.itemsPerPage.toString(),
+      nombre_completo: this.searchQuery || ''
     };
     this.usuariosService.getUsers(params).subscribe((rta: any) => {
       console.log('usuarios api: ', rta);
       this.arrayUsuarios = rta.usuarios || [];
-      this.filterUsers();
+      //this.filterUsers();
       this.currentPage = rta.pagina;
       this.totalPages = rta.paginas;
       this.paginatedUsers = rta.usuarios;
     });
   }
-
+/*
   filterUsers(): void {
     if (this.searchQuery.trim() === '') {
       this.filteredUsers = [...this.arrayUsuarios];
@@ -52,7 +53,7 @@ export class VerUserComponent {
       );
     }
   }
-
+*/
 
   goToPage(page: number): void {
     if (page >= 1 && page <= this.totalPages) {
@@ -75,7 +76,7 @@ export class VerUserComponent {
       () => {
         alert('El usuario ha sido eliminado correctamente')
         this.arrayUsuarios = this.arrayUsuarios.filter(u => u.id_usuario !== user.id_usuario);
-        this.filterUsers();
+        //this.filterUsers();
     },
   (error)=>{
     console.log('Error: ', error.message)
@@ -85,6 +86,6 @@ export class VerUserComponent {
 
   onSearchQueryChange(searchQuery: string) {
     this.searchQuery = searchQuery;
-    this.filterUsers();
+    //this.filterUsers();
   }
 }

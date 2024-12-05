@@ -45,9 +45,7 @@ export class UsuariosComponent implements OnInit {
 
   // Obtener los datos del usuario a través del servicio
   getUserData(): void {
-    console.log("El tincho se la come")
-    this.usuariosService.getUserRole();  // Si necesitas cargar el rol desde el servicio
-    // Asumimos que los datos del usuario incluyen el rol y otros detalles
+    this.usuariosService.getUserRole();
     this.usuariosService.getOneUser(this.var_id).pipe(take(1)).subscribe((rta: any) => {
       console.log("Esta es la respuesta:", rta);
       this.userData = rta || null;

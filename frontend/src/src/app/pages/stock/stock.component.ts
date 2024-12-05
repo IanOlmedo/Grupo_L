@@ -33,18 +33,19 @@ export class StockComponent {
   fetchBooks(page: number = 1): void {
     const params = {
       page: page.toString(),
-      per_page: this.itemsPerPage.toString()
+      per_page: this.itemsPerPage.toString(),
+      titulo: this.searchQuery || ''
     };
     this.booksService.getBooks(params).subscribe((rta: any) => {
       console.log(rta)
       console.log('libros api: ', rta);
       this.arrayLibros = rta.libros || [];
-      this.filterBooks();
+      //this.filterBooks();
       this.currentPage = rta.pagina;
       this.totalPages = rta.paginas;
     });
   }
-
+/*
   filterBooks(): void {
     if (this.searchQuery.trim() === '') {
       console.log("Search", this.searchQuery)
@@ -56,7 +57,7 @@ export class StockComponent {
     }
     this.paginatedLibros = [...this.filteredLibros]
   }
-
+*/
   goToPage(page: number): void {
     if (page >= 1 && page <= this.totalPages) {
       this.currentPage = page;
@@ -66,7 +67,7 @@ export class StockComponent {
 
   onSearchQueryChange(searchQuery: string) {
     this.searchQuery = searchQuery;
-    this.filterBooks();
+    //this.filterBooks();
   }
 
 }
