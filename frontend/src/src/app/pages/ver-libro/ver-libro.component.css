@@ -1,82 +1,71 @@
-.info-libro-title {
-    color: white; /* Color del texto */
-    margin: 0; /* Sin márgenes adicionales */
-    white-space: nowrap; /* Evita que el texto se corte */
-}
-
-.btn-primary {
-    border: 2px solid rgb(483FA9);
+/* Imagen */
+.img-libro-container {
+    max-width: 100%; /* La imagen ocupará todo el ancho de su contenedor */
+    height: auto; /* Mantener la relación de aspecto */
+    border-radius: 10px; /* Bordes ligeramente redondeados */
+  }
+  
+  /* Estilo del título */
+  .info-libro-title {
+    color: white;
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  /* Estilo común para los textos */
+  .info-label {
+    color: white;
+    font-size: 1.2rem;
+  }
+  
+  .info-text {
+    font-size: 1rem;
+    color: black;
+  }
+  
+  .info-description {
+    color: black;
+    padding: 1rem;
+    background-color: white;
+    border-radius: 10px;
+  }
+  
+  /* Botones */
+  .btn-primary {
+    border: 2px solid rgb(72, 63, 169);
     border-radius: 20px;
     background-color: #483FA9;
     font-weight: bold;
-    color: rgb(255, 255, 255);
+    color: white;
     transition: background-color 0.3s ease;
   }
+  
   .btn-primary:hover {
     background-color: #b589ff;
     color: #ffffff;
   }
 
-/* Estilo común para los textos */
-.info-label {
-    color: white;
-    font-size: 4vw;
-}
+@media (max-width: 768px) {
 
-.info-text {
-    font-size: 4vw;
-    margin-bottom: 0px;
-}
-
-.info-description {
-    color: black;
-    padding: 3vw;
-    background-color: white;
-    border-radius: 5vw;
-    z-index: 1;
-}
-
-/* Media Query para pantallas grandes */
-@media (min-width: 1200px)  {
-    .info-label, .info-text {
-        font-size: 2vw;
+    .img-libro-container {
+      height: 300px; /* Mantener la relación de aspecto */
+      border-radius: 10px; /* Bordes ligeramente redondeados */
+      margin-bottom: 10px
     }
 
+    .info-libro-title {
+      font-size: 1.5rem;
+    }
+  
+    .info-label {
+      font-size: 1rem;
+    }
+  
+    .info-text {
+      font-size: 0.8rem;
+    }
+  
     .info-description {
-        font-size: 2vw;
-        padding: 1.5vw; /* Reducir el padding en pantallas grandes */
+      padding: 0.5rem;
     }
-
-    .button {
-        font-size: 2vw; /* Ajuste del tamaño de fuente de los botones */
-    }
-
-    /* Reducir aún más el espaciado entre las filas */
-    .row {
-        margin-bottom: 0.2rem; /* Espaciado reducido entre filas */
-    }
-
-    /* Reducir el espaciado de las columnas dentro de .row */
-    .row > .col-3, .row > .col-9 {
-        padding-left: 0.5rem; /* Reducir el padding en las columnas */
-        padding-right: 0.5rem; /* Reducir el padding en las columnas */
-    }
-
-    /* Reducir el tamaño de la imagen y agregar espaciado */
-    .img {
-        width: 90%; /* Ajustar el tamaño de la imagen para que no quede tan grande */
-        height: auto; /* Mantener la relación de aspecto */
-        margin: 0 auto; /* Centrar la imagen */
-        padding-left: 5%; /* Añadir espacio a la izquierda */
-        border-radius: 0%;
-    }
-}
-
-@media (max-width: 768px)  {
-    .img {
-        width: 150%; /* Ajustar el tamaño de la imagen para que no quede tan grande */
-        margin: 0 auto; /* Centrar la imagen */
-        padding-left: 5%; /* Añadir espacio a la izquierda */
-        border-radius: 0%;
-    }
-}
+  }
