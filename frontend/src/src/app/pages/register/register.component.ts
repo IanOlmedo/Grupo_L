@@ -60,6 +60,7 @@ export class RegisterComponent implements OnInit {
   }
 
   submit() {
+    console.log('Datos del formulario: ', this.userForm.value);
     if (this.userForm.valid) {
       console.log('Datos del formulario: ', this.userForm.value);
       console.log('Contraseña: '+this.userForm.value.password);

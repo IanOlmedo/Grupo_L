@@ -41,3 +41,19 @@
     background-color: #b589ff;
     color: #ffffff;
 }
+
+@media (min-width: 1200px) {
+    .circle-plus-usuario {
+        top: -90px; /* Distancia desde el borde superior */
+        right: 120px; /* Distancia desde el borde derecho */
+        left: 440px;
+    }
+}
+
+@media (max-width: 768px) {
+
+}
+
+@media (max-width: 480px) {
+
+}
