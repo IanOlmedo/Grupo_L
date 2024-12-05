@@ -10,6 +10,7 @@ import { PrestamosService } from '../../services/prestamos.service';
 })
 export class PrestamosUserComponent {
   var_id!:string
+  id = localStorage.getItem('user_id')
 
   arrayPrestamos: any[] = []
   filteredPrestamos: any[] = []
@@ -24,17 +25,15 @@ export class PrestamosUserComponent {
     this.var_id = this.route.snapshot.paramMap.get('id') || '';
     this.fetchPrestamos();
     console.log(this.arrayPrestamos)
-    this.getPrestamosPendientes();
-    console.log(this.arrayPrestamos)
   }
 
   getPrestamosPendientes() {    return this.arrayPrestamos.filter(prestamo => {
-      return prestamo.usuarios.id_usuario === Number(this.var_id) && prestamo.prestamo.estado === 'no devuelto';
+      return prestamo.estado === 'no devuelto';
     });
   }
 
   fetchPrestamos(): void {
-    this.prestamosService.getPrestamos({}).subscribe((rta: any) => {
+    this.prestamosService.getPrestamos({id_usuario:Number(this.id)}).subscribe((rta: any) => {
       console.log('Prestamos api: ', rta);
       this.arrayPrestamos = rta.prestamos || [];
     });
