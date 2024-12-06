@@ -13,11 +13,18 @@ export class InfoPrestamoComponent implements OnInit {
   prestamo: any;
 
   loan: any = {
-    numeroPrestamo: 0,
+    id_prestamo: '',
     fecha_de_entrega: '',
     fecha_de_vencimiento: '',
     estado: ''
   };
+
+  loanOptions: any[] = []
+
+  stateOptions = [
+    {value: 'devuelto', label: 'Devuelto'},
+    {value: 'no devuelto', label: 'No devuelto'}
+  ]
 
   arrayPrestamos: any[] = [];
   user:any;
@@ -46,6 +53,7 @@ export class InfoPrestamoComponent implements OnInit {
 
         this.arrayPrestamos = [...userLoans];
         console.log("Array: ", this.arrayPrestamos);
+        this.populateLoanOptions();
     });
 }
 
@@ -56,18 +64,27 @@ getUser(id:string): void{
   })
 }
 
+populateLoanOptions(): void{
+  this.arrayPrestamos.forEach((loan: any) =>{
+    this.loanOptions.push({
+      value : loan.id_prestamo,
+      label: loan.libro.titulo
+    });
+  });
+}
+
 onSubmitUpdate() {
-  const numeroPrestamo = this.loan.numeroPrestamo - 1
+  const temporal_prestamo = this.arrayPrestamos.filter((prestamo: any) => prestamo.id_prestamo === Number(this.loan.id_prestamo))
   const prestamoData = {
     id_usuario: Number(this.var_id),
-    id_libro: this.arrayPrestamos[numeroPrestamo].libro.id_libro,
+    id_libro: temporal_prestamo[0].libro.id_libro,
     fecha_de_entrega: this.loan.fecha_de_entrega,
     fecha_de_vencimiento: this.loan.fecha_de_vencimiento,
     estado: this.loan.estado,
   };
 
   console.log("Resultado: ", prestamoData)
-  this.prestamosService.updatePrestamo(this.var_id, prestamoData).subscribe(
+  this.prestamosService.updatePrestamo(this.loan.id_prestamo, prestamoData).subscribe(
     response => {
       console.log('Prestamo actualizado con éxito:', response);
       alert('Se actualizo el prestamo correctamente');

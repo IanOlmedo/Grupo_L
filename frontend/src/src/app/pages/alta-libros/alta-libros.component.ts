@@ -12,7 +12,7 @@ import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms'
 export class AltaLibrosComponent {
   var_id!:string
 
-  arrayAutores: any[] = []
+  arrayAutores: any[] = [];
 
   constructor(
     private route: ActivatedRoute,

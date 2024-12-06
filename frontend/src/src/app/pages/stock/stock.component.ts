@@ -40,24 +40,10 @@ export class StockComponent {
       console.log(rta)
       console.log('libros api: ', rta);
       this.arrayLibros = rta.libros || [];
-      //this.filterBooks();
       this.currentPage = rta.pagina;
       this.totalPages = rta.paginas;
     });
   }
-/*
-  filterBooks(): void {
-    if (this.searchQuery.trim() === '') {
-      console.log("Search", this.searchQuery)
-      this.filteredLibros = [...this.arrayLibros];
-    } else {
-      this.filteredLibros = this.arrayLibros.filter(book =>
-        book.titulo.toLowerCase().includes(this.searchQuery.toLowerCase())
-      );
-    }
-    this.paginatedLibros = [...this.filteredLibros]
-  }
-*/
   goToPage(page: number): void {
     if (page >= 1 && page <= this.totalPages) {
       this.currentPage = page;
@@ -67,7 +53,7 @@ export class StockComponent {
 
   onSearchQueryChange(searchQuery: string) {
     this.searchQuery = searchQuery;
-    //this.filterBooks();
+    this.fetchBooks();
   }
 
 }

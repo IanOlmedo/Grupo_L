@@ -64,7 +64,7 @@ export class VerUserComponent {
 
   editarusuario(user: any) {
     console.log('Estoy editando', user);
-    this.router.navigate(['/agregar_usuario/' + user.id]);
+    this.router.navigate(['/agregar_usuario/' + user.id_usuario]);
   }
 
   crearusuario() {
@@ -72,7 +72,7 @@ export class VerUserComponent {
   }
 
   eliminarusuario(user: any) {
-    this.usuariosService.deleteUser(user.id_usuario).subscribe(
+    this.usuariosService.deleteUser(user.id_usuario.toString()).subscribe(
       () => {
         alert('El usuario ha sido eliminado correctamente')
         this.arrayUsuarios = this.arrayUsuarios.filter(u => u.id_usuario !== user.id_usuario);
@@ -86,6 +86,7 @@ export class VerUserComponent {
 
   onSearchQueryChange(searchQuery: string) {
     this.searchQuery = searchQuery;
+    this.fetchUsers();
     //this.filterUsers();
   }
 }

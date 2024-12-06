@@ -34,11 +34,11 @@
         </div>
     </div>
     <div class="row d-flex justify-content-center">
-        <div class="col-1">
+        <div class="col-4 col-md-1">
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal" style="color: white; width: 100px; height: 64px;">Editar</button>
         </div>
         <div class="col-1"></div>
-        <div class="col-1">
+        <div class="col-4 col-md-1">
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#deleteModal" style="color: white; width: 100px; height: 64px;">Eliminar</button>
         </div>
     </div>
@@ -51,8 +51,10 @@
             <div class="modal-body">
               <form (ngSubmit)="onSubmitUpdate()">
                 <div class="form-group">
-                  <label for="numeroPrestamo">Prestamo a modificar</label>
-                  <input type="number" class="form-control" id="numeroPrestamo" [(ngModel)]="loan.numeroPrestamo" name="numeroPrestamo" placeholder="Número del prestamo (1-3)">
+                  <label for="titulo">Prestamo a modificar</label>
+                  <select class="form-control" id="titulo" [(ngModel)]="loan.id_prestamo" name="titulo">
+                    <option *ngFor="let option of loanOptions" [value]="option.value">{{ option.label }}</option>
+                  </select>
                 </div>
                 <div class="form-group">
                   <label for="fechaEntrega">Fecha de entrega</label>
@@ -64,7 +66,9 @@
                 </div>
                 <div class="form-group">
                   <label for="estado">Estado</label>
-                  <input type="text" class="form-control" id="estado" [(ngModel)]="loan.estado" name="estado" placeholder="devuelto o no devuelto">
+                  <select class="form-control" id="estado" [(ngModel)]="loan.estado" name="estado">
+                    <option *ngFor="let option of stateOptions" [value]="option.value">{{ option.label }}</option>
+                  </select>
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>

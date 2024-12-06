@@ -38,7 +38,7 @@ class Valoraciones(db.Model):
         
     def to_json_complete(self):
             usuarios = self.usuario.to_json_short()
-            libro = self.libro.to_json_short()
+            libro = self.libro.to_json()
             valoracion_json={
                 'id_valoracion':self.id_valoracion,
                 'id_libro':self.id_libro,

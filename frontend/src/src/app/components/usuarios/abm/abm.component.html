@@ -7,31 +7,36 @@
             <form (ngSubmit)="onSubmit()" [formGroup]="userForm">
                 <div class="mb-3">
                     <label for="nombre_completo" class="form-label" style="color: white;">Nombre</label>
-                    <input type="text" class="form-control" id="nombre_completo" formControlName="nombre_completo">
+                    <input type="text" class="form-control" id="nombre_completo" formControlName="nombre_completo" style="color: black;">
                 </div>
                 <div class="mb-3">
                     <label for="direccion" class="form-label" style="color: white">Direccion</label>
-                    <input type="text" class="form-control" id="direccion" formControlName="direccion">
+                    <input type="text" class="form-control" id="direccion" formControlName="direccion" style="color: black;">
                 </div>
                 <div class="mb-3">
                     <label for="dni" class="form-label" style="color: white">DNI</label>
-                    <input type="text" class="form-control" id="dni" formControlName="dni">
+                    <input type="text" class="form-control" id="dni" formControlName="dni" style="color: black;">
                 </div>
                 <div class="mb-3">
                     <label for="email" class="form-label" style="color: white">Email</label>
-                    <input type="email" class="form-control" id="email" formControlName="email">
+                    <input type="email" class="form-control" id="email" formControlName="email" style="color: black;">
                 </div>
                 <div class="mb-3">
                     <label for="password" class="form-label" style="color: white">Contraseña</label>
-                    <input type="text" class="form-control" id="password" formControlName="password">
+                    <input type="text" class="form-control" id="password" formControlName="password" style="color: black;">
                 </div>
                 <div class="mb-3">
                     <label for="rol" class="form-label" style="color: white">Rol</label>
-                    <input type="text" class="form-control" id="rol" formControlName="rol">
+                    <select class="form-control" id="rol" formControlName="rol" style="color: black;">
+                        <option *ngFor="let role of roleOptions" [value]="role.value">{{ role.label }}</option>
+                    </select>
+                    <!--
+                        <input type="text" class="form-control" id="rol" formControlName="rol" style="color: black;">
+                    -->
                 </div>
                 <div class="mb-3">
                     <label for="telefono" class="form-label" style="color: white">Telefono</label>
-                    <input type="text" class="form-control" id="telefono" formControlName="telefono">
+                    <input type="text" class="form-control" id="telefono" formControlName="telefono" style="color: black;">
                 </div>
                 <button type="submit" class="btn btn-primary" *ngIf="!var_id" style="color: white">Crear</button>
                 <button type="submit" class="btn btn-primary" *ngIf="var_id" style="color: white">Editar</button>

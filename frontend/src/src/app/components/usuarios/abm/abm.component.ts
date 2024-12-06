@@ -10,6 +10,13 @@ import { UsuariosService } from '../../../services/usuarios.service';
 })
 export class AbmComponent {
   var_id!:string
+
+  roleOptions = [
+    {value: 'admin', label: 'Administrador'},
+    {value: 'users', label: 'Usuario'},
+    {value: 'biblo', label: 'Biblotecario'}
+  ]
+
   
   userForm = new FormGroup({
     nombre_completo: new FormControl('', Validators.required),
@@ -28,6 +35,15 @@ export class AbmComponent {
 
   ngOnInit(): void {
     this.var_id = this.route.snapshot.paramMap.get('id') || '';
+    if (this.var_id){
+      this.usuariosService.getOneUser(this.var_id).subscribe(
+        (user) =>{
+          this.userForm.patchValue({
+            ...user,
+            password: "Contraseña"
+          })
+        })
+    }
     console.log(localStorage.getItem('user_role')==='admin');
   }
 
