@@ -16,7 +16,8 @@ export class ValoracionesComponent {
   arrayValoraciones: any[] = []
   currentPage: number = 1 
   totalPages: number = 1 
-  itemsPerPage: number = 3 
+  itemsPerPage: number = 3
+  canSubmit: boolean = false 
 
   valoracion:any;
 
@@ -79,24 +80,37 @@ export class ValoracionesComponent {
     return localStorage.getItem('user_role') === 'admin';
   }
 
+
   onSubmit() {
-    const now = new Date();
-    const day = String(now.getDate()).padStart(2, '0');
-    const month = String(now.getMonth() + 1).padStart(2, '0'); // Los meses son base 0
-    const year = now.getFullYear();
-    this.valoracion.fecha_de_valoracion = `${day}-${month}-${year}`;
-    this.valoracionesService.createValoracion(this.valoracion).subscribe(response => {
-      alert('Se creo la valoración con exito')
-      console.log('Valoración enviada:', response);
-      document.getElementById('btn-close')?.click();
-      this.valoracion = {
-        comentario: '',
-        fecha_de_valoracion: new Date().toISOString(),
-        id_libro: this.valoracion.id_libro,
-        id_usuario: this.valoracion.id_usuario,
-        valoracion: 1,
-      };
+    this.valoracionesService.checkValoracion(this.valoracion.id_libro).subscribe(response => {
+      if (response.message === 'El usuario puede dejar una valoración.') {
+        const now = new Date();
+        const day = String(now.getDate()).padStart(2, '0');
+        const month = String(now.getMonth() + 1).padStart(2, '0'); // Los meses son base 0
+        const year = now.getFullYear();
+        this.valoracion.fecha_de_valoracion = `${day}-${month}-${year}`;
+        this.valoracionesService.createValoracion(this.valoracion).subscribe(response => {
+          alert('Se creo la valoración con éxito');
+          console.log('Valoración enviada:', response);
+          document.getElementById('btn-close')?.click();
+          this.valoracion = {
+            comentario: '',
+            fecha_de_valoracion: new Date().toISOString(),
+            id_libro: this.valoracion.id_libro,
+            id_usuario: this.valoracion.id_usuario,
+            valoracion: 1,
+          };
+          this.canSubmit = false; // Reset the submit status
+        });
+      }
+    }, error => {
+      if (error.message === 'El usuario no ha hecho un préstamo de este libro.') {
+        alert('No puedes dejar una valoración porque no has solicitado un préstamo de este libro.');
+      } else if (error.message === 'El usuario ya ha dejado una valoración para este libro.') {
+        alert('No puedes dejar una valoración porque ya has dejado una valoración para este libro.');
+      }
     });
   }
-
 }
+
+

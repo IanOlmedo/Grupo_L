@@ -9,3 +9,4 @@ from .prestamo import Prestamos as PrestamosResources
 from .valoracion import Valoracion as ValoracionResources
 from .autor import Autor as AutorResources
 from .autor import Autores as AutoresResources
+from .check_valoracion import CheckValoracion as CheckResources

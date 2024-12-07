@@ -72,7 +72,7 @@ class Libros(Resource):
         
         ### FILTROS ###
         if request.args.get('nrValoraciones'):
-            libros=libros.outerjoin(LibroModel.valoracion).group_by(LibroModel.id).having(func.count(ValoracionesModel.id) >= int(request.args.get('nrValoraciones ')))
+            libros=libros.outerjoin(LibroModel.valoracion).group_by(LibroModel.id_libro).having(func.count(ValoracionesModel.id_valoracion) >= int(request.args.get('nrValoraciones ')))
 
         #Busqueda por titulo
         if request.args.get('titulo'): 
@@ -96,7 +96,11 @@ class Libros(Resource):
         
         #Ordeno por descripcion 
         if request.args.get('sortby_descripcion'):
-            libros=libros.order_by(desc(LibroModel.descripcion)) 
+            libros=libros.order_by(desc(LibroModel.descripcion))
+
+        #Obtener los libros con más valoraciones
+        if request.args.get('top_valoraciones'):
+            libros = libros.outerjoin(LibroModel.valoracion).group_by(LibroModel.id_libro).order_by(desc(func.count(ValoracionesModel.id_valoracion)))
             
         ### FIN FILTROS ####
         

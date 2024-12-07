@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http'
 import { Router } from '@angular/router';
-import { Observable, take } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -41,6 +42,22 @@ export class ValoracionesService {
     });
     const requestOptions = { headers: headers };
     return this.httpClient.post(this.url + '/Valoracion', valoracion, requestOptions);
+  }
+
+  checkValoracion(id: string): Observable<any>{
+    let auth_token = localStorage.getItem('token');
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${auth_token}`
+    });
+    const requestOptions = {headers: headers};
+    return this.httpClient.get<any>(this.url + '/Check/' + id, requestOptions).pipe(
+      catchError(this.handleError)
+    )
+  }
+
+  private handleError(error: any): Observable<never>{
+    return throwError(error.error || 'Server error')
   }
 
 }

@@ -41,6 +41,7 @@ def create_app():
     api.add_resource(resources.ValoracionResources, "/Valoracion")
     api.add_resource(resources.AutorResources, "/Autor/<id>")
     api.add_resource(resources.AutoresResources, "/Autores")
+    api.add_resource(resources.CheckResources, "/Check/<id>")
     
     api.init_app(app)
     

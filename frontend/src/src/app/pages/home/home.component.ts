@@ -38,7 +38,8 @@ export class HomeComponent {
       page: '1',
       per_page: '3',
       genero: genre,
-      sortby_genero:'true'
+      sortby_genero:'true',
+      top_valoraciones: true,
     }
 
     this.booksService.getBooks(params).subscribe((rta:any) =>{
