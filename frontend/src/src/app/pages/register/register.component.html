@@ -1,142 +1,189 @@
-<div class="container d-flex justify-content-center "> 
-    <div class="row">
-        <div class="col-12 text-center">
+<!--
+<div class="container d-flex justify-content-center">
+    <div class="row d-flex justify-content-center">
+        <div class="col-12 text-center d-flex justify-content-center">
             <h1 style="color: white; margin-top: 30%; font-size: 45px;">Register</h1>
+            <i class="fa-solid fa-user" style="color: white; margin-top: 120px;"></i>
         </div>
     </div>
-    
-   <app-icono-usuario></app-icono-usuario>
+</div>
+-->
+<div class="row d-flex justify-content-center">
+    <div class="col-12 text-center mt-3">
+        <h1 style="color: white; font-size: 45px;">Register</h1>
+    </div>
+</div>
+<div class="row d-flex justify-content-center">
+    <div class="col-12 d-flex justify-content-center">
+        <i class="fa-solid fa-user m-0" style="color: white; margin-top: 120px;"></i>
+    </div>
 </div>
 
-<div class="container mt-5 ">
-    <form [formGroup]="userForm">  
-        <div class="row mb-4">  
+<div class="container mt-5">
+    <form [formGroup]="userForm" (ngSubmit)="submit()">
+        <div class="row mb-4">
             <div class="container d-flex justify-content-center">
-                <div class="d-flex align-items-center" style="gap: 20px;"> <!-- Aumento el gap aquí -->
-                    <!-- Ícono -->
+                <div class="d-flex align-items-center" style="gap: 20px;">
                     <i class="fa-solid fa-envelope" style="color: white; font-size: 40px;"></i>
-
-                    <!-- Input -->
-                    <div class="p-2" style="margin-right: 40px ;background-color: #84b1ec; border-radius: 30px;">
-                        <input 
-                        type="email" 
-                        formControlName="email" 
-                        class="form-control" 
-                        placeholder="Correo" 
-                        style="color: #000000; background-color: transparent; border: none; font-size: 100%;">
+                    <div class="p-2" style="margin-right: 40px; background-color: #84b1ec; border-radius: 30px;">
+                        <input
+                            type="email"
+                            formControlName="email"
+                            class="form-control"
+                            placeholder="Correo"
+                            style="color: #000000; background-color: transparent; border: none; font-size: 100%;">
                     </div>
                 </div>
-            </div>
-        </div>
-        
-        <div class="row mb-4">  
-            <div class="container d-flex justify-content-center">
-                <div class="d-flex align-items-center" style="gap: 20px;"> <!-- Aumento el gap aquí -->
-                    <!-- Ícono -->
-                    <i class="fa-solid fa-user-circle" style="color: white; font-size: 40px;"></i>
-
-                    <!-- Input -->
-                    <div class="p-2" style="margin-right: 40px ;background-color: #84b1ec; border-radius: 30px;">
-                        <input 
-                        type="text" 
-                        formControlName="Nombre" 
-                        class="form-control" 
-                        placeholder="Nombre" 
-                        style="color: #000000; background-color: transparent; border: none; font-size: 100%;">
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row mb-4">  
-            <div class="container d-flex justify-content-center">
-                <div class="d-flex align-items-center" style="gap: 20px;"> <!-- Aumento el gap aquí -->
-                    <!-- Ícono -->
-                    <i class="fa-solid fa-id-card" style="color: white; font-size: 40px;"></i>
-
-                    <!-- Input -->
-                    <div class="p-2" style="margin-right: 40px ;background-color: #84b1ec; border-radius: 30px;">
-                        <input type="text" formControlName="DNI" class="form-control" placeholder="DNI" style="color: #000000; background-color: transparent; border: none; font-size: 100%;">
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row mb-4">  
-            <div class="container d-flex justify-content-center">
-                <div class="d-flex align-items-center" style="gap: 20px;"> <!-- Aumento el gap aquí -->
-                    <!-- Ícono -->
-                    <i class="fa-solid fa-home" style="color: white; font-size: 40px;"></i>
-
-                    <!-- Input -->
-                    <div class="p-2" style="margin-right: 40px ;background-color: #84b1ec; border-radius: 30px;">
-                        <input type="text" formControlName="Direccion" class="form-control" placeholder="Direccion" style="color: #000000; background-color: transparent; border: none; font-size: 100%;">
-                    </div>
+                <div *ngIf="userForm.get('email')?.invalid && userForm.get('email')?.touched">
+                    <small *ngIf="userForm.get('email')?.errors?.['required']">El email es requerido.</small>
+                    <small *ngIf="userForm.get('email')?.errors?.['email']">El email no es válido.</small>
                 </div>
             </div>
         </div>
 
         <div class="row mb-4">
             <div class="container d-flex justify-content-center">
-                <div class="d-flex align-items-center" style="gap: 20px;"> <!-- Aumento el gap aquí -->
-                    <i class="fa-solid fa-calendar-day" style="color: white; font-size: 40px;"></i>
-
+                <div class="d-flex align-items-center" style="gap: 20px;">
+                    <i class="fa-solid fa-user-circle" style="color: white; font-size: 40px;"></i>
                     <div class="p-2" style="margin-right: 40px; background-color: #84b1ec; border-radius: 30px;">
-                        <input type="date" formControlName="Fecha" class="form-control" placeholder="Fecha" style="color: #000000; background-color: transparent; border: none; font-size: 100%;">
+                        <input
+                            type="text"
+                            formControlName="Nombre"
+                            class="form-control"
+                            placeholder="Nombre"
+                            style="color: #000000; background-color: transparent; border: none; font-size: 100%;">
                     </div>
+                </div>
+                <div *ngIf="userForm.get('Nombre')?.invalid && userForm.get('Nombre')?.touched">
+                    <small *ngIf="userForm.get('Nombre')?.errors?.['required']">El nombre es requerido.</small>
                 </div>
             </div>
         </div>
 
-        <div class="row mb-4">  
+        <div class="row mb-4">
             <div class="container d-flex justify-content-center">
-                <div class="d-flex align-items-center" style="gap: 20px;"> <!-- Aumento el gap aquí -->
-                    <!-- Ícono -->
+                <div class="d-flex align-items-center" style="gap: 20px;">
+                    <i class="fa-solid fa-id-card" style="color: white; font-size: 40px;"></i>
+                    <div class="p-2" style="margin-right: 40px; background-color: #84b1ec; border-radius: 30px;">
+                        <input
+                            type="text"
+                            formControlName="DNI"
+                            class="form-control"
+                            placeholder="DNI"
+                            style="color: #000000; background-color: transparent; border: none; font-size: 100%;">
+                    </div>
+                </div>
+                <div *ngIf="userForm.get('DNI')?.invalid && userForm.get('DNI')?.touched">
+                    <small *ngIf="userForm.get('DNI')?.errors?.['required']">El DNI es requerido.</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-4">
+            <div class="container d-flex justify-content-center">
+                <div class="d-flex align-items-center" style="gap: 20px;">
+                    <i class="fa-solid fa-home" style="color: white; font-size: 40px;"></i>
+                    <div class="p-2" style="margin-right: 40px; background-color: #84b1ec; border-radius: 30px;">
+                        <input
+                            type="text"
+                            formControlName="Direccion"
+                            class="form-control"
+                            placeholder="Direccion"
+                            style="color: #000000; background-color: transparent; border: none; font-size: 100%;">
+                    </div>
+                </div>
+                <div *ngIf="userForm.get('Direccion')?.invalid && userForm.get('Direccion')?.touched">
+                    <small *ngIf="userForm.get('Direccion')?.errors?.['required']">La dirección es requerida.</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-4">
+            <div class="container d-flex justify-content-center">
+                <div class="d-flex align-items-center" style="gap: 20px;">
+                    <i class="fa-solid fa-calendar-day" style="color: white; font-size: 40px;"></i>
+                    <div class="p-2" style="margin-right: 40px; background-color: #84b1ec; border-radius: 30px;">
+                        <input
+                            type="date"
+                            formControlName="Fecha"
+                            class="form-control"
+                            placeholder="Fecha"
+                            style="color: #000000; background-color: transparent; border: none; font-size: 100%;">
+                    </div>
+                </div>
+                <div *ngIf="userForm.get('Fecha')?.invalid && userForm.get('Fecha')?.touched">
+                    <small *ngIf="userForm.get('Fecha')?.errors?.['required']">La fecha es requerida.</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-4">
+            <div class="container d-flex justify-content-center">
+                <div class="d-flex align-items-center" style="gap: 20px;">
                     <i class="fa-solid fa-phone" style="color: white; font-size: 40px;"></i>
-
-                    <!-- Input -->
-                    <div class="p-2" style="margin-right: 40px ;background-color: #84b1ec; border-radius: 30px;">
-                        <input type="tel" formControlName="Telefono" class="form-control" placeholder="Telefono" style="color: #000000; background-color: transparent; border: none; font-size: 100%;">
+                    <div class="p-2" style="margin-right: 40px; background-color: #84b1ec; border-radius: 30px;">
+                        <input
+                            type="tel"
+                            formControlName="Telefono"
+                            class="form-control"
+                            placeholder="Telefono"
+                            style="color: #000000; background-color: transparent; border: none; font-size: 100%;">
                     </div>
+                </div>
+                <div *ngIf="userForm.get('Telefono')?.invalid && userForm.get('Telefono')?.touched">
+                    <small *ngIf="userForm.get('Telefono')?.errors?.['required']">El teléfono es requerido.</small>
                 </div>
             </div>
         </div>
 
-        <div class="row mb-4">  
+        <div class="row mb-4">
             <div class="container d-flex justify-content-center">
-                <div class="d-flex align-items-center" style="gap: 20px;"> <!-- Aumento el gap aquí -->
-                    <!-- Ícono -->
+                <div class="d-flex align-items-center" style="gap: 20px;">
                     <i class="fa-solid fa-lock" style="color: white; font-size: 40px;"></i>
-
-                    <!-- Input -->
-                    <div class="p-2" style="margin-right: 40px ;background-color: #84b1ec; border-radius: 30px;">
-                        <input type="password" formControlName="password" class="form-control" placeholder="Contraseña" style="color: #000000; background-color: transparent; border: none;">
+                    <div class="p-2" style="margin-right: 40px; background-color: #84b1ec; border-radius: 30px;">
+                        <input
+                            type="password"
+                            formControlName="password"
+                            class="form-control"
+                            placeholder="Contraseña"
+                            style="color: #000000; background-color: transparent; border: none;">
                     </div>
+                </div>
+                <div *ngIf="userForm.get('password')?.invalid && userForm.get('password')?.touched">
+                    <small *ngIf="userForm.get('password')?.errors?.['required']">La contraseña es requerida.</small>
+                    <small *ngIf="userForm.get('password')?.errors?.['minlength']">La contraseña debe tener al menos 6 caracteres.</small>
                 </div>
             </div>
         </div>
 
-        <div class="row mb-4">  
+        <div class="row mb-4">
             <div class="container d-flex justify-content-center">
-                <div class="d-flex align-items-center" style="gap: 20px;"> <!-- Aumento el gap aquí -->
-                    <!-- Ícono -->
+                <div class="d-flex align-items-center" style="gap: 20px;">
                     <i class="fa-solid fa-lock" style="color: white; font-size: 40px;"></i>
-
-                    <!-- Input -->
-                    <div class="p-2" style="margin-right: 40px ;background-color: #84b1ec; border-radius: 30px;">
-                        <input type="password" formControlName="confirmPassword" class="form-control" placeholder="Confirmar Contraseña" style="color: #000000; background-color: transparent; border: none;">
+                    <div class="p-2" style="margin-right: 40px; background-color: #84b1ec; border-radius: 30px;">
+                        <input
+                            type="password"
+                            formControlName="confirmPassword"
+                            class="form-control"
+                            placeholder="Confirmar Contraseña"
+                            style="color: #000000; background-color: transparent; border: none;">
                     </div>
+                </div>
+                <div *ngIf="userForm.get('confirmPassword')?.invalid && userForm.get('confirmPassword')?.touched">
+                    <small *ngIf="userForm.get('confirmPassword')?.errors?.['required']">La confirmación de la contraseña es requerida.</small>
+                </div>
+                <div *ngIf="userForm.errors?.['mismatch']">
+                    <small>Las contraseñas no coinciden.</small>
                 </div>
             </div>
         </div>
-
     </form>
 </div>
 
 <div class="container d-flex justify-content-center mt-5">
     <div class="row justify-content-center">
-        <div class="col-12 text-center">   
-            <button type="button" (click)="submit()" thref="#" class="register-btn">Registrarse</button>   
+        <div class="col-12 text-center">
+            <button type="button" (click)="submit()" class="register-btn">Registrarse</button>
         </div>
     </div>
 </div>

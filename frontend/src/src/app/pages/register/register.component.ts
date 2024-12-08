@@ -66,7 +66,17 @@ export class RegisterComponent implements OnInit {
       console.log('Contraseña: '+this.userForm.value.password);
       this.irRegister(this.userForm.value);
     } else {
-      alert('Los valores son requeridos');
+      this.markFormGroupTouched(this.userForm);
+      alert('Por favor, corrija los errores en el formulario');
     }
+  }
+
+  private markFormGroupTouched(formGroup: FormGroup){
+    (<any>Object).values(formGroup.controls).forEach((control:any) => {
+      control.markAsTouched();
+      if (control.controls){
+        this.markFormGroupTouched(control)
+      }
+    })
   }
 }

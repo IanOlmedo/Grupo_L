@@ -1,3 +1,4 @@
+<!--
 <div>
     <div class="container d-flex justify-content-center "> 
         <div class="row">
@@ -7,67 +8,80 @@
         </div>
         
        
-<app-icono-usuario></app-icono-usuario>
+    <app-icono-usuario></app-icono-usuario>
     </div>
-    <div class="container mt-5 ">
-        <form [formGroup]="loginForm">  
-        <div class="row mb-4">  
-            <div class="container d-flex justify-content-center">
-                <div class="d-flex align-items-center" style="gap: 10px;">
-                    <!-- Ícono -->
-                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="green" viewBox="0 0 24 24">
-                        <path d="M9 16.2l-4.2-4.2 1.4-1.4 2.8 2.8 6.8-6.8 1.4 1.4-8.2 8.2z"/>
-                    </svg>
-            
-                    <!-- Input -->
-                    <div class="p-2" style="margin-right: 40px ;background-color: #84b1ec; border-radius: 30px;">
-                        <input 
-                            type="email" 
-                            class="form-control" 
-                            formControlName="email" 
-                            id="email" 
-                            placeholder="Correo/Nombre de usuario" 
-                            style="color: #000000; background-color: transparent; border: none; font-size: 100%;"
-                        >
-                    </div>
-                </div>
-            </div>
-        </div>
+-->
 
-        <div class="row mb-4">  
-            <div class="container d-flex justify-content-center">
-                <div class="d-flex align-items-center" style="gap: 10px;">
-                    <!-- Ícono -->
-                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="green" viewBox="0 0 24 24">
-                        <path d="M9 16.2l-4.2-4.2 1.4-1.4 2.8 2.8 6.8-6.8 1.4 1.4-8.2 8.2z"/>
-                    </svg>
-            
-                    <!-- Input -->
-                    <div class="p-2" style="margin-right: 40px ;background-color: #84b1ec; border-radius: 30px;">
-                        <input 
-                            type="password" 
-                            class="form-control" 
-                            formControlName="password" 
-                            id="password" 
-                            placeholder="Contraseña" 
-                            style="color: #000000; background-color: transparent; border: none; font-size: 100%;"
-                        >
-                    </div>
+<div class="row d-flex justify-content-center">
+    <div class="col-12 text-center mt-3">
+        <h1 style="color: white; font-size: 45px;">Login</h1>
+    </div>
+</div>
+<div class="row d-flex justify-content-center">
+    <div class="col-12 d-flex justify-content-center">
+        <i class="fa-solid fa-user m-0" style="color: white; margin-top: 120px;"></i>
+    </div>
+</div>
+
+<div class="container mt-5 ">
+    <form [formGroup]="loginForm">  
+    <div class="row mb-4">  
+        <div class="container d-flex justify-content-center">
+            <div class="d-flex align-items-center" style="gap: 10px;">
+                <!-- Ícono -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="green" viewBox="0 0 24 24">
+                    <path d="M9 16.2l-4.2-4.2 1.4-1.4 2.8 2.8 6.8-6.8 1.4 1.4-8.2 8.2z"/>
+                </svg>
+        
+                <!-- Input -->
+                <div class="p-2" style="margin-right: 40px ;background-color: #84b1ec; border-radius: 30px;">
+                    <input 
+                        type="email" 
+                        class="form-control" 
+                        formControlName="email" 
+                        id="email" 
+                        placeholder="Correo/Nombre de usuario" 
+                        style="color: #000000; background-color: transparent; border: none; font-size: 100%;"
+                    >
                 </div>
             </div>
         </div>
-        </form>
-        
     </div>
-    <div class="container d-flex justify-content-center mt-5">
-        <div class="row justify-content-center">
-            <div class="col-12 text-center">   
-                <button type="button" (click)="submit()" thref="#" class="register-btn">Loguearse</button>   
+
+    <div class="row mb-4">  
+        <div class="container d-flex justify-content-center">
+            <div class="d-flex align-items-center" style="gap: 10px;">
+                <!-- Ícono -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="green" viewBox="0 0 24 24">
+                    <path d="M9 16.2l-4.2-4.2 1.4-1.4 2.8 2.8 6.8-6.8 1.4 1.4-8.2 8.2z"/>
+                </svg>
+        
+                <!-- Input -->
+                <div class="p-2" style="margin-right: 40px ;background-color: #84b1ec; border-radius: 30px;">
+                    <input 
+                        type="password" 
+                        class="form-control" 
+                        formControlName="password" 
+                        id="password" 
+                        placeholder="Contraseña" 
+                        style="color: #000000; background-color: transparent; border: none; font-size: 100%;"
+                    >
+                </div>
             </div>
         </div>
     </div>
+    </form>
     
-    
+</div>
+<div class="container d-flex justify-content-center mt-5">
+    <div class="row justify-content-center">
+        <div class="col-12 text-center">   
+            <button type="button" (click)="submit()" thref="#" class="register-btn">Loguearse</button>   
+        </div>
+    </div>
+</div>
+
+
 <app-redes-sociales></app-redes-sociales>
 
 

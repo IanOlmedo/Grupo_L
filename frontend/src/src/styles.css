@@ -433,9 +433,6 @@ hr {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     text-align: center;
     position: relative; /* Fijo en la página para más visibilidad */
-    top: 20%; /* Ajusta según necesidades */
-    left: 50%;
-    transform: translateX(-50%);
     z-index: 1000; /* Asegura que se muestre sobre otros elementos */
     width: 90%;
     max-width: 400px;
@@ -515,8 +512,6 @@ hr {
 .fa-user {
     color: black;
     font-size: 450%;
-    margin-top: 70px;
-    margin-left: -85px;
    
 }
 
