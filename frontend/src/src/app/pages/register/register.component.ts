@@ -79,4 +79,29 @@ export class RegisterComponent implements OnInit {
       }
     })
   }
+
+  showEmailError(){
+    return this.userForm.get('email')?.invalid && this.userForm.get('email')?.touched
+  }
+  showNameError(){
+    return this.userForm.get('Nombre')?.invalid && this.userForm.get('Nombre')?.touched
+  }
+  showDniError(){
+    return this.userForm.get('DNI')?.invalid && this.userForm.get('DNI')?.touched
+  }
+  showAdressError(){
+    return this.userForm.get('Direccion')?.invalid && this.userForm.get('Direccion')?.touched
+  }
+  showDateError(){
+    return this.userForm.get('Fecha')?.invalid && this.userForm.get('Fecha')?.touched
+  }
+  showPhoneError(){
+    return this.userForm.get('Telefono')?.invalid && this.userForm.get('Telefono')?.touched
+  }
+  showPasswordError(){
+    return this.userForm.get('password')?.invalid && this.userForm.get('password')?.touched
+  }
+  showConfirmPasswordError(){
+    return this.userForm.get('confirmPassword')?.invalid && this.userForm.get('confirmPassword')?.touched
+  }
 }

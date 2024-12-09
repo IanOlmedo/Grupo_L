@@ -21,8 +21,9 @@
 
 <div class="container mt-5">
     <form [formGroup]="userForm" (ngSubmit)="submit()">
-        <div class="row mb-4">
-            <div class="container d-flex justify-content-center">
+        <div class="row mb-4 justify-content-between">
+            <div class="col-4"></div>
+            <div class="col-4 d-flex justify-content-center">
                 <div class="d-flex align-items-center" style="gap: 20px;">
                     <i class="fa-solid fa-envelope" style="color: white; font-size: 40px;"></i>
                     <div class="p-2" style="margin-right: 40px; background-color: #84b1ec; border-radius: 30px;">
@@ -34,15 +35,17 @@
                             style="color: #000000; background-color: transparent; border: none; font-size: 100%;">
                     </div>
                 </div>
-                <div *ngIf="userForm.get('email')?.invalid && userForm.get('email')?.touched">
-                    <small *ngIf="userForm.get('email')?.errors?.['required']">El email es requerido.</small>
-                    <small *ngIf="userForm.get('email')?.errors?.['email']">El email no es válido.</small>
-                </div>
+            </div>
+            <div class="col-4" *ngIf="!showEmailError()"></div>
+            <div class="col-4" *ngIf="showEmailError()">
+                <small *ngIf="userForm.get('email')?.errors?.['required']" style="color: white;">El email es requerido.</small>
+                <small *ngIf="userForm.get('email')?.errors?.['email']" style="color: white;">El email no es válido.</small>
             </div>
         </div>
 
-        <div class="row mb-4">
-            <div class="container d-flex justify-content-center">
+        <div class="row mb-4 d-flex justify-content-between">
+            <div class="col-4"></div>
+            <div class="col-4 d-flex justify-content-center">
                 <div class="d-flex align-items-center" style="gap: 20px;">
                     <i class="fa-solid fa-user-circle" style="color: white; font-size: 40px;"></i>
                     <div class="p-2" style="margin-right: 40px; background-color: #84b1ec; border-radius: 30px;">
@@ -54,14 +57,16 @@
                             style="color: #000000; background-color: transparent; border: none; font-size: 100%;">
                     </div>
                 </div>
-                <div *ngIf="userForm.get('Nombre')?.invalid && userForm.get('Nombre')?.touched">
-                    <small *ngIf="userForm.get('Nombre')?.errors?.['required']">El nombre es requerido.</small>
-                </div>
+            </div>
+            <div class="col-4" *ngIf="!showNameError()"></div>
+            <div class="col-4" *ngIf="showNameError()">
+                <small *ngIf="userForm.get('Nombre')?.errors?.['required']" style="color: white;">El nombre es requerido.</small>
             </div>
         </div>
 
-        <div class="row mb-4">
-            <div class="container d-flex justify-content-center">
+        <div class="row mb-4 d-flex justify-content-between">
+            <div class="col-4"></div>
+            <div class="col-4 d-flex justify-content-center">
                 <div class="d-flex align-items-center" style="gap: 20px;">
                     <i class="fa-solid fa-id-card" style="color: white; font-size: 40px;"></i>
                     <div class="p-2" style="margin-right: 40px; background-color: #84b1ec; border-radius: 30px;">
@@ -73,14 +78,16 @@
                             style="color: #000000; background-color: transparent; border: none; font-size: 100%;">
                     </div>
                 </div>
-                <div *ngIf="userForm.get('DNI')?.invalid && userForm.get('DNI')?.touched">
-                    <small *ngIf="userForm.get('DNI')?.errors?.['required']">El DNI es requerido.</small>
-                </div>
+            </div>
+            <div class="col-4" *ngIf="!showDniError()"></div>
+            <div class="col-4" *ngIf="showDniError()">
+                <small *ngIf="userForm.get('DNI')?.errors?.['required']" style="color: white;">El DNI es requerido.</small>
             </div>
         </div>
 
-        <div class="row mb-4">
-            <div class="container d-flex justify-content-center">
+        <div class="row mb-4 d-flex justify-content-between">
+            <div class="col-4"></div>
+            <div class="col-4 d-flex justify-content-center">
                 <div class="d-flex align-items-center" style="gap: 20px;">
                     <i class="fa-solid fa-home" style="color: white; font-size: 40px;"></i>
                     <div class="p-2" style="margin-right: 40px; background-color: #84b1ec; border-radius: 30px;">
@@ -92,14 +99,16 @@
                             style="color: #000000; background-color: transparent; border: none; font-size: 100%;">
                     </div>
                 </div>
-                <div *ngIf="userForm.get('Direccion')?.invalid && userForm.get('Direccion')?.touched">
-                    <small *ngIf="userForm.get('Direccion')?.errors?.['required']">La dirección es requerida.</small>
-                </div>
+            </div>
+            <div class="col-4" *ngIf="!showAdressError()"></div>
+            <div class="col-4" *ngIf="showAdressError()">
+                <small *ngIf="userForm.get('Direccion')?.errors?.['required']" style="color: white;">La dirección es requerida.</small>
             </div>
         </div>
 
-        <div class="row mb-4">
-            <div class="container d-flex justify-content-center">
+        <div class="row mb-4 d-flex justify-content-between">
+            <div class="col-4"></div>
+            <div class="col-4 d-flex justify-content-center">
                 <div class="d-flex align-items-center" style="gap: 20px;">
                     <i class="fa-solid fa-calendar-day" style="color: white; font-size: 40px;"></i>
                     <div class="p-2" style="margin-right: 40px; background-color: #84b1ec; border-radius: 30px;">
@@ -111,14 +120,16 @@
                             style="color: #000000; background-color: transparent; border: none; font-size: 100%;">
                     </div>
                 </div>
-                <div *ngIf="userForm.get('Fecha')?.invalid && userForm.get('Fecha')?.touched">
-                    <small *ngIf="userForm.get('Fecha')?.errors?.['required']">La fecha es requerida.</small>
-                </div>
+            </div>
+            <div class="col-4" *ngIf="!showDateError()"></div>
+            <div class="col-4" *ngIf="showDateError()">
+                <small *ngIf="userForm.get('Fecha')?.errors?.['required']" style="color: white;">La fecha es requerida.</small>
             </div>
         </div>
 
-        <div class="row mb-4">
-            <div class="container d-flex justify-content-center">
+        <div class="row mb-4 d-flex justify-content-between">
+            <div class="col-4"></div>
+            <div class="col-4 d-flex justify-content-center">
                 <div class="d-flex align-items-center" style="gap: 20px;">
                     <i class="fa-solid fa-phone" style="color: white; font-size: 40px;"></i>
                     <div class="p-2" style="margin-right: 40px; background-color: #84b1ec; border-radius: 30px;">
@@ -130,14 +141,16 @@
                             style="color: #000000; background-color: transparent; border: none; font-size: 100%;">
                     </div>
                 </div>
-                <div *ngIf="userForm.get('Telefono')?.invalid && userForm.get('Telefono')?.touched">
-                    <small *ngIf="userForm.get('Telefono')?.errors?.['required']">El teléfono es requerido.</small>
-                </div>
+            </div>
+            <div class="col-4" *ngIf="!showPhoneError()"></div>
+            <div class="col-4" *ngIf="showPhoneError()">
+                <small *ngIf="userForm.get('Telefono')?.errors?.['required']" style="color: white;">El teléfono es requerido.</small>
             </div>
         </div>
 
-        <div class="row mb-4">
-            <div class="container d-flex justify-content-center">
+        <div class="row mb-4 d-flex justify-content-between">
+            <div class="col-4"></div>
+            <div class="col-4 d-flex justify-content-center">
                 <div class="d-flex align-items-center" style="gap: 20px;">
                     <i class="fa-solid fa-lock" style="color: white; font-size: 40px;"></i>
                     <div class="p-2" style="margin-right: 40px; background-color: #84b1ec; border-radius: 30px;">
@@ -149,15 +162,17 @@
                             style="color: #000000; background-color: transparent; border: none;">
                     </div>
                 </div>
-                <div *ngIf="userForm.get('password')?.invalid && userForm.get('password')?.touched">
-                    <small *ngIf="userForm.get('password')?.errors?.['required']">La contraseña es requerida.</small>
-                    <small *ngIf="userForm.get('password')?.errors?.['minlength']">La contraseña debe tener al menos 6 caracteres.</small>
-                </div>
+            </div>
+            <div class="col-4" *ngIf="!showPasswordError()"></div>
+            <div class="col-4" *ngIf="showPasswordError()">
+                <small *ngIf="userForm.get('password')?.errors?.['required']" style="color: white;">La contraseña es requerida.</small>
+                <small *ngIf="userForm.get('password')?.errors?.['minlength']" style="color: white;">La contraseña debe tener al menos 6 caracteres.</small>
             </div>
         </div>
 
-        <div class="row mb-4">
-            <div class="container d-flex justify-content-center">
+        <div class="row mb-4 d-flex justify-content-between">
+            <div class="col-4"></div>
+            <div class="col-4 d-flex justify-content-center">
                 <div class="d-flex align-items-center" style="gap: 20px;">
                     <i class="fa-solid fa-lock" style="color: white; font-size: 40px;"></i>
                     <div class="p-2" style="margin-right: 40px; background-color: #84b1ec; border-radius: 30px;">
@@ -169,12 +184,13 @@
                             style="color: #000000; background-color: transparent; border: none;">
                     </div>
                 </div>
-                <div *ngIf="userForm.get('confirmPassword')?.invalid && userForm.get('confirmPassword')?.touched">
-                    <small *ngIf="userForm.get('confirmPassword')?.errors?.['required']">La confirmación de la contraseña es requerida.</small>
-                </div>
-                <div *ngIf="userForm.errors?.['mismatch']">
-                    <small>Las contraseñas no coinciden.</small>
-                </div>
+            </div>
+            <div class="col-4" *ngIf="!showConfirmPasswordError()"></div>
+            <div class="col-4" *ngIf="showConfirmPasswordError()">
+                <small *ngIf="userForm.get('confirmPassword')?.errors?.['required']" style="color: white;">La confirmación de la contraseña es requerida.</small>
+            </div>
+            <div *ngIf="userForm.errors?.['mismatch']">
+                <small style="color: white;">Las contraseñas no coinciden.</small>
             </div>
         </div>
     </form>
