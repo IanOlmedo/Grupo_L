@@ -49,7 +49,7 @@ export class AltaLibrosComponent {
     titulo: new FormControl('', Validators.required),
     stock: new FormControl(0, [Validators.required, Validators.min(0)]),
     imagen: new FormControl('', Validators.required),
-    autor: new FormControl('', Validators.required),
+    autores: new FormControl('', Validators.required),
   });
 
   onSubmit() {

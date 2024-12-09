@@ -94,6 +94,7 @@ onSubmitUpdate() {
       alert('Hubo un error al actualizar el prestamo. Por favor, inténtelo de nuevo más tarde')
     }
   );
+  this.checkPrestamosUser(this.var_id)
 }
 
 onSubmitDelete(){

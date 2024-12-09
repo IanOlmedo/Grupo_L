@@ -28,7 +28,7 @@ export class PrestamosUserComponent {
   }
 
   getPrestamosPendientes() {    return this.arrayPrestamos.filter(prestamo => {
-      return prestamo.estado === 'no devuelto';
+      return prestamo.estado === 'no devuelto' || prestamo.estado === "reservado";
     });
   }
 

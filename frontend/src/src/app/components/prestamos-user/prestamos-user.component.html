@@ -13,6 +13,7 @@
                     <p></p>
                     <p class="card-text text-white">Fecha de entrega: {{prestamo.fecha_de_entrega}}</p>
                     <p class="card-text text-white">Fecha de vencimiento: {{prestamo.fecha_de_vencimiento}}</p>
+                    <p class="card-text text-white">Estado: {{prestamo.estado}}</p>
                 </div>
             </div>
             <div class="col-4 d-flex justify-content-end">
@@ -22,17 +23,17 @@
     </div>
 
 
-    <div class="container" *ngIf="getPrestamosPendientes().length === 0">
-        <div class="row">
-            <div class="col-12">
-                <div class="alert-container margin-top: 15%">
-                    <div class="notification-icon">
-                        <i class="fa-solid fa-bell" style="color: rgb(218, 218, 59); font-size: 170%;"></i>
-                    </div>
-                    <h2><strong>¡No tienes prestamos pendientes!</strong></h2>
-                    <a routerLink="/catalogo" href="#" class="button-primary button" style = "background-color: #483fa9;">¡Agregá uno!</a>
+    <div class="row d-flex justify-content-center" *ngIf="getPrestamosPendientes().length === 0">
+        <div class="col-2"></div>
+        <div class="col-8 d-flex justify-content-center">
+            <div class="alert-container margin-top: 15%">
+                <div class="notification-icon">
+                    <i class="fa-solid fa-bell" style="color: rgb(218, 218, 59); font-size: 170%;"></i>
                 </div>
+                <h2><strong>¡No tienes prestamos pendientes!</strong></h2>
+                <a routerLink="/catalogo" href="#" class="button-primary button" style = "background-color: #483fa9;">¡Agregá uno!</a>
             </div>
         </div>
+        <div class="col-2"></div>
     </div>
 
