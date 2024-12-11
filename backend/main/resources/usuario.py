@@ -36,6 +36,17 @@ class Usuario(Resource):
         db.session.add(usuario)
         db.session.commit()
         return usuario.to_json(), 201
+    
+    @roles_required(roles = ["admin", "users"])
+    def patch(self, id):
+        usuario = db.session.query(UsuarioModel).get_or_404(id)
+        data = request.get_json()
+        if not data or 'password' not in data:
+            return jsonify({'error': 'No se proporcionó la nueva contraseña'}), 400
+        usuario.password = generate_password_hash(data['password'])
+        db.session.commit()
+        return 'Contraseña actualizada exitosamente', 201
+
 
 class Usuarios(Resource):
     @roles_required(roles = ["admin"])

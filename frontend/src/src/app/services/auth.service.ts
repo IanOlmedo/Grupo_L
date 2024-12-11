@@ -44,5 +44,15 @@ export class AuthService {
   
     return this.httpClient.post(this.url + '/auth/register', body).pipe(take(1));
   }
+
+  verifyPassword(userId:string, password:string): Observable<any>{
+    console.log("El id: ", userId)
+    console.log('La contraseña: ', password)
+    const body = {
+      id_usuario: Number(userId),
+      password: password,
+    }
+    return this.httpClient.post(this.url + '/auth/verify-password', body);
+  }
   
 }

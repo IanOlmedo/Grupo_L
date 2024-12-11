@@ -80,4 +80,17 @@ export class UsuariosService {
     const requestOptions = { headers: headers };
     return this.httpClient.delete(this.url + '/Usuario/' + id, requestOptions);
   }
+
+  patchUser(id: string, newPassword:string): Observable<any>{
+    let auth_token = localStorage.getItem('token');
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${auth_token}`
+    });
+    const body = {
+      password:newPassword
+    }
+    const requestOptions = {headers: headers};
+    return this.httpClient.patch(this.url + '/Usuario/' + id, body, requestOptions)
+  }
 }

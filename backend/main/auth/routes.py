@@ -48,3 +48,12 @@ def register():
             db.session.rollback() #para volver atras
             return str(error), 409
         return usuario.to_json() , 201
+
+@auth.route('/verify-password', methods=['POST'])
+def verify_password():
+    usuario = db.session.query(UsuarioModel).filter(UsuarioModel.id_usuario == request.get_json().get('id_usuario')).first_or_404()
+
+    if usuario.validate_pass(request.get_json().get("password")):
+        return jsonify({'message':'Contraseña correcta'}), 200
+    else:
+        return 'Contraseña Incorrecta', 401
