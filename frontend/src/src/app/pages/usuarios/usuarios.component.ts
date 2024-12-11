@@ -15,6 +15,8 @@ export class UsuariosComponent implements OnInit {
   editMode: boolean = false;  // Controla si los campos son editables o no
   selectedFile: File | null = null;
 
+  aproved: boolean = false
+
   userForm = new FormGroup({
     nombre_completo: new FormControl('', Validators.required),
     direccion: new FormControl('', Validators.required),
@@ -23,6 +25,11 @@ export class UsuariosComponent implements OnInit {
     password: new FormControl('', [Validators.required]),
     telefono: new FormControl('', Validators.required)
   });
+
+  passwordForm = new FormGroup({
+    password: new FormControl('', Validators.required),
+    confirmPassword: new FormControl('', Validators.required),
+  })
 
   constructor(
     private route: ActivatedRoute,
@@ -117,4 +124,24 @@ export class UsuariosComponent implements OnInit {
       console.error('No se seleccionó ningún archivo');
     }
   }
+
+  passwordMatchValidator(){
+    const password = this.passwordForm.get('password')?.value;
+    const confirmPassword = this.passwordForm.get('confirmPassword')?.value;
+    return password === confirmPassword ? null : { mismatch: true };
+  }
+
+  onSubmitPassword(): void{
+    if (this.passwordForm){
+      if(this.passwordMatchValidator()){
+        this.aproved = true
+        alert("Contraseña confirmada")
+      }else{
+        alert("Contraseña incorrecta")
+      }
+    }else{
+      alert("Ingrese datos en el formulario")
+    }
+  }
+  
 }

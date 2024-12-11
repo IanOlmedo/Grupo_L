@@ -4,56 +4,68 @@
 
 
   <div class="row">
-    <h1 class="info-libro-title text-center">Información del Libro</h1>
+    <div class="col-12">
+      <h1 class="info-libro-title text-center">Información del Libro</h1>
+    </div>
 
     <!-- Imagen del libro -->
-    <div class="col-sm-6 col-md-4 justify-content-center">
-      <img src="{{book.imagen}}" alt="Libro" class="img-libro-container mb-3">
+    <div class="col-sm-12 col-md-4 d-flex justify-content-center align-items-center">
+      <img src="{{book.imagen}}" alt="Libro" class="img-libro-container">
     </div>
     <!-- Información del libro -->
     <div class="col-sm-12 col-md-8">
       <div class="row mb-3">
-        <div class="col-3 justify-content-center ">
-          <div class="info-label text-center p-3 "><strong>Título:</strong></div>
+        <div class="col-3 col-md-2 d-flex justify-content-center align-items-center">
+          <div class="info-label text-center"><strong>Título:</strong></div>
         </div>
-        <div class="col-9 justify-content-center">
-          <div class="showing p-1">
+        <div class="col-9">
+          <div class="showing p-2">
             <h6 class="info-text ps-2">{{book.titulo}}</h6>
           </div>
         </div>
       </div>
       <div class="row sm-12">
-        <div class="col-3 justify-content-center">
+        <div class="col-3 col-md-2 d-flex justify-content-center align-items-center">
           <div class="info-label text-center p-3"><strong>Autor:</strong></div>
         </div>
-        <div class="col-9 justify-content-center">
-          <div class="showing p-1">
+        <div class="col-9">
+          <div class="showing p-2">
             <h6 class="info-text ps-2">{{arrayAuthor[0].nombre_completo}}</h6>
           </div>
         </div>
       </div>
       <div class="row mb-3">
-        <div class="col-3 justify-content-center">
+        <div class="col-3 col-md-2 d-flex justify-content-center align-items-center">
           <div class="info-label text-center p-3"><strong>Género:</strong></div>
         </div>
-        <div class="col-9 justify-content-center">
-          <div class="showing p-1">
+        <div class="col-9">
+          <div class="showing p-2">
             <h6 class="info-text ps-2">{{book.genero}}</h6>
           </div>
         </div>
       </div>
       <div class="row mb-3">
-        <div class="col-3 justify-content-center">
+        <div class="col-3 col-md-2 d-flex justify-content-center align-items-center">
           <div class="info-label text-center p-3"><strong>Editorial:</strong></div>
         </div>
-        <div class="col-9 justify-content-center">
-          <div class="showing p-1">
+        <div class="col-9">
+          <div class="showing p-2">
             <h6 class="info-text ps-2">{{book.editorial}}</h6>
           </div>
         </div>
       </div>
+      <div *ngIf="isAdmin"  class="row mb-3">
+        <div class="col-3 col-md-2 d-flex justify-content-center align-items-center">
+          <div class="info-label text-center p-3"><strong>Stock:</strong></div>
+        </div>
+        <div class="col-9">
+          <div class="showing p-2">
+            <h6 class="info-text ps-2">{{book.stock}}</h6>
+          </div>
+        </div>
+      </div>
       <div class="row mb-3">
-        <div class="col-md-3 col-sm-4 justify-content-center">
+        <div class="col-md-2 col-sm-4 d-flex justify-content-center align-items-center">
           <div class="info-label p-3"><strong>Fecha de publicación:</strong></div>
         </div>
         <div class="col-md-9 col-sm-8 justify-content-center">
@@ -75,14 +87,14 @@
 
 <div class="row justify-content-center mt-4">
   <div class="col-12 col-lg-8 d-flex justify-content-center">
-    <button type="button" class="btn btn-primary mx-2 p-3" 
+    <button *ngIf="isAdmin" type="button" class="btn btn-primary mx-2 p-3" 
             (click)="addToCart(book)" 
             routerLink="/catalogo" 
             href="#">Añadir al carrito</button>
     <button type="button" class="btn btn-primary mx-2 p-3" 
             routerLink="/valoraciones/{{var_id}}" 
             href="#">Ver Valoraciones</button>
-    <button type="button" class="btn btn-primary mx-2 p-3" 
+    <button *ngIf="isAdmin" type="button" class="btn btn-primary mx-2 p-3" 
             routerLink="/alta_libros/{{var_id}}" 
             href="#">Editar</button>
   </div>

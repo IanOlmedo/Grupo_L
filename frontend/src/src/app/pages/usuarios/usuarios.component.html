@@ -36,6 +36,31 @@
     </div>
 </div>
 
+<!-- Modal para Confirmar contraseña-->
+<div class="modal fade" id="confirmPasswordModal" tabindex="-1" aria-labelledby="confirmPasswordModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="confirmPasswordModalLabel">Confirmar Contraseña</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form (ngSubmit)="onSubmitPassword()" [formGroup]="passwordForm">
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Ingrese su contraseña</label>
+                        <input type="password" class="form-control" id="password" name="password">
+                    </div>
+                    <div class="mb-3">
+                        <label for="confirmPassword" class="form-label">Confirme su contraseña</label>
+                        <input type="password" class="form-control" id="confirmPassword" name="confirmPassword">
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Confirmar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- Formulario de datos de usuario -->
 <div class="container profile-container text-white">
     <form>
@@ -69,9 +94,13 @@
         <!-- Botones -->
         <div class="text-center">
             <!-- Botón para alternar entre modo de edición y guardado -->
+             <!--
             <button type="button" class="btn save-btn" (click)="editMode ? onSubmit() : toggleEditMode()">
                 {{ editMode ? 'Guardar Datos' : 'Editar Datos' }}
             </button>
+            -->
+            <button type="button" class="btn save-btn" (click)="onSubmit()">Guardar datos</button>
+            <button type="button" class="btn save-btn" data-bs-toggle="modal" data-bs-target="#confirmPasswordModal">Confirmar contraseña</button>
         </div>
     </form>
 </div>
