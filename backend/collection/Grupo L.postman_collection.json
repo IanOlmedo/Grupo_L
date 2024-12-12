@@ -1,1328 +1,1192 @@
 {
-	"info": {
-		"_postman_id": "929117ce-0fd2-4b4c-b327-78e2d689ceec",
-		"name": "Grupo L",
-		"description": "Grupo L de programación 1 compuesto por los siguientes integrantes: Camila Choque, Reynier López, Ian Olmedo y Martin Navarro.",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "33856219",
-		"_collection_link": "https://lively-capsule-695638.postman.co/workspace/Grupo-L-Workspace~0ba85bbd-693b-4f03-8c0f-e7e856d8e4ae/collection/33788060-929117ce-0fd2-4b4c-b327-78e2d689ceec?action=share&source=collection_link&creator=33856219"
-	},
-	"item": [
-		{
-			"name": "Usuarios",
-			"item": [
-				{
-					"name": "Filtros",
-					"item": [
-						{
-							"name": "Filtros Usuario",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "http://127.0.0.1:6003/Usuarios?nombre_completo=Martin&dni=45141159&email=mt.navarro@alumno.um.edu.ar",
-									"protocol": "http",
-									"host": [
-										"127",
-										"0",
-										"0",
-										"1"
-									],
-									"port": "6003",
-									"path": [
-										"Usuarios"
-									],
-									"query": [
-										{
-											"key": "nombre_completo",
-											"value": "Martin"
-										},
-										{
-											"key": "dni",
-											"value": "45141159"
-										},
-										{
-											"key": "email",
-											"value": "mt.navarro@alumno.um.edu.ar"
-										}
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				},
-				{
-					"name": "Ver todos los usuarios",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNjk4ODE4NywianRpIjoiZmU2MmQxNTQtYTNjMi00NTM2LTg5N2EtZmNhN2RjZmUxZTA0IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6NiwibmJmIjoxNzE2OTg4MTg3LCJjc3JmIjoiNDAwNWJlNGEtMjFjMC00N2Y4LThiM2ItZTMzNmIzYmQzZjUzIiwicm9sIjoiYWRtaW4iLCJpZF91c3VhcmlvIjo2LCJlbWFpbCI6Im1hcnRpbm5hdmFycm90ZWl4aWRvckBnbWFpbC5jb20ifQ.0XxXPCTHqa8ze2DMAyct30csQXvO7cLwcjGqtXuwQe8",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://127.0.0.1:6003/Usuarios?page=1&page=2",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "6003",
-							"path": [
-								"Usuarios"
-							],
-							"query": [
-								{
-									"key": "page",
-									"value": "1"
-								},
-								{
-									"key": "page",
-									"value": "2"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Ver un usuario",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://127.0.0.1:6003/Usuario/6",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "6003",
-							"path": [
-								"Usuario",
-								"6"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Modificar un usuario",
-					"event": [
-						{
-							"listen": "prerequest",
-							"script": {
-								"exec": [
-									""
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						}
-					],
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNjk4ODE4NywianRpIjoiZmU2MmQxNTQtYTNjMi00NTM2LTg5N2EtZmNhN2RjZmUxZTA0IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6NiwibmJmIjoxNzE2OTg4MTg3LCJjc3JmIjoiNDAwNWJlNGEtMjFjMC00N2Y4LThiM2ItZTMzNmIzYmQzZjUzIiwicm9sIjoiYWRtaW4iLCJpZF91c3VhcmlvIjo2LCJlbWFpbCI6Im1hcnRpbm5hdmFycm90ZWl4aWRvckBnbWFpbC5jb20ifQ.0XxXPCTHqa8ze2DMAyct30csQXvO7cLwcjGqtXuwQe8",
-									"type": "string"
-								}
-							]
-						},
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n            \"direccion\": \"Las Heras\",\n            \"dni\": 45147895,\n            \"email\": \"ianolmedo10@gmail.com\",\n            \"id_usuario\": 4,\n            \"nombre_completo\": \"Ian Olmedo\",\n            \"password\": \"ianito10\",\n            \"rol\": \"users\",\n            \"telefono\": 2612548596\n        }",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://127.0.0.1:6003/Usuario/4",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "6003",
-							"path": [
-								"Usuario",
-								"4"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Eliminar un usuario",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNjk4NjAwMSwianRpIjoiZGU4ODRlNGUtZDUxYy00NzM5LWJkNzYtZDBkYTZkYTFiMjFiIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6NSwibmJmIjoxNzE2OTg2MDAxLCJjc3JmIjoiNDEwMjlkY2EtMzYxNC00NTM0LWJkMGYtNTFiOWZkOWJjMTJhIiwicm9sIjoiYWRtaW4iLCJpZF91c3VhcmlvIjo1LCJlbWFpbCI6ImdydXBvbGFtYmRhMTBAZ21haWwuY29tIn0.iMVEQTOLHnGlasvkJHScs8sg70dwDWMIJQyeVw6NSqo",
-									"type": "string"
-								}
-							]
-						},
-						"method": "DELETE",
-						"header": [],
-						"url": {
-							"raw": "http://127.0.0.1:6003/Usuario/4",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "6003",
-							"path": [
-								"Usuario",
-								"4"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Prestamos",
-			"item": [
-				{
-					"name": "Filtros",
-					"item": [
-						{
-							"name": "Ver prestamos por fecha de entrega",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "http://127.0.0.1:6003/Prestamos?fecha_de_entrega=20&fecha_de_entrega=-04&fecha_de_entrega=2024&fecha_de_entrega=20-04",
-									"protocol": "http",
-									"host": [
-										"127",
-										"0",
-										"0",
-										"1"
-									],
-									"port": "6003",
-									"path": [
-										"Prestamos"
-									],
-									"query": [
-										{
-											"key": "fecha_de_entrega",
-											"value": "20",
-											"description": "Por día"
-										},
-										{
-											"key": "fecha_de_entrega",
-											"value": "-04",
-											"description": "Por mes"
-										},
-										{
-											"key": "fecha_de_entrega",
-											"value": "2024",
-											"description": "Por año"
-										},
-										{
-											"key": "fecha_de_entrega",
-											"value": "20-04",
-											"description": "like"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Ver prestamos por vencimiento",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "http://127.0.0.1:6003/Prestamos?fecha_de_vencimiento=24&fecha_de_vencimiento=-06&fecha_de_vencimiento=2024&fecha_de_vencimiento=24-06",
-									"protocol": "http",
-									"host": [
-										"127",
-										"0",
-										"0",
-										"1"
-									],
-									"port": "6003",
-									"path": [
-										"Prestamos"
-									],
-									"query": [
-										{
-											"key": "fecha_de_vencimiento",
-											"value": "24",
-											"description": "Por día"
-										},
-										{
-											"key": "fecha_de_vencimiento",
-											"value": "-06",
-											"description": "Por mes"
-										},
-										{
-											"key": "fecha_de_vencimiento",
-											"value": "2024",
-											"description": "Por año"
-										},
-										{
-											"key": "fecha_de_vencimiento",
-											"value": "24-06",
-											"description": "like"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Ver prestamos por atributo",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "http://127.0.0.1:6003/Prestamos?id_prestamo=3&id_usuario=2&id_libro=2&estado=no devuelto",
-									"protocol": "http",
-									"host": [
-										"127",
-										"0",
-										"0",
-										"1"
-									],
-									"port": "6003",
-									"path": [
-										"Prestamos"
-									],
-									"query": [
-										{
-											"key": "id_prestamo",
-											"value": "3"
-										},
-										{
-											"key": "id_usuario",
-											"value": "2"
-										},
-										{
-											"key": "id_libro",
-											"value": "2"
-										},
-										{
-											"key": "estado",
-											"value": "no devuelto"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Ver prestamos por orden descendente",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "http://127.0.0.1:6003/Prestamos?sortby_id_prestamo=True",
-									"protocol": "http",
-									"host": [
-										"127",
-										"0",
-										"0",
-										"1"
-									],
-									"port": "6003",
-									"path": [
-										"Prestamos"
-									],
-									"query": [
-										{
-											"key": "sortby_id_prestamo",
-											"value": "True"
-										},
-										{
-											"key": "sortby_id_usuario",
-											"value": "True",
-											"disabled": true
-										},
-										{
-											"key": "sortby_id_libro",
-											"value": "True",
-											"disabled": true
-										}
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				},
-				{
-					"name": "Ver un prestamo",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNjk4ODQ3MiwianRpIjoiNTMxNjhiZDUtODBjYy00MjM5LWE5YTEtYjNlMGUzNTNkNDJkIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6NiwibmJmIjoxNzE2OTg4NDcyLCJjc3JmIjoiYTA3M2ExZDctMjNiOS00NTk5LTlhNWYtZTk5MjBmZTI2MjAwIiwicm9sIjoiYWRtaW4iLCJpZF91c3VhcmlvIjo2LCJlbWFpbCI6Im1hcnRpbm5hdmFycm90ZWl4aWRvckBnbWFpbC5jb20ifQ.Oc14qNXd7EowAB3efue4D9HZrLqfqB2-F9eABhEO9OE",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://127.0.0.1:6003/Prestamo/3",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "6003",
-							"path": [
-								"Prestamo",
-								"3"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Ver todos los prestamos",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNjk4ODQ3MiwianRpIjoiNTMxNjhiZDUtODBjYy00MjM5LWE5YTEtYjNlMGUzNTNkNDJkIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6NiwibmJmIjoxNzE2OTg4NDcyLCJjc3JmIjoiYTA3M2ExZDctMjNiOS00NTk5LTlhNWYtZTk5MjBmZTI2MjAwIiwicm9sIjoiYWRtaW4iLCJpZF91c3VhcmlvIjo2LCJlbWFpbCI6Im1hcnRpbm5hdmFycm90ZWl4aWRvckBnbWFpbC5jb20ifQ.Oc14qNXd7EowAB3efue4D9HZrLqfqB2-F9eABhEO9OE",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://127.0.0.1:6003/Prestamos",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "6003",
-							"path": [
-								"Prestamos"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Actualizar un prestamo",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNjk4ODQ3MiwianRpIjoiNTMxNjhiZDUtODBjYy00MjM5LWE5YTEtYjNlMGUzNTNkNDJkIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6NiwibmJmIjoxNzE2OTg4NDcyLCJjc3JmIjoiYTA3M2ExZDctMjNiOS00NTk5LTlhNWYtZTk5MjBmZTI2MjAwIiwicm9sIjoiYWRtaW4iLCJpZF91c3VhcmlvIjo2LCJlbWFpbCI6Im1hcnRpbm5hdmFycm90ZWl4aWRvckBnbWFpbC5jb20ifQ.Oc14qNXd7EowAB3efue4D9HZrLqfqB2-F9eABhEO9OE",
-									"type": "string"
-								}
-							]
-						},
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{  \n        \"id_prestamo\": 3,\n        \"id_usuario\": 1,\n        \"id_libros\": 2,\n        \"fecha_de_entrega\": \"20-04-2024\",\n        \"fecha_de_vencimiento\": \"04-05-2024\",\n        \"estado\": \"devuelto\"\n        }",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://127.0.0.1:6003/Prestamo/3",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "6003",
-							"path": [
-								"Prestamo",
-								"3"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Agregar un prestamo",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNjk5MDY4MiwianRpIjoiOWQ1ZmVmODAtYzkxMS00Zjk1LTk2MGMtODI5NmFmOTcxYTNlIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6NiwibmJmIjoxNzE2OTkwNjgyLCJjc3JmIjoiZGQzNWM5MjctMjkyMi00ODFmLWI5MWMtYzMxNDQwM2VhMzZhIiwicm9sIjoiYWRtaW4iLCJpZF91c3VhcmlvIjo2LCJlbWFpbCI6Im1hcnRpbm5hdmFycm90ZWl4aWRvckBnbWFpbC5jb20ifQ.VtJJdu4yCnk-Pucz6SC-mhLL4ISzVOLAIQVSfS9z9nk",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{  \n        \"id_prestamo\": 8,\n        \"id_usuario\": 6,\n        \"id_libros\": 2,\n        \"fecha_de_entrega\": \"20-04-2024\",\n        \"fecha_de_vencimiento\": \"04-05-2024\",\n        \"estado\": \"devuelto\"\n        }",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://127.0.0.1:6003/Prestamos",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "6003",
-							"path": [
-								"Prestamos"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Eliminar un prestamo",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNjk5MDY4MiwianRpIjoiOWQ1ZmVmODAtYzkxMS00Zjk1LTk2MGMtODI5NmFmOTcxYTNlIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6NiwibmJmIjoxNzE2OTkwNjgyLCJjc3JmIjoiZGQzNWM5MjctMjkyMi00ODFmLWI5MWMtYzMxNDQwM2VhMzZhIiwicm9sIjoiYWRtaW4iLCJpZF91c3VhcmlvIjo2LCJlbWFpbCI6Im1hcnRpbm5hdmFycm90ZWl4aWRvckBnbWFpbC5jb20ifQ.VtJJdu4yCnk-Pucz6SC-mhLL4ISzVOLAIQVSfS9z9nk",
-									"type": "string"
-								}
-							]
-						},
-						"method": "DELETE",
-						"header": [],
-						"url": {
-							"raw": "http://127.0.0.1:6003/Prestamo/8",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "6003",
-							"path": [
-								"Prestamo",
-								"8"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Libros",
-			"item": [
-				{
-					"name": "Filtros",
-					"item": [
-						{
-							"name": "Filtros Libros",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "http://127.0.0.1:6003/Libros?titulo=Percy Jackson&genero=fantasia&descripcion=novela",
-									"protocol": "http",
-									"host": [
-										"127",
-										"0",
-										"0",
-										"1"
-									],
-									"port": "6003",
-									"path": [
-										"Libros"
-									],
-									"query": [
-										{
-											"key": "titulo",
-											"value": "Percy Jackson"
-										},
-										{
-											"key": "genero",
-											"value": "fantasia"
-										},
-										{
-											"key": "descripcion",
-											"value": "novela"
-										}
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				},
-				{
-					"name": "Ver libro",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://127.0.0.1:6003/Libro/1",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "6003",
-							"path": [
-								"Libro",
-								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Ver todos los libros",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://127.0.0.1:6003/Libros",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "6003",
-							"path": [
-								"Libros"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Actualizar un libro",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNjk5MDY4MiwianRpIjoiOWQ1ZmVmODAtYzkxMS00Zjk1LTk2MGMtODI5NmFmOTcxYTNlIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6NiwibmJmIjoxNzE2OTkwNjgyLCJjc3JmIjoiZGQzNWM5MjctMjkyMi00ODFmLWI5MWMtYzMxNDQwM2VhMzZhIiwicm9sIjoiYWRtaW4iLCJpZF91c3VhcmlvIjo2LCJlbWFpbCI6Im1hcnRpbm5hdmFycm90ZWl4aWRvckBnbWFpbC5jb20ifQ.VtJJdu4yCnk-Pucz6SC-mhLL4ISzVOLAIQVSfS9z9nk",
-									"type": "string"
-								}
-							]
-						},
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n            \"año_de_publicacion\": \"28-06-2007\",\n            \"descripcion\": \"novela\",\n            \"editorial\": \"Salamandra\",\n            \"genero\": \"Fantasia\",\n            \"id_libro\": 5,\n            \"stock\": 10,\n            \"titulo\": \"Percy Jackson y el mar de los monstruos\"\n    }",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://127.0.0.1:6003/Libro/5",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "6003",
-							"path": [
-								"Libro",
-								"5"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Agregar un libro",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNjk5MDY4MiwianRpIjoiOWQ1ZmVmODAtYzkxMS00Zjk1LTk2MGMtODI5NmFmOTcxYTNlIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6NiwibmJmIjoxNzE2OTkwNjgyLCJjc3JmIjoiZGQzNWM5MjctMjkyMi00ODFmLWI5MWMtYzMxNDQwM2VhMzZhIiwicm9sIjoiYWRtaW4iLCJpZF91c3VhcmlvIjo2LCJlbWFpbCI6Im1hcnRpbm5hdmFycm90ZWl4aWRvckBnbWFpbC5jb20ifQ.VtJJdu4yCnk-Pucz6SC-mhLL4ISzVOLAIQVSfS9z9nk",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "    {\n        \"id_libro\": 7,\n        \"titulo\": \"Percy Jackson y la maldición del titan\",\n        \"genero\": \"Fantasia\",\n        \"editorial\": \"Salamandra\",\n        \"año_de_publicacion\": \"28-06-2008\",\n        \"descripcion\": \"novela\",\n        \"stock\": 0\n    }",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://127.0.0.1:6003/Libros",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "6003",
-							"path": [
-								"Libros"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Eliminar un libro",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNjk5MDY4MiwianRpIjoiOWQ1ZmVmODAtYzkxMS00Zjk1LTk2MGMtODI5NmFmOTcxYTNlIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6NiwibmJmIjoxNzE2OTkwNjgyLCJjc3JmIjoiZGQzNWM5MjctMjkyMi00ODFmLWI5MWMtYzMxNDQwM2VhMzZhIiwicm9sIjoiYWRtaW4iLCJpZF91c3VhcmlvIjo2LCJlbWFpbCI6Im1hcnRpbm5hdmFycm90ZWl4aWRvckBnbWFpbC5jb20ifQ.VtJJdu4yCnk-Pucz6SC-mhLL4ISzVOLAIQVSfS9z9nk",
-									"type": "string"
-								}
-							]
-						},
-						"method": "DELETE",
-						"header": [],
-						"url": {
-							"raw": "http://127.0.0.1:6003/Libro/7",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "6003",
-							"path": [
-								"Libro",
-								"7"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Configuraciones",
-			"item": [
-				{
-					"name": "Ver configuración",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNjk5MDY4MiwianRpIjoiOWQ1ZmVmODAtYzkxMS00Zjk1LTk2MGMtODI5NmFmOTcxYTNlIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6NiwibmJmIjoxNzE2OTkwNjgyLCJjc3JmIjoiZGQzNWM5MjctMjkyMi00ODFmLWI5MWMtYzMxNDQwM2VhMzZhIiwicm9sIjoiYWRtaW4iLCJpZF91c3VhcmlvIjo2LCJlbWFpbCI6Im1hcnRpbm5hdmFycm90ZWl4aWRvckBnbWFpbC5jb20ifQ.VtJJdu4yCnk-Pucz6SC-mhLL4ISzVOLAIQVSfS9z9nk",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://127.0.0.1:6003/Configuracion/1",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "6003",
-							"path": [
-								"Configuracion",
-								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Ver todas las configuraciones",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNjk5MDY4MiwianRpIjoiOWQ1ZmVmODAtYzkxMS00Zjk1LTk2MGMtODI5NmFmOTcxYTNlIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6NiwibmJmIjoxNzE2OTkwNjgyLCJjc3JmIjoiZGQzNWM5MjctMjkyMi00ODFmLWI5MWMtYzMxNDQwM2VhMzZhIiwicm9sIjoiYWRtaW4iLCJpZF91c3VhcmlvIjo2LCJlbWFpbCI6Im1hcnRpbm5hdmFycm90ZWl4aWRvckBnbWFpbC5jb20ifQ.VtJJdu4yCnk-Pucz6SC-mhLL4ISzVOLAIQVSfS9z9nk",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://127.0.0.1:6003/Configuraciones",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "6003",
-							"path": [
-								"Configuraciones"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Agregar configuración",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNjk5MDY4MiwianRpIjoiOWQ1ZmVmODAtYzkxMS00Zjk1LTk2MGMtODI5NmFmOTcxYTNlIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6NiwibmJmIjoxNzE2OTkwNjgyLCJjc3JmIjoiZGQzNWM5MjctMjkyMi00ODFmLWI5MWMtYzMxNDQwM2VhMzZhIiwicm9sIjoiYWRtaW4iLCJpZF91c3VhcmlvIjo2LCJlbWFpbCI6Im1hcnRpbm5hdmFycm90ZWl4aWRvckBnbWFpbC5jb20ifQ.VtJJdu4yCnk-Pucz6SC-mhLL4ISzVOLAIQVSfS9z9nk",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "    {\n        \"id_configuracion\": 4,\n        \"id_usuario\": 6,\n        \"nombre_configuracion\": \"Tamaño de Titulo \",\n        \"valor_configuracion\": \"24\"\n    }",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://127.0.0.1:6003/Configuraciones",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "6003",
-							"path": [
-								"Configuraciones"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Actualizar configuración",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNjk5MDY4MiwianRpIjoiOWQ1ZmVmODAtYzkxMS00Zjk1LTk2MGMtODI5NmFmOTcxYTNlIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6NiwibmJmIjoxNzE2OTkwNjgyLCJjc3JmIjoiZGQzNWM5MjctMjkyMi00ODFmLWI5MWMtYzMxNDQwM2VhMzZhIiwicm9sIjoiYWRtaW4iLCJpZF91c3VhcmlvIjo2LCJlbWFpbCI6Im1hcnRpbm5hdmFycm90ZWl4aWRvckBnbWFpbC5jb20ifQ.VtJJdu4yCnk-Pucz6SC-mhLL4ISzVOLAIQVSfS9z9nk",
-									"type": "string"
-								}
-							]
-						},
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "    {\n        \"id_configuracion\": 4,\n        \"id_usuario\": 6,\n        \"nombre_configuracion\": \"Tamaño de titulo \",\n        \"valor_configuracion\": \"26\"\n    }",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://127.0.0.1:6003/Configuracion/4",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "6003",
-							"path": [
-								"Configuracion",
-								"4"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Eliminar configuración",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNjk5MDY4MiwianRpIjoiOWQ1ZmVmODAtYzkxMS00Zjk1LTk2MGMtODI5NmFmOTcxYTNlIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6NiwibmJmIjoxNzE2OTkwNjgyLCJjc3JmIjoiZGQzNWM5MjctMjkyMi00ODFmLWI5MWMtYzMxNDQwM2VhMzZhIiwicm9sIjoiYWRtaW4iLCJpZF91c3VhcmlvIjo2LCJlbWFpbCI6Im1hcnRpbm5hdmFycm90ZWl4aWRvckBnbWFpbC5jb20ifQ.VtJJdu4yCnk-Pucz6SC-mhLL4ISzVOLAIQVSfS9z9nk",
-									"type": "string"
-								}
-							]
-						},
-						"method": "DELETE",
-						"header": [],
-						"url": {
-							"raw": "http://127.0.0.1:6003/Configuracion/4",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "6003",
-							"path": [
-								"Configuracion",
-								"4"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Valoraciones",
-			"item": [
-				{
-					"name": "Filtros",
-					"item": [
-						{
-							"name": "Filtros valoracion",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "http://127.0.0.1:6003/Valoracion?id_libro=2&id_usuario=3&id_valoracion=1&fecha_de_valoracion=16-04-2024",
-									"protocol": "http",
-									"host": [
-										"127",
-										"0",
-										"0",
-										"1"
-									],
-									"port": "6003",
-									"path": [
-										"Valoracion"
-									],
-									"query": [
-										{
-											"key": "id_libro",
-											"value": "2"
-										},
-										{
-											"key": "id_usuario",
-											"value": "3"
-										},
-										{
-											"key": "id_valoracion",
-											"value": "1"
-										},
-										{
-											"key": "fecha_de_valoracion",
-											"value": "16-04-2024"
-										}
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				},
-				{
-					"name": "Ver todas las valoraciones",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNjk5MDY4MiwianRpIjoiOWQ1ZmVmODAtYzkxMS00Zjk1LTk2MGMtODI5NmFmOTcxYTNlIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6NiwibmJmIjoxNzE2OTkwNjgyLCJjc3JmIjoiZGQzNWM5MjctMjkyMi00ODFmLWI5MWMtYzMxNDQwM2VhMzZhIiwicm9sIjoiYWRtaW4iLCJpZF91c3VhcmlvIjo2LCJlbWFpbCI6Im1hcnRpbm5hdmFycm90ZWl4aWRvckBnbWFpbC5jb20ifQ.VtJJdu4yCnk-Pucz6SC-mhLL4ISzVOLAIQVSfS9z9nk",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://127.0.0.1:6003/Valoracion",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "6003",
-							"path": [
-								"Valoracion"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Agregar valoración",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNjk5MDY4MiwianRpIjoiOWQ1ZmVmODAtYzkxMS00Zjk1LTk2MGMtODI5NmFmOTcxYTNlIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6NiwibmJmIjoxNzE2OTkwNjgyLCJjc3JmIjoiZGQzNWM5MjctMjkyMi00ODFmLWI5MWMtYzMxNDQwM2VhMzZhIiwicm9sIjoiYWRtaW4iLCJpZF91c3VhcmlvIjo2LCJlbWFpbCI6Im1hcnRpbm5hdmFycm90ZWl4aWRvckBnbWFpbC5jb20ifQ.VtJJdu4yCnk-Pucz6SC-mhLL4ISzVOLAIQVSfS9z9nk",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "    {\n        \"comentario\": \"no me gusto\",\n        \"fecha_de_valoracion\": \"08-01-2024\",\n        \"id_libro\": 6,\n        \"id_usuario\": 6,\n        \"id_valoracion\": 7,\n        \"valoracion\": 1\n    }",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://127.0.0.1:6003/Valoracion",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "6003",
-							"path": [
-								"Valoracion"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Autores",
-			"item": [
-				{
-					"name": "Ver todos los autores",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNjk5MDY4MiwianRpIjoiOWQ1ZmVmODAtYzkxMS00Zjk1LTk2MGMtODI5NmFmOTcxYTNlIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6NiwibmJmIjoxNzE2OTkwNjgyLCJjc3JmIjoiZGQzNWM5MjctMjkyMi00ODFmLWI5MWMtYzMxNDQwM2VhMzZhIiwicm9sIjoiYWRtaW4iLCJpZF91c3VhcmlvIjo2LCJlbWFpbCI6Im1hcnRpbm5hdmFycm90ZWl4aWRvckBnbWFpbC5jb20ifQ.VtJJdu4yCnk-Pucz6SC-mhLL4ISzVOLAIQVSfS9z9nk",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://127.0.0.1:6003/Autores",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "6003",
-							"path": [
-								"Autores"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Ver autor",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://127.0.0.1:6003/Autor/2",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "6003",
-							"path": [
-								"Autor",
-								"2"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Actualizar autor",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNjk5MDY4MiwianRpIjoiOWQ1ZmVmODAtYzkxMS00Zjk1LTk2MGMtODI5NmFmOTcxYTNlIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6NiwibmJmIjoxNzE2OTkwNjgyLCJjc3JmIjoiZGQzNWM5MjctMjkyMi00ODFmLWI5MWMtYzMxNDQwM2VhMzZhIiwicm9sIjoiYWRtaW4iLCJpZF91c3VhcmlvIjo2LCJlbWFpbCI6Im1hcnRpbm5hdmFycm90ZWl4aWRvckBnbWFpbC5jb20ifQ.VtJJdu4yCnk-Pucz6SC-mhLL4ISzVOLAIQVSfS9z9nk",
-									"type": "string"
-								}
-							]
-						},
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"id_autor\": 1,\n    \"nombre_completo\": \"Stephen King\",\n    \"nacionalidad\": \"Argentina\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://127.0.0.1:6003/Autor/1",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "6003",
-							"path": [
-								"Autor",
-								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Agregar autor",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNjk5MDY4MiwianRpIjoiOWQ1ZmVmODAtYzkxMS00Zjk1LTk2MGMtODI5NmFmOTcxYTNlIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6NiwibmJmIjoxNzE2OTkwNjgyLCJjc3JmIjoiZGQzNWM5MjctMjkyMi00ODFmLWI5MWMtYzMxNDQwM2VhMzZhIiwicm9sIjoiYWRtaW4iLCJpZF91c3VhcmlvIjo2LCJlbWFpbCI6Im1hcnRpbm5hdmFycm90ZWl4aWRvckBnbWFpbC5jb20ifQ.VtJJdu4yCnk-Pucz6SC-mhLL4ISzVOLAIQVSfS9z9nk",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"id_autor\": 6,\n    \"nombre_completo\": \"Martin LutherKing \",\n    \"nacionalidad\": \"Estados Unidos\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://127.0.0.1:6003/Autores",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "6003",
-							"path": [
-								"Autores"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Eliminar autor",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNjk5MDY4MiwianRpIjoiOWQ1ZmVmODAtYzkxMS00Zjk1LTk2MGMtODI5NmFmOTcxYTNlIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6NiwibmJmIjoxNzE2OTkwNjgyLCJjc3JmIjoiZGQzNWM5MjctMjkyMi00ODFmLWI5MWMtYzMxNDQwM2VhMzZhIiwicm9sIjoiYWRtaW4iLCJpZF91c3VhcmlvIjo2LCJlbWFpbCI6Im1hcnRpbm5hdmFycm90ZWl4aWRvckBnbWFpbC5jb20ifQ.VtJJdu4yCnk-Pucz6SC-mhLL4ISzVOLAIQVSfS9z9nk",
-									"type": "string"
-								}
-							]
-						},
-						"method": "DELETE",
-						"header": [],
-						"url": {
-							"raw": "http://127.0.0.1:6003/Autor/6",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "6003",
-							"path": [
-								"Autor",
-								"6"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Auth",
-			"item": [
-				{
-					"name": "Login",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n            \"email\": \"martinnavarroteixidor@gmail.com\",\n            \"password\": \"martinyrey\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://127.0.0.1:6003/auth/login",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "6003",
-							"path": [
-								"auth",
-								"login"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Register",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n            \"direccion\": \"Lujan\",\n            \"dni\": 45147415,\n            \"email\": \"ianitoolmedo12@gmail.com\",\n            \"id_usuario\": 7,\n            \"nombre_completo\": \"Maximo Toneatti\",\n            \"password\": \"ianito\",\n            \"rol\": \"users\",\n            \"telefono\": 261254458\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://127.0.0.1:6003/auth/register",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "6003",
-							"path": [
-								"auth",
-								"register"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		}
-	]
+  "info": {
+    "name": "Grupo L",
+    "description": "",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "bruno",
+      "event": []
+    },
+    {
+      "name": "Autores",
+      "item": [
+        {
+          "name": "Actualizar autor",
+          "event": [],
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "key": "token",
+                "value": "",
+                "type": "string"
+              }
+            },
+            "description": "",
+            "url": {
+              "raw": "http://127.0.0.1:6003/Autor/1",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1:6003"
+              ],
+              "path": [
+                "Autor",
+                "1"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"id_autor\": 1,\n    \"nombre_completo\": \"Stephen King\",\n    \"nacionalidad\": \"Argentina\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Agregar autor",
+          "event": [],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "key": "token",
+                "value": "",
+                "type": "string"
+              }
+            },
+            "description": "",
+            "url": {
+              "raw": "http://127.0.0.1:6003/Autores",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1:6003"
+              ],
+              "path": [
+                "Autores"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"id_autor\": 6,\n    \"nombre_completo\": \"Martin LutherKing \",\n    \"nacionalidad\": \"Estados Unidos\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Eliminar autor",
+          "event": [],
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "key": "token",
+                "value": "",
+                "type": "string"
+              }
+            },
+            "description": "",
+            "url": {
+              "raw": "http://127.0.0.1:6003/Autor/6",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1:6003"
+              ],
+              "path": [
+                "Autor",
+                "6"
+              ],
+              "query": [],
+              "variable": []
+            }
+          }
+        },
+        {
+          "name": "Ver autor",
+          "event": [],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "auth": null,
+            "description": "",
+            "url": {
+              "raw": "http://127.0.0.1:6003/Autor/2",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1:6003"
+              ],
+              "path": [
+                "Autor",
+                "2"
+              ],
+              "query": [],
+              "variable": []
+            }
+          }
+        },
+        {
+          "name": "Ver todos los autores",
+          "event": [],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "key": "token",
+                "value": "",
+                "type": "string"
+              }
+            },
+            "description": "",
+            "url": {
+              "raw": "http://127.0.0.1:6003/Autores",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1:6003"
+              ],
+              "path": [
+                "Autores"
+              ],
+              "query": [],
+              "variable": []
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Login",
+          "event": [],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "auth": null,
+            "description": "",
+            "url": {
+              "raw": "http://127.0.0.1:6003/auth/login",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1:6003"
+              ],
+              "path": [
+                "auth",
+                "login"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n            \"email\": \"martinnavarroteixidor@gmail.com\",\n            \"password\": \"martinyrey\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Register",
+          "event": [],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "auth": null,
+            "description": "",
+            "url": {
+              "raw": "http://127.0.0.1:6003/auth/register",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1:6003"
+              ],
+              "path": [
+                "auth",
+                "register"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n            \"direccion\": \"Lujan\",\n            \"dni\": 45147415,\n            \"email\": \"ianitoolmedo12@gmail.com\",\n            \"id_usuario\": 7,\n            \"nombre_completo\": \"Maximo Toneatti\",\n            \"password\": \"ianito\",\n            \"rol\": \"users\",\n            \"telefono\": 261254458\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Verify Password",
+          "event": [],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "auth": null,
+            "description": "",
+            "url": {
+              "raw": "http://127.0.0.1:6003/auth/verify-password",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1:6003"
+              ],
+              "path": [
+                "auth",
+                "verify-password"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"id_usuario\":10,\n    \"password\":\"tototi\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Prestamos",
+      "item": [
+        {
+          "name": "Actualizar un prestamo",
+          "event": [],
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "key": "token",
+                "value": "",
+                "type": "string"
+              }
+            },
+            "description": "",
+            "url": {
+              "raw": "http://127.0.0.1:6003/Prestamo/3",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1:6003"
+              ],
+              "path": [
+                "Prestamo",
+                "3"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{  \n    \"id_usuario\": 2,\n    \"id_libros\": 1,\n    \"fecha_de_entrega\": \"24-08-2024\",\n    \"fecha_de_vencimiento\": \"12-09-2024\",\n    \"estado\": \"no devuelto\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Agregar un prestamo",
+          "event": [],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "key": "token",
+                "value": "",
+                "type": "string"
+              }
+            },
+            "description": "",
+            "url": {
+              "raw": "http://127.0.0.1:6003/Prestamos",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1:6003"
+              ],
+              "path": [
+                "Prestamos"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{  \n    \"id_usuario\": 2,\n    \"id_libros\": 1,\n    \"fecha_de_entrega\": \"24-08-2024\",\n    \"fecha_de_vencimiento\": \"12-09-2024\",\n    \"estado\": \"no devuelto\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Eliminar un prestamo",
+          "event": [],
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "key": "token",
+                "value": "",
+                "type": "string"
+              }
+            },
+            "description": "",
+            "url": {
+              "raw": "http://127.0.0.1:6003/Prestamo/8",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1:6003"
+              ],
+              "path": [
+                "Prestamo",
+                "8"
+              ],
+              "query": [],
+              "variable": []
+            }
+          }
+        },
+        {
+          "name": "Ver todos los prestamos",
+          "event": [],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "key": "token",
+                "value": "",
+                "type": "string"
+              }
+            },
+            "description": "",
+            "url": {
+              "raw": "http://127.0.0.1:6003/Prestamos",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1:6003"
+              ],
+              "path": [
+                "Prestamos"
+              ],
+              "query": [],
+              "variable": []
+            }
+          }
+        },
+        {
+          "name": "Ver un prestamo",
+          "event": [],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "key": "token",
+                "value": "",
+                "type": "string"
+              }
+            },
+            "description": "",
+            "url": {
+              "raw": "http://127.0.0.1:6003/Prestamo/3",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1:6003"
+              ],
+              "path": [
+                "Prestamo",
+                "3"
+              ],
+              "query": [],
+              "variable": []
+            }
+          }
+        },
+        {
+          "name": "Filtros",
+          "item": [
+            {
+              "name": "Ver prestamos por atributo",
+              "event": [],
+              "request": {
+                "method": "GET",
+                "header": [],
+                "auth": null,
+                "description": "",
+                "url": {
+                  "raw": "http://127.0.0.1:6003/Prestamos?id_prestamo=3&id_usuario=2&id_libro=2&estado=no devuelto",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1:6003"
+                  ],
+                  "path": [
+                    "Prestamos"
+                  ],
+                  "query": [
+                    {
+                      "key": "id_prestamo",
+                      "value": "3"
+                    },
+                    {
+                      "key": "id_usuario",
+                      "value": "2"
+                    },
+                    {
+                      "key": "id_libro",
+                      "value": "2"
+                    },
+                    {
+                      "key": "estado",
+                      "value": "no devuelto"
+                    }
+                  ],
+                  "variable": []
+                }
+              }
+            },
+            {
+              "name": "Ver prestamos por fecha de entrega",
+              "event": [],
+              "request": {
+                "method": "GET",
+                "header": [],
+                "auth": null,
+                "description": "",
+                "url": {
+                  "raw": "http://127.0.0.1:6003/Prestamos?fecha_de_entrega=20&fecha_de_entrega=-04&fecha_de_entrega=2024&fecha_de_entrega=20-04",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1:6003"
+                  ],
+                  "path": [
+                    "Prestamos"
+                  ],
+                  "query": [
+                    {
+                      "key": "fecha_de_entrega",
+                      "value": "20"
+                    },
+                    {
+                      "key": "fecha_de_entrega",
+                      "value": "-04"
+                    },
+                    {
+                      "key": "fecha_de_entrega",
+                      "value": "2024"
+                    },
+                    {
+                      "key": "fecha_de_entrega",
+                      "value": "20-04"
+                    }
+                  ],
+                  "variable": []
+                }
+              }
+            },
+            {
+              "name": "Ver prestamos por orden descendente",
+              "event": [],
+              "request": {
+                "method": "GET",
+                "header": [],
+                "auth": null,
+                "description": "",
+                "url": {
+                  "raw": "http://127.0.0.1:6003/Prestamos?sortby_id_prestamo=True",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1:6003"
+                  ],
+                  "path": [
+                    "Prestamos"
+                  ],
+                  "query": [
+                    {
+                      "key": "sortby_id_prestamo",
+                      "value": "True"
+                    },
+                    {
+                      "key": "sortby_id_usuario",
+                      "value": "True"
+                    },
+                    {
+                      "key": "sortby_id_libro",
+                      "value": "True"
+                    }
+                  ],
+                  "variable": []
+                }
+              }
+            },
+            {
+              "name": "Ver prestamos por vencimiento",
+              "event": [],
+              "request": {
+                "method": "GET",
+                "header": [],
+                "auth": null,
+                "description": "",
+                "url": {
+                  "raw": "http://127.0.0.1:6003/Prestamos?fecha_de_vencimiento=24&fecha_de_vencimiento=-06&fecha_de_vencimiento=2024&fecha_de_vencimiento=24-06",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1:6003"
+                  ],
+                  "path": [
+                    "Prestamos"
+                  ],
+                  "query": [
+                    {
+                      "key": "fecha_de_vencimiento",
+                      "value": "24"
+                    },
+                    {
+                      "key": "fecha_de_vencimiento",
+                      "value": "-06"
+                    },
+                    {
+                      "key": "fecha_de_vencimiento",
+                      "value": "2024"
+                    },
+                    {
+                      "key": "fecha_de_vencimiento",
+                      "value": "24-06"
+                    }
+                  ],
+                  "variable": []
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Libros",
+      "item": [
+        {
+          "name": "Actualizar un libro",
+          "event": [],
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "key": "token",
+                "value": "",
+                "type": "string"
+              }
+            },
+            "description": "",
+            "url": {
+              "raw": "http://127.0.0.1:6003/Libro/5",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1:6003"
+              ],
+              "path": [
+                "Libro",
+                "5"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"año_de_publicacion\": \"28-06-2007\",\n    \"descripcion\": \"novela\",\n    \"editorial\": \"Salamandra\",\n    \"genero\": \"Fantasia\",\n    \"id_libro\": 5,\n    \"stock\": 10,\n    \"autores\": \"Rick Riordan, JK Rowling\",\n    \"titulo\": \"Percy Jackson y el mar de los monstruos\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Agregar un libro",
+          "event": [],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "key": "token",
+                "value": "",
+                "type": "string"
+              }
+            },
+            "description": "",
+            "url": {
+              "raw": "http://127.0.0.1:6003/Libros",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1:6003"
+              ],
+              "path": [
+                "Libros"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "    {\n        \"titulo\": \"Percy Jackson y la maldición del titan\",\n        \"genero\": \"Fantasia\",\n        \"editorial\": \"Salamandra\",\n        \"anio_de_publicacion\": \"28-06-2008\",\n        \"descripcion\": \"novela\",\n        \"autores\": \"Brandon Sanderson\",\n        \"imagen\": \"assets/nacidos_de_la_bruma.jpeg\",\n        \"stock\": 0\n    }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Eliminar un libro",
+          "event": [],
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "key": "token",
+                "value": "",
+                "type": "string"
+              }
+            },
+            "description": "",
+            "url": {
+              "raw": "http://127.0.0.1:6003/Libro/7",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1:6003"
+              ],
+              "path": [
+                "Libro",
+                "7"
+              ],
+              "query": [],
+              "variable": []
+            }
+          }
+        },
+        {
+          "name": "Ver libro",
+          "event": [],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "auth": null,
+            "description": "",
+            "url": {
+              "raw": "http://127.0.0.1:6003/Libro/1",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1:6003"
+              ],
+              "path": [
+                "Libro",
+                "1"
+              ],
+              "query": [],
+              "variable": []
+            }
+          }
+        },
+        {
+          "name": "Ver todos los libros",
+          "event": [],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "auth": null,
+            "description": "",
+            "url": {
+              "raw": "http://127.0.0.1:6003/Libros",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1:6003"
+              ],
+              "path": [
+                "Libros"
+              ],
+              "query": [],
+              "variable": []
+            }
+          }
+        },
+        {
+          "name": "Filtros",
+          "item": [
+            {
+              "name": "Filtros Libros",
+              "event": [],
+              "request": {
+                "method": "GET",
+                "header": [],
+                "auth": null,
+                "description": "",
+                "url": {
+                  "raw": "http://127.0.0.1:6003/Libros?titulo=Percy Jackson&genero=fantasia&descripcion=novela",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1:6003"
+                  ],
+                  "path": [
+                    "Libros"
+                  ],
+                  "query": [
+                    {
+                      "key": "titulo",
+                      "value": "Percy Jackson"
+                    },
+                    {
+                      "key": "genero",
+                      "value": "fantasia"
+                    },
+                    {
+                      "key": "descripcion",
+                      "value": "novela"
+                    }
+                  ],
+                  "variable": []
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Valoraciones",
+      "item": [
+        {
+          "name": "Agregar valoraci-n",
+          "event": [],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "key": "token",
+                "value": "",
+                "type": "string"
+              }
+            },
+            "description": "",
+            "url": {
+              "raw": "http://127.0.0.1:6003/Valoracion",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1:6003"
+              ],
+              "path": [
+                "Valoracion"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "    {\n        \"comentario\": \"no me gusto\",\n        \"fecha_de_valoracion\": \"08-01-2024\",\n        \"id_libro\": 6,\n        \"id_usuario\": 6,\n        \"id_valoracion\": 7,\n        \"valoracion\": 1\n    }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Ver todas las valoraciones",
+          "event": [],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "key": "token",
+                "value": "",
+                "type": "string"
+              }
+            },
+            "description": "",
+            "url": {
+              "raw": "http://127.0.0.1:6003/Valoracion",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1:6003"
+              ],
+              "path": [
+                "Valoracion"
+              ],
+              "query": [],
+              "variable": []
+            }
+          }
+        },
+        {
+          "name": "Filtros",
+          "item": [
+            {
+              "name": "Filtros valoracion",
+              "event": [],
+              "request": {
+                "method": "GET",
+                "header": [],
+                "auth": null,
+                "description": "",
+                "url": {
+                  "raw": "http://127.0.0.1:6003/Valoracion?id_libro=2&id_usuario=3&id_valoracion=1&fecha_de_valoracion=16-04-2024",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1:6003"
+                  ],
+                  "path": [
+                    "Valoracion"
+                  ],
+                  "query": [
+                    {
+                      "key": "id_libro",
+                      "value": "2"
+                    },
+                    {
+                      "key": "id_usuario",
+                      "value": "3"
+                    },
+                    {
+                      "key": "id_valoracion",
+                      "value": "1"
+                    },
+                    {
+                      "key": "fecha_de_valoracion",
+                      "value": "16-04-2024"
+                    }
+                  ],
+                  "variable": []
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Usuarios",
+      "item": [
+        {
+          "name": "Eliminar un usuario",
+          "event": [],
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "key": "token",
+                "value": "",
+                "type": "string"
+              }
+            },
+            "description": "",
+            "url": {
+              "raw": "http://127.0.0.1:6003/Usuario/4",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1:6003"
+              ],
+              "path": [
+                "Usuario",
+                "4"
+              ],
+              "query": [],
+              "variable": []
+            }
+          }
+        },
+        {
+          "name": "Modificar un usuario",
+          "event": [],
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "key": "token",
+                "value": "",
+                "type": "string"
+              }
+            },
+            "description": "",
+            "url": {
+              "raw": "http://127.0.0.1:6003/Usuario/4",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1:6003"
+              ],
+              "path": [
+                "Usuario",
+                "4"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n            \"direccion\": \"Las Heras\",\n            \"dni\": 45147895,\n            \"email\": \"ianolmedo10@gmail.com\",\n            \"id_usuario\": 4,\n            \"nombre_completo\": \"Ian Olmedo\",\n            \"password\": \"ianito10\",\n            \"rol\": \"users\",\n            \"telefono\": 2612548596\n        }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Ver todos los usuarios",
+          "event": [],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "key": "token",
+                "value": "",
+                "type": "string"
+              }
+            },
+            "description": "",
+            "url": {
+              "raw": "http://127.0.0.1:6003/Usuarios?page=1&page=2",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1:6003"
+              ],
+              "path": [
+                "Usuarios"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "page",
+                  "value": "2"
+                }
+              ],
+              "variable": []
+            }
+          }
+        },
+        {
+          "name": "Ver un usuario",
+          "event": [],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "auth": null,
+            "description": "",
+            "url": {
+              "raw": "http://127.0.0.1:6003/Usuario/6",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1:6003"
+              ],
+              "path": [
+                "Usuario",
+                "6"
+              ],
+              "query": [],
+              "variable": []
+            }
+          }
+        },
+        {
+          "name": "Filtros",
+          "item": [
+            {
+              "name": "Filtros Usuario",
+              "event": [],
+              "request": {
+                "method": "GET",
+                "header": [],
+                "auth": null,
+                "description": "",
+                "url": {
+                  "raw": "http://127.0.0.1:6003/Usuarios?nombre_completo=Martin&dni=45141159&email=mt.navarro@alumno.um.edu.ar",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1:6003"
+                  ],
+                  "path": [
+                    "Usuarios"
+                  ],
+                  "query": [
+                    {
+                      "key": "nombre_completo",
+                      "value": "Martin"
+                    },
+                    {
+                      "key": "dni",
+                      "value": "45141159"
+                    },
+                    {
+                      "key": "email",
+                      "value": "mt.navarro@alumno.um.edu.ar"
+                    }
+                  ],
+                  "variable": []
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "bruno",
+      "item": []
+    }
+  ],
+  "variable": []
 }

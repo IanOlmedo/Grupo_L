@@ -18,14 +18,14 @@ class Usuario(Resource):
         else:
             return usuario.to_json(), 201
     
-    @roles_required(roles = ["admin", "users"])
+    @roles_required(roles = ["admin","biblo", "users"])
     def delete(self, id):
         usuario = db.session.query(UsuarioModel).get_or_404(id)
         db.session.delete(usuario)
         db.session.commit()
         return 'Ha sido eliminado correctamente', 204
     
-    @roles_required(roles = ["admin", "users"])
+    @roles_required(roles = ["admin","biblo", "users"])
     def put(self, id):
         usuario = db.session.query(UsuarioModel).get_or_404(id)
         data = request.get_json().items()
@@ -37,7 +37,7 @@ class Usuario(Resource):
         db.session.commit()
         return usuario.to_json(), 201
     
-    @roles_required(roles = ["admin", "users"])
+    @roles_required(roles = ["admin","biblo", "users"])
     def patch(self, id):
         usuario = db.session.query(UsuarioModel).get_or_404(id)
         data = request.get_json()
@@ -49,7 +49,7 @@ class Usuario(Resource):
 
 
 class Usuarios(Resource):
-    @roles_required(roles = ["admin"])
+    @roles_required(roles = ["admin", "biblo"])
     def get(self):
         #Página inicial por defecto
         page = 1
@@ -107,7 +107,6 @@ class Usuarios(Resource):
                 })
 
 
-    #Insertar recurso
     def post(self):
         usuario = UsuarioModel.from_json(request.get_json())
         try:

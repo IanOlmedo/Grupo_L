@@ -37,6 +37,14 @@ export class VerLibroComponent {
     return localStorage.getItem('user_role') === 'admin';
   }
 
+  get isBiblo(){
+    return localStorage.getItem('user_role') === 'biblo';
+  }
+
+  get isUser() {
+    return localStorage.getItem('user_role') === 'users';
+  }
+
   addToCart(book: any): void{
     this.carritoService.addToCart(book);
     alert('Libro agregado al carrito')

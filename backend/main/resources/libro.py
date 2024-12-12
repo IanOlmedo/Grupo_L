@@ -14,7 +14,7 @@ class Libro(Resource):
         libro = db.session.query(LibroModel).get_or_404(id)
         return libro.to_json_complete(), 201 
     
-    @roles_required(roles = ["admin"])
+    @roles_required(roles = ["admin", "biblo"])
     def put(self,id):
         libro = db.session.query(LibroModel).get_or_404(id)
         data = request.get_json().items()
@@ -45,7 +45,7 @@ class Libro(Resource):
         db.session.commit()
         return libro.to_json() , 201
 
-    @roles_required(roles = ["admin"])
+    @roles_required(roles = ["admin", "biblo"])
     def delete(self,id):
         print("hola")
         libro = db.session.query(LibroModel).get_or_404(id)
@@ -112,7 +112,7 @@ class Libros(Resource):
                 'paginas': libros.pages,
                 'pagina': page
                 })
-    @roles_required(roles = ["admin"])
+    @roles_required(roles = ["admin", "biblo"])
     def post(self):
         
         autores_nombres = request.get_json().get('autores')

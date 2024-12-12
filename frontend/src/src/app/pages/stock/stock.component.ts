@@ -56,5 +56,18 @@ export class StockComponent {
     this.fetchBooks();
   }
 
+  deleteBook(user:any){
+    this.booksService.deleteBook(user.id_libro.toString()).subscribe(
+      () => {
+        alert("El libro ha sido eliminado con correctamente")
+        this.fetchBooks();
+      },
+      (error) => {
+        console.log('Error: ', error.message)
+        alert('Hubo un error al eliminar el libro. Por favor, inténtelo de nuevo más tarde')
+      }
+    );
+  }
+
 }
 

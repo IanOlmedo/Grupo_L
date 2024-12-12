@@ -14,6 +14,10 @@ i{
     font-size: 2.5vmax;
 }
 
+input{
+    color: black
+}
+
 .search-bar {
     background-color: #000;
     overflow: hidden;

@@ -34,7 +34,7 @@
         <li *ngIf="isToken && isAdmin" class="nav-item">
           <a class="nav-link active text-white" aria-current="page" href="#" routerLink="/alta_usuarios">Alta Usuario</a>
         </li>
-        <li *ngIf="isToken && isAdmin" class="nav-item">
+        <li *ngIf="isToken && (isAdmin || isBiblo)" class="nav-item">
           <a class="nav-link active text-white" aria-current="page" href="#" routerLink="/stock">Stock</a>
         </li>
       </ul>

@@ -75,12 +75,12 @@ export class VerUserComponent {
     this.usuariosService.deleteUser(user.id_usuario.toString()).subscribe(
       () => {
         alert('El usuario ha sido eliminado correctamente')
-        this.arrayUsuarios = this.arrayUsuarios.filter(u => u.id_usuario !== user.id_usuario);
+        this.fetchUsers();
         //this.filterUsers();
     },
   (error)=>{
     console.log('Error: ', error.message)
-    alert('Hubo un error al eliminar el libro. Por favor, inténtelo de nuevo más tarde')
+    alert('Hubo un error al eliminar el usuario. Por favor, inténtelo de nuevo más tarde')
   });
   }
 

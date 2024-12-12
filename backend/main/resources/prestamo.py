@@ -9,19 +9,19 @@ from main.auth.decorators import roles_required
 #post crea y put actualiza
 
 class Prestamo(Resource):
-    @roles_required(roles = ["admin", "users"])
+    @roles_required(roles = ["admin","biblo", "users"])
     def get(self, id):
         prestamo = db.session.query(PrestamoModel).get_or_404(id)
         return prestamo.to_json_complete(), 201
     
-    @roles_required(roles = ["admin", "users"])
+    @roles_required(roles = ["admin","biblo", "users"])
     def delete(self, id):
         prestamo = db.session.query(PrestamoModel).get_or_404(id)
         db.session.delete(prestamo)
         db.session.commit()
         return 'El prestamo fue eliminado correctamente', 204
     
-    @roles_required(roles = ["admin"])
+    @roles_required(roles = ["admin", "biblo"])
     def put(self, id):
         prestamo = db.session.query(PrestamoModel).get_or_404(id)
         data = request.get_json().items()
@@ -40,7 +40,7 @@ class Prestamo(Resource):
 
 
 class Prestamos(Resource):
-    @roles_required(roles = ["admin", "users"])
+    @roles_required(roles = ["admin","biblo", "users"])
     def get(self):
         page = 1
         per_page = 5
@@ -119,7 +119,7 @@ class Prestamos(Resource):
                 'pagina': page
                 })
     
-    @roles_required(roles = ["admin", "users"])
+    @roles_required(roles = ["admin","biblo", "users"])
     def post(self):
         prestamo = PrestamoModel.from_json(request.get_json())
         print(f"Modelo: {prestamo}")

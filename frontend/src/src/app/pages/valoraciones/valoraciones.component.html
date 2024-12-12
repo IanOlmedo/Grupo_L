@@ -16,11 +16,11 @@
                     <form (ngSubmit)="onSubmit()">
                         <div class="mb-3">
                             <label for="comentario" class="form-label">Comentario:</label>
-                            <textarea id="comentario" [(ngModel)]="valoracion.comentario" name="comentario" class="form-control" required></textarea>
+                            <textarea id="comentario" [(ngModel)]="valoracion.comentario" name="comentario" class="form-control" required style="color: black;"></textarea>
                         </div>
                         <div class="mb-3">
                             <label for="valoracion" class="form-label">Puntuación (1-5):</label>
-                            <input type="number" id="valoracion" [(ngModel)]="valoracion.valoracion" name="valoracion" class="form-control" min="1" max="5" required>
+                            <input type="number" id="valoracion" [(ngModel)]="valoracion.valoracion" name="valoracion" class="form-control" min="1" max="5" required style="color: black;">
                         </div>
                         <button type="submit" class="btn btn-primary w-100">Enviar Valoración</button>
                     </form>

@@ -24,6 +24,10 @@ export class NavComponent {
     return localStorage.getItem('user_role') === 'admin';
   }
 
+  get isBiblo(){
+    return localStorage.getItem('user_role') === 'biblo';
+  }
+
   cerrarSesion() {
     this.authService.logout();
   }

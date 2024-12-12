@@ -2,14 +2,14 @@
 <app-search-bar (searchQueryChange)="onSearchQueryChange($event)"></app-search-bar>
 
 <div class="container-fluid images-container justify-content-center">
-    <div class="row justify-content-between">
+    <div class="row">
         <div class="col-12 d-flex justify-content-center">
             <div class="row">
-                <div class="col-6">
+                <div class="col-6 col-md-8 col-xl-6 ">
                     <h1 class="catalogo-title mb-4">Catalogo</h1>
                 </div>
-                <div class="col-6">
-                    <div type="submit" class="circle-plus-catalogo" *ngIf="isAdmin" routerLink="/alta_libros">
+                <div class="col-6 col-md-4 col-xl-6 align-items-center">
+                    <div type="submit" class="circle-plus-catalogo" *ngIf="(isAdmin || isBiblo)" routerLink="/alta_libros">
                         <i class="fa-solid fa-plus"></i>
                     </div>
                 </div>

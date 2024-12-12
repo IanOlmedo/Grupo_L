@@ -98,9 +98,16 @@ onSubmitUpdate() {
 }
 
 onSubmitDelete(){
-  const numeroPrestamo = this.loan.numeroPrestamo -1
-  const id = this.arrayPrestamos[numeroPrestamo].id_prestamo 
-  console.log("Id: ",id.toString())
-  this.prestamosService.deletePrestamo(id.toString())
+  this.prestamosService.deletePrestamo(this.loan.id_prestamo).subscribe(
+    response =>{
+      console.log('Prestamo eliminado con éxito:', response);
+      alert('Se elimino el prestamo con correctamente')
+    },
+    error =>{
+      console.error('Error al eliminar el préstamo:', error);
+      alert('Hubo un error al eliminar el prestamo. Por favor, inténtelo de nuevo más tarde')
+    }
+  )
+  this.checkPrestamosUser(this.var_id)
 }
 }

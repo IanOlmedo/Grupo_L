@@ -1,10 +1,10 @@
 <app-nav></app-nav>
 
-<app-search-bar *ngIf="isToken && isAdmin" (searchQueryChange)="searchQueryChange($event)"></app-search-bar>
+<app-search-bar *ngIf="isToken && (isAdmin || isBiblo)" (searchQueryChange)="searchQueryChange($event)"></app-search-bar>
 
 <app-prestamos-user *ngIf="isToken && isUser"></app-prestamos-user>
 
-<app-prestamos-admin [searchQuery]="searchQuery" *ngIf="isToken && isAdmin"> </app-prestamos-admin>
+<app-prestamos-admin [searchQuery]="searchQuery" *ngIf="isToken && (isAdmin || isBiblo)"> </app-prestamos-admin>
 
 <div class="row d-flex justify-content-center">
     <div class="col-2"></div>

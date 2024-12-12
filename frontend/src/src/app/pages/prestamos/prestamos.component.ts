@@ -45,6 +45,10 @@ export class PrestamosComponent {
     return localStorage.getItem('user_role') === 'admin';
   }
 
+  get isBiblo(){
+    return localStorage.getItem('user_role') === 'biblo';
+  }
+
   searchQueryChange(query:string){
     this.searchQuery = query;
     console.log("Query: "+this.searchQuery)

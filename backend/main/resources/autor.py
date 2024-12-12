@@ -11,7 +11,7 @@ class Autor(Resource):
         autor = db.session.query(AutorModel).get_or_404(id)
         return autor.to_json(), 201 
 
-    @roles_required(roles = ["admin"])
+    @roles_required(roles = ["admin", "biblo"])
     def put(self,id):
         autor = db.session.query(AutorModel).get_or_404(id)
         data = request.get_json().items()
@@ -21,7 +21,7 @@ class Autor(Resource):
         db.session.commit()
         return autor.to_json() , 201
 
-    @roles_required(roles = ["admin"])
+    @roles_required(roles = ["admin", "biblo"])
     def delete(self,id):
         autor = db.session.query(AutorModel).get_or_404(id)
         db.session.delete(autor)
@@ -35,7 +35,7 @@ class Autores(Resource):
         autores = db.session.query(AutorModel).all()
         return jsonify([autor.to_json() for autor in autores])
 
-    @roles_required(roles = ["admin"])
+    @roles_required(roles = ["admin", "biblo"])
     def post(self):
         autor = AutorModel.from_json(request.get_json())
         db.session.add(autor)

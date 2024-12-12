@@ -188,9 +188,10 @@
             <div class="col-4" *ngIf="!showConfirmPasswordError()"></div>
             <div class="col-4" *ngIf="showConfirmPasswordError()">
                 <small *ngIf="userForm.get('confirmPassword')?.errors?.['required']" style="color: white;">La confirmación de la contraseña es requerida.</small>
+                
             </div>
-            <div *ngIf="userForm.errors?.['mismatch']">
-                <small style="color: white;">Las contraseñas no coinciden.</small>
+            <div class="col-12 d-flex justify-content-center" *ngIf="userForm.errors?.['mismatch']">
+                <small class="mt-2" style="color: white;">Las contraseñas no coinciden.</small>
             </div>
         </div>
     </form>

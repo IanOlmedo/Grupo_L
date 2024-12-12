@@ -51,7 +51,7 @@ class Valoracion(Resource):
                         'pagina': page})
     
 
-    @roles_required(roles = ["admin", "users"])
+    @roles_required(roles = ["admin","biblo", "users"])
     def post(self):
         valoracion= ValoracionesModel.from_json(request.get_json())
         print(valoracion)

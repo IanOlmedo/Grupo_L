@@ -87,14 +87,14 @@
 
 <div class="row justify-content-center mt-4">
   <div class="col-12 col-lg-8 d-flex justify-content-center">
-    <button *ngIf="isAdmin" type="button" class="btn btn-primary mx-2 p-3" 
+    <button *ngIf="isUser" type="button" class="btn btn-primary mx-2 p-3" 
             (click)="addToCart(book)" 
             routerLink="/catalogo" 
             href="#">Añadir al carrito</button>
     <button type="button" class="btn btn-primary mx-2 p-3" 
             routerLink="/valoraciones/{{var_id}}" 
             href="#">Ver Valoraciones</button>
-    <button *ngIf="isAdmin" type="button" class="btn btn-primary mx-2 p-3" 
+    <button *ngIf="(isAdmin || isBiblo)" type="button" class="btn btn-primary mx-2 p-3" 
             routerLink="/alta_libros/{{var_id}}" 
             href="#">Editar</button>
   </div>

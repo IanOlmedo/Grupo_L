@@ -33,6 +33,7 @@ export class CatalogoComponent {
   }
 
   fetchBooks(page: number = 1): void {
+    console.log(this.searchQuery)
     const params = {
       page: page.toString(),
       per_page: this.itemsPerPage.toString(),
@@ -77,6 +78,10 @@ export class CatalogoComponent {
     return localStorage.getItem('user_role') === 'admin';
   }
 
+  get isBiblo(){
+    return localStorage.getItem('user_role') === 'biblo';
+  }
+
   addToCart(book: any): void{
     this.carritoService.addToCart(book);
     alert('Libro agregado al carrito')
@@ -84,7 +89,7 @@ export class CatalogoComponent {
 
   onSearchQueryChange(searchQuery: string) {
     this.searchQuery = searchQuery;
-    //this.filterBooks();
+    this.fetchBooks();
   }
 
 }

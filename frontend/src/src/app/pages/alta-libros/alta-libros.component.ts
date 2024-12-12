@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BooksService } from './../../services/books.service';
 import { AutoresService } from '../../services/autores.service';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
@@ -18,6 +18,7 @@ export class AltaLibrosComponent {
     private route: ActivatedRoute,
     private booksService: BooksService,
     private autoresService: AutoresService,
+    private router: Router,
   ){}
 
   ngOnInit() {
@@ -26,10 +27,11 @@ export class AltaLibrosComponent {
       this.booksService.getOneBook(this.var_id).subscribe(
         (book) => {
           const nombres_autores = book.autor.map((autor: any) => autor.nombre_completo).join(', ');
+          console.log("Autores: ", nombres_autores)
           this.booksForm.patchValue({
             ...book,
             stock: parseInt(book.stock, 10),
-            autor: nombres_autores
+            autores: nombres_autores
           });
         },
         (error) => {
@@ -82,7 +84,16 @@ export class AltaLibrosComponent {
   DeleteBook(){
     console.log("Eliminado")
     console.log(this.var_id)
-    this.booksService.deleteBook(this.var_id)
+    this.booksService.deleteBook(this.var_id).subscribe(
+      () => {
+        alert('El libro ha sido eliminado correctamente')
+        this.router.navigateByUrl('stock');
+      },
+      (error) => {
+        console.log('Error: ', error.message)
+        alert('Hubo un error al eliminar el libro. Por favor, inténtelo de nuevo más tarde') 
+      }
+    )
   }
 
   fetchAutores(): void{

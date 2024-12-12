@@ -6,7 +6,7 @@ from flask_jwt_extended import jwt_required, get_jwt_identity
 from main.auth.decorators import roles_required
 
 class CheckValoracion(Resource):
-    @roles_required(roles=["admin", "users"])
+    @roles_required(roles=["admin", "biblo", "users"])
     def get(self, id):
         id_usuario = get_jwt_identity()
 

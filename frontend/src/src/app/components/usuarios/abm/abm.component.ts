@@ -40,7 +40,7 @@ export class AbmComponent {
         (user) =>{
           this.userForm.patchValue({
             ...user,
-            password: "Contraseña"
+            password: ""
           })
         })
     }

@@ -102,10 +102,11 @@ export class ValoracionesComponent {
           };
           this.canSubmit = false; // Reset the submit status
         });
+        this.fetchValoraciones();
       }
     }, error => {
       if (error.message === 'El usuario no ha hecho un préstamo de este libro.') {
-        alert('No puedes dejar una valoración porque no has solicitado un préstamo de este libro.');
+        alert('No puedes dejar una valoración porque no tuviste un préstamo de este libro.');
       } else if (error.message === 'El usuario ya ha dejado una valoración para este libro.') {
         alert('No puedes dejar una valoración porque ya has dejado una valoración para este libro.');
       }
