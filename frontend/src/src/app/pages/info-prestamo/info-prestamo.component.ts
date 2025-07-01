@@ -67,7 +67,8 @@ onSubmitUpdate() {
   };
 
   console.log("Resultado: ", prestamoData)
-  this.prestamosService.updatePrestamo(this.var_id, prestamoData).subscribe(
+  const id = this.arrayPrestamos[numeroPrestamo].id_prestamo 
+  this.prestamosService.updatePrestamo(id, prestamoData).subscribe(
     response => {
       console.log('Prestamo actualizado con éxito:', response);
       alert('Se actualizo el prestamo correctamente');
